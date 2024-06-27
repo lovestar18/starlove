@@ -32,7 +32,7 @@ class UserprofileItemWidget extends StatelessWidget {
           padding: EdgeInsets.only(left: 16.h),
           child: Obx(
             () => Text(
-              userprofileItemModelObj.adinanurrahma!.value,
+              userprofileItemModelObj.username!.value,
               style: CustomTextStyles.titleSmallOpenSansIndigo90002,
             ),
           ),
@@ -40,7 +40,7 @@ class UserprofileItemWidget extends StatelessWidget {
         Spacer(),
         Obx(
           () => Text(
-            userprofileItemModelObj.you!.value,
+            userprofileItemModelObj.userText!.value,
             style: CustomTextStyles.bodySmallBluegray60001_1,
           ),
         )

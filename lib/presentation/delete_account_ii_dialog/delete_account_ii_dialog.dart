@@ -22,10 +22,10 @@ class DeleteAccountIiDialog extends StatelessWidget {
         Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 48.h,
+            horizontal: 52.h,
             vertical: 36.v,
           ),
-          decoration: AppDecoration.white.copyWith(
+          decoration: AppDecoration.mainwhite.copyWith(
             borderRadius: BorderRadiusStyle.circleBorder20,
           ),
           child: Column(
@@ -41,7 +41,7 @@ class DeleteAccountIiDialog extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
-                style: CustomTextStyles.titleLargeOpenSansBluegray90003,
+                style: CustomTextStyles.titleLargeOpenSansBluegray90004,
               ),
               SizedBox(height: 22.v),
               SizedBox(
@@ -51,7 +51,7 @@ class DeleteAccountIiDialog extends StatelessWidget {
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
-                  style: CustomTextStyles.bodySmallBluegray90003,
+                  style: CustomTextStyles.bodySmallBluegray90004,
                 ),
               ),
               SizedBox(height: 30.v),
@@ -59,20 +59,20 @@ class DeleteAccountIiDialog extends StatelessWidget {
                 height: 44.v,
                 text: "msg_yes_delete_account".tr,
                 margin: EdgeInsets.only(
-                  left: 18.h,
-                  right: 10.h,
+                  left: 16.h,
+                  right: 14.h,
                 ),
                 buttonStyle: CustomButtonStyles.fillCyan,
                 buttonTextStyle:
-                    CustomTextStyles.titleSmallOpenSansBluegray90002,
+                    CustomTextStyles.titleSmallOpenSansBluegray90003,
               ),
               SizedBox(height: 10.v),
               CustomElevatedButton(
                 height: 44.v,
                 text: "lbl_cancel2".tr,
                 margin: EdgeInsets.only(
-                  left: 18.h,
-                  right: 10.h,
+                  left: 16.h,
+                  right: 14.h,
                 ),
                 buttonStyle: CustomButtonStyles.fillTeal,
                 buttonTextStyle: CustomTextStyles.titleSmallOpenSansTeal900,

@@ -14,6 +14,7 @@ class GroupsdashboardModel {
     GrouplistItemModel(),
     GrouplistItemModel(),
     GrouplistItemModel(),
+    GrouplistItemModel(),
     GrouplistItemModel()
   ]);
 }

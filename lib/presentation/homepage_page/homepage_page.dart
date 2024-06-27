@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_subtitle_nineteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_twentyone.dart';
 import '../../widgets/app_bar/appbar_trailing_image.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import 'controller/homepage_controller.dart';
-import 'models/forjewpage_item_model.dart';
+import 'models/column_item_model.dart';
 import 'models/homepage_model.dart';
-import 'widgets/forjewpage_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'widgets/column_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 // ignore_for_file: must_be_immutable
 class HomepagePage extends StatelessWidget {
@@ -45,7 +45,7 @@ class HomepagePage extends StatelessWidget {
           child: Container(
             margin: EdgeInsets.only(top: 50.v),
             padding: EdgeInsets.symmetric(
-              horizontal: 14.h,
+              horizontal: 10.h,
               vertical: 22.v,
             ),
             child: Column(
@@ -73,7 +73,7 @@ class HomepagePage extends StatelessWidget {
                   right: 14.h,
                 ),
               ),
-              AppbarSubtitleNineteen(
+              AppbarSubtitleTwentyone(
                 text: "lbl_your_profile".tr,
               )
             ],
@@ -89,8 +89,9 @@ class HomepagePage extends StatelessWidget {
       width: double.maxFinite,
       child: Column(
         children: [
-          SizedBox(
+          Container(
             width: double.maxFinite,
+            margin: EdgeInsets.only(left: 14.h),
             child: Column(
               children: [
                 SizedBox(
@@ -111,7 +112,7 @@ class HomepagePage extends StatelessWidget {
                         alignment: Alignment.bottomLeft,
                         child: Padding(
                           padding: EdgeInsets.only(
-                            left: 36.h,
+                            left: 22.h,
                             bottom: 18.v,
                           ),
                           child: Text(
@@ -131,7 +132,7 @@ class HomepagePage extends StatelessWidget {
                 SizedBox(height: 36.v),
                 Container(
                   width: double.maxFinite,
-                  margin: EdgeInsets.symmetric(horizontal: 14.h),
+                  margin: EdgeInsets.only(right: 14.h),
                   child: Obx(
                     () => GridView.builder(
                       shrinkWrap: true,
@@ -142,12 +143,12 @@ class HomepagePage extends StatelessWidget {
                         crossAxisSpacing: 10.h,
                       ),
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: controller.homepageModelObj.value
-                          .forjewpageItemList.value.length,
+                      itemCount: controller
+                          .homepageModelObj.value.columnItemList.value.length,
                       itemBuilder: (context, index) {
-                        ForjewpageItemModel model = controller.homepageModelObj
-                            .value.forjewpageItemList.value[index];
-                        return ForjewpageItemWidget(
+                        ColumnItemModel model = controller
+                            .homepageModelObj.value.columnItemList.value[index];
+                        return ColumnItemWidget(
                           model,
                         );
                       },
@@ -158,7 +159,10 @@ class HomepagePage extends StatelessWidget {
                 CustomElevatedButton(
                   height: 30.v,
                   text: "lbl_invite_friends".tr,
-                  margin: EdgeInsets.symmetric(horizontal: 88.h),
+                  margin: EdgeInsets.only(
+                    left: 74.h,
+                    right: 88.h,
+                  ),
                   buttonStyle: CustomButtonStyles.fillPrimary,
                   buttonTextStyle: CustomTextStyles.titleSmallOpenSans,
                 ),
@@ -168,7 +172,7 @@ class HomepagePage extends StatelessWidget {
                   height: 174.v,
                   width: double.maxFinite,
                   margin: EdgeInsets.only(
-                    left: 18.h,
+                    left: 6.h,
                     right: 20.h,
                   ),
                 )

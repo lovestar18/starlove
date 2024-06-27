@@ -44,9 +44,9 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
               key: _formKey,
               child: Container(
                 padding: EdgeInsets.only(
-                  left: 14.h,
+                  left: 10.h,
                   top: 20.v,
-                  right: 14.h,
+                  right: 10.h,
                 ),
                 child: Column(
                   children: [
@@ -55,8 +55,8 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
                       height: 64.v,
                       width: double.maxFinite,
                       margin: EdgeInsets.only(
-                        left: 82.h,
-                        right: 64.h,
+                        left: 84.h,
+                        right: 68.h,
                       ),
                     ),
                     SizedBox(height: 14.v),
@@ -87,7 +87,7 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
           CustomTextFormField(
             controller: controller.emailController,
             hintText: "msg_loisbecket_gmail_com".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
             textInputType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null || (!isValidEmail(value, isRequired: true))) {
@@ -117,7 +117,7 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
             () => CustomTextFormField(
               controller: controller.passwordController,
               hintText: "lbl".tr,
-              hintStyle: CustomTextStyles.titleSmallGray90010_1,
+              hintStyle: CustomTextStyles.titleSmallGray90009_1,
               textInputAction: TextInputAction.done,
               textInputType: TextInputType.visiblePassword,
               suffix: InkWell(
@@ -162,10 +162,10 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
     return Container(
       width: double.maxFinite,
       padding: EdgeInsets.symmetric(
-        horizontal: 24.h,
+        horizontal: 28.h,
         vertical: 22.v,
       ),
-      decoration: AppDecoration.white.copyWith(
+      decoration: AppDecoration.mainwhite.copyWith(
         borderRadius: BorderRadiusStyle.roundedBorder12,
       ),
       child: Column(
@@ -257,10 +257,10 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
               bottomRight: Radius.circular(10),
             ),
             child: CustomOutlinedButton(
+              height: 48.v,
               text: "lbl_log_in2".tr,
-              buttonStyle: CustomButtonStyles.none,
-              decoration: CustomButtonStyles.gradientPrimaryToPrimaryDecoration,
-              buttonTextStyle: CustomTextStyles.titleSmallPrimary_2,
+              buttonStyle: CustomButtonStyles.outline,
+              buttonTextStyle: CustomTextStyles.titleSmallPrimary,
               onPressed: () {
                 onTapLogin();
               },
@@ -283,9 +283,12 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
                   ),
                 ),
                 SizedBox(width: 16.h),
-                Text(
-                  "lbl_or".tr,
-                  style: CustomTextStyles.bodySmallInterGray60001,
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "lbl_or".tr,
+                    style: CustomTextStyles.bodySmallInterGray60001,
+                  ),
                 ),
                 SizedBox(width: 16.h),
                 Expanded(
@@ -301,6 +304,7 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
           ),
           SizedBox(height: 24.v),
           CustomOutlinedButton(
+            height: 48.v,
             text: "msg_continue_with_google".tr,
             leftIcon: Container(
               margin: EdgeInsets.only(right: 10.h),
@@ -311,16 +315,17 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
               ),
             ),
             buttonStyle: CustomButtonStyles.outlineBlueGray,
-            buttonTextStyle: CustomTextStyles.titleSmallGray90010,
+            buttonTextStyle: CustomTextStyles.titleSmallGray90009,
             onPressed: () {
               onTapContinuewith();
             },
           ),
           SizedBox(height: 14.v),
           CustomOutlinedButton(
+            height: 48.v,
             text: "msg_continue_with_apple".tr,
             buttonStyle: CustomButtonStyles.outlineBlueGray,
-            buttonTextStyle: CustomTextStyles.titleSmallGray90010,
+            buttonTextStyle: CustomTextStyles.titleSmallGray90009,
             onPressed: () {
               onTapContinuewith1();
             },
@@ -354,13 +359,7 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
     );
   }
 
-  /// Navigates to the homepageContainerScreen when the action is triggered.
-  onTapLogin() {
-    Get.toNamed(
-      AppRoutes.homepageContainerScreen,
-    );
-  }
-
+  onTapLogin() {}
   onTapContinuewith() async {
     await GoogleAuthHelper().googleSignInProcess().then((googleUser) {
       if (googleUser != null) {
@@ -372,12 +371,7 @@ class LoginVersion2Screen extends GetWidget<LoginVersion2Controller> {
     });
   }
 
-  /// Navigates to the homepageContainerScreen when the action is triggered.
-  onTapContinuewith1() {
-    Get.toNamed(
-      AppRoutes.homepageContainerScreen,
-    );
-  }
+  onTapContinuewith1() {}
 
   /// Navigates to the eulaScreen when the action is triggered.
   onTapTxtBycontinuing() {

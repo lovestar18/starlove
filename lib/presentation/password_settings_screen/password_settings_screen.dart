@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_five.dart';
+import '../../widgets/app_bar/appbar_subtitle_seven.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_floating_button.dart';
+import '../../widgets/custom_text_form_field.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
 import '../community_forums_response_page/community_forums_response_page.dart';
 import '../homepage_page/homepage_page.dart';
@@ -22,35 +23,18 @@ class PasswordSettingsScreen extends GetWidget<PasswordSettingsController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        extendBody: true,
-        extendBodyBehindAppBar: true,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
-          height: double.maxFinite,
-          padding: EdgeInsets.only(
-            top: 56.v,
-            bottom: 94.v,
+          padding: EdgeInsets.symmetric(
+            horizontal: 10.h,
+            vertical: 90.v,
           ),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(0.5, 0),
-              end: Alignment(0.5, 1),
-              colors: [
-                theme.colorScheme.primary.withOpacity(1),
-                appTheme.indigoA70001
-              ],
-            ),
-          ),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 14.h,
-              vertical: 90.v,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [_buildMainColumn(), SizedBox(height: 22.v)],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [_buildChangePasswordSection(), SizedBox(height: 22.v)],
           ),
         ),
         bottomNavigationBar: _buildBottomNavigationBar(),
@@ -84,78 +68,120 @@ class PasswordSettingsScreen extends GetWidget<PasswordSettingsController> {
         },
       ),
       centerTitle: true,
-      title: AppbarSubtitleFive(
+      title: AppbarSubtitleSeven(
         text: "msg_password_settings".tr,
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildPasswordSettingsColumn() {
+  Widget _buildCurrentPasswordSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 22.h),
-              child: Text(
-                "msg_current_password".tr,
-                style: CustomTextStyles.bodyMediumBluegray90002_1,
+          Text(
+            "msg_current_password".tr,
+            style: CustomTextStyles.bodyMediumBluegray90003,
+          ),
+          SizedBox(height: 6.v),
+          Obx(
+            () => CustomTextFormField(
+              controller: controller.passwordController,
+              suffix: InkWell(
+                onTap: () {
+                  controller.isShowPassword.value =
+                      !controller.isShowPassword.value;
+                },
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(30.h, 12.v, 14.h, 12.v),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary.withOpacity(1),
+                    borderRadius: BorderRadius.circular(
+                      18.h,
+                    ),
+                  ),
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgAirplaneTeal900,
+                    height: 24.adaptSize,
+                    width: 24.adaptSize,
+                  ),
+                ),
               ),
-            ),
-          ),
-          SizedBox(height: 8.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildNewPasswordRow(),
-          ),
-          SizedBox(height: 42.v),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 22.h),
-              child: Text(
-                "lbl_new_password".tr,
-                style: CustomTextStyles.bodyMediumBluegray90002_1,
+              suffixConstraints: BoxConstraints(
+                maxHeight: 48.v,
               ),
+              obscureText: controller.isShowPassword.value,
+              borderDecoration: TextFormFieldStyleHelper.fillPrimary,
             ),
           ),
-          SizedBox(height: 8.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildNewPasswordRow(),
+          SizedBox(height: 30.v),
+          Text(
+            "msg_current_password".tr,
+            style: CustomTextStyles.bodyMediumBluegray90003,
           ),
-          SizedBox(height: 44.v),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 22.h),
-              child: Text(
-                "msg_confirm_new_password".tr,
-                style: CustomTextStyles.bodyMediumBluegray90002_1,
+          SizedBox(height: 6.v),
+          Obx(
+            () => CustomTextFormField(
+              controller: controller.password1Controller,
+              suffix: InkWell(
+                onTap: () {
+                  controller.isShowPassword1.value =
+                      !controller.isShowPassword1.value;
+                },
+                child: Container(
+                  margin: EdgeInsets.fromLTRB(30.h, 12.v, 14.h, 12.v),
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgAirplaneTeal900,
+                    height: 24.adaptSize,
+                    width: 24.adaptSize,
+                  ),
+                ),
               ),
+              suffixConstraints: BoxConstraints(
+                maxHeight: 48.v,
+              ),
+              obscureText: controller.isShowPassword1.value,
+              borderDecoration: TextFormFieldStyleHelper.fillPrimary,
             ),
           ),
-          SizedBox(height: 8.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildNewPasswordRow(),
+          SizedBox(height: 30.v),
+          Text(
+            "msg_current_password".tr,
+            style: CustomTextStyles.bodyMediumBluegray90003,
           ),
-          SizedBox(height: 64.v),
-          CustomElevatedButton(
-            height: 44.v,
-            text: "lbl_change_password".tr,
-            margin: EdgeInsets.only(
-              left: 64.h,
-              right: 62.h,
+          SizedBox(height: 6.v),
+          Obx(
+            () => CustomTextFormField(
+              controller: controller.password2Controller,
+              textInputAction: TextInputAction.done,
+              suffix: InkWell(
+                onTap: () {
+                  controller.isShowPassword2.value =
+                      !controller.isShowPassword2.value;
+                },
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(30.h, 12.v, 14.h, 12.v),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary.withOpacity(1),
+                    borderRadius: BorderRadius.circular(
+                      18.h,
+                    ),
+                  ),
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgAirplaneTeal900,
+                    height: 24.adaptSize,
+                    width: 24.adaptSize,
+                  ),
+                ),
+              ),
+              suffixConstraints: BoxConstraints(
+                maxHeight: 48.v,
+              ),
+              obscureText: controller.isShowPassword2.value,
+              borderDecoration: TextFormFieldStyleHelper.fillPrimary,
             ),
-            buttonStyle: CustomButtonStyles.fillIndigoATL22,
-            buttonTextStyle: CustomTextStyles.titleSmallPoppinsPrimary,
-            onPressed: () {
-              onTapChangepassword();
-            },
           )
         ],
       ),
@@ -163,11 +189,32 @@ class PasswordSettingsScreen extends GetWidget<PasswordSettingsController> {
   }
 
   /// Section Widget
-  Widget _buildMainColumn() {
+  Widget _buildChangePasswordSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
-        children: [_buildPasswordSettingsColumn()],
+        children: [
+          Container(
+            width: double.maxFinite,
+            margin: EdgeInsets.only(left: 10.h),
+            child: Column(
+              children: [
+                _buildCurrentPasswordSection(),
+                SizedBox(height: 74.v),
+                CustomElevatedButton(
+                  height: 44.v,
+                  text: "lbl_change_password".tr,
+                  margin: EdgeInsets.only(
+                    left: 54.h,
+                    right: 64.h,
+                  ),
+                  buttonStyle: CustomButtonStyles.fillIndigoATL22,
+                  buttonTextStyle: CustomTextStyles.titleSmallPoppinsPrimary,
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
@@ -181,43 +228,14 @@ class PasswordSettingsScreen extends GetWidget<PasswordSettingsController> {
     );
   }
 
-  /// Common widget
-  Widget _buildNewPasswordRow() {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16.h,
-        vertical: 10.v,
-      ),
-      decoration: AppDecoration.white.copyWith(
-        borderRadius: BorderRadiusStyle.roundedBorder16,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CustomImageView(
-            imagePath: ImageConstant.img,
-            height: 18.v,
-            width: 144.h,
-            margin: EdgeInsets.only(left: 2.h),
-          ),
-          CustomImageView(
-            imagePath: ImageConstant.imgAirplane,
-            height: 8.v,
-            width: 24.h,
-          )
-        ],
-      ),
-    );
-  }
-
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -243,12 +261,5 @@ class PasswordSettingsScreen extends GetWidget<PasswordSettingsController> {
   /// Navigates to the previous screen.
   onTapArrowleftone() {
     Get.back();
-  }
-
-  /// Navigates to the passwordSettings1Screen when the action is triggered.
-  onTapChangepassword() {
-    Get.toNamed(
-      AppRoutes.passwordSettings1Screen,
-    );
   }
 }

@@ -7,13 +7,13 @@ import '../models/add_to_chat_model.dart';
 /// This class manages the state of the AddToChatScreen, including the
 /// current addToChatModelObj
 class AddToChatController extends GetxController {
-  TextEditingController searchBarController = TextEditingController();
+  TextEditingController searchViewController = TextEditingController();
 
   Rx<AddToChatModel> addToChatModelObj = AddToChatModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    searchBarController.dispose();
+    searchViewController.dispose();
   }
 }

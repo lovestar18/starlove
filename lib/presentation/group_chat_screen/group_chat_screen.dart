@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_seventeen.dart';
-import '../../widgets/app_bar/appbar_subtitle_ten.dart';
+import '../../widgets/app_bar/appbar_subtitle_nineteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_twelve.dart';
 import '../../widgets/app_bar/appbar_title_image_one.dart';
 import '../../widgets/app_bar/appbar_trailing_image_two.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
@@ -36,7 +36,7 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
               end: Alignment(0.5, 1),
               colors: [
                 theme.colorScheme.primary.withOpacity(1),
-                appTheme.gray10005
+                appTheme.gray10004
               ],
             ),
           ),
@@ -44,9 +44,9 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
             padding: EdgeInsets.symmetric(vertical: 10.v),
             child: Column(
               children: [
-                SizedBox(height: 12.v),
-                _buildChatContent(),
-                SizedBox(height: 84.v),
+                SizedBox(height: 8.v),
+                _buildChatSection(),
+                SizedBox(height: 36.v),
                 SizedBox(
                   width: double.maxFinite,
                   child: Divider(
@@ -68,7 +68,7 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
       height: 72.v,
       leadingWidth: 32.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftBlueGray6000124x24,
+        imagePath: ImageConstant.imgArrowLeftBlueGray600012,
         margin: EdgeInsets.only(
           left: 8.h,
           top: 24.v,
@@ -88,16 +88,16 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
             Padding(
               padding: EdgeInsets.only(
                 left: 10.h,
-                top: 1.v,
-                bottom: 2.v,
+                top: 3.v,
+                bottom: 1.v,
               ),
               child: Column(
                 children: [
-                  AppbarSubtitleTen(
+                  AppbarSubtitleTwelve(
                     text: "msg_fullsnack_designers".tr,
                   ),
                   SizedBox(height: 3.v),
-                  AppbarSubtitleSeventeen(
+                  AppbarSubtitleNineteen(
                     text: "lbl_12_people".tr,
                     margin: EdgeInsets.only(right: 122.h),
                   )
@@ -125,10 +125,9 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
   }
 
   /// Section Widget
-  Widget _buildChatContent() {
-    return Container(
+  Widget _buildChatMessages() {
+    return SizedBox(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
       child: Column(
         children: [
           SizedBox(
@@ -145,122 +144,105 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
                   ),
                   alignment: Alignment.bottomCenter,
                 ),
-                SizedBox(width: 8.h),
-                Expanded(
-                  child: Container(
-                    height: 360.v,
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomImageView(
-                              imagePath: ImageConstant.imgRectangle100x204,
-                              height: 100.v,
-                              width: 204.h,
-                              radius: BorderRadius.circular(
-                                4.h,
-                              ),
-                            ),
-                            SizedBox(height: 4.v),
-                            Row(
-                              children: [
-                                CustomImageView(
-                                  imagePath: ImageConstant.imgRectangle100x100,
-                                  height: 100.adaptSize,
-                                  width: 100.adaptSize,
-                                  radius: BorderRadius.circular(
-                                    4.h,
-                                  ),
-                                ),
-                                SizedBox(width: 4.h),
-                                CustomImageView(
-                                  imagePath: ImageConstant.imgRectangle10,
-                                  height: 100.adaptSize,
-                                  width: 100.adaptSize,
-                                  radius: BorderRadius.circular(
-                                    4.h,
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
+                Container(
+                  width: 260.h,
+                  margin: EdgeInsets.only(left: 8.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10.h,
+                    vertical: 6.v,
+                  ),
+                  decoration: AppDecoration.fillGray.copyWith(
+                    borderRadius: BorderRadiusStyle.roundedBorder8,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "lbl_mike_mazowski2".tr,
+                        style: CustomTextStyles.bodySmallCyanA400,
+                      ),
+                      SizedBox(height: 10.v),
+                      Text(
+                        "msg_hello_guys_we_have2".tr,
+                        maxLines: 6,
+                        overflow: TextOverflow.ellipsis,
+                        style:
+                            CustomTextStyles.bodySmallInterIndigo90002.copyWith(
+                          height: 1.50,
                         ),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Container(
-                            width: 260.h,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 4.h,
-                              vertical: 6.v,
-                            ),
-                            decoration: AppDecoration.fillGray.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder8,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: double.maxFinite,
-                                  margin: EdgeInsets.only(left: 4.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        "lbl_mike_mazowski2".tr,
-                                        style:
-                                            CustomTextStyles.bodySmallCyanA400,
-                                      ),
-                                      Text(
-                                        "lbl_admin".tr,
-                                        style: CustomTextStyles
-                                            .bodySmallBluegray30001,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(height: 10.v),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 4.h),
-                                  child: Text(
-                                    "msg_hello_guys_we_have2".tr,
-                                    maxLines: 6,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: CustomTextStyles
-                                        .bodySmallInterIndigo90002
-                                        .copyWith(
-                                      height: 1.50,
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(right: 4.h),
-                                    child: Text(
-                                      "lbl_16_04".tr,
-                                      style: CustomTextStyles
-                                          .bodySmallBluegray30001,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "lbl_16_04".tr,
+                          style: CustomTextStyles.bodySmallBluegray30001,
+                        ),
+                      )
+                    ],
                   ),
                 )
               ],
             ),
           ),
-          SizedBox(height: 16.v),
+          SizedBox(height: 18.v),
+          SizedBox(
+            width: double.maxFinite,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                CustomImageView(
+                  imagePath: ImageConstant.imgImage40x40,
+                  height: 40.adaptSize,
+                  width: 40.adaptSize,
+                  radius: BorderRadius.circular(
+                    20.h,
+                  ),
+                  alignment: Alignment.bottomCenter,
+                ),
+                SizedBox(width: 8.h),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomImageView(
+                        imagePath: ImageConstant.imgRectangle100x204,
+                        height: 100.v,
+                        width: 204.h,
+                        radius: BorderRadius.circular(
+                          4.h,
+                        ),
+                      ),
+                      SizedBox(height: 4.v),
+                      Row(
+                        children: [
+                          CustomImageView(
+                            imagePath: ImageConstant.imgRectangle100x100,
+                            height: 100.adaptSize,
+                            width: 100.adaptSize,
+                            radius: BorderRadius.circular(
+                              4.h,
+                            ),
+                          ),
+                          SizedBox(width: 4.h),
+                          CustomImageView(
+                            imagePath: ImageConstant.imgRectangle7,
+                            height: 100.adaptSize,
+                            width: 100.adaptSize,
+                            radius: BorderRadius.circular(
+                              4.h,
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(height: 18.v),
           SizedBox(
             width: double.maxFinite,
             child: Row(
@@ -273,8 +255,8 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
                     horizontal: 10.h,
                     vertical: 6.v,
                   ),
-                  decoration: AppDecoration.blue1.copyWith(
-                    borderRadius: BorderRadiusStyle.customBorderTL82,
+                  decoration: AppDecoration.fillBlueA.copyWith(
+                    borderRadius: BorderRadiusStyle.customBorderTL81,
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -311,37 +293,49 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
                     20.h,
                   ),
                   alignment: Alignment.bottomCenter,
-                  margin: EdgeInsets.only(
-                    left: 8.h,
-                    bottom: 18.v,
-                  ),
+                  margin: EdgeInsets.only(left: 8.h),
                 )
               ],
             ),
           ),
+          SizedBox(height: 18.v),
           Container(
             width: double.maxFinite,
-            margin: EdgeInsets.symmetric(horizontal: 48.h),
+            margin: EdgeInsets.symmetric(horizontal: 64.h),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Container(
-                  width: 56.h,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 12.h,
-                    vertical: 8.v,
-                  ),
-                  decoration: AppDecoration.fillGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder8,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    width: 56.h,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 12.h,
+                      vertical: 8.v,
+                    ),
+                    decoration: AppDecoration.fillGray.copyWith(
+                      borderRadius: BorderRadiusStyle.roundedBorder8,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            height: 4.adaptSize,
+                            width: 4.adaptSize,
+                            decoration: BoxDecoration(
+                              color: appTheme.blueGray60001,
+                              borderRadius: BorderRadius.circular(
+                                2.h,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
                           height: 4.adaptSize,
                           width: 4.adaptSize,
                           decoration: BoxDecoration(
@@ -351,31 +345,21 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        height: 4.adaptSize,
-                        width: 4.adaptSize,
-                        decoration: BoxDecoration(
-                          color: appTheme.blueGray60001,
-                          borderRadius: BorderRadius.circular(
-                            2.h,
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Container(
-                          height: 4.adaptSize,
-                          width: 4.adaptSize,
-                          decoration: BoxDecoration(
-                            color: appTheme.blueGray60001,
-                            borderRadius: BorderRadius.circular(
-                              2.h,
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                            height: 4.adaptSize,
+                            width: 4.adaptSize,
+                            decoration: BoxDecoration(
+                              color: appTheme.blueGray60001,
+                              borderRadius: BorderRadius.circular(
+                                2.h,
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -405,7 +389,7 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
                         margin: EdgeInsets.only(right: 8.h),
                       ),
                       CustomImageView(
-                        imagePath: ImageConstant.imgImage2,
+                        imagePath: ImageConstant.imgImage3,
                         height: 16.adaptSize,
                         width: 16.adaptSize,
                         radius: BorderRadius.circular(
@@ -434,45 +418,50 @@ class GroupChatScreen extends GetWidget<GroupChatController> {
   }
 
   /// Section Widget
-  Widget _buildMessageInput() {
+  Widget _buildChatSection() {
     return Container(
-      height: 40.v,
       width: double.maxFinite,
-      margin: EdgeInsets.only(
-        left: 16.h,
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 4.h),
+      child: Column(
+        children: [_buildChatMessages()],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildMessageInput() {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 14.h,
         right: 16.h,
         bottom: 34.v,
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          CustomTextFormField(
-            controller: controller.messageController,
-            hintText: "lbl_message2".tr,
-            hintStyle: CustomTextStyles.bodyMediumInterGray60003,
-            textInputAction: TextInputAction.done,
-            suffix: Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: 30.h,
-                vertical: 8.v,
-              ),
-              child: CustomImageView(
-                imagePath: ImageConstant.imgIconMic,
-                height: 24.adaptSize,
-                width: 24.adaptSize,
-              ),
-            ),
-            suffixConstraints: BoxConstraints(
-              maxHeight: 40.v,
-            ),
-            contentPadding: EdgeInsets.only(
-              left: 16.h,
-              top: 10.v,
-              bottom: 10.v,
-            ),
-            borderDecoration: TextFormFieldStyleHelper.outlineGrayTL8,
-          )
-        ],
+      child: CustomTextFormField(
+        controller: controller.messageInputController,
+        hintText: "lbl_message2".tr,
+        hintStyle: CustomTextStyles.bodyMediumInterGray60003,
+        textInputAction: TextInputAction.done,
+        suffix: Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: 30.h,
+            vertical: 8.v,
+          ),
+          child: CustomImageView(
+            imagePath: ImageConstant.imgIconMic,
+            height: 24.adaptSize,
+            width: 24.adaptSize,
+          ),
+        ),
+        suffixConstraints: BoxConstraints(
+          maxHeight: 40.v,
+        ),
+        contentPadding: EdgeInsets.only(
+          left: 16.h,
+          top: 10.v,
+          bottom: 10.v,
+        ),
+        borderDecoration: TextFormFieldStyleHelper.outlineGrayTL8,
       ),
     );
   }

@@ -17,10 +17,11 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 14.h,
+            horizontal: 10.h,
             vertical: 24.v,
           ),
           child: Column(
@@ -47,7 +48,7 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
           CustomTextFormField(
             controller: controller.nameController,
             hintText: "msg_matzah_ball_soup".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
           )
         ],
       ),
@@ -55,7 +56,7 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
   }
 
   /// Section Widget
-  Widget _buildDescriptionInput() {
+  Widget _buildGroupDescriptionInput() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
@@ -69,7 +70,7 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
           CustomTextFormField(
             controller: controller.yournamegmailcoController,
             hintText: "msg_people_who_love".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
             textInputAction: TextInputAction.done,
           )
         ],
@@ -79,9 +80,10 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
 
   /// Section Widget
   Widget _buildEditGroupStack() {
-    return SizedBox(
+    return Container(
       height: 676.v,
       width: double.maxFinite,
+      margin: EdgeInsets.only(right: 4.h),
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -89,16 +91,16 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
             width: double.maxFinite,
             padding: EdgeInsets.symmetric(
               horizontal: 24.h,
-              vertical: 22.v,
+              vertical: 40.v,
             ),
-            decoration: AppDecoration.white.copyWith(
+            decoration: AppDecoration.mainwhite.copyWith(
               borderRadius: BorderRadiusStyle.roundedBorder12,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 16.v),
                 Text(
                   "msg_edit_group_details".tr,
                   style: theme.textTheme.headlineLarge,
@@ -106,7 +108,7 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
                 SizedBox(height: 38.v),
                 _buildGroupNameInput(),
                 SizedBox(height: 18.v),
-                _buildDescriptionInput(),
+                _buildGroupDescriptionInput(),
                 SizedBox(height: 18.v),
                 Text(
                   "msg_group_is_private".tr,
@@ -128,10 +130,21 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
                 ),
                 Spacer(),
                 CustomElevatedButton(
-                  height: 30.v,
-                  width: 154.h,
+                  height: 26.v,
                   text: "msg_upload_group_photo".tr.toUpperCase(),
-                  buttonStyle: CustomButtonStyles.fillGrayTL14,
+                  margin: EdgeInsets.only(
+                    left: 40.h,
+                    right: 38.h,
+                  ),
+                  leftIcon: Container(
+                    margin: EdgeInsets.only(right: 8.h),
+                    child: CustomImageView(
+                      imagePath: ImageConstant.imgSearchPrimary,
+                      height: 20.adaptSize,
+                      width: 20.adaptSize,
+                    ),
+                  ),
+                  buttonStyle: CustomButtonStyles.fillGray,
                   buttonTextStyle: CustomTextStyles.labelMediumRobotoPrimary,
                   alignment: Alignment.center,
                 )
@@ -146,7 +159,7 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
                 Container(
                   width: double.maxFinite,
                   margin: EdgeInsets.only(
-                    left: 14.h,
+                    left: 18.h,
                     right: 4.h,
                   ),
                   child: Row(
@@ -154,25 +167,28 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
-                        "lbl_9_41".tr,
-                        style: CustomTextStyles.titleMediumInterPrimary_1,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "lbl_9_41".tr,
+                          style: CustomTextStyles.titleMediumInterPrimary,
+                        ),
                       ),
                       Spacer(),
                       CustomImageView(
-                        imagePath: ImageConstant.imgThumbsUpPrimary,
+                        imagePath: ImageConstant.imgThumbsUp,
                         height: 10.v,
                         width: 18.h,
                         margin: EdgeInsets.only(bottom: 2.v),
                       ),
                       CustomImageView(
-                        imagePath: ImageConstant.imgSettingsPrimary,
+                        imagePath: ImageConstant.imgSettingsPrimary1,
                         height: 10.v,
                         width: 14.h,
                         margin: EdgeInsets.only(left: 4.h),
                       ),
                       CustomImageView(
-                        imagePath: ImageConstant.imgInstagram,
+                        imagePath: ImageConstant.imgInstagramPrimary,
                         height: 12.v,
                         width: 26.h,
                         margin: EdgeInsets.only(left: 4.h),
@@ -188,6 +204,7 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
                   radius: BorderRadius.circular(
                     20.h,
                   ),
+                  margin: EdgeInsets.only(left: 4.h),
                 )
               ],
             ),
@@ -216,7 +233,7 @@ class EditGroupDetailsScreen extends GetWidget<EditGroupDetailsController> {
         bottom: 34.v,
       ),
       buttonStyle: CustomButtonStyles.none,
-      decoration: CustomButtonStyles.gradientTealAToCyanADecoration,
+      decoration: CustomButtonStyles.gradientTealAToCyanATL18Decoration,
       buttonTextStyle: CustomTextStyles.labelMediumRobotoPrimary,
       onPressed: () {
         onTapSaveButton();

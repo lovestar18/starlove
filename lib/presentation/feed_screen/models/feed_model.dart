@@ -11,9 +11,9 @@ class FeedModel {
     UserprofilelistItemModel(
         userimage1: ImageConstant.imgUnsplashBqe0j0b26rq.obs,
         userimage2: ImageConstant.imgHugeIcon.obs,
-        you: "You".obs),
-    UserprofilelistItemModel(you: "Benjamin".obs),
-    UserprofilelistItemModel(you: "Marie".obs),
-    UserprofilelistItemModel()
+        userText: "You".obs),
+    UserprofilelistItemModel(userText: "Benjamin".obs),
+    UserprofilelistItemModel(userText: "Farita".obs),
+    UserprofilelistItemModel(userText: "Marie".obs)
   ]);
 }

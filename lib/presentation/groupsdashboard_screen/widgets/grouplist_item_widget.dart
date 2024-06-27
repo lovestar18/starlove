@@ -19,18 +19,18 @@ class GrouplistItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 10.h,
+        horizontal: 6.h,
         vertical: 8.v,
       ),
-      decoration: AppDecoration.white,
+      decoration: AppDecoration.mainwhite,
       child: Row(
-        children: [_buildGroupStatsRow()],
+        children: [_buildHeaderInfo()],
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildGroupStatsRow() {
+  Widget _buildHeaderInfo() {
     return Expanded(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

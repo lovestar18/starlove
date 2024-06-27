@@ -7,7 +7,7 @@ import '../models/listofgroupmembers_model.dart';
 /// This class manages the state of the ListofgroupmembersScreen, including the
 /// current listofgroupmembersModelObj
 class ListofgroupmembersController extends GetxController {
-  TextEditingController searchController = TextEditingController();
+  TextEditingController searchBarController = TextEditingController();
 
   Rx<ListofgroupmembersModel> listofgroupmembersModelObj =
       ListofgroupmembersModel().obs;
@@ -15,6 +15,9 @@ class ListofgroupmembersController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    searchController.dispose();
+    searchBarController.dispose();
   }
+
+  @override
+  void onReady() {}
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_iconbutton.dart';
-import '../../widgets/app_bar/appbar_subtitle_eight.dart';
+import '../../widgets/app_bar/appbar_image.dart';
+import '../../widgets/app_bar/appbar_subtitle_four.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -22,11 +22,12 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Column(
           children: [
             SizedBox(height: 12.v),
-            _buildGroupInfoSection(),
+            _buildFeaturedSection(),
             SizedBox(height: 22.v),
             _buildGroupList()
           ],
@@ -56,13 +57,14 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
         child: Column(
           children: [
             SizedBox(height: 13.v),
-            AppbarIconbutton(
+            AppbarImage(
+              imagePath: ImageConstant.imgPlusPrimary,
               margin: EdgeInsets.only(
                 left: 20.h,
-                right: 320.h,
+                right: 324.h,
               ),
             ),
-            AppbarSubtitleEight(
+            AppbarSubtitleFour(
               text: "msg_groups_dashboard".tr,
               margin: EdgeInsets.symmetric(horizontal: 96.h),
             ),
@@ -71,15 +73,16 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
         ),
       ),
       styleType:
-          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04_1,
+          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04,
     );
   }
 
   /// Section Widget
-  Widget _buildGroupImageSection() {
-    return SizedBox(
+  Widget _buildFeaturedImage() {
+    return Container(
       height: 170.v,
       width: double.maxFinite,
+      margin: EdgeInsets.only(right: 2.h),
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -111,7 +114,7 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
                     padding: EdgeInsets.only(left: 6.h),
                     child: Text(
                       "lbl_about".tr,
-                      style: CustomTextStyles.bodySmallBluegray10001,
+                      style: CustomTextStyles.bodySmallBluegray10002,
                     ),
                   )
                 ],
@@ -124,12 +127,13 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
   }
 
   /// Section Widget
-  Widget _buildGroupInfoSection() {
+  Widget _buildFeaturedSection() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 2.h),
       child: Column(
-        children: [_buildGroupImageSection()],
+        children: [_buildFeaturedImage()],
       ),
     );
   }
@@ -169,11 +173,11 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;

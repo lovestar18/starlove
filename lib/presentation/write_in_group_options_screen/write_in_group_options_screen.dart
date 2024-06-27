@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_subtitle_fifteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_eighteen.dart';
 import '../../widgets/app_bar/appbar_subtitle_sixteen.dart';
 import '../../widgets/app_bar/appbar_trailing_button.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
@@ -20,15 +20,16 @@ class WriteInGroupOptionsScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 14.h,
+            horizontal: 10.h,
             vertical: 20.v,
           ),
           child: Column(
-            children: [_buildProfileSection(), SizedBox(height: 4.v)],
+            children: [_buildPostSection(), SizedBox(height: 4.v)],
           ),
         ),
       ),
@@ -43,11 +44,11 @@ class WriteInGroupOptionsScreen
         padding: EdgeInsets.only(left: 15.h),
         child: Row(
           children: [
-            AppbarSubtitleSixteen(
+            AppbarSubtitleEighteen(
               text: "lbl_cancel".tr,
               margin: EdgeInsets.only(bottom: 1.v),
             ),
-            AppbarSubtitleFifteen(
+            AppbarSubtitleSixteen(
               text: "lbl_write_to_group2".tr.toUpperCase(),
               margin: EdgeInsets.only(left: 37.h),
             )
@@ -67,7 +68,7 @@ class WriteInGroupOptionsScreen
   }
 
   /// Section Widget
-  Widget _buildProfileSection() {
+  Widget _buildPostSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
@@ -85,6 +86,7 @@ class WriteInGroupOptionsScreen
                   radius: BorderRadius.circular(
                     16.h,
                   ),
+                  alignment: Alignment.center,
                 ),
                 Padding(
                   padding: EdgeInsets.only(
@@ -119,8 +121,7 @@ class WriteInGroupOptionsScreen
                     horizontal: 14.h,
                     vertical: 4.v,
                   ),
-                  decoration:
-                      AppDecoration.secondaryDarkGreySecondaryDarkGrey.copyWith(
+                  decoration: AppDecoration.outlineBluegray900011.copyWith(
                     borderRadius: BorderRadiusStyle.roundedBorder16,
                   ),
                   child: Row(
@@ -139,7 +140,7 @@ class WriteInGroupOptionsScreen
                       ),
                       SizedBox(width: 16.h),
                       CustomImageView(
-                        imagePath: ImageConstant.imgCameraPrimary,
+                        imagePath: ImageConstant.imgCameraPrimary1,
                         height: 20.adaptSize,
                         width: 20.adaptSize,
                       ),
@@ -161,6 +162,7 @@ class WriteInGroupOptionsScreen
             width: 138.h,
             text: "lbl_group_post".tr.toUpperCase(),
             buttonStyle: CustomButtonStyles.outlineBlueGrayTL16,
+            buttonTextStyle: CustomTextStyles.labelLargeOpenSansPrimary,
           )
         ],
       ),

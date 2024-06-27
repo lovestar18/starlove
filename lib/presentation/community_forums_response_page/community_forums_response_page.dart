@@ -21,17 +21,18 @@ class CommunityForumsResponsePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppbar(),
         body: Padding(
           padding: EdgeInsets.only(top: 24.v),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _buildUserProfileSection(),
+                _buildUserPost(),
                 CustomTextFormField(
                   controller: controller.commentController,
                   hintText: "lbl_write_a_comment".tr,
-                  hintStyle: CustomTextStyles.bodyLargeRobotoGray60002,
+                  hintStyle: CustomTextStyles.bodyLargeGray60002,
                   textInputAction: TextInputAction.done,
                   suffix: Container(
                     margin: EdgeInsets.symmetric(
@@ -56,7 +57,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
                   fillColor: appTheme.gray5001,
                 ),
                 SizedBox(height: 34.v),
-                _buildMediaSection(),
+                _buildMediaComment(),
                 SizedBox(height: 14.v),
                 SizedBox(
                   width: double.maxFinite,
@@ -74,7 +75,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 CustomImageView(
-                                  imagePath: ImageConstant.imgPlay,
+                                  imagePath: ImageConstant.imgPlay44x44,
                                   height: 44.adaptSize,
                                   width: double.maxFinite,
                                   alignment: Alignment.center,
@@ -103,73 +104,76 @@ class CommunityForumsResponsePage extends StatelessWidget {
                           ),
                           SizedBox(width: 6.h),
                           Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                _buildCommentHeader1(),
-                                SizedBox(height: 6.v),
-                                SizedBox(
-                                  width: double.maxFinite,
-                                  child: Text(
-                                    "msg_dolor_sit_ameteiusmod".tr,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: CustomTextStyles.bodyLargeRoboto_1
-                                        .copyWith(
-                                      height: 1.44,
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  _buildCommentHeader(),
+                                  SizedBox(height: 6.v),
+                                  SizedBox(
+                                    width: double.maxFinite,
+                                    child: Text(
+                                      "msg_dolor_sit_ameteiusmod".tr,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style:
+                                          CustomTextStyles.bodyLarge16.copyWith(
+                                        height: 1.44,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(height: 10.v),
-                                _buildLikesSection(),
-                                SizedBox(height: 42.v),
-                                Container(
-                                  width: 170.h,
-                                  margin: EdgeInsets.only(left: 54.h),
-                                  child: Text(
-                                    "msg_dolor_sit_ameteiusmod2".tr,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: CustomTextStyles.bodyLargeRoboto_1
-                                        .copyWith(
-                                      height: 1.44,
+                                  SizedBox(height: 10.v),
+                                  _buildCommentLikes(),
+                                  SizedBox(height: 42.v),
+                                  Container(
+                                    width: 170.h,
+                                    margin: EdgeInsets.only(left: 54.h),
+                                    child: Text(
+                                      "msg_dolor_sit_ameteiusmod2".tr,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style:
+                                          CustomTextStyles.bodyLarge16.copyWith(
+                                        height: 1.44,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(height: 10.v),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 54.h),
-                                  child: Row(
-                                    children: [
-                                      CustomImageView(
-                                        imagePath:
-                                            ImageConstant.imgFavoriteBlack900,
-                                        height: 28.adaptSize,
-                                        width: 28.adaptSize,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.h),
-                                        child: Text(
-                                          "lbl_18".tr,
-                                          style: theme.textTheme.titleMedium,
+                                  SizedBox(height: 10.v),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 54.h),
+                                    child: Row(
+                                      children: [
+                                        CustomImageView(
+                                          imagePath: ImageConstant.imgFavorite,
+                                          height: 28.adaptSize,
+                                          width: 28.adaptSize,
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 10.h),
-                                        child: Text(
-                                          "lbl_reply".tr,
-                                          style: CustomTextStyles
-                                              .bodyMediumRobotoGray60002,
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.h),
+                                          child: Text(
+                                            "lbl_18".tr,
+                                            style: CustomTextStyles
+                                                .titleMediumMedium,
+                                          ),
                                         ),
-                                      )
-                                    ],
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 10.h),
+                                          child: Text(
+                                            "lbl_reply".tr,
+                                            style: CustomTextStyles
+                                                .bodyMediumRobotoGray60002,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                SizedBox(height: 14.v),
-                                _buildMediaStack(),
-                                SizedBox(height: 14.v),
-                                _buildMediaBody()
-                              ],
+                                  SizedBox(height: 14.v),
+                                  _buildMediaStack(),
+                                  SizedBox(height: 14.v),
+                                  _buildCommentBody()
+                                ],
+                              ),
                             ),
                           )
                         ],
@@ -208,16 +212,16 @@ class CommunityForumsResponsePage extends StatelessWidget {
         ),
       ),
       styleType:
-          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04_1,
+          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04,
     );
   }
 
   /// Section Widget
-  Widget _buildUserProfileSection() {
+  Widget _buildUserPost() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
-      padding: EdgeInsets.symmetric(horizontal: 12.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 14.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -235,6 +239,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
                   radius: BorderRadius.circular(
                     30.h,
                   ),
+                  alignment: Alignment.center,
                 ),
                 SizedBox(width: 10.h),
                 Expanded(
@@ -266,7 +271,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
               "msg_minim_dolor_in_amet".tr,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: CustomTextStyles.headlineMediumBlack900.copyWith(
+              style: theme.textTheme.headlineMedium!.copyWith(
                 height: 1.31,
               ),
             ),
@@ -274,7 +279,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
           SizedBox(height: 12.v),
           Text(
             "msg_september_23_2021".tr,
-            style: CustomTextStyles.bodyLargeRobotoGray60003,
+            style: CustomTextStyles.bodyLargeGray60003,
           ),
           SizedBox(height: 10.v),
           SizedBox(
@@ -283,7 +288,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
               "msg_minim_dolor_in_amet2".tr,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
-              style: CustomTextStyles.bodyLargeRoboto.copyWith(
+              style: CustomTextStyles.bodyLarge17.copyWith(
                 height: 1.42,
               ),
             ),
@@ -300,35 +305,38 @@ class CommunityForumsResponsePage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     CustomImageView(
-                      imagePath: ImageConstant.imgFavoriteBlack90028x28,
+                      imagePath: ImageConstant.imgFavoriteBlack9003,
                       height: 28.adaptSize,
                       width: 28.adaptSize,
                     ),
                     SizedBox(width: 4.h),
                     Expanded(
-                      child: Row(
-                        children: [
-                          Text(
-                            "lbl_20k".tr,
-                            style: theme.textTheme.titleMedium,
-                          ),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgComment,
-                            height: 40.adaptSize,
-                            width: 40.adaptSize,
-                            radius: BorderRadius.circular(
-                              20.h,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Row(
+                          children: [
+                            Text(
+                              "lbl_20k".tr,
+                              style: CustomTextStyles.titleMediumMedium16,
                             ),
-                            margin: EdgeInsets.only(left: 22.h),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 4.h),
-                            child: Text(
-                              "lbl_567".tr,
-                              style: theme.textTheme.titleMedium,
+                            CustomImageView(
+                              imagePath: ImageConstant.imgCommentBlack900,
+                              height: 40.adaptSize,
+                              width: 40.adaptSize,
+                              radius: BorderRadius.circular(
+                                20.h,
+                              ),
+                              margin: EdgeInsets.only(left: 22.h),
                             ),
-                          )
-                        ],
+                            Padding(
+                              padding: EdgeInsets.only(left: 4.h),
+                              child: Text(
+                                "lbl_567".tr,
+                                style: CustomTextStyles.titleMediumMedium16,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],
@@ -350,80 +358,83 @@ class CommunityForumsResponsePage extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           CustomImageView(
-            imagePath: ImageConstant.imgPlay,
+            imagePath: ImageConstant.imgPlay44x44,
             height: 44.adaptSize,
             width: 44.adaptSize,
           ),
           SizedBox(width: 10.h),
           Expanded(
-            child: Column(
-              children: [
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        "lbl_esther_howard".tr,
-                        style: theme.textTheme.titleMedium,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 10.h),
+            child: Align(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          "lbl_esther_howard".tr,
+                          style: CustomTextStyles.titleMediumMedium,
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 10.h),
+                            child: Text(
+                              "lbl_25_minutes_ago".tr,
+                              style: CustomTextStyles.bodyMediumRobotoGray60002,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 6.v),
+                  Text(
+                    "msg_lorem_ipsum_dolor".tr,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: CustomTextStyles.bodyLarge16.copyWith(
+                      height: 1.44,
+                    ),
+                  ),
+                  SizedBox(height: 10.v),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        CustomImageView(
+                          imagePath: ImageConstant.imgFavoriteBlack9001,
+                          height: 28.adaptSize,
+                          width: 28.adaptSize,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 6.h),
                           child: Text(
-                            "lbl_25_minutes_ago".tr,
-                            style: CustomTextStyles.bodyMediumRobotoGray60002,
+                            "lbl_18".tr,
+                            style: CustomTextStyles.titleMediumMedium,
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 6.v),
-                Text(
-                  "msg_lorem_ipsum_dolor".tr,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: CustomTextStyles.bodyLargeRoboto_1.copyWith(
-                    height: 1.44,
-                  ),
-                ),
-                SizedBox(height: 10.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      CustomImageView(
-                        imagePath: ImageConstant.imgFavorite,
-                        height: 28.adaptSize,
-                        width: 28.adaptSize,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 6.h),
-                        child: Text(
-                          "lbl_18".tr,
-                          style: theme.textTheme.titleMedium,
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.h,
-                            bottom: 4.v,
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: 10.h,
+                              bottom: 4.v,
+                            ),
+                            child: Text(
+                              "lbl_reply".tr,
+                              style: CustomTextStyles.bodyMediumRobotoGray60002,
+                            ),
                           ),
-                          child: Text(
-                            "lbl_reply".tr,
-                            style: CustomTextStyles.bodyMediumRobotoGray60002,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],
@@ -432,10 +443,10 @@ class CommunityForumsResponsePage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildMediaSection() {
+  Widget _buildMediaComment() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
       child: Column(
         children: [_buildCommentSection()],
       ),
@@ -443,7 +454,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildCommentHeader1() {
+  Widget _buildCommentHeader() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
@@ -451,7 +462,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
         children: [
           Text(
             "lbl_jerome_bell".tr,
-            style: theme.textTheme.titleMedium,
+            style: CustomTextStyles.titleMediumMedium,
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -469,14 +480,14 @@ class CommunityForumsResponsePage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildLikesSection() {
+  Widget _buildCommentLikes() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
           CustomImageView(
-            imagePath: ImageConstant.imgFavoriteBlack900,
+            imagePath: ImageConstant.imgFavorite,
             height: 28.adaptSize,
             width: 28.adaptSize,
           ),
@@ -484,7 +495,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
             padding: EdgeInsets.only(left: 6.h),
             child: Text(
               "lbl_18".tr,
-              style: theme.textTheme.titleMedium,
+              style: CustomTextStyles.titleMediumMedium,
             ),
           )
         ],
@@ -506,39 +517,42 @@ class CommunityForumsResponsePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomImageView(
-                  imagePath: ImageConstant.imgPlay,
+                  imagePath: ImageConstant.imgPlay44x44,
                   height: 44.adaptSize,
                   width: 44.adaptSize,
                 ),
                 SizedBox(width: 10.h),
                 Expanded(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: _buildCommentHeader(
-                          ronaldrichards: "lbl_kristin_watson".tr,
-                          duration: "lbl_12_minutes_ago".tr,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.maxFinite,
+                          child: _buildCommentInfo(
+                            username: "lbl_kristin_watson".tr,
+                            duration: "lbl_12_minutes_ago".tr,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 2.v),
-                      Text(
-                        "msg_dolor_sit_ameteiusmod2".tr,
-                        maxLines: null,
-                        overflow: TextOverflow.ellipsis,
-                        style: CustomTextStyles.bodyLargeRoboto_1.copyWith(
-                          height: 1.44,
+                        SizedBox(height: 2.v),
+                        Text(
+                          "msg_dolor_sit_ameteiusmod2".tr,
+                          maxLines: null,
+                          overflow: TextOverflow.ellipsis,
+                          style: CustomTextStyles.bodyLarge16.copyWith(
+                            height: 1.44,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 12.v),
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: _buildReactionsSection(
-                          eighteenFive: "lbl_18".tr,
-                          replyFour: "lbl_reply".tr,
-                        ),
-                      )
-                    ],
+                        SizedBox(height: 12.v),
+                        SizedBox(
+                          width: double.maxFinite,
+                          child: _buildCommentInteractions(
+                            eighteenFive: "lbl_18".tr,
+                            replyFour: "lbl_reply".tr,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -549,72 +563,77 @@ class CommunityForumsResponsePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomImageView(
-                imagePath: ImageConstant.imgPlay,
+                imagePath: ImageConstant.imgPlay44x44,
                 height: 38.adaptSize,
                 width: 38.adaptSize,
               ),
-              Container(
-                width: 214.h,
-                margin: EdgeInsets.only(left: 10.h),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            "lbl_jacob_jones".tr,
-                            style: theme.textTheme.titleMedium,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.h),
-                            child: Text(
-                              "lbl_1_minutes_ago".tr,
-                              style: CustomTextStyles.bodyMediumRobotoGray60002,
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 214.h,
+                  margin: EdgeInsets.only(left: 10.h),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              "lbl_jacob_jones".tr,
+                              style: CustomTextStyles.titleMediumMedium,
                             ),
-                          )
-                        ],
+                            Padding(
+                              padding: EdgeInsets.only(left: 10.h),
+                              child: Text(
+                                "lbl_1_minutes_ago".tr,
+                                style:
+                                    CustomTextStyles.bodyMediumRobotoGray60002,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 2.v),
-                    Text(
-                      "msg_dolor_sit_ameteiusmod3".tr,
-                      maxLines: null,
-                      overflow: TextOverflow.ellipsis,
-                      style: CustomTextStyles.bodyLargeRoboto_1.copyWith(
-                        height: 1.44,
+                      SizedBox(height: 2.v),
+                      Text(
+                        "msg_dolor_sit_ameteiusmod3".tr,
+                        maxLines: null,
+                        overflow: TextOverflow.ellipsis,
+                        style: CustomTextStyles.bodyLarge16.copyWith(
+                          height: 1.44,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 12.v),
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          CustomImageView(
-                            imagePath: ImageConstant.imgFavoriteBlack90028x28,
-                            height: 28.adaptSize,
-                            width: 28.adaptSize,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 6.h),
-                            child: Text(
-                              "lbl_18".tr,
-                              style: theme.textTheme.titleMedium,
+                      SizedBox(height: 12.v),
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            CustomImageView(
+                              imagePath: ImageConstant.imgFavoriteBlack9003,
+                              height: 28.adaptSize,
+                              width: 28.adaptSize,
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.h),
-                            child: Text(
-                              "lbl_reply".tr,
-                              style: CustomTextStyles.bodyMediumRobotoGray60002,
+                            Padding(
+                              padding: EdgeInsets.only(left: 6.h),
+                              child: Text(
+                                "lbl_18".tr,
+                                style: CustomTextStyles.titleMediumMedium,
+                              ),
                             ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
+                            Padding(
+                              padding: EdgeInsets.only(left: 10.h),
+                              child: Text(
+                                "lbl_reply".tr,
+                                style:
+                                    CustomTextStyles.bodyMediumRobotoGray60002,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
@@ -635,7 +654,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildMediaBody() {
+  Widget _buildCommentBody() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
@@ -643,44 +662,47 @@ class CommunityForumsResponsePage extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           CustomImageView(
-            imagePath: ImageConstant.imgPlay,
+            imagePath: ImageConstant.imgPlay44x44,
             height: 44.adaptSize,
             width: 44.adaptSize,
           ),
           SizedBox(width: 10.h),
           Expanded(
-            child: Column(
-              children: [
-                SizedBox(
-                  width: double.maxFinite,
-                  child: _buildCommentHeader(
-                    ronaldrichards: "lbl_ronald_richards".tr,
-                    duration: "lbl_15_minutes_ago".tr,
+            child: Align(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: _buildCommentInfo(
+                      username: "lbl_ronald_richards".tr,
+                      duration: "lbl_15_minutes_ago".tr,
+                    ),
                   ),
-                ),
-                SizedBox(height: 2.v),
-                Text(
-                  "msg_dolor_sit_ameteiusmod4".tr,
-                  style: CustomTextStyles.bodyLargeRoboto_1,
-                ),
-                SizedBox(height: 12.v),
-                CustomImageView(
-                  imagePath: ImageConstant.imgUnsplashXbrqfr2bqni,
-                  height: 142.v,
-                  width: double.maxFinite,
-                  radius: BorderRadius.circular(
-                    8.h,
+                  SizedBox(height: 2.v),
+                  Text(
+                    "msg_dolor_sit_ameteiusmod4".tr,
+                    style: CustomTextStyles.bodyLarge16,
                   ),
-                ),
-                SizedBox(height: 22.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: _buildReactionsSection(
-                    eighteenFive: "lbl_18".tr,
-                    replyFour: "lbl_reply".tr,
+                  SizedBox(height: 12.v),
+                  CustomImageView(
+                    imagePath: ImageConstant.imgUnsplashXbrqfr2bqni,
+                    height: 142.v,
+                    width: double.maxFinite,
+                    radius: BorderRadius.circular(
+                      8.h,
+                    ),
                   ),
-                )
-              ],
+                  SizedBox(height: 22.v),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: _buildCommentInteractions(
+                      eighteenFive: "lbl_18".tr,
+                      replyFour: "lbl_reply".tr,
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],
@@ -689,15 +711,15 @@ class CommunityForumsResponsePage extends StatelessWidget {
   }
 
   /// Common widget
-  Widget _buildCommentHeader({
-    required String ronaldrichards,
+  Widget _buildCommentInfo({
+    required String username,
     required String duration,
   }) {
     return Row(
       children: [
         Text(
-          ronaldrichards,
-          style: theme.textTheme.titleMedium!.copyWith(
+          username,
+          style: CustomTextStyles.titleMediumMedium.copyWith(
             color: appTheme.black900,
           ),
         ),
@@ -715,14 +737,14 @@ class CommunityForumsResponsePage extends StatelessWidget {
   }
 
   /// Common widget
-  Widget _buildReactionsSection({
+  Widget _buildCommentInteractions({
     required String eighteenFive,
     required String replyFour,
   }) {
     return Row(
       children: [
         CustomImageView(
-          imagePath: ImageConstant.imgFavorite,
+          imagePath: ImageConstant.imgFavoriteBlack9001,
           height: 28.adaptSize,
           width: 28.adaptSize,
         ),
@@ -730,7 +752,7 @@ class CommunityForumsResponsePage extends StatelessWidget {
           padding: EdgeInsets.only(left: 6.h),
           child: Text(
             eighteenFive,
-            style: theme.textTheme.titleMedium!.copyWith(
+            style: CustomTextStyles.titleMediumMedium.copyWith(
               color: appTheme.black900,
             ),
           ),

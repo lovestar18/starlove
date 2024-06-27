@@ -13,15 +13,16 @@ class ThankYouApplicationScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.only(
-            left: 14.h,
+            left: 10.h,
             top: 92.v,
-            right: 14.h,
+            right: 10.h,
           ),
           child: Column(
-            children: [_buildConfirmationSection(), SizedBox(height: 4.v)],
+            children: [_buildApplicationConfirmation(), SizedBox(height: 4.v)],
           ),
         ),
       ),
@@ -29,30 +30,18 @@ class ThankYouApplicationScreen
   }
 
   /// Section Widget
-  Widget _buildConfirmationSection() {
+  Widget _buildApplicationConfirmation() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 48.h),
+      padding: EdgeInsets.symmetric(horizontal: 50.h),
       child: Column(
         children: [
-          Container(
-            height: 98.adaptSize,
-            width: 98.adaptSize,
-            decoration: AppDecoration.outlineIndigo.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder48,
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                CustomImageView(
-                  imagePath: ImageConstant.imgCheckmark,
-                  height: 16.v,
-                  width: 18.h,
-                )
-              ],
-            ),
+          CustomImageView(
+            imagePath: ImageConstant.imgImage2,
+            height: 100.adaptSize,
+            width: 100.adaptSize,
           ),
-          SizedBox(height: 38.v),
+          SizedBox(height: 36.v),
           SizedBox(
             width: double.maxFinite,
             child: Text(

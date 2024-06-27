@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 
 enum Style {
+  bgStyle,
   bgOutline_1,
   bgGradientnameindigoA70001opacity04namecyan40001opacity04_1,
-  bgGradientnameindigoA70001opacity04namecyan40001opacity04_2,
   bgFill_1,
   bgOutline,
-  bgGradientnameindigoA70001opacity04namecyan40001opacity04,
+  bgFill_2,
   bgOutline_2,
+  bgGradientnameindigoA70001opacity04namecyan40001opacity04,
   bgFill
 }
 
@@ -65,6 +66,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       );
   _getStyle() {
     switch (styleType) {
+      case Style.bgStyle:
+        return Container(
+          height: 98.v,
+          width: 382.h,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                ImageConstant.imgFrame427321905,
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
+        );
       case Style.bgOutline_1:
         return Container(
           height: 56.v,
@@ -97,42 +111,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             Container(
               height: 56.v,
-              width: 368.h,
-              margin: EdgeInsets.only(right: 6.h),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment(0, 0.5),
-                  end: Alignment(1, 0.5),
-                  colors: [
-                    appTheme.indigoA70001.withOpacity(0.4),
-                    appTheme.cyan40001.withOpacity(0.4)
-                  ],
-                ),
+              width: 352.h,
+              margin: EdgeInsets.only(
+                left: 12.h,
+                right: 10.h,
               ),
-            )
-          ],
-        );
-      case Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04_2:
-        return Stack(
-          children: [
-            Container(
-              height: 56.v,
-              width: 374.h,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment(0, 0.5),
-                  end: Alignment(1, 0.5),
-                  colors: [
-                    appTheme.indigoA70001.withOpacity(0.4),
-                    appTheme.cyan40001.withOpacity(0.4)
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              height: 56.v,
-              width: 370.h,
-              margin: EdgeInsets.only(left: 5.h),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment(0, 0.5),
@@ -156,7 +139,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         );
       case Style.bgOutline:
         return Container(
-          height: 58.v,
+          height: 56.v,
           width: 374.h,
           decoration: BoxDecoration(
             border: Border(
@@ -167,20 +150,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         );
-      case Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04:
+      case Style.bgFill_2:
         return Container(
-          height: 100.v,
-          width: 374.h,
-          margin: EdgeInsets.only(right: 8.h),
+          height: 62.v,
+          width: 288.h,
+          margin: EdgeInsets.only(right: 86.h),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(0, 0.5),
-              end: Alignment(1, 0.5),
-              colors: [
-                appTheme.indigoA70001.withOpacity(0.4),
-                appTheme.cyan40001.withOpacity(0.4)
-              ],
-            ),
+            color: theme.colorScheme.primary.withOpacity(0.8),
           ),
         );
       case Style.bgOutline_2:
@@ -196,6 +172,40 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
           ),
+        );
+      case Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04:
+        return Stack(
+          children: [
+            Container(
+              height: 56.v,
+              width: 374.h,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment(0, 0.5),
+                  end: Alignment(1, 0.5),
+                  colors: [
+                    appTheme.indigoA70001.withOpacity(0.4),
+                    appTheme.cyan40001.withOpacity(0.4)
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: 56.v,
+              width: 368.h,
+              margin: EdgeInsets.only(right: 6.h),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment(0, 0.5),
+                  end: Alignment(1, 0.5),
+                  colors: [
+                    appTheme.indigoA70001.withOpacity(0.4),
+                    appTheme.cyan40001.withOpacity(0.4)
+                  ],
+                ),
+              ),
+            )
+          ],
         );
       case Style.bgFill:
         return Container(

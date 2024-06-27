@@ -3,7 +3,7 @@ import '../../core/app_export.dart';
 import '../../core/utils/validation_functions.dart';
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_nine.dart';
+import '../../widgets/app_bar/appbar_subtitle_eleven.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_icon_button.dart';
@@ -25,6 +25,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         body: SizedBox(
           width: double.maxFinite,
           child: SingleChildScrollView(
@@ -39,7 +40,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
                   Container(
                     width: double.maxFinite,
                     padding: EdgeInsets.symmetric(
-                      horizontal: 14.h,
+                      horizontal: 10.h,
                       vertical: 8.v,
                     ),
                     child: Column(
@@ -63,8 +64,8 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
   Widget _buildCameraSection() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
-      padding: EdgeInsets.only(right: 112.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
+      padding: EdgeInsets.only(right: 116.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -74,7 +75,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
             padding: EdgeInsets.all(4.h),
             decoration: IconButtonStyleHelper.gradientIndigoAToIndigo,
             child: CustomImageView(
-              imagePath: ImageConstant.imgCamera,
+              imagePath: ImageConstant.imgCameraGray20003,
             ),
           )
         ],
@@ -99,7 +100,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      ImageConstant.imgGroup14,
+                      ImageConstant.imgGroup3722,
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -110,11 +111,11 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
                       height: 24.v,
                       leadingWidth: 40.h,
                       leading: AppbarLeadingImage(
-                        imagePath: ImageConstant.imgArrowDown,
+                        imagePath: ImageConstant.imgArrowDownPrimary,
                         margin: EdgeInsets.only(left: 16.h),
                       ),
                       centerTitle: true,
-                      title: AppbarSubtitleNine(
+                      title: AppbarSubtitleEleven(
                         text: "lbl_edit_profile".tr,
                       ),
                     ),
@@ -149,7 +150,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
         children: [
           Text(
             "lbl_name".tr,
-            style: CustomTextStyles.titleMediumInterGray90012,
+            style: CustomTextStyles.titleMediumInterGray90011,
           ),
           SizedBox(height: 4.v),
           CustomTextFormField(
@@ -162,8 +163,8 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
               }
               return null;
             },
-            borderDecoration: TextFormFieldStyleHelper.fillGray,
-            fillColor: appTheme.gray10004,
+            borderDecoration: TextFormFieldStyleHelper.fillGrayTL24,
+            fillColor: appTheme.gray10003,
           )
         ],
       ),
@@ -179,15 +180,15 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
         children: [
           Text(
             "lbl_bio".tr,
-            style: CustomTextStyles.titleMediumInterGray90012,
+            style: CustomTextStyles.titleMediumInterGray90011,
           ),
           SizedBox(height: 6.v),
           CustomTextFormField(
             controller: controller.bioplaceholderController,
             hintText: "lbl_bio2".tr,
             hintStyle: CustomTextStyles.titleMediumInterGray400,
-            borderDecoration: TextFormFieldStyleHelper.fillGray,
-            fillColor: appTheme.gray10004,
+            borderDecoration: TextFormFieldStyleHelper.fillGrayTL24,
+            fillColor: appTheme.gray10003,
           )
         ],
       ),
@@ -203,15 +204,15 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
         children: [
           Text(
             "msg_username_has_to".tr,
-            style: CustomTextStyles.titleMediumInterGray90012,
+            style: CustomTextStyles.titleMediumInterGray90011,
           ),
           SizedBox(height: 4.v),
           CustomTextFormField(
             controller: controller.userNameController,
             hintText: "lbl_handle".tr,
             hintStyle: CustomTextStyles.titleMediumInterGray400,
-            borderDecoration: TextFormFieldStyleHelper.fillGray,
-            fillColor: appTheme.gray10004,
+            borderDecoration: TextFormFieldStyleHelper.fillGrayTL24,
+            fillColor: appTheme.gray10003,
           )
         ],
       ),
@@ -227,15 +228,15 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
         children: [
           Text(
             "lbl_tiktok_link".tr,
-            style: CustomTextStyles.titleMediumInterGray90012,
+            style: CustomTextStyles.titleMediumInterGray90011,
           ),
           SizedBox(height: 6.v),
           CustomTextFormField(
             controller: controller.tiktoklinkController,
             hintText: "lbl_tiktok_link2".tr,
             hintStyle: CustomTextStyles.titleMediumInterGray400,
-            borderDecoration: TextFormFieldStyleHelper.fillGray,
-            fillColor: appTheme.gray10004,
+            borderDecoration: TextFormFieldStyleHelper.fillGrayTL24,
+            fillColor: appTheme.gray10003,
           )
         ],
       ),
@@ -251,7 +252,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
         children: [
           Text(
             "lbl_instagram_link".tr,
-            style: CustomTextStyles.titleMediumInterGray90012,
+            style: CustomTextStyles.titleMediumInterGray90011,
           ),
           SizedBox(height: 4.v),
           CustomTextFormField(
@@ -259,8 +260,8 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
             hintText: "msg_instagram_link".tr,
             hintStyle: CustomTextStyles.titleMediumInterGray400,
             textInputAction: TextInputAction.done,
-            borderDecoration: TextFormFieldStyleHelper.fillGray,
-            fillColor: appTheme.gray10004,
+            borderDecoration: TextFormFieldStyleHelper.fillGrayTL24,
+            fillColor: appTheme.gray10003,
           )
         ],
       ),
@@ -271,7 +272,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
   Widget _buildEditProfileFieldsSection() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 14.h),
+      padding: EdgeInsets.symmetric(horizontal: 18.h),
       child: Column(
         children: [
           SizedBox(
@@ -305,7 +306,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
         right: 30.h,
         bottom: 44.v,
       ),
-      decoration: AppDecoration.white,
+      decoration: AppDecoration.mainwhite,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -313,7 +314,7 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
             height: 52.v,
             text: "lbl_save_changes".tr,
             buttonStyle: CustomButtonStyles.fillIndigoA,
-            buttonTextStyle: CustomTextStyles.titleMediumInterPrimaryBold,
+            buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16,
             onPressed: () {
               onTapSavechanges();
             },
@@ -323,10 +324,5 @@ class EditProfileScreen extends GetWidget<EditProfileController> {
     );
   }
 
-  /// Navigates to the userProfileScreen when the action is triggered.
-  onTapSavechanges() {
-    Get.toNamed(
-      AppRoutes.userProfileScreen,
-    );
-  }
+  onTapSavechanges() {}
 }

@@ -10,8 +10,8 @@ import '../community_forums_home_page/community_forums_home_page.dart';
 import '../community_forums_response_page/community_forums_response_page.dart';
 import '../homepage_page/homepage_page.dart';
 import 'controller/add_to_chat_controller.dart';
-import 'models/userprofilelist1_item_model.dart';
-import 'widgets/userprofilelist1_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/userprofilelist4_item_model.dart';
+import 'widgets/userprofilelist4_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class AddToChatScreen extends GetWidget<AddToChatController> {
   const AddToChatScreen({Key? key})
@@ -24,14 +24,17 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
-        body: Column(
-          children: [
-            SizedBox(height: 6.v),
-            _buildSearchBar(),
-            SizedBox(height: 18.v),
-            _buildUserProfileList()
-          ],
+        body: Container(
+          width: double.maxFinite,
+          padding: EdgeInsets.symmetric(
+            horizontal: 10.h,
+            vertical: 6.v,
+          ),
+          child: Column(
+            children: [_buildSearchColumn(), SizedBox(height: 20.v)],
+          ),
         ),
         bottomNavigationBar: _buildBottomNavigationBar(),
         floatingActionButton: CustomFloatingButton(
@@ -51,13 +54,13 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
   /// Section Widget
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
-      leadingWidth: 27.h,
+      leadingWidth: 25.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftIndigo900,
+        imagePath: ImageConstant.imgArrowLeftIndigo9001,
         margin: EdgeInsets.only(
-          left: 21.h,
-          top: 14.v,
-          bottom: 29.v,
+          left: 19.h,
+          top: 19.v,
+          bottom: 24.v,
         ),
         onTap: () {
           onTapArrowleftone();
@@ -71,14 +74,11 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
   }
 
   /// Section Widget
-  Widget _buildSearchBar() {
+  Widget _buildSearchView() {
     return Padding(
-      padding: EdgeInsets.only(
-        left: 12.h,
-        right: 14.h,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 8.h),
       child: CustomSearchView(
-        controller: controller.searchBarController,
+        controller: controller.searchViewController,
         hintText: "lbl_search".tr,
       ),
     );
@@ -88,34 +88,49 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
   Widget _buildUserProfileList() {
     return SizedBox(
       width: double.maxFinite,
-      child: Align(
-        alignment: Alignment.centerRight,
-        child: Padding(
-          padding: EdgeInsets.only(left: 18.h),
-          child: Obx(
-            () => ListView.separated(
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              separatorBuilder: (context, index) {
-                return SizedBox(
-                  height: 6.v,
-                );
-              },
-              itemCount: controller.addToChatModelObj.value
-                  .userprofilelist1ItemList.value.length,
-              itemBuilder: (context, index) {
-                Userprofilelist1ItemModel model = controller.addToChatModelObj
-                    .value.userprofilelist1ItemList.value[index];
-                return Userprofilelist1ItemWidget(
-                  model,
-                  onTapViewButton: () {
-                    onTapViewButton();
-                  },
-                );
-              },
-            ),
-          ),
+      child: Obx(
+        () => ListView.separated(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              height: 6.v,
+            );
+          },
+          itemCount: controller
+              .addToChatModelObj.value.userprofilelist4ItemList.value.length,
+          itemBuilder: (context, index) {
+            Userprofilelist4ItemModel model = controller
+                .addToChatModelObj.value.userprofilelist4ItemList.value[index];
+            return Userprofilelist4ItemWidget(
+              model,
+            );
+          },
         ),
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildAddToChatSection() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Column(
+        children: [
+          _buildSearchView(),
+          SizedBox(height: 18.v),
+          _buildUserProfileList()
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildSearchColumn() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Column(
+        children: [_buildAddToChatSection()],
       ),
     );
   }
@@ -132,11 +147,11 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -162,12 +177,5 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
   /// Navigates to the previous screen.
   onTapArrowleftone() {
     Get.back();
-  }
-
-  /// Navigates to the userProfileScreen when the action is triggered.
-  onTapViewButton() {
-    Get.toNamed(
-      AppRoutes.userProfileScreen,
-    );
   }
 }

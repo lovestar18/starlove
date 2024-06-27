@@ -8,7 +8,7 @@ import 'userprofile_item_model.dart';
 // ignore_for_file: must_be_immutable
 class GroupDescriptionModel {
   Rx<List<UserprofileItemModel>> userprofileItemList = Rx([
-    UserprofileItemModel(adinanurrahma: "Adina Nurrahma".obs, you: "You".obs),
+    UserprofileItemModel(username: "Adina Nurrahma".obs, userText: "You".obs),
     UserprofileItemModel(),
     UserprofileItemModel(),
     UserprofileItemModel(),

@@ -48,7 +48,7 @@ class CustomOutlinedButton extends BaseButton {
   }
 
   Widget get buildOutlinedButtonWidget => Container(
-        height: this.height ?? 48.v,
+        height: this.height ?? 26.v,
         width: this.width ?? double.maxFinite,
         margin: margin,
         decoration: decoration,
@@ -63,7 +63,7 @@ class CustomOutlinedButton extends BaseButton {
               Text(
                 text,
                 style: buttonTextStyle ??
-                    CustomTextStyles.labelLargeOpenSansPrimary,
+                    CustomTextStyles.labelLargeRobotoIndigoA100,
               ),
               rightIcon ?? const SizedBox.shrink()
             ],

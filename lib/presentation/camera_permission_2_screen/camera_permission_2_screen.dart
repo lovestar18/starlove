@@ -54,7 +54,7 @@ class CameraPermission2Screen extends GetWidget<CameraPermission2Controller> {
       ),
       actions: [
         AppbarTrailingCircleimage(
-          imagePath: ImageConstant.imgVector,
+          imagePath: ImageConstant.imgVectorPrimary,
           margin: EdgeInsets.only(right: 15.h),
         )
       ],
@@ -62,7 +62,7 @@ class CameraPermission2Screen extends GetWidget<CameraPermission2Controller> {
   }
 
   /// Section Widget
-  Widget _buildBodySection() {
+  Widget _buildBodyContent() {
     return Expanded(
       child: Column(
         children: [
@@ -76,25 +76,25 @@ class CameraPermission2Screen extends GetWidget<CameraPermission2Controller> {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
-            style: CustomTextStyles.bodyLargePrimary.copyWith(
+            style: CustomTextStyles.bodyLargeOpenSansPrimary.copyWith(
               height: 1.50,
             ),
           ),
           SizedBox(height: 54.v),
           Text(
             "msg_enable_camera_access".tr,
-            style: CustomTextStyles.bodyLargeErrorContainer,
+            style: CustomTextStyles.bodyLargeOpenSansErrorContainer,
           ),
           SizedBox(height: 10.v),
           Text(
             "msg_enable_microphone".tr,
-            style: CustomTextStyles.bodyLargeErrorContainer,
+            style: CustomTextStyles.bodyLargeOpenSansErrorContainer,
           ),
           Spacer(),
           Container(
             width: 80.h,
             padding: EdgeInsets.all(10.h),
-            decoration: AppDecoration.white.copyWith(
+            decoration: AppDecoration.mainwhite.copyWith(
               borderRadius: BorderRadiusStyle.circleBorder40,
             ),
             child: Column(
@@ -123,7 +123,7 @@ class CameraPermission2Screen extends GetWidget<CameraPermission2Controller> {
             children: [
               Text(
                 "lbl_post2".tr,
-                style: CustomTextStyles.bodyLargePrimary,
+                style: CustomTextStyles.bodyLargeOpenSansPrimary,
               ),
               SizedBox(width: 24.h),
               Text(
@@ -142,10 +142,10 @@ class CameraPermission2Screen extends GetWidget<CameraPermission2Controller> {
     return Expanded(
       child: Container(
         width: double.maxFinite,
-        margin: EdgeInsets.symmetric(horizontal: 14.h),
-        padding: EdgeInsets.symmetric(horizontal: 6.h),
+        margin: EdgeInsets.symmetric(horizontal: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.h),
         child: Column(
-          children: [_buildBodySection()],
+          children: [_buildBodyContent()],
         ),
       ),
     );

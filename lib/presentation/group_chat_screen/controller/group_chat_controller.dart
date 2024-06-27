@@ -7,13 +7,13 @@ import '../models/group_chat_model.dart';
 /// This class manages the state of the GroupChatScreen, including the
 /// current groupChatModelObj
 class GroupChatController extends GetxController {
-  TextEditingController messageController = TextEditingController();
+  TextEditingController messageInputController = TextEditingController();
 
   Rx<GroupChatModel> groupChatModelObj = GroupChatModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    messageController.dispose();
+    messageInputController.dispose();
   }
 }

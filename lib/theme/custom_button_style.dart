@@ -54,9 +54,9 @@ class CustomButtonStyles {
         ),
       );
   static ButtonStyle get fillGray => ElevatedButton.styleFrom(
-        backgroundColor: appTheme.gray100,
+        backgroundColor: appTheme.gray90010,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.h),
+          borderRadius: BorderRadius.circular(14.h),
         ),
       );
   static ButtonStyle get fillGrayBL16 => ElevatedButton.styleFrom(
@@ -86,12 +86,6 @@ class CustomButtonStyles {
               18.h,
             ),
           ),
-        ),
-      );
-  static ButtonStyle get fillGrayTL14 => ElevatedButton.styleFrom(
-        backgroundColor: appTheme.gray90011,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14.h),
         ),
       );
   static ButtonStyle get fillGrayTL16 => ElevatedButton.styleFrom(
@@ -165,6 +159,14 @@ class CustomButtonStyles {
           colors: [appTheme.deepOrange500, appTheme.yellow800],
         ),
       );
+  static BoxDecoration get gradientIndigoAToIndigoDecoration => BoxDecoration(
+        borderRadius: BorderRadius.circular(12.h),
+        gradient: LinearGradient(
+          begin: Alignment(1.0, 0),
+          end: Alignment(0.0, 0),
+          colors: [appTheme.indigoA100, appTheme.indigo500],
+        ),
+      );
   static BoxDecoration get gradientOnPrimaryToPurpleDecoration => BoxDecoration(
         borderRadius: BorderRadius.circular(16.h),
         gradient: LinearGradient(
@@ -173,26 +175,7 @@ class CustomButtonStyles {
           colors: [theme.colorScheme.onPrimary, appTheme.purple900],
         ),
       );
-  static BoxDecoration get gradientPrimaryToPrimaryDecoration => BoxDecoration(
-        borderRadius: BorderRadius.circular(10.h),
-        boxShadow: [
-          BoxShadow(
-            color: appTheme.indigoA400,
-            spreadRadius: 2.h,
-            blurRadius: 2.h,
-            offset: Offset(
-              0,
-              0,
-            ),
-          )
-        ],
-        gradient: LinearGradient(
-          begin: Alignment(0.5, 0),
-          end: Alignment(0.5, 1),
-          colors: [theme.colorScheme.primary, theme.colorScheme.primary],
-        ),
-      );
-  static BoxDecoration get gradientTealAToCyanADecoration => BoxDecoration(
+  static BoxDecoration get gradientTealAToCyanATL18Decoration => BoxDecoration(
         borderRadius: BorderRadius.circular(18.h),
         gradient: LinearGradient(
           begin: Alignment(0.0, 0),
@@ -201,6 +184,12 @@ class CustomButtonStyles {
         ),
       );
 // Outline button style
+  static ButtonStyle get outline => OutlinedButton.styleFrom(
+        backgroundColor: appTheme.indigoA70001,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.h),
+        ),
+      );
   static ButtonStyle get outlineBlack => OutlinedButton.styleFrom(
         backgroundColor: Colors.transparent,
         side: BorderSide(
@@ -241,43 +230,39 @@ class CustomButtonStyles {
           borderRadius: BorderRadius.circular(16.h),
         ),
       );
-  static ButtonStyle get outlineBlueGrayTL4 => ElevatedButton.styleFrom(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4.h),
+  static ButtonStyle get outlineBlueGrayTL22 => OutlinedButton.styleFrom(
+        backgroundColor: appTheme.gray90001,
+        side: BorderSide(
+          color: appTheme.blueGray90001,
+          width: 1,
         ),
-        shadowColor: appTheme.blueGray6001901,
-        elevation: 4,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(22.h),
+        ),
+      );
+  static ButtonStyle get outlineBlueGrayTL221 => OutlinedButton.styleFrom(
+        backgroundColor: appTheme.gray90001,
+        side: BorderSide(
+          color: appTheme.blueGray90001,
+          width: 1,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(22.h),
+        ),
       );
   static ButtonStyle get outlineGray => OutlinedButton.styleFrom(
         backgroundColor: Colors.transparent,
         side: BorderSide(
-          color: appTheme.gray10007,
+          color: appTheme.gray10006,
           width: 1,
         ),
         shape: RoundedRectangleBorder(),
       );
-  static ButtonStyle get outlineGrayTL16 => OutlinedButton.styleFrom(
-        backgroundColor: appTheme.gray50,
-        side: BorderSide(
-          color: appTheme.gray30005,
-          width: 1,
-        ),
+  static ButtonStyle get outlineTL12 => OutlinedButton.styleFrom(
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(
-              16.h,
-            ),
-          ),
+          borderRadius: BorderRadius.circular(12.h),
         ),
-      );
-  static ButtonStyle get outlineGray1 => OutlinedButton.styleFrom(
-        backgroundColor: appTheme.gray50,
-        side: BorderSide(
-          color: appTheme.gray30005,
-          width: 1,
-        ),
-        shape: RoundedRectangleBorder(),
       );
 // text button style
   static ButtonStyle get none => ButtonStyle(

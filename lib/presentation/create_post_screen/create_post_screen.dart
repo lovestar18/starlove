@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_subtitle_fifteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_eighteen.dart';
 import '../../widgets/app_bar/appbar_subtitle_sixteen.dart';
 import '../../widgets/app_bar/appbar_trailing_button.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
@@ -17,11 +17,12 @@ class CreatePostScreen extends GetWidget<CreatePostController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: _buildAppBar(),
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        appBar: _buildAppbarSection(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 14.h,
+            horizontal: 10.h,
             vertical: 20.v,
           ),
           child: Column(
@@ -33,18 +34,18 @@ class CreatePostScreen extends GetWidget<CreatePostController> {
   }
 
   /// Section Widget
-  PreferredSizeWidget _buildAppBar() {
+  PreferredSizeWidget _buildAppbarSection() {
     return CustomAppBar(
-      height: 38.v,
+      height: 32.v,
       title: Padding(
-        padding: EdgeInsets.only(left: 15.h),
+        padding: EdgeInsets.only(left: 22.h),
         child: Row(
           children: [
-            AppbarSubtitleSixteen(
+            AppbarSubtitleEighteen(
               text: "lbl_cancel".tr,
               margin: EdgeInsets.only(bottom: 1.v),
             ),
-            AppbarSubtitleFifteen(
+            AppbarSubtitleSixteen(
               text: "lbl_create".tr.toUpperCase(),
               margin: EdgeInsets.only(left: 82.h),
             )
@@ -54,9 +55,9 @@ class CreatePostScreen extends GetWidget<CreatePostController> {
       actions: [
         AppbarTrailingButton(
           margin: EdgeInsets.only(
-            top: 7.v,
-            right: 28.h,
-            bottom: 7.v,
+            top: 4.v,
+            right: 21.h,
+            bottom: 4.v,
           ),
         )
       ],
@@ -65,15 +66,12 @@ class CreatePostScreen extends GetWidget<CreatePostController> {
 
   /// Section Widget
   Widget _buildProfileSection() {
-    return SizedBox(
-      width: double.maxFinite,
+    return Expanded(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             width: double.maxFinite,
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
                 CustomImageView(
@@ -84,34 +82,37 @@ class CreatePostScreen extends GetWidget<CreatePostController> {
                     16.h,
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 18.h,
-                    top: 2.v,
-                  ),
-                  child: Text(
-                    "msg_what_s_on_your_mind".tr,
-                    style: CustomTextStyles.titleMediumOpenSansGray600,
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: 12.h,
+                      bottom: 2.v,
+                    ),
+                    child: Text(
+                      "msg_what_s_on_your_mind".tr,
+                      style: CustomTextStyles.titleMediumOpenSansGray600,
+                    ),
                   ),
                 )
               ],
             ),
           ),
-          SizedBox(height: 18.v),
+          SizedBox(height: 12.v),
           CustomIconButton(
             height: 32.adaptSize,
             width: 32.adaptSize,
             padding: EdgeInsets.all(8.h),
+            alignment: Alignment.centerLeft,
             child: CustomImageView(
               imagePath: ImageConstant.imgIconPlus,
             ),
           ),
-          SizedBox(height: 294.v),
+          Spacer(),
           Container(
-            margin: EdgeInsets.only(left: 74.h),
-            padding: EdgeInsets.all(4.h),
-            decoration: AppDecoration.secondaryDarkGrey.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder16,
+            padding: EdgeInsets.all(6.h),
+            decoration: AppDecoration.outlineBluegray90001.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder24,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -119,7 +120,7 @@ class CreatePostScreen extends GetWidget<CreatePostController> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 16.h,
-                    vertical: 2.v,
+                    vertical: 6.v,
                   ),
                   child: Text(
                     "lbl_post".tr.toUpperCase(),
@@ -130,7 +131,7 @@ class CreatePostScreen extends GetWidget<CreatePostController> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 16.h,
-                    vertical: 2.v,
+                    vertical: 6.v,
                   ),
                   child: Text(
                     "lbl_story2".tr.toUpperCase(),

@@ -17,39 +17,16 @@ class ProfileScreen extends GetWidget<ProfileController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: appTheme.cyan40001,
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 58.v),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    _buildProfileSection(),
-                    SizedBox(height: 12.v),
-                    Container(
-                      width: double.maxFinite,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12.h,
-                        vertical: 6.v,
-                      ),
-                      decoration: AppDecoration.outlineTeal.copyWith(
-                        borderRadius: BorderRadiusStyle.customBorderTL70,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          _buildUserInfoSection(),
-                          SizedBox(height: 214.v)
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        body: Container(
+          width: double.maxFinite,
+          padding: EdgeInsets.symmetric(
+            horizontal: 10.h,
+            vertical: 22.v,
+          ),
+          child: Column(
+            children: [SizedBox(height: 36.v), _buildProfileColumn()],
+          ),
         ),
         bottomNavigationBar: Padding(
           padding: EdgeInsets.only(left: 4.h),
@@ -70,123 +47,270 @@ class ProfileScreen extends GetWidget<ProfileController> {
   }
 
   /// Section Widget
-  Widget _buildProfileSection() {
+  Widget _buildProfileColumn() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
-      padding: EdgeInsets.only(right: 138.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Text(
-            "lbl_profile".tr,
-            style: CustomTextStyles.titleLargePoppinsBluegray90002,
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildUserInfoSection() {
-    return Container(
-      width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 22.h),
+      padding: EdgeInsets.symmetric(horizontal: 28.h),
       child: Column(
         children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgEllipse19274x74,
-            height: 74.adaptSize,
-            width: 74.adaptSize,
-            radius: BorderRadius.circular(
-              36.h,
-            ),
-          ),
-          SizedBox(height: 6.v),
-          Text(
-            "lbl_john_smith".tr,
-            style: CustomTextStyles.titleLargeOpenSansTeal900,
-          ),
-          SizedBox(height: 6.v),
-          Text(
-            "lbl_johnsmith2".tr,
-            style: CustomTextStyles.labelLargeOpenSansBluegray90002,
-          ),
-          SizedBox(height: 8.v),
           SizedBox(
             width: double.maxFinite,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
+            child: Column(
               children: [
-                Container(
-                  height: 52.v,
-                  width: 56.h,
-                  decoration: AppDecoration.fillIndigoA.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder24,
+                Text(
+                  "lbl_profile".tr,
+                  style: CustomTextStyles.titleLargePoppinsBluegray90003,
+                ),
+                SizedBox(height: 20.v),
+                CustomImageView(
+                  imagePath: ImageConstant.imgEllipse19274x74,
+                  height: 74.adaptSize,
+                  width: 74.adaptSize,
+                  radius: BorderRadius.circular(
+                    36.h,
                   ),
-                  child: Stack(
-                    alignment: Alignment.center,
+                ),
+                SizedBox(height: 6.v),
+                Text(
+                  "lbl_john_smith".tr,
+                  style: CustomTextStyles.titleLargeOpenSansTeal900,
+                ),
+                SizedBox(height: 6.v),
+                Text(
+                  "lbl_johnsmith2".tr,
+                  style: CustomTextStyles.labelLargeOpenSansBluegray90003,
+                ),
+                SizedBox(height: 18.v),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      CustomImageView(
-                        imagePath: ImageConstant.imgLockGray10001,
-                        height: 28.v,
-                        width: 22.h,
+                      Container(
+                        height: 52.v,
+                        width: 56.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadiusStyle.roundedBorder24,
+                        ),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CustomImageView(
+                              imagePath:
+                                  ImageConstant.imgSettingsIndigoA7000128x22,
+                              height: 28.v,
+                              width: 22.h,
+                            )
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 12.h),
+                        child: Text(
+                          "lbl_edit_profile2".tr,
+                          style:
+                              CustomTextStyles.titleSmallOpenSansBluegray90003,
+                        ),
                       )
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 12.h),
-                  child: Text(
-                    "lbl_edit_profile2".tr,
-                    style: CustomTextStyles.titleSmallOpenSansBluegray90002,
+                SizedBox(height: 10.v),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        height: 52.v,
+                        width: 56.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadiusStyle.roundedBorder24,
+                        ),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CustomImageView(
+                              imagePath: ImageConstant.imgCheckmark,
+                              height: 28.v,
+                              width: 26.h,
+                            )
+                          ],
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: 12.h,
+                            bottom: 12.v,
+                          ),
+                          child: Text(
+                            "lbl_privacy_policy".tr,
+                            style: CustomTextStyles
+                                .titleSmallOpenSansBluegray90003,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10.v),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: SizedBox(
+                    width: 224.h,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 52.v,
+                          width: 56.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadiusStyle.roundedBorder24,
+                          ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              CustomImageView(
+                                imagePath: ImageConstant.imgSearchIndigoA70001,
+                                height: 28.v,
+                                width: 26.h,
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 12.h),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 12.v),
+                            child: Text(
+                              "msg_notification_settings".tr,
+                              style: CustomTextStyles
+                                  .titleSmallOpenSansBluegray90003,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10.v),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Card(
+                        clipBehavior: Clip.antiAlias,
+                        elevation: 0,
+                        margin: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusStyle.roundedBorder24,
+                        ),
+                        child: Container(
+                          height: 52.v,
+                          width: 56.h,
+                          padding: EdgeInsets.symmetric(vertical: 10.v),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadiusStyle.roundedBorder24,
+                          ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              CustomImageView(
+                                imagePath: ImageConstant.imgEllipse2,
+                                height: 1.adaptSize,
+                                width: 1.adaptSize,
+                                radius: BorderRadius.circular(
+                                  0.5.adaptSize,
+                                ),
+                                alignment: Alignment.bottomCenter,
+                                margin: EdgeInsets.only(bottom: 10.v),
+                              ),
+                              CustomImageView(
+                                imagePath: ImageConstant.imgPadlock,
+                                height: 30.adaptSize,
+                                width: 30.adaptSize,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: 12.h,
+                            bottom: 12.v,
+                          ),
+                          child: Text(
+                            "lbl_change_password".tr,
+                            style: CustomTextStyles
+                                .titleSmallOpenSansBluegray90003,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10.v),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: _buildDeleteAccountSection(
+                    xmarkOne: ImageConstant.imgProfile,
+                    deleteaccount: "lbl_help".tr,
+                  ),
+                ),
+                SizedBox(height: 10.v),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        height: 52.v,
+                        width: 56.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadiusStyle.roundedBorder24,
+                        ),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CustomImageView(
+                              imagePath: ImageConstant.imgUserIndigoA70001,
+                              height: 26.v,
+                              width: 18.h,
+                            )
+                          ],
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: 12.h,
+                            bottom: 12.v,
+                          ),
+                          child: Text(
+                            "lbl_logout".tr,
+                            style: CustomTextStyles
+                                .titleSmallOpenSansBluegray90003,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10.v),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: _buildDeleteAccountSection(
+                    xmarkOne: ImageConstant.imgXMark,
+                    deleteaccount: "lbl_delete_account".tr,
                   ),
                 )
               ],
-            ),
-          ),
-          SizedBox(height: 10.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildNotificationSettingsRow(
-              searchOne: ImageConstant.imgCheckmarkGray10001,
-              notification: "lbl_privacy_policy".tr,
-            ),
-          ),
-          SizedBox(height: 10.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildNotificationSettingsRow(
-              searchOne: ImageConstant.imgSearch,
-              notification: "msg_notification_settings".tr,
-            ),
-          ),
-          SizedBox(height: 10.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildHelpRow(
-              help: "lbl_change_password".tr,
-            ),
-          ),
-          SizedBox(height: 10.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildHelpRow(
-              help: "lbl_help".tr,
-            ),
-          ),
-          SizedBox(height: 10.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildDeleteAccountRow(
-              deleteaccount: "lbl_logout".tr,
-            ),
-          ),
-          SizedBox(height: 10.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: _buildDeleteAccountRow(
-              deleteaccount: "lbl_delete_account".tr,
             ),
           )
         ],
@@ -204,105 +328,25 @@ class ProfileScreen extends GetWidget<ProfileController> {
   }
 
   /// Common widget
-  Widget _buildNotificationSettingsRow({
-    required String searchOne,
-    required String notification,
+  Widget _buildDeleteAccountSection({
+    required String xmarkOne,
+    required String deleteaccount,
   }) {
     return Row(
       children: [
         Container(
           height: 52.v,
           width: 56.h,
-          decoration: AppDecoration.fillIndigoA.copyWith(
+          decoration: BoxDecoration(
             borderRadius: BorderRadiusStyle.roundedBorder24,
           ),
           child: Stack(
             alignment: Alignment.center,
             children: [
               CustomImageView(
-                imagePath: searchOne,
-                height: 28.v,
-                width: 26.h,
-              )
-            ],
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.only(
-              left: 12.h,
-              bottom: 12.v,
-            ),
-            child: Text(
-              notification,
-              style: CustomTextStyles.titleSmallOpenSansBluegray90002.copyWith(
-                color: appTheme.blueGray90002,
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  /// Common widget
-  Widget _buildHelpRow({required String help}) {
-    return Row(
-      children: [
-        Container(
-          height: 52.v,
-          width: 56.h,
-          decoration: AppDecoration.fillIndigoA.copyWith(
-            borderRadius: BorderRadiusStyle.roundedBorder24,
-          ),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              CustomImageView(
-                imagePath: ImageConstant.imgProfileGray10001,
-                height: 28.v,
-                width: 30.h,
-              )
-            ],
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.only(
-              left: 12.h,
-              bottom: 12.v,
-            ),
-            child: Text(
-              help,
-              style: CustomTextStyles.titleSmallOpenSansBluegray90002.copyWith(
-                color: appTheme.blueGray90002,
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  /// Common widget
-  Widget _buildDeleteAccountRow({required String deleteaccount}) {
-    return Row(
-      children: [
-        Container(
-          height: 52.v,
-          width: 56.h,
-          decoration: AppDecoration.fillIndigoA.copyWith(
-            borderRadius: BorderRadiusStyle.roundedBorder24,
-          ),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              CustomImageView(
-                imagePath: ImageConstant.imgArrowLeft,
-                height: 26.v,
-                width: 18.h,
+                imagePath: xmarkOne,
+                height: 30.adaptSize,
+                width: 30.adaptSize,
               )
             ],
           ),
@@ -311,8 +355,8 @@ class ProfileScreen extends GetWidget<ProfileController> {
           padding: EdgeInsets.only(left: 12.h),
           child: Text(
             deleteaccount,
-            style: CustomTextStyles.titleSmallOpenSansBluegray90002.copyWith(
-              color: appTheme.blueGray90002,
+            style: CustomTextStyles.titleSmallOpenSansBluegray90003.copyWith(
+              color: appTheme.blueGray90003,
             ),
           ),
         )
@@ -323,11 +367,11 @@ class ProfileScreen extends GetWidget<ProfileController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;

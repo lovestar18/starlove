@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_title.dart';
+import '../../widgets/app_bar/appbar_subtitle.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -10,8 +10,8 @@ import '../community_forums_home_page/community_forums_home_page.dart';
 import '../community_forums_response_page/community_forums_response_page.dart';
 import '../homepage_page/homepage_page.dart';
 import 'controller/listofgroupmembers_controller.dart';
-import 'models/mediabody_item_model.dart';
-import 'widgets/mediabody_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/userprofile1_item_model.dart';
+import 'widgets/userprofile1_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class ListofgroupmembersScreen extends GetWidget<ListofgroupmembersController> {
   const ListofgroupmembersScreen({Key? key})
@@ -24,18 +24,25 @@ class ListofgroupmembersScreen extends GetWidget<ListofgroupmembersController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
-          padding: EdgeInsets.symmetric(horizontal: 14.h),
+          padding: EdgeInsets.symmetric(
+            horizontal: 10.h,
+            vertical: 4.v,
+          ),
           child: Column(
-            children: [SizedBox(height: 10.v), _buildMainContent()],
+            children: [_buildMainContent(), SizedBox(height: 46.v)],
           ),
         ),
         bottomNavigationBar: _buildBottomNavigation(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
+          onTap: () {
+            onTapFloatingactionb();
+          },
           child: CustomImageView(
             imagePath: ImageConstant.imgFieldNavigation,
             height: 27.0.v,
@@ -50,40 +57,46 @@ class ListofgroupmembersScreen extends GetWidget<ListofgroupmembersController> {
   /// Section Widget
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
-      leadingWidth: 27.h,
+      leadingWidth: 26.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftIndigo900,
+        imagePath: ImageConstant.imgArrowLeftIndigo9001,
         margin: EdgeInsets.only(
-          left: 21.h,
-          top: 7.v,
-          bottom: 36.v,
+          left: 20.h,
+          top: 18.v,
+          bottom: 25.v,
         ),
         onTap: () {
           onTapArrowleftone();
         },
       ),
-      centerTitle: true,
-      title: AppbarTitle(
+      title: AppbarSubtitle(
         text: "lbl_group_members".tr,
+        margin: EdgeInsets.only(left: 33.h),
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildSearchSection() {
-    return SizedBox(
+  Widget _buildSearchBar() {
+    return CustomSearchView(
+      controller: controller.searchBarController,
+      hintText: "lbl_search".tr,
+    );
+  }
+
+  /// Section Widget
+  Widget _buildGroupMembersList() {
+    return Container(
       width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 6.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomSearchView(
-            controller: controller.searchController,
-            hintText: "lbl_search".tr,
-          ),
+          _buildSearchBar(),
           SizedBox(height: 18.v),
           Container(
             width: double.maxFinite,
-            margin: EdgeInsets.only(right: 218.h),
+            margin: EdgeInsets.only(right: 222.h),
             child: Obx(
               () => ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
@@ -94,18 +107,15 @@ class ListofgroupmembersScreen extends GetWidget<ListofgroupmembersController> {
                   );
                 },
                 itemCount: controller.listofgroupmembersModelObj.value
-                    .mediabodyItemList.value.length,
+                    .userprofile1ItemList.value.length,
                 itemBuilder: (context, index) {
-                  MediabodyItemModel model = controller
+                  Userprofile1ItemModel model = controller
                       .listofgroupmembersModelObj
                       .value
-                      .mediabodyItemList
+                      .userprofile1ItemList
                       .value[index];
-                  return MediabodyItemWidget(
+                  return Userprofile1ItemWidget(
                     model,
-                    onTapMediabody: () {
-                      onTapMediabody();
-                    },
                   );
                 },
               ),
@@ -118,11 +128,10 @@ class ListofgroupmembersScreen extends GetWidget<ListofgroupmembersController> {
 
   /// Section Widget
   Widget _buildMainContent() {
-    return Container(
+    return SizedBox(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 4.h),
       child: Column(
-        children: [_buildSearchSection()],
+        children: [_buildGroupMembersList()],
       ),
     );
   }
@@ -139,11 +148,11 @@ class ListofgroupmembersScreen extends GetWidget<ListofgroupmembersController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -171,10 +180,10 @@ class ListofgroupmembersScreen extends GetWidget<ListofgroupmembersController> {
     Get.back();
   }
 
-  /// Navigates to the userProfileScreen when the action is triggered.
-  onTapMediabody() {
+  /// Navigates to the createNewGroupScreen when the action is triggered.
+  onTapFloatingactionb() {
     Get.toNamed(
-      AppRoutes.userProfileScreen,
+      AppRoutes.createNewGroupScreen,
     );
   }
 }

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../blocking_2_dialog/blocking_2_dialog.dart';
-import '../blocking_2_dialog/controller/blocking_2_controller.dart';
+import '../blocking_ten_dialog/blocking_ten_dialog.dart';
+import '../blocking_ten_dialog/controller/blocking_ten_controller.dart';
 import '../delete_account_ii_dialog/controller/delete_account_ii_controller.dart';
 import '../delete_account_ii_dialog/delete_account_ii_dialog.dart';
-import '../delete_post_confirmation_dialog/controller/delete_post_confirmation_controller.dart';
-import '../delete_post_confirmation_dialog/delete_post_confirmation_dialog.dart';
 import '../logout_dialog/controller/logout_controller.dart';
 import '../logout_dialog/logout_dialog.dart';
+import '../report_moderator_dialog/controller/report_moderator_controller.dart';
+import '../report_moderator_dialog/report_moderator_dialog.dart';
+import '../report_user_dialog/controller/report_user_controller.dart';
+import '../report_user_dialog/report_user_dialog.dart';
+import '../reporting_post_authenticated_user_dialog/controller/reporting_post_authenticated_user_controller.dart';
+import '../reporting_post_authenticated_user_dialog/reporting_post_authenticated_user_dialog.dart';
 import 'controller/app_navigation_controller.dart'; // ignore_for_file: must_be_immutable
 
 class AppNavigationScreen extends GetWidget<AppNavigationController> {
@@ -20,6 +24,7 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         body: SizedBox(
           width: double.maxFinite,
           child: Column(
@@ -28,9 +33,14 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
               Expanded(
                 child: SingleChildScrollView(
                   child: Container(
-                    decoration: AppDecoration.white,
+                    decoration: AppDecoration.mainwhite,
                     child: Column(
                       children: [
+                        _buildScreenTitle(
+                          screenTitle: "lbl_password_reset".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.passwordResetScreen),
+                        ),
                         _buildScreenTitle(
                           screenTitle: "lbl_login_version_2".tr,
                           onTapScreenTitle: () =>
@@ -62,11 +72,6 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               AppRoutes.emailVerificationScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_password_reset".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.passwordResetScreen),
-                        ),
-                        _buildScreenTitle(
                           screenTitle: "msg_successful_password".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
                               AppRoutes.successfulPasswordResetScreen),
@@ -75,6 +80,11 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                           screenTitle: "msg_thank_you_application".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
                               AppRoutes.thankYouApplicationScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "lbl_splash_screen".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.splashScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_homepage_container".tr,
@@ -92,14 +102,16 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               onTapScreenTitle(AppRoutes.storyScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_user_profile".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.userProfileScreen),
+                          screenTitle: "msg_user_profile_tab".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.userProfileTabContainerScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_reporting_post".tr,
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              AppRoutes.reportingPostAuthenticatedUserScreen),
+                          onTapScreenTitle: () => onTapDialogTitle(
+                              context,
+                              ReportingPostAuthenticatedUserDialog(Get.put(
+                                  ReportingPostAuthenticatedUserController()))),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_notifications_page".tr,
@@ -107,9 +119,9 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               AppRoutes.notificationsPageScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "msg_reporting_post_3".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.reportingPost3Screen),
+                          screenTitle: "msg_reporting_post_eight".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.reportingPostEightScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_reporting_post_5".tr,
@@ -122,26 +134,28 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               AppRoutes.cameraPermission2Screen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "msg_blocking_2_dialog".tr,
-                          onTapScreenTitle: () => onTapDialogTitle(context,
-                              Blocking2Dialog(Get.put(Blocking2Controller()))),
+                          screenTitle: "msg_blocking_ten_dialog".tr,
+                          onTapScreenTitle: () => onTapDialogTitle(
+                              context,
+                              BlockingTenDialog(
+                                  Get.put(BlockingTenController()))),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_blocking_3".tr,
+                          screenTitle: "lbl_blocking_nine".tr,
                           onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.blocking3Screen),
+                              onTapScreenTitle(AppRoutes.blockingNineScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_delete_post_confirmation".tr,
-                          onTapScreenTitle: () => onTapDialogTitle(
-                              context,
-                              DeletePostConfirmationDialog(
-                                  Get.put(DeletePostConfirmationController()))),
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.deletePostConfirmationScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_report_user".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.reportUserScreen),
+                          screenTitle: "msg_report_user".tr,
+                          onTapScreenTitle: () => onTapDialogTitle(
+                              context,
+                              ReportUserDialog(
+                                  Get.put(ReportUserController()))),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_add_comment".tr,
@@ -164,14 +178,14 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               AppRoutes.createPostOptionsScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_write_wall_post".tr,
+                          screenTitle: "msg_create_wall_post".tr,
                           onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.writeWallPostScreen),
+                              onTapScreenTitle(AppRoutes.createWallPostScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "msg_write_wall_post".tr,
+                          screenTitle: "msg_write_on_wall_post".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
-                              AppRoutes.writeWallPostOptionsScreen),
+                              AppRoutes.writeOnWallPostOptionsScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_refer_a_friend".tr,
@@ -179,9 +193,14 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               onTapScreenTitle(AppRoutes.referAFriendScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_post".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.postScreen),
+                          screenTitle: "msg_followers_tab".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.followersTabContainerScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_following_tab".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.followingTabContainerScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_notification_settings".tr,
@@ -211,14 +230,14 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                                   Get.put(DeleteAccountIiController()))),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "msg_help_center_tab".tr,
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              AppRoutes.helpCenterTabContainerScreen),
+                          screenTitle: "lbl_help_center".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.helpCenterScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_profile".tr,
+                          screenTitle: "lbl_help_contact".tr,
                           onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.profileScreen),
+                              onTapScreenTitle(AppRoutes.helpContactScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_privacy_policy".tr,
@@ -234,6 +253,11 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                           screenTitle: "lbl_logout_dialog".tr,
                           onTapScreenTitle: () => onTapDialogTitle(context,
                               LogoutDialog(Get.put(LogoutController()))),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "lbl_profile".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.profileScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_1_1_chat".tr,
@@ -267,8 +291,8 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_home_recent_chats".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.homeRecentChatsScreen),
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.homeRecentChatsTabContainerScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_group_chat".tr,
@@ -281,14 +305,21 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               onTapScreenTitle(AppRoutes.groupsdashboardScreen),
                         ),
                         _buildScreenTitle(
+                          screenTitle: "msg_moderator_dashboard".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.moderatorDashboardScreen),
+                        ),
+                        _buildScreenTitle(
                           screenTitle: "msg_listofgroupmembers".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
                               AppRoutes.listofgroupmembersScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_report_moderator".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.reportModeratorScreen),
+                          onTapScreenTitle: () => onTapDialogTitle(
+                              context,
+                              ReportModeratorDialog(
+                                  Get.put(ReportModeratorController()))),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_write_in_group".tr,
@@ -326,11 +357,6 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               onTapScreenTitle(AppRoutes.discoverGroupsScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "msg_moderator_dashboard".tr,
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              AppRoutes.moderatorDashboardScreen),
-                        ),
-                        _buildScreenTitle(
                           screenTitle: "msg_community_forums2".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
                               AppRoutes.communityForumsResponse1Screen),
@@ -341,14 +367,29 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               onTapScreenTitle(AppRoutes.writeInCommuntyScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_admin_dashboard".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.adminDashboardScreen),
+                          screenTitle: "msg_admin_dashboard".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.adminDashboardTabContainerScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_application_review".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
                               AppRoutes.applicationReviewScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_admin_dashboard2".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(AppRoutes
+                              .adminDashboardMemberViewContainerScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "lbl_member_review".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.memberReviewScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "lbl_stickers".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.stickersScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_sidebar".tr,
@@ -370,7 +411,7 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
   /// Section Widget
   Widget _buildAppNavigation() {
     return Container(
-      decoration: AppDecoration.white,
+      decoration: AppDecoration.mainwhite,
       child: Column(
         children: [
           SizedBox(height: 10.v),
@@ -440,7 +481,7 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
         onTapScreenTitle?.call();
       },
       child: Container(
-        decoration: AppDecoration.white,
+        decoration: AppDecoration.mainwhite,
         child: Column(
           children: [
             SizedBox(height: 10.v),

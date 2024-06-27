@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
+import '../../widgets/app_bar/appbar_subtitle_fourteen.dart';
 import '../../widgets/app_bar/appbar_subtitle_one.dart';
-import '../../widgets/app_bar/appbar_subtitle_thirteen.dart';
-import '../../widgets/app_bar/appbar_trailing_iconbutton_one.dart';
+import '../../widgets/app_bar/appbar_trailing_image_one.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -22,26 +22,30 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        appBar: _buildAppBar(),
         body: SizedBox(
           width: 374.h,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildNavigationBar(),
-              SizedBox(height: 16.v),
+              SizedBox(height: 30.v),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: 16.h),
+                  padding: EdgeInsets.symmetric(horizontal: 10.h),
                   child: _buildVerticalScroll(),
                 ),
               )
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomNavigationBar(),
+        bottomNavigationBar: _buildBottomNavigation(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
+          onTap: () {
+            onTapFloatingactionb();
+          },
           child: CustomImageView(
             imagePath: ImageConstant.imgFieldNavigation,
             height: 27.0.v,
@@ -54,73 +58,101 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
   }
 
   /// Section Widget
-  Widget _buildNavigationBar() {
-    return Container(
-      width: double.maxFinite,
-      decoration: AppDecoration.blurLight,
-      child: Column(
-        children: [
-          CustomAppBar(
-            height: 76.v,
-            title: Padding(
-              padding: EdgeInsets.only(left: 16.h),
-              child: Column(
-                children: [
-                  AppbarSubtitleOne(
-                    text: "lbl_discover_groups".tr,
-                  ),
-                  SizedBox(height: 2.v),
-                  AppbarSubtitleThirteen(
-                    text: "lbl_find_your_tribe".tr,
-                    margin: EdgeInsets.only(right: 96.h),
-                  )
-                ],
+  PreferredSizeWidget _buildAppBar() {
+    return CustomAppBar(
+      height: 62.v,
+      title: Container(
+        width: 288.h,
+        decoration: AppDecoration.fillPrimary,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 6.v),
+            AppbarSubtitleOne(
+              text: "lbl_discover_groups".tr,
+              margin: EdgeInsets.only(
+                left: 16.h,
+                right: 72.h,
               ),
             ),
-            actions: [
-              AppbarTrailingIconbuttonOne(
-                imagePath: ImageConstant.imgSearchGray900,
-                margin: EdgeInsets.only(
-                  top: 14.v,
-                  right: 7.h,
-                  bottom: 22.v,
-                ),
-              )
-            ],
-          )
-        ],
+            SizedBox(height: 2.v),
+            AppbarSubtitleFourteen(
+              text: "lbl_find_your_tribe".tr,
+              margin: EdgeInsets.only(
+                left: 16.h,
+                right: 168.h,
+              ),
+            ),
+            SizedBox(height: 1.v)
+          ],
+        ),
       ),
+      actions: [
+        AppbarTrailingImageOne(
+          imagePath: ImageConstant.imgSearchBlack900,
+          margin: EdgeInsets.only(
+            top: 22.v,
+            right: 37.h,
+            bottom: 16.v,
+          ),
+        )
+      ],
+      styleType: Style.bgFill_2,
     );
   }
 
   /// Section Widget
   Widget _buildVerticalScroll() {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 22.v),
+    return Container(
+      margin: EdgeInsets.only(bottom: 22.v),
+      padding: EdgeInsets.symmetric(horizontal: 4.h),
       child: Row(
         children: [
           Expanded(
-            child: _buildCardSectionTwo(
-              imageFive: ImageConstant.imgImage220x162,
-              cardheadline: "lbl_group_name3".tr,
-              cardTwo: "lbl_description2".tr,
-              imageSeven: ImageConstant.imgImage376x162,
-              cardheadline1: "lbl_group_name3".tr,
-              cardThree: "lbl_description2".tr,
-              onTapCard: () {
-                onTapCard();
-              },
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.maxFinite,
+                  child: _buildCardSection(
+                    imageThree: ImageConstant.imgImage220x162,
+                    cardheadline: "lbl_group_name3".tr,
+                    cardOne: "lbl_description2".tr,
+                  ),
+                ),
+                SizedBox(height: 32.v),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: _buildCardSection(
+                    imageThree: ImageConstant.imgImage376x162,
+                    cardheadline: "lbl_group_name3".tr,
+                    cardOne: "lbl_description2".tr,
+                  ),
+                )
+              ],
             ),
           ),
           SizedBox(width: 16.h),
           Expanded(
-            child: _buildCardSectionTwo(
-              imageFive: ImageConstant.imgImage398x162,
-              cardheadline: "lbl_group_name3".tr,
-              cardTwo: "lbl_description2".tr,
-              imageSeven: ImageConstant.imgImage200x162,
-              cardheadline1: "lbl_group_name3".tr,
-              cardThree: "lbl_description2".tr,
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.maxFinite,
+                  child: _buildCardSection(
+                    imageThree: ImageConstant.imgImage398x162,
+                    cardheadline: "lbl_group_name3".tr,
+                    cardOne: "lbl_description2".tr,
+                  ),
+                ),
+                SizedBox(height: 32.v),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: _buildCardSection(
+                    imageThree: ImageConstant.imgImage200x162,
+                    cardheadline: "lbl_group_name3".tr,
+                    cardOne: "lbl_description2".tr,
+                  ),
+                )
+              ],
             ),
           )
         ],
@@ -129,7 +161,7 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
   }
 
   /// Section Widget
-  Widget _buildBottomNavigationBar() {
+  Widget _buildBottomNavigation() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -138,157 +170,82 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
   }
 
   /// Common widget
-  Widget _buildCardSectionTwo({
-    required String imageFive,
+  Widget _buildCardSection({
+    required String imageThree,
     required String cardheadline,
-    required String cardTwo,
-    required String imageSeven,
-    required String cardheadline1,
-    required String cardThree,
-    Function? onTapCard,
+    required String cardOne,
   }) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: () {
-            onTapCard?.call();
-          },
-          child: Container(
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadiusStyle.roundedBorder12,
+      ),
+      child: Column(
+        children: [
+          CustomImageView(
+            imagePath: imageThree,
+            height: 376.v,
             width: double.maxFinite,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadiusStyle.roundedBorder12,
+            radius: BorderRadius.circular(
+              12.h,
             ),
-            child: Column(
+          ),
+          SizedBox(height: 18.v),
+          SizedBox(
+            width: double.maxFinite,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: [
-                CustomImageView(
-                  imagePath: imageFive,
-                  height: 398.v,
-                  width: double.maxFinite,
-                  radius: BorderRadius.circular(
-                    12.h,
-                  ),
-                ),
-                SizedBox(height: 18.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              cardheadline,
-                              style: CustomTextStyles
-                                  .titleMediumGothicA1OnPrimaryContainer
-                                  .copyWith(
-                                color: theme.colorScheme.onPrimaryContainer,
-                              ),
-                            ),
-                            SizedBox(height: 2.v),
-                            Text(
-                              cardTwo,
-                              style: CustomTextStyles.bodyMediumGothicA1OnError
-                                  .copyWith(
-                                color: theme.colorScheme.onError,
-                              ),
-                            )
-                          ],
+                      Text(
+                        cardheadline,
+                        style: CustomTextStyles
+                            .titleMediumGothicA1OnPrimaryContainer
+                            .copyWith(
+                          color: theme.colorScheme.onPrimaryContainer,
                         ),
                       ),
-                      SizedBox(width: 28.h),
-                      CustomIconButton(
-                        height: 40.adaptSize,
-                        width: 40.adaptSize,
-                        padding: EdgeInsets.all(8.h),
-                        decoration: IconButtonStyleHelper.radiusTL20,
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgArrowRightGray900,
+                      SizedBox(height: 2.v),
+                      Text(
+                        cardOne,
+                        style: CustomTextStyles
+                            .bodyMediumGothicA1OnPrimaryContainer
+                            .copyWith(
+                          color: theme.colorScheme.onPrimaryContainer,
                         ),
                       )
                     ],
                   ),
+                ),
+                SizedBox(width: 28.h),
+                CustomIconButton(
+                  height: 40.adaptSize,
+                  width: 40.adaptSize,
+                  padding: EdgeInsets.all(8.h),
+                  decoration: IconButtonStyleHelper.radiusTL20,
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgArrowRightGray9001,
+                  ),
                 )
               ],
             ),
-          ),
-        ),
-        SizedBox(height: 32.v),
-        Container(
-          width: double.maxFinite,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadiusStyle.roundedBorder12,
-          ),
-          child: Column(
-            children: [
-              CustomImageView(
-                imagePath: imageSeven,
-                height: 200.v,
-                width: double.maxFinite,
-                radius: BorderRadius.circular(
-                  12.h,
-                ),
-              ),
-              SizedBox(height: 18.v),
-              SizedBox(
-                width: double.maxFinite,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            cardheadline1,
-                            style: CustomTextStyles
-                                .titleMediumGothicA1OnPrimaryContainer
-                                .copyWith(
-                              color: theme.colorScheme.onPrimaryContainer,
-                            ),
-                          ),
-                          SizedBox(height: 2.v),
-                          Text(
-                            cardThree,
-                            style: CustomTextStyles.bodyMediumGothicA1OnError
-                                .copyWith(
-                              color: theme.colorScheme.onError,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 28.h),
-                    CustomIconButton(
-                      height: 40.adaptSize,
-                      width: 40.adaptSize,
-                      padding: EdgeInsets.all(8.h),
-                      decoration: IconButtonStyleHelper.radiusTL20,
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgArrowRightGray900,
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -312,9 +269,16 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
   }
 
   /// Navigates to the grouppageV2Screen when the action is triggered.
-  onTapCard() {
+  onTapCardSection() {
     Get.toNamed(
       AppRoutes.grouppageV2Screen,
+    );
+  }
+
+  /// Navigates to the createNewGroupScreen when the action is triggered.
+  onTapFloatingactionb() {
+    Get.toNamed(
+      AppRoutes.createNewGroupScreen,
     );
   }
 }

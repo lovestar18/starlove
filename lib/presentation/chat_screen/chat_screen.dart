@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_eighteen.dart';
-import '../../widgets/app_bar/appbar_subtitle_fourteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_fifteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_twenty.dart';
 import '../../widgets/app_bar/appbar_title_image.dart';
 import '../../widgets/app_bar/appbar_trailing_image_two.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
@@ -22,18 +22,19 @@ class ChatScreen extends GetWidget<ChatController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildHeader(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 14.h,
+            horizontal: 10.h,
             vertical: 16.v,
           ),
           child: Column(
-            children: [SizedBox(height: 94.v), _buildMainColumn()],
+            children: [SizedBox(height: 94.v), _buildMainContent()],
           ),
         ),
-        bottomNavigationBar: _buildReplySection(),
+        bottomNavigationBar: _buildMessageInput(),
       ),
     );
   }
@@ -43,7 +44,7 @@ class ChatScreen extends GetWidget<ChatController> {
     return CustomAppBar(
       leadingWidth: 40.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftBlack900,
+        imagePath: ImageConstant.imgArrowLeftBlack9001,
         margin: EdgeInsets.only(
           left: 16.h,
           top: 16.v,
@@ -68,11 +69,11 @@ class ChatScreen extends GetWidget<ChatController> {
               padding: EdgeInsets.only(left: 8.h),
               child: Column(
                 children: [
-                  AppbarSubtitleFourteen(
+                  AppbarSubtitleFifteen(
                     text: "lbl_helena_hills".tr,
                   ),
                   SizedBox(height: 3.v),
-                  AppbarSubtitleEighteen(
+                  AppbarSubtitleTwenty(
                     text: "lbl_active_20m_ago".tr,
                     margin: EdgeInsets.only(right: 4.h),
                   )
@@ -110,17 +111,18 @@ class ChatScreen extends GetWidget<ChatController> {
             width: 232.h,
             text: "msg_this_is_the_main".tr,
             buttonStyle: CustomButtonStyles.fillBlueATL18,
-            buttonTextStyle: CustomTextStyles.titleSmallPrimary,
+            buttonTextStyle: CustomTextStyles.titleSmallPrimary_1,
           ),
-          SizedBox(height: 26.v),
+          SizedBox(height: 22.v),
           Padding(
-            padding: EdgeInsets.only(right: 106.h),
+            padding: EdgeInsets.only(right: 92.h),
             child: Text(
               "msg_nov_30_2023_9_41".tr,
+              textAlign: TextAlign.center,
               style: CustomTextStyles.bodySmallInterGray60003,
             ),
           ),
-          SizedBox(height: 24.v),
+          SizedBox(height: 20.v),
           SizedBox(
             width: double.maxFinite,
             child: Row(
@@ -189,14 +191,14 @@ class ChatScreen extends GetWidget<ChatController> {
               ],
             ),
           ),
-          SizedBox(height: 16.v),
+          SizedBox(height: 20.v),
           Container(
             width: 266.h,
             padding: EdgeInsets.symmetric(
               horizontal: 16.h,
               vertical: 6.v,
             ),
-            decoration: AppDecoration.blue1.copyWith(
+            decoration: AppDecoration.fillBlueA.copyWith(
               borderRadius: BorderRadiusStyle.customBorderTL181,
             ),
             child: Column(
@@ -207,7 +209,7 @@ class ChatScreen extends GetWidget<ChatController> {
                   "msg_you_just_edit_any".tr,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
-                  style: CustomTextStyles.titleSmallPrimary.copyWith(
+                  style: CustomTextStyles.titleSmallPrimary_1.copyWith(
                     height: 1.40,
                   ),
                 )
@@ -218,9 +220,9 @@ class ChatScreen extends GetWidget<ChatController> {
             width: 74.h,
             text: "lbl_boom".tr,
             buttonStyle: CustomButtonStyles.fillBlueATL181,
-            buttonTextStyle: CustomTextStyles.titleSmallPrimary,
+            buttonTextStyle: CustomTextStyles.titleSmallPrimary_1,
           ),
-          SizedBox(height: 16.v),
+          SizedBox(height: 20.v),
           SizedBox(
             width: double.maxFinite,
             child: Row(
@@ -235,7 +237,6 @@ class ChatScreen extends GetWidget<ChatController> {
                     12.h,
                   ),
                   alignment: Alignment.bottomCenter,
-                  margin: EdgeInsets.only(bottom: 20.v),
                 ),
                 SizedBox(width: 8.h),
                 Expanded(
@@ -290,9 +291,10 @@ class ChatScreen extends GetWidget<ChatController> {
   }
 
   /// Section Widget
-  Widget _buildMainColumn() {
-    return SizedBox(
+  Widget _buildMainContent() {
+    return Container(
       width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 2.h),
       child: Column(
         children: [_buildChatSection()],
       ),
@@ -300,45 +302,38 @@ class ChatScreen extends GetWidget<ChatController> {
   }
 
   /// Section Widget
-  Widget _buildReplySection() {
-    return Container(
-      height: 40.v,
-      width: double.maxFinite,
-      margin: EdgeInsets.only(
+  Widget _buildMessageInput() {
+    return Padding(
+      padding: EdgeInsets.only(
         left: 16.h,
         right: 16.h,
         bottom: 34.v,
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          CustomTextFormField(
-            controller: controller.messageController,
-            hintText: "lbl_message2".tr,
-            hintStyle: CustomTextStyles.bodyMediumInterGray60003,
-            textInputAction: TextInputAction.done,
-            suffix: Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: 30.h,
-                vertical: 8.v,
-              ),
-              child: CustomImageView(
-                imagePath: ImageConstant.imgIconMic,
-                height: 24.adaptSize,
-                width: 24.adaptSize,
-              ),
-            ),
-            suffixConstraints: BoxConstraints(
-              maxHeight: 40.v,
-            ),
-            contentPadding: EdgeInsets.only(
-              left: 16.h,
-              top: 10.v,
-              bottom: 10.v,
-            ),
-            borderDecoration: TextFormFieldStyleHelper.outlineGrayTL8,
-          )
-        ],
+      child: CustomTextFormField(
+        controller: controller.messageInputController,
+        hintText: "lbl_message2".tr,
+        hintStyle: CustomTextStyles.bodyMediumInterGray60003,
+        textInputAction: TextInputAction.done,
+        suffix: Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: 30.h,
+            vertical: 8.v,
+          ),
+          child: CustomImageView(
+            imagePath: ImageConstant.imgIconMic,
+            height: 24.adaptSize,
+            width: 24.adaptSize,
+          ),
+        ),
+        suffixConstraints: BoxConstraints(
+          maxHeight: 40.v,
+        ),
+        contentPadding: EdgeInsets.only(
+          left: 16.h,
+          top: 10.v,
+          bottom: 10.v,
+        ),
+        borderDecoration: TextFormFieldStyleHelper.outlineGrayTL8,
       ),
     );
   }

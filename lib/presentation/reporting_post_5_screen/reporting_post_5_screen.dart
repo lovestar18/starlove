@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_eleven.dart';
+import '../../widgets/app_bar/appbar_subtitle_thirteen.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_form_field.dart';
@@ -19,11 +19,12 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         body: Column(
           children: [
             Container(
               width: double.maxFinite,
-              decoration: AppDecoration.white,
+              decoration: AppDecoration.mainwhite,
               child: Column(
                 children: [
                   SizedBox(
@@ -31,7 +32,7 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
                     child: _buildAppBar(),
                   ),
                   SizedBox(height: 16.v),
-                  _buildDescriptionColumn(),
+                  _buildDescriptionSection(),
                   SizedBox(height: 16.v),
                   _buildKeyboardSection()
                 ],
@@ -49,7 +50,7 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
     return CustomAppBar(
       leadingWidth: 40.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftGray90003,
+        imagePath: ImageConstant.imgArrowLeftGray900031,
         margin: EdgeInsets.only(
           left: 16.h,
           top: 16.v,
@@ -59,7 +60,7 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
           onTapArrowleftone();
         },
       ),
-      title: AppbarSubtitleEleven(
+      title: AppbarSubtitleThirteen(
         text: "lbl_report".tr,
         margin: EdgeInsets.only(left: 130.h),
       ),
@@ -68,7 +69,7 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
   }
 
   /// Section Widget
-  Widget _buildReportDetailsSection() {
+  Widget _buildReportDetails() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
@@ -77,7 +78,7 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
             "msg_below_please_provide".tr,
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
-            style: CustomTextStyles.bodyLargeBlack900.copyWith(
+            style: CustomTextStyles.bodyLargeOpenSansGray90003.copyWith(
               height: 1.50,
             ),
           ),
@@ -85,6 +86,7 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
           CustomTextFormField(
             controller: controller.additionaldetaiController,
             hintText: "msg_write_any_additional".tr,
+            hintStyle: CustomTextStyles.bodyMediumGray60004,
             textInputAction: TextInputAction.done,
             suffix: Container(
               margin: EdgeInsets.fromLTRB(30.h, 30.v, 8.h, 8.v),
@@ -118,20 +120,183 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
   }
 
   /// Section Widget
-  Widget _buildDescriptionColumn() {
+  Widget _buildDescriptionSection() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 4.h),
       child: Column(
-        children: [_buildReportDetailsSection()],
+        children: [_buildReportDetails()],
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildRowAKeys() {
+  Widget _buildKeyboardRow() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_q".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 4.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_w".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 8.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_e".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_r".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_t".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_y".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_u".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_i".tr,
+              textAlign: TextAlign.center,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_o".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          SizedBox(width: 4.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_p".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildKeyboardRow1() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 4.h),
+      padding: EdgeInsets.symmetric(horizontal: 8.h),
       width: double.maxFinite,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -277,42 +442,184 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
   }
 
   /// Section Widget
-  Widget _buildKeyboardColumn() {
-    return Container(
+  Widget _buildKeyboardRow2() {
+    return SizedBox(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      child: Column(
-        children: [_buildRowAKeys()],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          CustomImageView(
+            imagePath: ImageConstant.imgArrowRightWhiteA700,
+            height: 42.v,
+            width: 40.h,
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 14.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_z".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 6.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_x".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 4.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_c".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 6.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_v".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 4.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_b".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 6.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_n".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 6.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.h,
+              vertical: 2.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_m".tr,
+              textAlign: TextAlign.left,
+              style: theme.textTheme.titleLarge,
+            ),
+          ),
+          CustomImageView(
+            imagePath: ImageConstant.imgDelete,
+            height: 42.adaptSize,
+            width: 42.adaptSize,
+            margin: EdgeInsets.only(left: 12.h),
+          )
+        ],
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildSettingsColumn() {
-    return Container(
+  Widget _buildKeyboardRow3() {
+    return SizedBox(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      padding: EdgeInsets.symmetric(horizontal: 10.h),
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-            width: double.maxFinite,
-            margin: EdgeInsets.only(right: 4.h),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                CustomImageView(
-                  imagePath: ImageConstant.imgSettingsBlueGray700,
-                  height: 26.v,
-                  width: 28.h,
-                ),
-                CustomImageView(
-                  imagePath: ImageConstant.imgMenu,
-                  height: 24.v,
-                  width: 14.h,
-                )
-              ],
+            padding: EdgeInsets.symmetric(
+              horizontal: 28.h,
+              vertical: 8.v,
+            ),
+            decoration: AppDecoration.outlineBluegray400.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_123".tr,
+              textAlign: TextAlign.center,
+              style: CustomTextStyles.bodyLargeIBMPlexSans,
+            ),
+          ),
+          SizedBox(width: 6.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 30.h,
+              vertical: 6.v,
+            ),
+            decoration: AppDecoration.outlineBlueGray.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_space".tr,
+              textAlign: TextAlign.center,
+              style: CustomTextStyles.bodyLargeIBMPlexSans,
+            ),
+          ),
+          SizedBox(width: 6.h),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 26.h,
+              vertical: 8.v,
+            ),
+            decoration: AppDecoration.outlineBluegray4001.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder4,
+            ),
+            child: Text(
+              "lbl_send".tr,
+              textAlign: TextAlign.left,
+              style: CustomTextStyles.bodyLargeIBMPlexSansPrimary,
             ),
           )
         ],
@@ -325,354 +632,43 @@ class ReportingPost5Screen extends GetWidget<ReportingPost5Controller> {
     return Container(
       width: double.maxFinite,
       padding: EdgeInsets.symmetric(
-        horizontal: 2.h,
+        horizontal: 10.h,
         vertical: 8.v,
       ),
       decoration: AppDecoration.fillBlueGrayEd,
       child: Column(
         children: [
-          SizedBox(
-            width: double.maxFinite,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_q".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 4.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_w".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 8.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_e".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_r".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_t".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_y".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_u".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_i".tr,
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_o".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                SizedBox(width: 4.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_p".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                )
-              ],
-            ),
-          ),
+          _buildKeyboardRow(),
           SizedBox(height: 12.v),
-          _buildKeyboardColumn(),
+          _buildKeyboardRow1(),
           SizedBox(height: 12.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                CustomImageView(
-                  imagePath: ImageConstant.imgArrowRight,
-                  height: 42.v,
-                  width: 40.h,
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 14.h),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_z".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 6.h),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_x".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 4.h),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_c".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 6.h),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_v".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 4.h),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_b".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 6.h),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_n".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 6.h),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 6.h,
-                    vertical: 2.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_m".tr,
-                    textAlign: TextAlign.left,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                ),
-                CustomImageView(
-                  imagePath: ImageConstant.imgDelete,
-                  height: 42.adaptSize,
-                  width: 42.adaptSize,
-                  margin: EdgeInsets.only(left: 12.h),
-                )
-              ],
-            ),
-          ),
+          _buildKeyboardRow2(),
           SizedBox(height: 12.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 28.h,
-                    vertical: 8.v,
-                  ),
-                  decoration: AppDecoration.outlineBluegray400.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_123".tr,
-                    textAlign: TextAlign.center,
-                    style: CustomTextStyles.bodyLargeIBMPlexSans,
-                  ),
-                ),
-                SizedBox(width: 6.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 30.h,
-                    vertical: 6.v,
-                  ),
-                  decoration: AppDecoration.outlineBlueGray.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_space".tr,
-                    textAlign: TextAlign.center,
-                    style: CustomTextStyles.bodyLargeIBMPlexSans,
-                  ),
-                ),
-                SizedBox(width: 6.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 26.h,
-                    vertical: 8.v,
-                  ),
-                  decoration: AppDecoration.outlineBluegray4001.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder4,
-                  ),
-                  child: Text(
-                    "lbl_send".tr,
-                    textAlign: TextAlign.left,
-                    style: CustomTextStyles.bodyLargeIBMPlexSansPrimary,
-                  ),
-                )
-              ],
-            ),
-          ),
+          _buildKeyboardRow3(),
           SizedBox(height: 28.v),
-          _buildSettingsColumn(),
+          Container(
+            width: double.maxFinite,
+            margin: EdgeInsets.only(
+              left: 14.h,
+              right: 20.h,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                CustomImageView(
+                  imagePath: ImageConstant.imgSettingsBlueGray7001,
+                  height: 26.v,
+                  width: 28.h,
+                ),
+                CustomImageView(
+                  imagePath: ImageConstant.imgMenuBlueGray700,
+                  height: 24.v,
+                  width: 14.h,
+                )
+              ],
+            ),
+          ),
           SizedBox(height: 16.v)
         ],
       ),

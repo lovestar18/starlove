@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_title.dart';
+import '../../widgets/app_bar/appbar_subtitle.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -10,8 +10,8 @@ import '../community_forums_home_page/community_forums_home_page.dart';
 import '../community_forums_response_page/community_forums_response_page.dart';
 import '../homepage_page/homepage_page.dart';
 import 'controller/moderate_members_controller.dart';
-import 'models/userprofileslist_item_model.dart';
-import 'widgets/userprofileslist_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/userprofileslist1_item_model.dart';
+import 'widgets/userprofileslist1_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   const ModerateMembersScreen({Key? key})
@@ -24,18 +24,19 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
-        body: Column(
-          children: [
-            SizedBox(height: 10.v),
-            _buildSearchBar(),
-            SizedBox(height: 16.v),
-            _buildUserProfilesList(),
-            SizedBox(height: 16.v),
-            _buildStackedAvatars()
-          ],
+        body: Container(
+          width: double.maxFinite,
+          padding: EdgeInsets.symmetric(
+            horizontal: 10.h,
+            vertical: 8.v,
+          ),
+          child: Column(
+            children: [_buildSearchColumn(), SizedBox(height: 18.v)],
+          ),
         ),
-        bottomNavigationBar: _buildBottomNavigation(),
+        bottomNavigationBar: _buildBottomNavigationBar(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
@@ -53,20 +54,20 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   /// Section Widget
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
-      leadingWidth: 27.h,
+      leadingWidth: 25.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftIndigo900,
+        imagePath: ImageConstant.imgArrowLeftIndigo9001,
         margin: EdgeInsets.only(
-          left: 21.h,
-          top: 8.v,
-          bottom: 35.v,
+          left: 19.h,
+          top: 22.v,
+          bottom: 22.v,
         ),
         onTap: () {
           onTapArrowleftone();
         },
       ),
       centerTitle: true,
-      title: AppbarTitle(
+      title: AppbarSubtitle(
         text: "msg_moderate_members".tr,
       ),
     );
@@ -75,7 +76,7 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   /// Section Widget
   Widget _buildSearchBar() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12.h),
+      padding: EdgeInsets.symmetric(horizontal: 8.h),
       child: CustomSearchView(
         controller: controller.searchBarController,
         hintText: "lbl_search".tr,
@@ -85,28 +86,27 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
 
   /// Section Widget
   Widget _buildUserProfilesList() {
-    return Container(
+    return SizedBox(
       width: double.maxFinite,
-      margin: EdgeInsets.only(left: 16.h),
       child: Obx(
         () => ListView.separated(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           separatorBuilder: (context, index) {
             return SizedBox(
-              height: 14.v,
+              height: 6.v,
             );
           },
           itemCount: controller.moderateMembersModelObj.value
-              .userprofileslistItemList.value.length,
+              .userprofileslist1ItemList.value.length,
           itemBuilder: (context, index) {
-            UserprofileslistItemModel model = controller.moderateMembersModelObj
-                .value.userprofileslistItemList.value[index];
-            return UserprofileslistItemWidget(
+            Userprofileslist1ItemModel model = controller
+                .moderateMembersModelObj
+                .value
+                .userprofileslist1ItemList
+                .value[index];
+            return Userprofileslist1ItemWidget(
               model,
-              onTapTxtButton: () {
-                onTapTxtButton();
-              },
             );
           },
         ),
@@ -115,102 +115,31 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   }
 
   /// Section Widget
-  Widget _buildStackedAvatars() {
-    return Container(
-      height: 60.v,
+  Widget _buildModerateMembersColumn() {
+    return SizedBox(
       width: double.maxFinite,
-      margin: EdgeInsets.only(left: 16.h),
-      child: Stack(
-        alignment: Alignment.center,
+      child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Row(
-                  children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgAvatar60x60,
-                      height: 60.adaptSize,
-                      width: 60.adaptSize,
-                      radius: BorderRadius.circular(
-                        30.h,
-                      ),
-                    ),
-                    SizedBox(width: 10.h),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "lbl_name".tr,
-                            style: CustomTextStyles.titleSmallRoboto,
-                          ),
-                          SizedBox(height: 2.v),
-                          Text(
-                            "lbl_handle2".tr,
-                            style: CustomTextStyles.bodySmallRoboto,
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 12.v),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 14.h,
-                  vertical: 6.v,
-                ),
-                decoration: AppDecoration.outlineBlack.copyWith(
-                  borderRadius: BorderRadiusStyle.roundedBorder16,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      "lbl_remove".tr.toUpperCase(),
-                      style: CustomTextStyles.labelMediumRoboto,
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              margin: EdgeInsets.only(
-                top: 12.v,
-                right: 88.h,
-              ),
-              padding: EdgeInsets.symmetric(
-                horizontal: 14.h,
-                vertical: 6.v,
-              ),
-              decoration: AppDecoration.outlineBlack.copyWith(
-                borderRadius: BorderRadiusStyle.roundedBorder16,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "lbl_view".tr.toUpperCase(),
-                    style: CustomTextStyles.labelMediumRoboto,
-                  )
-                ],
-              ),
-            ),
-          )
+          _buildSearchBar(),
+          SizedBox(height: 18.v),
+          _buildUserProfilesList()
         ],
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildBottomNavigation() {
+  Widget _buildSearchColumn() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Column(
+        children: [_buildModerateMembersColumn()],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildBottomNavigationBar() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -221,11 +150,11 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -251,12 +180,5 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   /// Navigates to the previous screen.
   onTapArrowleftone() {
     Get.back();
-  }
-
-  /// Navigates to the userProfileScreen when the action is triggered.
-  onTapTxtButton() {
-    Get.toNamed(
-      AppRoutes.userProfileScreen,
-    );
   }
 }

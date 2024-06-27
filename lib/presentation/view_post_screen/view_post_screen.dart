@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_trailing_iconbutton.dart';
 import '../../widgets/app_bar/appbar_trailing_image_one.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
@@ -21,24 +20,16 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: _buildHeader(),
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        appBar: _buildAppBar(),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              width: double.maxFinite,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [_buildMainContent(), _buildAddCommentSection()],
-              ),
-            ),
-            SizedBox(height: 6.v)
+            _buildUserComments(),
+            SizedBox(height: 28.v),
+            _buildAddComment()
           ],
         ),
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.only(left: 16.h),
-          child: _buildNavigationBar(),
-        ),
+        bottomNavigationBar: _buildBottomNavigation(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
@@ -54,12 +45,12 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
   }
 
   /// Section Widget
-  PreferredSizeWidget _buildHeader() {
+  PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
       height: 48.v,
       leadingWidth: 40.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowDownGray90013,
+        imagePath: ImageConstant.imgArrowDownGray90012,
         margin: EdgeInsets.only(
           left: 16.h,
           top: 12.v,
@@ -74,8 +65,8 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
             right: 12.h,
           ),
         ),
-        AppbarTrailingIconbutton(
-          imagePath: ImageConstant.imgVectorGray90012,
+        AppbarTrailingImageOne(
+          imagePath: ImageConstant.imgPlus,
           margin: EdgeInsets.only(
             left: 20.h,
             top: 12.v,
@@ -125,100 +116,103 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
           ),
           SizedBox(width: 12.h),
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "lbl_helena".tr,
-                              style: CustomTextStyles.titleSmallSemiBold_1,
-                            ),
-                            SizedBox(height: 2.v),
-                            Text(
-                              "lbl_3_min_ago".tr,
-                              style: CustomTextStyles.bodySmallInterGray60003,
-                            )
-                          ],
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "lbl_helena".tr,
+                                style: CustomTextStyles.titleSmallSemiBold_1,
+                              ),
+                              SizedBox(height: 2.v),
+                              Text(
+                                "lbl_3_min_ago".tr,
+                                style: CustomTextStyles.bodySmallInterGray60003,
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgIconMore,
-                        height: 24.adaptSize,
-                        width: 24.adaptSize,
-                      )
-                    ],
+                        CustomImageView(
+                          imagePath: ImageConstant.imgIconMore,
+                          height: 24.adaptSize,
+                          width: 24.adaptSize,
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 12.v),
-                CustomImageView(
-                  imagePath: ImageConstant.imgImage,
-                  height: 298.adaptSize,
-                  width: double.maxFinite,
-                  radius: BorderRadius.circular(
-                    4.h,
+                  SizedBox(height: 12.v),
+                  CustomImageView(
+                    imagePath: ImageConstant.imgImage,
+                    height: 298.adaptSize,
+                    width: double.maxFinite,
+                    radius: BorderRadius.circular(
+                      4.h,
+                    ),
                   ),
-                ),
-                SizedBox(height: 12.v),
-                Text(
-                  "msg_post_description".tr,
-                  style: CustomTextStyles.bodyMediumInter,
-                ),
-                SizedBox(height: 12.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      CustomImageView(
-                        imagePath: ImageConstant.imgFavorite,
-                        height: 28.adaptSize,
-                        width: 28.adaptSize,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 8.h),
-                        child: Text(
-                          "lbl_21_likes".tr,
-                          style: theme.textTheme.titleSmall,
-                        ),
-                      ),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgLock,
-                        height: 20.v,
-                        width: 16.h,
-                        margin: EdgeInsets.only(left: 16.h),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 8.h),
-                        child: Text(
-                          "lbl_21_stars".tr,
-                          style: theme.textTheme.titleSmall,
-                        ),
-                      ),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgMessageSquare,
-                        height: 20.adaptSize,
-                        width: 20.adaptSize,
-                        margin: EdgeInsets.only(left: 14.h),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 8.h),
-                        child: Text(
-                          "lbl_4_comments".tr,
-                          style: theme.textTheme.titleSmall,
-                        ),
-                      )
-                    ],
+                  SizedBox(height: 12.v),
+                  Text(
+                    "msg_post_description".tr,
+                    style: CustomTextStyles.bodyMediumInter,
                   ),
-                )
-              ],
+                  SizedBox(height: 12.v),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        CustomImageView(
+                          imagePath: ImageConstant.imgFavorite,
+                          height: 28.adaptSize,
+                          width: 28.adaptSize,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 8.h),
+                          child: Text(
+                            "lbl_21_likes".tr,
+                            style: theme.textTheme.titleSmall,
+                          ),
+                        ),
+                        CustomImageView(
+                          imagePath: ImageConstant.imgLockBlack900,
+                          height: 20.v,
+                          width: 16.h,
+                          margin: EdgeInsets.only(left: 16.h),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 8.h),
+                          child: Text(
+                            "lbl_21_stars".tr,
+                            style: theme.textTheme.titleSmall,
+                          ),
+                        ),
+                        CustomImageView(
+                          imagePath: ImageConstant.imgMessageSquare,
+                          height: 20.adaptSize,
+                          width: 20.adaptSize,
+                          margin: EdgeInsets.only(left: 14.h),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 8.h),
+                          child: Text(
+                            "lbl_4_comments".tr,
+                            style: theme.textTheme.titleSmall,
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],
@@ -230,12 +224,10 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
   Widget _buildCommentSection() {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 6.h,
-        vertical: 14.v,
+        horizontal: 16.h,
+        vertical: 10.v,
       ),
-      decoration: AppDecoration.backgroundGreyBackground.copyWith(
-        borderRadius: BorderRadiusStyle.roundedBorder8,
-      ),
+      decoration: AppDecoration.fillGray10005,
       width: double.maxFinite,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -249,67 +241,71 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
               15.0.adaptSize,
             ),
           ),
+          SizedBox(width: 12.h),
           Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "lbl_bruno_pham".tr,
-                        style: CustomTextStyles.titleMediumOpenSansGray90013,
-                      ),
-                      SizedBox(height: 2.v),
-                      Text(
-                        "msg_great_shot_i_love".tr,
-                        style: CustomTextStyles.titleSmallOpenSansGray90013,
-                      ),
-                      SizedBox(height: 12.v),
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              "lbl_2_mins_ago".tr,
-                              style:
-                                  CustomTextStyles.labelLargeOpenSansGray60003,
-                            ),
-                            Spacer(),
-                            Text(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "lbl_bruno_pham".tr,
+                    style: CustomTextStyles.titleMediumOpenSansGray90012,
+                  ),
+                  SizedBox(height: 2.v),
+                  Text(
+                    "msg_great_shot_i_love".tr,
+                    style: CustomTextStyles.titleSmallOpenSansGray90012,
+                  ),
+                  SizedBox(height: 10.v),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            "lbl_2_mins_ago".tr,
+                            style: CustomTextStyles.labelLargeOpenSansGray60003,
+                          ),
+                        ),
+                        Spacer(),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            "lbl_02".tr,
+                            style: CustomTextStyles.labelLargeOpenSansGray60003,
+                          ),
+                        ),
+                        CustomImageView(
+                          imagePath: ImageConstant.imgStarOfDavidSolid,
+                          height: 20.v,
+                          width: 18.h,
+                          margin: EdgeInsets.only(left: 6.h),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 8.h),
+                            child: Text(
                               "lbl_02".tr,
                               style:
                                   CustomTextStyles.labelLargeOpenSansGray60003,
                             ),
-                            CustomImageView(
-                              imagePath: ImageConstant.imgStarOfDavidSolid,
-                              height: 18.adaptSize,
-                              width: 18.adaptSize,
-                              margin: EdgeInsets.only(left: 6.h),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 6.h),
-                              child: Text(
-                                "lbl_02".tr,
-                                style: CustomTextStyles
-                                    .labelLargeOpenSansGray60003,
-                              ),
-                            )
-                          ],
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                ),
-                CustomImageView(
-                  imagePath: ImageConstant.imgHeart,
-                  height: 20.adaptSize,
-                  width: 20.adaptSize,
-                  alignment: Alignment.bottomCenter,
-                  margin: EdgeInsets.only(left: 4.h),
-                )
-              ],
+                        CustomImageView(
+                          imagePath: ImageConstant.imgHeart,
+                          height: 20.adaptSize,
+                          width: 20.adaptSize,
+                          margin: EdgeInsets.only(left: 4.h),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],
@@ -318,14 +314,14 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
   }
 
   /// Section Widget
-  Widget _buildMainContent() {
+  Widget _buildUserComments() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
       child: Column(
         children: [
           _buildPostSection(),
-          SizedBox(height: 8.v),
+          SizedBox(height: 16.v),
           _buildCommentSection()
         ],
       ),
@@ -333,60 +329,50 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
   }
 
   /// Section Widget
-  Widget _buildAddCommentSection() {
+  Widget _buildAddComment() {
     return SizedBox(
       width: double.maxFinite,
-      child: GestureDetector(
-        onTap: () {
-          onTapAddCommentSection();
-        },
-        child: Padding(
-          padding: EdgeInsets.only(left: 6.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16.h,
-                  vertical: 12.v,
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.h,
+              vertical: 12.v,
+            ),
+            decoration: AppDecoration.mainwhite,
+            width: double.maxFinite,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                CustomImageView(
+                  imagePath: ImageConstant.imgEllipse192,
+                  height: 30.adaptSize,
+                  width: 30.adaptSize,
+                  radius: BorderRadius.circular(
+                    15.0.adaptSize,
+                  ),
                 ),
-                decoration: AppDecoration.white,
-                width: double.maxFinite,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgEllipse192,
-                      height: 30.adaptSize,
-                      width: 30.adaptSize,
-                      radius: BorderRadius.circular(
-                        15.0.adaptSize,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 12.h),
-                      child: Text(
-                        "lbl_add_a_comment".tr,
-                        style: CustomTextStyles.titleSmallOpenSansGray400,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              CustomImageView(
-                imagePath: ImageConstant.imgHome34x368,
-                height: 34.v,
-                width: double.maxFinite,
-              )
-            ],
+                Padding(
+                  padding: EdgeInsets.only(left: 12.h),
+                  child: Text(
+                    "lbl_add_a_comment".tr,
+                    style: CustomTextStyles.titleSmallOpenSansGray400,
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
+          SizedBox(
+            height: 34.v,
+            width: 374.h,
+          )
+        ],
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildNavigationBar() {
+  Widget _buildBottomNavigation() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -397,11 +383,11 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -422,12 +408,5 @@ class ViewPostScreen extends GetWidget<ViewPostController> {
       default:
         return DefaultWidget();
     }
-  }
-
-  /// Navigates to the addCommentScreen when the action is triggered.
-  onTapAddCommentSection() {
-    Get.toNamed(
-      AppRoutes.addCommentScreen,
-    );
   }
 }

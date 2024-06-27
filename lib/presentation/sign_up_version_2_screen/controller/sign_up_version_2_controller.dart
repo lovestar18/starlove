@@ -11,6 +11,8 @@ class SignUpVersion2Controller extends GetxController {
 
   TextEditingController emailController = TextEditingController();
 
+  TextEditingController phoneNumberController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
 
   Rx<SignUpVersion2Model> signUpVersion2ModelObj = SignUpVersion2Model().obs;
@@ -22,6 +24,7 @@ class SignUpVersion2Controller extends GetxController {
     super.onClose();
     fullNameController.dispose();
     emailController.dispose();
+    phoneNumberController.dispose();
     passwordController.dispose();
   }
 }

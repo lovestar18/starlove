@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_leading_iconbutton.dart';
+import '../../widgets/app_bar/appbar_leading_image.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_form_field.dart';
@@ -18,11 +18,12 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 14.h,
+            horizontal: 10.h,
             vertical: 16.v,
           ),
           child: Column(
@@ -37,28 +38,31 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
       leadingWidth: 54.h,
-      leading: AppbarLeadingIconbutton(
-        imagePath: ImageConstant.imgArrowLeftGray90004,
+      leading: AppbarLeadingImage(
+        imagePath: ImageConstant.imgArrowLeft,
         margin: EdgeInsets.only(
           left: 12.h,
           top: 7.v,
           bottom: 7.v,
         ),
+        onTap: () {
+          onTapArrowleftone();
+        },
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildPasswordDescription() {
+  Widget _buildDescriptionText() {
     return GestureDetector(
       onTap: () {
-        onTapTxtPasswordDescription();
+        onTapTxtDescriptionText();
       },
       child: Text(
         "msg_create_a_new_password".tr,
         maxLines: 3,
         overflow: TextOverflow.ellipsis,
-        style: CustomTextStyles.titleMediumInterGray50001_1,
+        style: CustomTextStyles.titleMediumInterGray50001Medium16,
       ),
     );
   }
@@ -82,7 +86,7 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
         children: [
           Text(
             "lbl_password".tr,
-            style: CustomTextStyles.titleMediumInterGray90009SemiBold,
+            style: CustomTextStyles.titleMediumInterGray90008SemiBold,
           ),
           SizedBox(height: 8.v),
           _buildPasswordInput()
@@ -111,7 +115,7 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
         children: [
           Text(
             "msg_confirm_password".tr,
-            style: CustomTextStyles.titleMediumInterGray90009SemiBold,
+            style: CustomTextStyles.titleMediumInterGray90008SemiBold,
           ),
           SizedBox(height: 8.v),
           _buildConfirmPasswordInput()
@@ -132,7 +136,7 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
             style: CustomTextStyles.titleLargePoppinsGray90004,
           ),
           SizedBox(height: 8.v),
-          _buildPasswordDescription(),
+          _buildDescriptionText(),
           SizedBox(height: 34.v),
           _buildPasswordSection(),
           SizedBox(height: 16.v),
@@ -142,17 +146,17 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
             height: 48.v,
             text: "lbl_update_password".tr,
             buttonStyle: CustomButtonStyles.fillIndigoATL12,
-            buttonTextStyle: CustomTextStyles.titleMediumInterPrimary,
+            buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16_1,
           )
         ],
       ),
     );
   }
 
-  /// Navigates to the successfulPasswordResetScreen when the action is triggered.
-  onTapTxtPasswordDescription() {
-    Get.toNamed(
-      AppRoutes.successfulPasswordResetScreen,
-    );
+  /// Navigates to the previous screen.
+  onTapArrowleftone() {
+    Get.back();
   }
+
+  onTapTxtDescriptionText() {}
 }

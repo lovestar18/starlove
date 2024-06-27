@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../core/utils/validation_functions.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_leading_iconbutton.dart';
+import '../../widgets/app_bar/appbar_leading_image.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_form_field.dart';
@@ -23,6 +23,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: SingleChildScrollView(
           padding: EdgeInsets.only(
@@ -33,7 +34,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
             child: Container(
               width: double.maxFinite,
               padding: EdgeInsets.symmetric(
-                horizontal: 14.h,
+                horizontal: 10.h,
                 vertical: 16.v,
               ),
               child: Column(
@@ -50,25 +51,25 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
       leadingWidth: 61.h,
-      leading: AppbarLeadingIconbutton(
-        imagePath: ImageConstant.imgArrowLeftGray90004,
+      leading: AppbarLeadingImage(
+        imagePath: ImageConstant.imgArrowLeft,
         margin: EdgeInsets.only(
           left: 19.h,
           top: 7.v,
           bottom: 7.v,
         ),
+        onTap: () {
+          onTapArrowleftone();
+        },
       ),
     );
   }
 
   /// Section Widget
   Widget _buildInstructionText() {
-    return Padding(
-      padding: EdgeInsets.only(left: 4.h),
-      child: Text(
-        "msg_please_enter_your".tr,
-        style: CustomTextStyles.titleMediumInterGray50001SemiBold,
-      ),
+    return Text(
+      "msg_please_enter_your".tr,
+      style: CustomTextStyles.titleMediumInterGray50001SemiBold,
     );
   }
 
@@ -76,8 +77,8 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
   Widget _buildEmailInput() {
     return CustomTextFormField(
       controller: controller.emailInputController,
-      hintText: "msg_contact_dscodetech_com".tr,
-      hintStyle: CustomTextStyles.titleMediumPoppinsGray700_1,
+      hintText: "msg_jacob_welovetokevel_com".tr,
+      hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
       textInputAction: TextInputAction.done,
       textInputType: TextInputType.emailAddress,
       validator: (value) {
@@ -93,8 +94,9 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
 
   /// Section Widget
   Widget _buildEmailSection() {
-    return SizedBox(
+    return Container(
       width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 2.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -102,7 +104,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "lbl_your_email".tr,
-              style: CustomTextStyles.titleMediumInterGray90009SemiBold,
+              style: CustomTextStyles.titleMediumInterGray90008SemiBold,
             ),
           ),
           SizedBox(height: 8.v),
@@ -117,9 +119,9 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
     return CustomElevatedButton(
       height: 48.v,
       text: "lbl_reset_password".tr,
-      margin: EdgeInsets.only(left: 4.h),
+      margin: EdgeInsets.symmetric(horizontal: 8.h),
       buttonStyle: CustomButtonStyles.fillIndigoATL12,
-      buttonTextStyle: CustomTextStyles.titleMediumInterPrimary,
+      buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16_1,
     );
   }
 
@@ -128,13 +130,15 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(left: 4.h),
-            child: Text(
-              "lbl_forgot_password".tr,
-              style: CustomTextStyles.titleLargePoppinsGray90004,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: 6.h),
+              child: Text(
+                "lbl_forgot_password".tr,
+                style: CustomTextStyles.titleLargePoppinsGray90004,
+              ),
             ),
           ),
           SizedBox(height: 12.v),
@@ -146,5 +150,10 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
         ],
       ),
     );
+  }
+
+  /// Navigates to the previous screen.
+  onTapArrowleftone() {
+    Get.back();
   }
 }

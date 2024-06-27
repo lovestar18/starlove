@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_five.dart';
+import '../../widgets/app_bar/appbar_subtitle_seven.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -22,43 +22,25 @@ class NotificationSettingsScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        extendBody: true,
-        extendBodyBehindAppBar: true,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
-          height: double.maxFinite,
-          padding: EdgeInsets.only(
-            top: 56.v,
-            bottom: 94.v,
+          padding: EdgeInsets.symmetric(
+            horizontal: 10.h,
+            vertical: 78.v,
           ),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(0.5, 0),
-              end: Alignment(0.5, 1),
-              colors: [
-                theme.colorScheme.primary.withOpacity(1),
-                appTheme.indigoA70001
-              ],
-            ),
-          ),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 14.h,
-              vertical: 78.v,
-            ),
-            child: Column(
-              children: [
-                _buildGeneralNotificationsSection(),
-                SizedBox(height: 284.v)
-              ],
-            ),
+          child: Column(
+            children: [_buildNotificationSettings(), SizedBox(height: 284.v)],
           ),
         ),
-        bottomNavigationBar: _buildBottomNavigationBar(),
+        bottomNavigationBar: _buildBottomNavigation(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
+          onTap: () {
+            onTapFloatingactionb();
+          },
           child: CustomImageView(
             imagePath: ImageConstant.imgFieldNavigation,
             height: 27.0.v,
@@ -86,17 +68,17 @@ class NotificationSettingsScreen
         },
       ),
       centerTitle: true,
-      title: AppbarSubtitleFive(
+      title: AppbarSubtitleSeven(
         text: "msg_notification_settings".tr,
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildGeneralNotificationsSection() {
+  Widget _buildNotificationSettings() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 14.h),
+      padding: EdgeInsets.symmetric(horizontal: 18.h),
       child: Column(
         children: [
           SizedBox(
@@ -110,9 +92,12 @@ class NotificationSettingsScreen
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
-                        "msg_general_notification".tr,
-                        style: CustomTextStyles.bodyMediumBluegray90003_1,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "msg_general_notification".tr,
+                          style: CustomTextStyles.bodyMediumBluegray90004_1,
+                        ),
                       ),
                       Obx(
                         () => CustomSwitch(
@@ -133,9 +118,12 @@ class NotificationSettingsScreen
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
-                        "msg_chat_notifications".tr,
-                        style: CustomTextStyles.bodyMediumBluegray90003_1,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "msg_chat_notifications".tr,
+                          style: CustomTextStyles.bodyMediumBluegray90004_1,
+                        ),
                       ),
                       Obx(
                         () => CustomSwitch(
@@ -156,9 +144,12 @@ class NotificationSettingsScreen
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
-                        "msg_group_notifications".tr,
-                        style: CustomTextStyles.bodyMediumBluegray90003_1,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "msg_group_notifications".tr,
+                          style: CustomTextStyles.bodyMediumBluegray90004_1,
+                        ),
                       ),
                       Obx(
                         () => CustomSwitch(
@@ -179,9 +170,12 @@ class NotificationSettingsScreen
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
-                        "msg_post_notifications".tr,
-                        style: CustomTextStyles.bodyMediumBluegray90003_1,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "msg_post_notifications".tr,
+                          style: CustomTextStyles.bodyMediumBluegray90004_1,
+                        ),
                       ),
                       Obx(
                         () => CustomSwitch(
@@ -203,7 +197,7 @@ class NotificationSettingsScreen
   }
 
   /// Section Widget
-  Widget _buildBottomNavigationBar() {
+  Widget _buildBottomNavigation() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -214,11 +208,11 @@ class NotificationSettingsScreen
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -245,4 +239,6 @@ class NotificationSettingsScreen
   onTapArrowleftone() {
     Get.back();
   }
+
+  onTapFloatingactionb() {}
 }

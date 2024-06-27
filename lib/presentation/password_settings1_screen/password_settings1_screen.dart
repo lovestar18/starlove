@@ -17,31 +17,16 @@ class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        extendBody: true,
-        extendBodyBehindAppBar: true,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         body: Container(
           width: double.maxFinite,
-          height: double.maxFinite,
-          padding: EdgeInsets.only(bottom: 94.v),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(0.5, 0),
-              end: Alignment(0.5, 1),
-              colors: [
-                theme.colorScheme.primary.withOpacity(1),
-                appTheme.indigoA70001
-              ],
-            ),
+          padding: EdgeInsets.symmetric(
+            horizontal: 10.h,
+            vertical: 206.v,
           ),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 14.h,
-              vertical: 206.v,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [SizedBox(height: 38.v), _buildCheckProgressSection()],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [SizedBox(height: 38.v), _buildCheckProgressSection()],
           ),
         ),
         bottomNavigationBar: _buildNavigationBar(),
@@ -65,13 +50,12 @@ class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
       width: double.maxFinite,
       child: Column(
         children: [
-          Container(
+          SizedBox(
             width: 206.h,
-            margin: EdgeInsets.only(left: 2.h),
             child: Column(
               children: [
                 CustomImageView(
-                  imagePath: ImageConstant.imgCheckProgress,
+                  imagePath: ImageConstant.imgCheckProgressIndigoA70001,
                   height: 142.adaptSize,
                   width: double.maxFinite,
                   margin: EdgeInsets.symmetric(horizontal: 32.h),
@@ -82,7 +66,8 @@ class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
-                  style: CustomTextStyles.titleLargeOpenSansPrimary.copyWith(
+                  style:
+                      CustomTextStyles.titleLargeOpenSansIndigoA70001.copyWith(
                     height: 1.30,
                   ),
                 )
@@ -106,11 +91,11 @@ class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;

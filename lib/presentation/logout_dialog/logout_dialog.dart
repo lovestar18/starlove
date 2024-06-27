@@ -22,54 +22,45 @@ class LogoutDialog extends StatelessWidget {
         Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 44.h,
-            vertical: 40.v,
+            horizontal: 50.h,
+            vertical: 44.v,
           ),
-          decoration: AppDecoration.white.copyWith(
+          decoration: AppDecoration.mainwhite.copyWith(
             borderRadius: BorderRadiusStyle.circleBorder20,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "lbl_logout2".tr,
                 style: CustomTextStyles.titleLargeOpenSansTeal900,
               ),
               SizedBox(height: 76.v),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "msg_are_you_sure_you3".tr,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: CustomTextStyles.titleLargeOpenSansBluegray90003,
-                ),
+              Text(
+                "msg_are_you_sure_you3".tr,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: CustomTextStyles.titleLargeOpenSansBluegray90004,
               ),
               SizedBox(height: 74.v),
               CustomElevatedButton(
                 height: 44.v,
                 text: "lbl_yes_logout".tr,
-                margin: EdgeInsets.only(
-                  left: 24.h,
-                  right: 14.h,
-                ),
+                margin: EdgeInsets.symmetric(horizontal: 16.h),
                 buttonStyle: CustomButtonStyles.fillCyan,
                 buttonTextStyle:
-                    CustomTextStyles.titleSmallOpenSansBluegray90002,
+                    CustomTextStyles.titleSmallOpenSansBluegray90003,
               ),
               SizedBox(height: 10.v),
               CustomElevatedButton(
                 height: 44.v,
                 text: "lbl_cancel2".tr,
-                margin: EdgeInsets.only(
-                  left: 24.h,
-                  right: 14.h,
-                ),
+                margin: EdgeInsets.symmetric(horizontal: 16.h),
                 buttonStyle: CustomButtonStyles.fillTeal,
                 buttonTextStyle: CustomTextStyles.titleSmallOpenSansTeal900,
-              ),
-              SizedBox(height: 8.v)
+              )
             ],
           ),
         )

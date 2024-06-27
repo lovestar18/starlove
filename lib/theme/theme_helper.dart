@@ -42,7 +42,6 @@ class ThemeHelper {
       visualDensity: VisualDensity.standard,
       colorScheme: colorScheme,
       textTheme: TextThemes.textTheme(colorScheme),
-      scaffoldBackgroundColor: colorScheme.primary.withOpacity(1),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           backgroundColor: Colors.transparent,
@@ -109,8 +108,8 @@ class TextThemes {
   static TextTheme textTheme(ColorScheme colorScheme) => TextTheme(
         bodyLarge: TextStyle(
           color: appTheme.black900,
-          fontSize: 16.fSize,
-          fontFamily: 'Open Sans',
+          fontSize: 18.fSize,
+          fontFamily: 'Roboto',
           fontWeight: FontWeight.w400,
         ),
         bodyMedium: TextStyle(
@@ -125,6 +124,18 @@ class TextThemes {
           fontFamily: 'Open Sans',
           fontWeight: FontWeight.w400,
         ),
+        displayMedium: TextStyle(
+          color: colorScheme.primary.withOpacity(1),
+          fontSize: 48.fSize,
+          fontFamily: 'Open Sans',
+          fontWeight: FontWeight.w800,
+        ),
+        displaySmall: TextStyle(
+          color: colorScheme.primary.withOpacity(1),
+          fontSize: 35.fSize,
+          fontFamily: 'Open Sans',
+          fontWeight: FontWeight.w400,
+        ),
         headlineLarge: TextStyle(
           color: appTheme.gray90002,
           fontSize: 32.fSize,
@@ -132,8 +143,8 @@ class TextThemes {
           fontWeight: FontWeight.w700,
         ),
         headlineMedium: TextStyle(
-          color: appTheme.blueGray80001,
-          fontSize: 28.fSize,
+          color: appTheme.black900,
+          fontSize: 29.fSize,
           fontFamily: 'Roboto',
           fontWeight: FontWeight.w700,
         ),
@@ -163,9 +174,9 @@ class TextThemes {
         ),
         titleMedium: TextStyle(
           color: appTheme.black900,
-          fontSize: 16.fSize,
+          fontSize: 18.fSize,
           fontFamily: 'Roboto',
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w700,
         ),
         titleSmall: TextStyle(
           color: appTheme.black900,
@@ -207,8 +218,9 @@ class LightCodeColors {
   Color get blueA40001 => Color(0XFF2F80ED);
   Color get blueA40002 => Color(0XFF3671FF);
 // BlueGray
-  Color get blueGray100 => Color(0XFFD8D0E3);
-  Color get blueGray10001 => Color(0XFFD4D4D4);
+  Color get blueGray100 => Color(0XFFCCCCCC);
+  Color get blueGray10001 => Color(0XFFD8D0E3);
+  Color get blueGray10002 => Color(0XFFD4D4D4);
   Color get blueGray200 => Color(0XFFACB5BB);
   Color get blueGray20001 => Color(0XFFB9BDCC);
   Color get blueGray20002 => Color(0XFFAAADB7);
@@ -230,10 +242,10 @@ class LightCodeColors {
   Color get blueGray80002 => Color(0XFF363B4B);
   Color get blueGray900 => Color(0XFF282B35);
   Color get blueGray90001 => Color(0XFF323436);
-  Color get blueGray90002 => Color(0XFF093030);
-  Color get blueGray90003 => Color(0XFF363130);
-  Color get blueGray90004 => Color(0XFF263238);
-  Color get blueGray90099 => Color(0X99333333);
+  Color get blueGray90002 => Color(0XFF333333);
+  Color get blueGray90003 => Color(0XFF093030);
+  Color get blueGray90004 => Color(0XFF363130);
+  Color get blueGray90005 => Color(0XFF263238);
 // BlueGrayEd
   Color get blueGray100Ed => Color(0XEDD5D7DD);
 // BlueGrayd
@@ -241,7 +253,6 @@ class LightCodeColors {
 // Cyan
   Color get cyan400 => Color(0XFF28BAE2);
   Color get cyan40001 => Color(0XFF39D2C0);
-  Color get cyan50 => Color(0XFFEBFBF9);
   Color get cyanA400 => Color(0XFF01DCEE);
   Color get cyanA40001 => Color(0XFF00D9F5);
 // DeepOrange
@@ -250,16 +261,16 @@ class LightCodeColors {
   Color get gray100 => Color(0XFFF1F1FD);
   Color get gray10001 => Color(0XFFF1FFF2);
   Color get gray10002 => Color(0XFFF7F7F7);
-  Color get gray10003 => Color(0XFFEFF4FF);
-  Color get gray10004 => Color(0XFFF2F4F6);
-  Color get gray10005 => Color(0XFFF4F4F4);
-  Color get gray10006 => Color(0XFFF5F6F8);
-  Color get gray10007 => Color(0XFFF0F2F5);
+  Color get gray10003 => Color(0XFFF2F4F6);
+  Color get gray10004 => Color(0XFFF4F4F4);
+  Color get gray10005 => Color(0XFFF5F6F8);
+  Color get gray10006 => Color(0XFFF0F2F5);
   Color get gray200 => Color(0XFFECECEC);
   Color get gray20001 => Color(0XFFE9E9EB);
   Color get gray20002 => Color(0XFFEBEAEC);
   Color get gray20003 => Color(0XFFECEDEE);
-  Color get gray20004 => Color(0XFFEAEAEA);
+  Color get gray20004 => Color(0XFFEBEBEB);
+  Color get gray20005 => Color(0XFFEAEAEA);
   Color get gray300 => Color(0XFFDFDFDF);
   Color get gray30001 => Color(0XFFDBDBDB);
   Color get gray30002 => Color(0XFFE6E6E6);
@@ -267,6 +278,7 @@ class LightCodeColors {
   Color get gray30004 => Color(0XFFE3E4E8);
   Color get gray30005 => Color(0XFFDFE2E8);
   Color get gray400 => Color(0XFFBDBDBD);
+  Color get gray40001 => Color(0XFFB4B5B6);
   Color get gray50 => Color(0XFFF8F9FA);
   Color get gray500 => Color(0XFF9586A8);
   Color get gray50001 => Color(0XFF989898);
@@ -283,14 +295,13 @@ class LightCodeColors {
   Color get gray90003 => Color(0XFF232323);
   Color get gray90004 => Color(0XFF1E1E1E);
   Color get gray90005 => Color(0XFF262626);
-  Color get gray90006 => Color(0XFF052224);
-  Color get gray90007 => Color(0XFF232222);
-  Color get gray90008 => Color(0XFF001E2F);
-  Color get gray90009 => Color(0XFF2A2A2A);
-  Color get gray90010 => Color(0XFF1A1C1E);
-  Color get gray90011 => Color(0XFF262829);
-  Color get gray90012 => Color(0XFF242424);
-  Color get gray90013 => Color(0XFF212121);
+  Color get gray90006 => Color(0XFF232222);
+  Color get gray90007 => Color(0XFF001E2F);
+  Color get gray90008 => Color(0XFF2A2A2A);
+  Color get gray90009 => Color(0XFF1A1C1E);
+  Color get gray90010 => Color(0XFF262829);
+  Color get gray90011 => Color(0XFF242424);
+  Color get gray90012 => Color(0XFF212121);
 // Grayd
   Color get gray3003d => Color(0X3DE4E5E7);
 // Indigo
@@ -305,6 +316,7 @@ class LightCodeColors {
   Color get indigoA70001 => Color(0XFF4B39EF);
 // LightBlue
   Color get lightBlue100 => Color(0XFFB1EDFF);
+  Color get lightBlueA100 => Color(0XFF8ADEFF);
 // Pink
   Color get pinkA200 => Color(0XFFF62E8E);
 // Purple
@@ -325,5 +337,7 @@ class LightCodeColors {
   Color get whiteA700 => Color(0XFFFCFCFE);
   Color get whiteA70001 => Color(0XFFFEFEFE);
 // Yellow
+  Color get yellow400 => Color(0XFFFFE159);
   Color get yellow800 => Color(0XFFF09819);
+  Color get yellow80001 => Color(0XFFFFAF19);
 }

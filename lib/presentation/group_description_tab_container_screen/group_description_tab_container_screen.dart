@@ -26,12 +26,12 @@ class GroupDescriptionTabContainerScreen
               end: Alignment(0.5, 1),
               colors: [
                 theme.colorScheme.primary.withOpacity(1),
-                appTheme.gray10005
+                appTheme.gray10004
               ],
             ),
           ),
           child: SizedBox(
-            width: 256.h,
+            width: 374.h,
             child: Column(
               children: [
                 Expanded(
@@ -39,7 +39,7 @@ class GroupDescriptionTabContainerScreen
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildTabContentColumn(),
+                        _buildSignalColumn(),
                         SizedBox(
                           height: 1192.v,
                           width: double.maxFinite,
@@ -68,14 +68,15 @@ class GroupDescriptionTabContainerScreen
 
   /// Section Widget
   Widget _buildNavigationRow() {
-    return SizedBox(
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 4.h),
       width: double.maxFinite,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         children: [
           CustomImageView(
-            imagePath: ImageConstant.imgArrowLeftBlueGray60001,
+            imagePath: ImageConstant.imgArrowLeftBlueGray600011,
             height: 24.adaptSize,
             width: 24.adaptSize,
             radius: BorderRadius.circular(
@@ -87,7 +88,7 @@ class GroupDescriptionTabContainerScreen
             style: CustomTextStyles.titleMediumOpenSansIndigo90002,
           ),
           CustomImageView(
-            imagePath: ImageConstant.imgUserBlueGray60001,
+            imagePath: ImageConstant.imgUserBlueGray600011,
             height: 24.adaptSize,
             width: 24.adaptSize,
             radius: BorderRadius.circular(
@@ -100,17 +101,17 @@ class GroupDescriptionTabContainerScreen
   }
 
   /// Section Widget
-  Widget _buildContentColumn() {
+  Widget _buildInfoColumn() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
       child: Column(
         children: [
           _buildNavigationRow(),
           SizedBox(height: 46.v),
           Container(
             width: double.maxFinite,
-            margin: EdgeInsets.symmetric(horizontal: 18.h),
+            margin: EdgeInsets.symmetric(horizontal: 20.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
@@ -121,13 +122,16 @@ class GroupDescriptionTabContainerScreen
                   width: 24.adaptSize,
                 ),
                 Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 16.h),
-                    child: Text(
-                      "msg_we_are_fullsnack".tr,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: CustomTextStyles.bodyMediumBluegray60001,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 16.h),
+                      child: Text(
+                        "msg_we_are_fullsnack".tr,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: CustomTextStyles.bodyMediumBluegray60001,
+                      ),
                     ),
                   ),
                 )
@@ -137,7 +141,7 @@ class GroupDescriptionTabContainerScreen
           SizedBox(height: 28.v),
           Container(
             width: double.maxFinite,
-            margin: EdgeInsets.symmetric(horizontal: 18.h),
+            margin: EdgeInsets.symmetric(horizontal: 20.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
@@ -172,14 +176,14 @@ class GroupDescriptionTabContainerScreen
   }
 
   /// Section Widget
-  Widget _buildTabContentColumn() {
+  Widget _buildSignalColumn() {
     return SizedBox(
       width: 374.h,
       child: Column(
         children: [
           Container(
             width: double.maxFinite,
-            decoration: AppDecoration.white.copyWith(
+            decoration: AppDecoration.mainwhite.copyWith(
               borderRadius: BorderRadiusStyle.customBorderBL8,
             ),
             child: Column(
@@ -194,7 +198,7 @@ class GroupDescriptionTabContainerScreen
                   ),
                 ),
                 SizedBox(height: 18.v),
-                _buildContentColumn(),
+                _buildInfoColumn(),
                 SizedBox(height: 24.v)
               ],
             ),
@@ -224,7 +228,7 @@ class GroupDescriptionTabContainerScreen
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomImageView(
-                        imagePath: ImageConstant.imgSignal,
+                        imagePath: ImageConstant.imgSignalBlueA40001,
                         height: 16.adaptSize,
                         width: 16.adaptSize,
                         radius: BorderRadius.only(
@@ -247,7 +251,7 @@ class GroupDescriptionTabContainerScreen
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomImageView(
-                          imagePath: ImageConstant.imgBookmarkBlueGray60001,
+                          imagePath: ImageConstant.imgBookmarkBlueGray600011,
                           height: 16.adaptSize,
                           width: 16.adaptSize,
                           radius: BorderRadius.only(
@@ -271,7 +275,7 @@ class GroupDescriptionTabContainerScreen
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomImageView(
-                          imagePath: ImageConstant.imgUpload,
+                          imagePath: ImageConstant.imgUploadBlueGray60001,
                           height: 16.adaptSize,
                           width: 16.adaptSize,
                           radius: BorderRadius.only(
@@ -293,7 +297,7 @@ class GroupDescriptionTabContainerScreen
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomImageView(
-                        imagePath: ImageConstant.imgReply,
+                        imagePath: ImageConstant.imgReplyBlueGray60001,
                         height: 16.adaptSize,
                         width: 16.adaptSize,
                         radius: BorderRadius.only(
@@ -314,7 +318,7 @@ class GroupDescriptionTabContainerScreen
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomImageView(
-                        imagePath: ImageConstant.imgArrowUp,
+                        imagePath: ImageConstant.imgArrowUpBlueGray60001,
                         height: 16.adaptSize,
                         width: 16.adaptSize,
                         radius: BorderRadius.only(

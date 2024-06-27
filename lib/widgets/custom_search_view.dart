@@ -94,7 +94,7 @@ class CustomSearchView extends StatelessWidget {
             }
           },
           autofocus: autofocus!,
-          style: textStyle ?? CustomTextStyles.bodyMediumBluegray90002,
+          style: textStyle ?? CustomTextStyles.labelLargeOpenSansBlack900,
           keyboardType: textInputType,
           maxLines: maxLines ?? 1,
           decoration: decoration,
@@ -144,13 +144,13 @@ class CustomSearchView extends StatelessWidget {
               right: 12.h,
               bottom: 12.v,
             ),
-        fillColor: fillColor ?? appTheme.cyan50,
+        fillColor: fillColor ?? theme.colorScheme.primary.withOpacity(1),
         filled: filled,
         border: borderDecoration ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.h),
               borderSide: BorderSide(
-                color: appTheme.cyan40001,
+                color: appTheme.black900,
                 width: 1,
               ),
             ),
@@ -158,7 +158,7 @@ class CustomSearchView extends StatelessWidget {
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.h),
               borderSide: BorderSide(
-                color: appTheme.cyan40001,
+                color: appTheme.black900,
                 width: 1,
               ),
             ),
@@ -166,7 +166,7 @@ class CustomSearchView extends StatelessWidget {
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(24.h),
               borderSide: BorderSide(
-                color: appTheme.blueGray100,
+                color: appTheme.blueGray10001,
                 width: 1,
               ),
             ),

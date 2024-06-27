@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_subtitle_fifteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_eighteen.dart';
 import '../../widgets/app_bar/appbar_subtitle_sixteen.dart';
 import '../../widgets/app_bar/appbar_trailing_button.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
@@ -20,15 +20,16 @@ class WriteInCommuntyScreen extends GetWidget<WriteInCommuntyController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 14.h,
+            horizontal: 10.h,
             vertical: 86.v,
           ),
           child: Column(
-            children: [_buildPostForm(), SizedBox(height: 4.v)],
+            children: [_buildPostDetails(), SizedBox(height: 4.v)],
           ),
         ),
       ),
@@ -43,11 +44,11 @@ class WriteInCommuntyScreen extends GetWidget<WriteInCommuntyController> {
         padding: EdgeInsets.only(left: 14.h),
         child: Row(
           children: [
-            AppbarSubtitleSixteen(
+            AppbarSubtitleEighteen(
               text: "lbl_cancel".tr,
               margin: EdgeInsets.only(bottom: 1.v),
             ),
-            AppbarSubtitleFifteen(
+            AppbarSubtitleSixteen(
               text: "lbl_forum_post".tr.toUpperCase(),
               margin: EdgeInsets.only(left: 57.h),
             )
@@ -82,7 +83,7 @@ class WriteInCommuntyScreen extends GetWidget<WriteInCommuntyController> {
             width: 288.h,
             controller: controller.yournamegmailcoController,
             hintText: "msg_matzah_ball_soup".tr,
-            hintStyle: CustomTextStyles.bodyMediumGray90010,
+            hintStyle: CustomTextStyles.bodyMediumGray90009,
           )
         ],
       ),
@@ -105,7 +106,7 @@ class WriteInCommuntyScreen extends GetWidget<WriteInCommuntyController> {
             width: 288.h,
             controller: controller.yournamegmailco1Controller,
             hintText: "msg_people_who_love".tr,
-            hintStyle: CustomTextStyles.bodyMediumGray90010,
+            hintStyle: CustomTextStyles.bodyMediumGray90009,
             textInputAction: TextInputAction.done,
           )
         ],
@@ -114,10 +115,10 @@ class WriteInCommuntyScreen extends GetWidget<WriteInCommuntyController> {
   }
 
   /// Section Widget
-  Widget _buildPostForm() {
+  Widget _buildPostDetails() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 12.h),
+      padding: EdgeInsets.symmetric(horizontal: 14.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -131,6 +132,7 @@ class WriteInCommuntyScreen extends GetWidget<WriteInCommuntyController> {
             text: "lbl_forum_post2".tr.toUpperCase(),
             margin: EdgeInsets.only(left: 76.h),
             buttonStyle: CustomButtonStyles.outlineBlueGrayTL16,
+            buttonTextStyle: CustomTextStyles.labelLargeOpenSansPrimary,
           )
         ],
       ),

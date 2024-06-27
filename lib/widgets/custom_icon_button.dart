@@ -10,9 +10,6 @@ extension IconButtonStyleHelper on CustomIconButton {
           colors: [appTheme.indigoA100, appTheme.indigo500],
         ),
       );
-  static BoxDecoration get outline => BoxDecoration(
-        borderRadius: BorderRadius.circular(16.h),
-      );
   static BoxDecoration get radiusTL20 => BoxDecoration(
         borderRadius: BorderRadius.circular(20.h),
       );

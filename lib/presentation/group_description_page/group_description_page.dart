@@ -33,7 +33,7 @@ class GroupDescriptionPage extends StatelessWidget {
               end: Alignment(0.5, 1),
               colors: [
                 theme.colorScheme.primary.withOpacity(1),
-                appTheme.gray10005
+                appTheme.gray10004
               ],
             ),
           ),
@@ -41,11 +41,11 @@ class GroupDescriptionPage extends StatelessWidget {
             child: Container(
               width: double.maxFinite,
               padding: EdgeInsets.symmetric(
-                horizontal: 14.h,
+                horizontal: 10.h,
                 vertical: 8.v,
               ),
               child: Column(
-                children: [SizedBox(height: 14.v), _buildPeopleColumn()],
+                children: [SizedBox(height: 14.v), _buildMainColumn()],
               ),
             ),
           ),
@@ -55,7 +55,7 @@ class GroupDescriptionPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildNextThingColumn() {
+  Widget _buildInfoColumn() {
     return Container(
       width: double.maxFinite,
       margin: EdgeInsets.only(left: 6.h),
@@ -65,7 +65,7 @@ class GroupDescriptionPage extends StatelessWidget {
             width: double.maxFinite,
             margin: EdgeInsets.only(left: 10.h),
             child: _buildNoteRow(
-              plskeepanote: "msg_the_next_thing_we".tr,
+              noteText: "msg_the_next_thing_we".tr,
             ),
           ),
           SizedBox(height: 22.v),
@@ -73,7 +73,7 @@ class GroupDescriptionPage extends StatelessWidget {
             width: double.maxFinite,
             margin: EdgeInsets.only(left: 10.h),
             child: _buildNoteRow(
-              plskeepanote: "msg_pls_keep_a_note".tr,
+              noteText: "msg_pls_keep_a_note".tr,
             ),
           ),
           SizedBox(height: 22.v),
@@ -81,7 +81,7 @@ class GroupDescriptionPage extends StatelessWidget {
             width: double.maxFinite,
             margin: EdgeInsets.only(left: 10.h),
             child: _buildNoteRow(
-              plskeepanote: "msg_the_event_will_be".tr,
+              noteText: "msg_the_event_will_be".tr,
             ),
           ),
           SizedBox(height: 22.v),
@@ -98,12 +98,13 @@ class GroupDescriptionPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildPeopleColumn() {
-    return SizedBox(
+  Widget _buildMainColumn() {
+    return Container(
       width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 4.h),
       child: Column(
         children: [
-          _buildNextThingColumn(),
+          _buildInfoColumn(),
           SizedBox(height: 48.v),
           Container(
             width: double.maxFinite,
@@ -149,7 +150,7 @@ class GroupDescriptionPage extends StatelessWidget {
                           ),
                           Spacer(),
                           CustomImageView(
-                            imagePath: ImageConstant.imgSearchBlueA40001,
+                            imagePath: ImageConstant.imgSearchBlueA400011,
                             height: 24.adaptSize,
                             width: 24.adaptSize,
                           )
@@ -162,7 +163,7 @@ class GroupDescriptionPage extends StatelessWidget {
                 SizedBox(
                   width: double.maxFinite,
                   child: Divider(
-                    color: appTheme.gray20004,
+                    color: appTheme.gray20005,
                   ),
                 ),
                 SizedBox(height: 14.v),
@@ -206,12 +207,12 @@ class GroupDescriptionPage extends StatelessWidget {
   }
 
   /// Common widget
-  Widget _buildNoteRow({required String plskeepanote}) {
+  Widget _buildNoteRow({required String noteText}) {
     return Row(
       children: [
         Expanded(
           child: Text(
-            plskeepanote,
+            noteText,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
             style: CustomTextStyles.bodyMediumBluegray60001.copyWith(
@@ -221,7 +222,7 @@ class GroupDescriptionPage extends StatelessWidget {
         ),
         SizedBox(width: 26.h),
         CustomImageView(
-          imagePath: ImageConstant.imgArrowRightBlueGray60001,
+          imagePath: ImageConstant.imgArrowRightBlueGray600011,
           height: 24.adaptSize,
           width: 24.adaptSize,
           alignment: Alignment.bottomCenter,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_eight.dart';
+import '../../widgets/app_bar/appbar_subtitle_ten.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -22,21 +21,24 @@ class FeedScreen extends GetWidget<FeedController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 12.v),
+            SizedBox(height: 14.v),
             Expanded(
               child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 8.v),
+                child: Container(
+                  width: double.maxFinite,
+                  margin: EdgeInsets.only(bottom: 2.v),
+                  padding: EdgeInsets.symmetric(horizontal: 4.h),
                   child: Column(
                     children: [
-                      _buildUserProfileList(),
-                      SizedBox(height: 2.v),
-                      _buildHeader(),
-                      SizedBox(height: 2.v),
+                      _buildUserProfileColumn(),
+                      SizedBox(height: 6.v),
+                      _buildHeaderRow(),
+                      SizedBox(height: 6.v),
                       _buildFeedColumn()
                     ],
                   ),
@@ -66,91 +68,77 @@ class FeedScreen extends GetWidget<FeedController> {
   /// Section Widget
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
-      height: 100.v,
+      height: 98.v,
       centerTitle: true,
-      title: Container(
-        width: double.maxFinite,
-        decoration: AppDecoration.gradientIndigoAToCyan400011,
-        child: Column(
-          children: [
-            SizedBox(height: 11.v),
-            AppbarImage(
-              imagePath: ImageConstant.imgStarOfDavid1,
-              margin: EdgeInsets.only(
-                left: 328.h,
-                right: 16.h,
-              ),
-            ),
-            AppbarImage(
-              imagePath: ImageConstant.imgStarOfDavid1,
-              margin: EdgeInsets.only(
-                left: 21.h,
-                right: 323.h,
-              ),
-            ),
-            AppbarSubtitleEight(
-              text: "msg_welcome_to_the_forjew".tr,
-              margin: EdgeInsets.only(
-                left: 78.h,
-                right: 79.h,
-              ),
-            ),
-            AppbarImage(
-              imagePath: ImageConstant.img38633861,
-              margin: EdgeInsets.only(
-                left: 58.h,
-                right: 286.h,
-              ),
-            ),
-            AppbarImage(
-              imagePath: ImageConstant.img38633861,
-              margin: EdgeInsets.only(
-                left: 288.h,
-                right: 56.h,
-              ),
-            ),
-            SizedBox(height: 7.v)
-          ],
-        ),
+      title: AppbarSubtitleTen(
+        text: "msg_welcome_to_the_forjew_page".tr,
       ),
-      styleType:
-          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04,
+      styleType: Style.bgStyle,
     );
   }
 
   /// Section Widget
   Widget _buildUserProfileList() {
     return SizedBox(
+      height: 90.v,
       width: double.maxFinite,
+      child: Obx(
+        () => ListView.separated(
+          padding: EdgeInsets.only(left: 2.h),
+          scrollDirection: Axis.horizontal,
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              width: 26.h,
+            );
+          },
+          itemCount: controller
+              .feedModelObj.value.userprofilelistItemList.value.length,
+          itemBuilder: (context, index) {
+            UserprofilelistItemModel model = controller
+                .feedModelObj.value.userprofilelistItemList.value[index];
+            return UserprofilelistItemWidget(
+              model,
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildUserProfileColumn() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 8.h,
+        right: 14.h,
+      ),
+      child: Column(
+        children: [_buildUserProfileList()],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildForjewFollowingRow() {
+    return Expanded(
       child: Align(
-        alignment: Alignment.centerLeft,
-        child: SizedBox(
-          height: 94.v,
-          child: Obx(
-            () => ListView.separated(
-              padding: EdgeInsets.only(left: 10.h),
-              scrollDirection: Axis.horizontal,
-              separatorBuilder: (context, index) {
-                return SizedBox(
-                  width: 30.h,
-                );
-              },
-              itemCount: controller
-                  .feedModelObj.value.userprofilelistItemList.value.length,
-              itemBuilder: (context, index) {
-                UserprofilelistItemModel model = controller
-                    .feedModelObj.value.userprofilelistItemList.value[index];
-                return UserprofilelistItemWidget(
-                  model,
-                  onTapUserprofile: () {
-                    onTapUserprofile();
-                  },
-                  onTapImgUserimage3: () {
-                    onTapImgUserimage3();
-                  },
-                );
-              },
-            ),
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: EdgeInsets.only(top: 2.v),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "lbl_forjew".tr,
+                style: CustomTextStyles.titleSmallOpenSansBlack900,
+              ),
+              SizedBox(width: 30.h),
+              Text(
+                "lbl_following".tr,
+                style: CustomTextStyles.titleSmallOpenSans,
+              )
+            ],
           ),
         ),
       ),
@@ -159,238 +147,215 @@ class FeedScreen extends GetWidget<FeedController> {
 
   /// Section Widget
   Widget _buildHeaderRow() {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.only(top: 2.v),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "lbl_forjew".tr,
-              style: CustomTextStyles.titleSmallOpenSansBlack900,
-            ),
-            SizedBox(width: 30.h),
-            Text(
-              "lbl_following".tr,
-              style: CustomTextStyles.titleSmallOpenSans,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildHeader() {
     return Container(
-      margin: EdgeInsets.only(
-        left: 6.h,
-        right: 4.h,
+      padding: EdgeInsets.symmetric(
+        horizontal: 6.h,
+        vertical: 8.v,
       ),
-      padding: EdgeInsets.all(8.h),
-      decoration: AppDecoration.white,
+      decoration: AppDecoration.mainwhite,
       width: double.maxFinite,
       child: Row(
         mainAxisSize: MainAxisSize.max,
-        children: [_buildHeaderRow()],
+        children: [_buildForjewFollowingRow()],
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildPostRow() {
+  Widget _buildHelenaPostColumn() {
     return SizedBox(
       width: double.maxFinite,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Container(
-            height: 32.adaptSize,
-            width: 32.adaptSize,
-            decoration: AppDecoration.fillGray.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder16,
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                CustomImageView(
-                  imagePath: ImageConstant.imgRectangle1,
-                  height: 32.adaptSize,
-                  width: double.maxFinite,
-                  radius: BorderRadius.circular(
-                    16.h,
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(width: 12.h),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "lbl_helena".tr,
-                              style: CustomTextStyles.titleSmallSemiBold_1,
-                            ),
-                            SizedBox(height: 2.v),
-                            Text(
-                              "lbl_3_min_ago".tr,
-                              style: CustomTextStyles.bodySmallInterGray60003,
-                            )
-                          ],
-                        ),
-                      ),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgIconMore,
-                        height: 24.adaptSize,
-                        width: 24.adaptSize,
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 12.v),
-                CustomImageView(
-                  imagePath: ImageConstant.imgImage,
-                  height: 298.adaptSize,
-                  width: double.maxFinite,
-                  radius: BorderRadius.circular(
-                    4.h,
-                  ),
-                ),
-                SizedBox(height: 12.v),
-                Text(
-                  "msg_post_description".tr,
-                  style: CustomTextStyles.bodyMediumInter,
-                ),
-                SizedBox(height: 12.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      CustomImageView(
-                        imagePath: ImageConstant.imgFavorite,
-                        height: 28.adaptSize,
-                        width: 28.adaptSize,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 8.h),
-                        child: Text(
-                          "lbl_21_likes".tr,
-                          style: theme.textTheme.titleSmall,
-                        ),
-                      ),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgLock,
-                        height: 20.v,
-                        width: 16.h,
-                        margin: EdgeInsets.only(left: 16.h),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 8.h),
-                        child: Text(
-                          "lbl_21_stars".tr,
-                          style: theme.textTheme.titleSmall,
-                        ),
-                      ),
-                      Expanded(
-                        child: _buildCommentsRow(
-                          commentsCounter: "lbl_4_comments".tr,
-                          onTapCommentsRow: () {
-                            onTapCommentsRow();
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildPostHeaderRow() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Container(
-            height: 32.adaptSize,
-            width: 32.adaptSize,
-            decoration: AppDecoration.fillGray.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder16,
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                CustomImageView(
-                  imagePath: ImageConstant.imgRectangle1,
-                  height: 32.adaptSize,
-                  width: double.maxFinite,
-                  radius: BorderRadius.circular(
-                    16.h,
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(width: 12.h),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "lbl_helena".tr,
-                  style: CustomTextStyles.titleSmallSemiBold_1,
-                ),
-                SizedBox(height: 2.v),
-                Text(
-                  "lbl_3_min_ago".tr,
-                  style: CustomTextStyles.bodySmallInterGray60003,
-                )
-              ],
-            ),
-          ),
-          SizedBox(width: 12.h),
-          CustomImageView(
-            imagePath: ImageConstant.imgIconMore,
-            height: 24.adaptSize,
-            width: 24.adaptSize,
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildFeedColumn() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.only(
-        left: 14.h,
-        right: 22.h,
-      ),
       child: Column(
         children: [
-          _buildPostRow(),
+          Container(
+            width: double.maxFinite,
+            margin: EdgeInsets.only(right: 4.h),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  height: 32.adaptSize,
+                  width: 32.adaptSize,
+                  decoration: AppDecoration.fillGray.copyWith(
+                    borderRadius: BorderRadiusStyle.roundedBorder16,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      CustomImageView(
+                        imagePath: ImageConstant.imgRectangle1,
+                        height: 32.adaptSize,
+                        width: double.maxFinite,
+                        radius: BorderRadius.circular(
+                          16.h,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 12.h),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: double.maxFinite,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "lbl_helena".tr,
+                                      style:
+                                          CustomTextStyles.titleSmallSemiBold_1,
+                                    ),
+                                    SizedBox(height: 2.v),
+                                    Text(
+                                      "lbl_3_min_ago".tr,
+                                      style: CustomTextStyles
+                                          .bodySmallInterGray60003,
+                                    )
+                                  ],
+                                ),
+                              ),
+                              CustomImageView(
+                                imagePath: ImageConstant.imgIconMore,
+                                height: 24.adaptSize,
+                                width: 24.adaptSize,
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 12.v),
+                        CustomImageView(
+                          imagePath: ImageConstant.imgImage,
+                          height: 298.adaptSize,
+                          width: double.maxFinite,
+                          radius: BorderRadius.circular(
+                            4.h,
+                          ),
+                        ),
+                        SizedBox(height: 12.v),
+                        Text(
+                          "msg_post_description".tr,
+                          style: CustomTextStyles.bodyMediumInter,
+                        ),
+                        SizedBox(height: 12.v),
+                        SizedBox(
+                          width: double.maxFinite,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              CustomImageView(
+                                imagePath: ImageConstant.imgFavorite,
+                                height: 28.adaptSize,
+                                width: 28.adaptSize,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 8.h),
+                                child: Text(
+                                  "lbl_21_likes".tr,
+                                  style: theme.textTheme.titleSmall,
+                                ),
+                              ),
+                              CustomImageView(
+                                imagePath: ImageConstant.imgLockBlack900,
+                                height: 20.v,
+                                width: 16.h,
+                                margin: EdgeInsets.only(left: 16.h),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 8.h),
+                                child: Text(
+                                  "lbl_21_stars".tr,
+                                  style: theme.textTheme.titleSmall,
+                                ),
+                              ),
+                              CustomImageView(
+                                imagePath: ImageConstant.imgMessageSquare,
+                                height: 20.adaptSize,
+                                width: 20.adaptSize,
+                                margin: EdgeInsets.only(left: 16.h),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 8.h),
+                                child: Text(
+                                  "lbl_4_comments".tr,
+                                  style: theme.textTheme.titleSmall,
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
           SizedBox(height: 22.v),
-          _buildPostHeaderRow(),
+          Container(
+            width: double.maxFinite,
+            margin: EdgeInsets.only(
+              left: 4.h,
+              right: 10.h,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  height: 32.adaptSize,
+                  width: 32.adaptSize,
+                  decoration: AppDecoration.fillGray.copyWith(
+                    borderRadius: BorderRadiusStyle.roundedBorder16,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      CustomImageView(
+                        imagePath: ImageConstant.imgRectangle1,
+                        height: 32.adaptSize,
+                        width: double.maxFinite,
+                        radius: BorderRadius.circular(
+                          16.h,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 12.h),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "lbl_helena".tr,
+                        style: CustomTextStyles.titleSmallSemiBold_1,
+                      ),
+                      SizedBox(height: 2.v),
+                      Text(
+                        "lbl_3_min_ago".tr,
+                        style: CustomTextStyles.bodySmallInterGray60003,
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 12.h),
+                CustomImageView(
+                  imagePath: ImageConstant.imgIconMore,
+                  height: 24.adaptSize,
+                  width: 24.adaptSize,
+                )
+              ],
+            ),
+          ),
           SizedBox(height: 12.v),
           CustomImageView(
             imagePath: ImageConstant.imgImage,
@@ -400,13 +365,13 @@ class FeedScreen extends GetWidget<FeedController> {
               4.h,
             ),
             alignment: Alignment.centerRight,
-            margin: EdgeInsets.only(right: 6.h),
+            margin: EdgeInsets.only(right: 10.h),
           ),
           SizedBox(height: 14.v),
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: 40.h),
+              padding: EdgeInsets.only(left: 48.h),
               child: Text(
                 "msg_post_description".tr,
                 style: CustomTextStyles.bodyMediumInter,
@@ -422,7 +387,7 @@ class FeedScreen extends GetWidget<FeedController> {
               children: [
                 Spacer(),
                 CustomImageView(
-                  imagePath: ImageConstant.imgFavoriteBlack900,
+                  imagePath: ImageConstant.imgFavoriteBlack9001,
                   height: 28.adaptSize,
                   width: 28.adaptSize,
                 ),
@@ -434,7 +399,7 @@ class FeedScreen extends GetWidget<FeedController> {
                   ),
                 ),
                 CustomImageView(
-                  imagePath: ImageConstant.imgLock,
+                  imagePath: ImageConstant.imgLockBlack900,
                   height: 20.v,
                   width: 16.h,
                   margin: EdgeInsets.only(left: 16.h),
@@ -446,16 +411,37 @@ class FeedScreen extends GetWidget<FeedController> {
                     style: theme.textTheme.titleSmall,
                   ),
                 ),
-                _buildCommentsRow(
-                  commentsCounter: "lbl_4_comments".tr,
-                  onTapCommentsRow: () {
-                    onTapCommentsRow1();
-                  },
+                CustomImageView(
+                  imagePath: ImageConstant.imgMessageSquare,
+                  height: 20.adaptSize,
+                  width: 20.adaptSize,
+                  margin: EdgeInsets.only(left: 16.h),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.h),
+                  child: Text(
+                    "lbl_4_comments".tr,
+                    style: theme.textTheme.titleSmall,
+                  ),
                 )
               ],
             ),
           )
         ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildFeedColumn() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 8.h,
+        right: 14.h,
+      ),
+      child: Column(
+        children: [_buildHelenaPostColumn()],
       ),
     );
   }
@@ -469,45 +455,14 @@ class FeedScreen extends GetWidget<FeedController> {
     );
   }
 
-  /// Common widget
-  Widget _buildCommentsRow({
-    required String commentsCounter,
-    Function? onTapCommentsRow,
-  }) {
-    return GestureDetector(
-      onTap: () {
-        onTapCommentsRow?.call();
-      },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgMessageSquare,
-            height: 20.adaptSize,
-            width: 20.adaptSize,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 8.h),
-            child: Text(
-              commentsCounter,
-              style: theme.textTheme.titleSmall!.copyWith(
-                color: appTheme.black900,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -528,33 +483,5 @@ class FeedScreen extends GetWidget<FeedController> {
       default:
         return DefaultWidget();
     }
-  }
-
-  /// Navigates to the cameraPermission2Screen when the action is triggered.
-  onTapUserprofile() {
-    Get.toNamed(
-      AppRoutes.cameraPermission2Screen,
-    );
-  }
-
-  /// Navigates to the storyScreen when the action is triggered.
-  onTapImgUserimage3() {
-    Get.toNamed(
-      AppRoutes.storyScreen,
-    );
-  }
-
-  /// Navigates to the viewPostScreen when the action is triggered.
-  onTapCommentsRow() {
-    Get.toNamed(
-      AppRoutes.viewPostScreen,
-    );
-  }
-
-  /// Navigates to the viewPostScreen when the action is triggered.
-  onTapCommentsRow1() {
-    Get.toNamed(
-      AppRoutes.viewPostScreen,
-    );
   }
 }

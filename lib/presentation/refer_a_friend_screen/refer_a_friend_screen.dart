@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../core/utils/validation_functions.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_leading_iconbutton.dart';
+import '../../widgets/app_bar/appbar_leading_image.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_form_field.dart';
@@ -23,6 +23,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: SingleChildScrollView(
           padding: EdgeInsets.only(
@@ -33,8 +34,8 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             child: Container(
               width: double.maxFinite,
               padding: EdgeInsets.symmetric(
-                horizontal: 14.h,
-                vertical: 12.v,
+                horizontal: 10.h,
+                vertical: 22.v,
               ),
               child: Column(
                 children: [_buildReferAFriendForm(), SizedBox(height: 4.v)],
@@ -49,14 +50,17 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
   /// Section Widget
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
-      leadingWidth: 61.h,
-      leading: AppbarLeadingIconbutton(
-        imagePath: ImageConstant.imgArrowLeftGray90004,
+      leadingWidth: 49.h,
+      leading: AppbarLeadingImage(
+        imagePath: ImageConstant.imgUnionGray90003,
         margin: EdgeInsets.only(
-          left: 19.h,
-          top: 7.v,
-          bottom: 7.v,
+          left: 33.h,
+          top: 20.v,
+          bottom: 20.v,
         ),
+        onTap: () {
+          onTapUnionone();
+        },
       ),
     );
   }
@@ -72,14 +76,14 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "lbl_your_email".tr,
-              style: CustomTextStyles.titleMediumInterGray90009SemiBold,
+              style: CustomTextStyles.titleMediumInterGray90008SemiBold,
             ),
           ),
           SizedBox(height: 8.v),
           CustomTextFormField(
             controller: controller.emailController,
-            hintText: "msg_contact_dscodetech_com".tr,
-            hintStyle: CustomTextStyles.titleMediumPoppinsGray700_1,
+            hintText: "msg_jacob_welovetokevel_com".tr,
+            hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
             textInputType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null || (!isValidEmail(value, isRequired: true))) {
@@ -106,14 +110,14 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "lbl_friend_s_email".tr,
-              style: CustomTextStyles.titleMediumInterGray90009SemiBold,
+              style: CustomTextStyles.titleMediumInterGray90008SemiBold,
             ),
           ),
           SizedBox(height: 8.v),
           CustomTextFormField(
             controller: controller.email1Controller,
-            hintText: "msg_contact_dscodetech_com".tr,
-            hintStyle: CustomTextStyles.titleMediumPoppinsGray700_1,
+            hintText: "msg_jacob_welovetokevel_com".tr,
+            hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
             textInputType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null || (!isValidEmail(value, isRequired: true))) {
@@ -140,14 +144,14 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "msg_friend_s_first_and".tr,
-              style: CustomTextStyles.titleMediumInterGray90009SemiBold,
+              style: CustomTextStyles.titleMediumInterGray90008SemiBold,
             ),
           ),
           SizedBox(height: 8.v),
           CustomTextFormField(
             controller: controller.lastNameController,
             hintText: "lbl_jake_maizel".tr,
-            hintStyle: CustomTextStyles.titleMediumPoppinsGray700_1,
+            hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
             textInputAction: TextInputAction.done,
             borderDecoration: TextFormFieldStyleHelper.outlineGray,
             filled: false,
@@ -163,14 +167,15 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
       height: 48.v,
       text: "lbl_submit".tr,
       buttonStyle: CustomButtonStyles.fillIndigoATL12,
-      buttonTextStyle: CustomTextStyles.titleMediumInterPrimary,
+      buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16_1,
     );
   }
 
   /// Section Widget
   Widget _buildReferAFriendForm() {
-    return SizedBox(
+    return Container(
       width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 2.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -200,5 +205,10 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
         ],
       ),
     );
+  }
+
+  /// Navigates to the previous screen.
+  onTapUnionone() {
+    Get.back();
   }
 }

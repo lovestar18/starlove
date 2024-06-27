@@ -2,15 +2,29 @@ import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 
 extension TextFormFieldStyleHelper on CustomTextFormField {
-  static OutlineInputBorder get fillGray => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(24.h),
-        borderSide: BorderSide.none,
-      );
   static OutlineInputBorder get outlineGray => OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.h),
         borderSide: BorderSide(
           color: appTheme.gray30003,
           width: 2,
+        ),
+      );
+  static OutlineInputBorder get fillGrayTL24 => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(24.h),
+        borderSide: BorderSide.none,
+      );
+  static OutlineInputBorder get underLineGrayTL16 => OutlineInputBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(
+            16.h,
+          ),
+        ),
+        borderSide: BorderSide.none,
+      );
+  static UnderlineInputBorder get underLineGray2 => UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: appTheme.gray30005,
+          width: 1,
         ),
       );
   static OutlineInputBorder get outlineGrayTL4 => OutlineInputBorder(
@@ -20,12 +34,23 @@ extension TextFormFieldStyleHelper on CustomTextFormField {
           width: 1,
         ),
       );
-  static OutlineInputBorder get outlineCyan => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.h),
+  static OutlineInputBorder get underLineGrayTL8 => OutlineInputBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(
+            8.h,
+          ),
+        ),
+        borderSide: BorderSide.none,
+      );
+  static UnderlineInputBorder get underLineGray3 => UnderlineInputBorder(
         borderSide: BorderSide(
-          color: appTheme.cyan40001,
+          color: appTheme.blueGray20001,
           width: 1,
         ),
+      );
+  static OutlineInputBorder get fillPrimary => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18.h),
+        borderSide: BorderSide.none,
       );
   static OutlineInputBorder get outlineGrayTL8 => OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.h),
@@ -153,7 +178,8 @@ class CustomTextFormField extends StatelessWidget {
       );
   InputDecoration get decoration => InputDecoration(
         hintText: hintText ?? "",
-        hintStyle: hintStyle ?? CustomTextStyles.bodyMediumBlack90014,
+        hintStyle:
+            hintStyle ?? CustomTextStyles.bodyLargePoppinsOnErrorContainer,
         prefixIcon: prefix,
         prefixIconConstraints: prefixConstraints,
         suffixIcon: suffix,

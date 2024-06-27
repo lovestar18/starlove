@@ -30,7 +30,7 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
             ),
           ),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 14.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.h),
             child: Column(
               children: [
                 CustomImageView(
@@ -38,12 +38,81 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
                   height: 44.v,
                   width: double.maxFinite,
                   margin: EdgeInsets.only(
-                    left: 78.h,
-                    right: 68.h,
+                    left: 76.h,
+                    right: 66.h,
                   ),
                 ),
                 SizedBox(height: 6.v),
-                _buildInputSection(),
+                Container(
+                  width: double.maxFinite,
+                  margin: EdgeInsets.only(right: 6.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20.h,
+                    vertical: 12.v,
+                  ),
+                  decoration: AppDecoration.mainwhite.copyWith(
+                    borderRadius: BorderRadiusStyle.roundedBorder12,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 26.v),
+                      Padding(
+                        padding: EdgeInsets.only(left: 2.h),
+                        child: Text(
+                          "lbl_application".tr,
+                          style: theme.textTheme.headlineLarge,
+                        ),
+                      ),
+                      SizedBox(height: 36.v),
+                      _buildFullNameInput(),
+                      SizedBox(height: 18.v),
+                      _buildUsernameInput(),
+                      SizedBox(height: 18.v),
+                      _buildTempleInput(),
+                      SizedBox(height: 18.v),
+                      _buildFavoriteDishInput(),
+                      SizedBox(height: 18.v),
+                      _buildHolidayTraditionInput(),
+                      SizedBox(height: 18.v),
+                      _buildLinkedinInput(),
+                      SizedBox(height: 12.v),
+                      OutlineGradientButton(
+                        padding: EdgeInsets.only(
+                          left: 1.h,
+                          top: 1.v,
+                          right: 1.h,
+                          bottom: 1.v,
+                        ),
+                        strokeWidth: 1.h,
+                        gradient: LinearGradient(
+                          begin: Alignment(0.5, 0),
+                          end: Alignment(0.5, 1),
+                          colors: [
+                            theme.colorScheme.primary,
+                            theme.colorScheme.primary
+                          ],
+                        ),
+                        corners: Corners(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                        child: CustomOutlinedButton(
+                          height: 48.v,
+                          text: "lbl_submit".tr,
+                          buttonStyle: CustomButtonStyles.outline,
+                          buttonTextStyle: CustomTextStyles.titleSmallPrimary,
+                          onPressed: () {
+                            onTapSubmit();
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 SizedBox(height: 4.v)
               ],
             ),
@@ -69,7 +138,7 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
           CustomTextFormField(
             controller: controller.fullNameController,
             hintText: "msg_miram_berenstein".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
           )
         ],
       ),
@@ -92,7 +161,7 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
           CustomTextFormField(
             controller: controller.userNameController,
             hintText: "lbl_moses".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
           )
         ],
       ),
@@ -115,7 +184,7 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
           CustomTextFormField(
             controller: controller.whattempleareyoController,
             hintText: "lbl_temple_emanuel".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
             contentPadding: EdgeInsets.symmetric(vertical: 14.v),
           )
         ],
@@ -139,7 +208,7 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
           CustomTextFormField(
             controller: controller.yournamegmailcoController,
             hintText: "lbl_kugel".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
           )
         ],
       ),
@@ -162,7 +231,7 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
           CustomTextFormField(
             controller: controller.yournamegmailco1Controller,
             hintText: "lbl_mazel_tov".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
           )
         ],
       ),
@@ -185,7 +254,7 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
           CustomTextFormField(
             controller: controller.yournamegmailco2Controller,
             hintText: "msg_linkedin_com_miram".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90010_1,
+            hintStyle: CustomTextStyles.titleSmallGray90009_1,
             textInputAction: TextInputAction.done,
           )
         ],
@@ -193,80 +262,5 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
     );
   }
 
-  /// Section Widget
-  Widget _buildInputSection() {
-    return Container(
-      width: double.maxFinite,
-      padding: EdgeInsets.symmetric(
-        horizontal: 22.h,
-        vertical: 12.v,
-      ),
-      decoration: AppDecoration.white.copyWith(
-        borderRadius: BorderRadiusStyle.roundedBorder12,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 26.v),
-          Padding(
-            padding: EdgeInsets.only(left: 2.h),
-            child: Text(
-              "lbl_application".tr,
-              style: theme.textTheme.headlineLarge,
-            ),
-          ),
-          SizedBox(height: 36.v),
-          _buildFullNameInput(),
-          SizedBox(height: 18.v),
-          _buildUsernameInput(),
-          SizedBox(height: 18.v),
-          _buildTempleInput(),
-          SizedBox(height: 18.v),
-          _buildFavoriteDishInput(),
-          SizedBox(height: 18.v),
-          _buildHolidayTraditionInput(),
-          SizedBox(height: 18.v),
-          _buildLinkedinInput(),
-          SizedBox(height: 12.v),
-          OutlineGradientButton(
-            padding: EdgeInsets.only(
-              left: 1.h,
-              top: 1.v,
-              right: 1.h,
-              bottom: 1.v,
-            ),
-            strokeWidth: 1.h,
-            gradient: LinearGradient(
-              begin: Alignment(0.5, 0),
-              end: Alignment(0.5, 1),
-              colors: [theme.colorScheme.primary, theme.colorScheme.primary],
-            ),
-            corners: Corners(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10),
-            ),
-            child: CustomOutlinedButton(
-              text: "lbl_submit".tr,
-              buttonStyle: CustomButtonStyles.none,
-              decoration: CustomButtonStyles.gradientPrimaryToPrimaryDecoration,
-              buttonTextStyle: CustomTextStyles.titleSmallPrimary_2,
-              onPressed: () {
-                onTapSubmit();
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Navigates to the thankYouApplicationScreen when the action is triggered.
-  onTapSubmit() {
-    Get.toNamed(
-      AppRoutes.thankYouApplicationScreen,
-    );
-  }
+  onTapSubmit() {}
 }

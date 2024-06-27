@@ -6,8 +6,7 @@ import '../models/userprofilelist_item_model.dart'; // ignore: must_be_immutable
 
 // ignore_for_file: must_be_immutable
 class UserprofilelistItemWidget extends StatelessWidget {
-  UserprofilelistItemWidget(this.userprofilelistItemModelObj,
-      {Key? key, this.onTapUserprofile, this.onTapImgUserimage3})
+  UserprofilelistItemWidget(this.userprofilelistItemModelObj, {Key? key})
       : super(
           key: key,
         );
@@ -16,79 +15,65 @@ class UserprofilelistItemWidget extends StatelessWidget {
 
   var controller = Get.find<FeedController>();
 
-  VoidCallback? onTapUserprofile;
-
-  VoidCallback? onTapImgUserimage3;
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 70.h,
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: GestureDetector(
-          onTap: () {
-            onTapUserprofile?.call();
-          },
-          child: Container(
-            width: 70.h,
-            margin: EdgeInsets.only(bottom: 4.v),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 70.adaptSize,
-                  width: double.maxFinite,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        height: 60.v,
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Obx(
-                              () => CustomImageView(
-                                imagePath: userprofilelistItemModelObj
-                                    .userimage1!.value,
-                                height: 60.adaptSize,
-                                width: double.maxFinite,
-                                radius: BorderRadius.circular(
-                                  30.h,
-                                ),
-                              ),
-                            ),
-                            Obx(
-                              () => CustomImageView(
-                                imagePath: userprofilelistItemModelObj
-                                    .userimage2!.value,
-                                height: 24.adaptSize,
-                                width: 24.adaptSize,
-                              ),
-                            )
-                          ],
+      width: 68.h,
+      child: Column(
+        children: [
+          SizedBox(
+            width: double.maxFinite,
+            child: Card(
+              clipBehavior: Clip.antiAlias,
+              elevation: 0,
+              margin: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  width: 1.h,
+                ),
+                borderRadius: BorderRadiusStyle.circleBorder34,
+              ),
+              child: Container(
+                height: 68.adaptSize,
+                width: double.maxFinite,
+                decoration: AppDecoration.outline.copyWith(
+                  borderRadius: BorderRadiusStyle.circleBorder34,
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Obx(
+                      () => CustomImageView(
+                        imagePath:
+                            userprofilelistItemModelObj.userimage1!.value,
+                        height: 60.adaptSize,
+                        width: double.maxFinite,
+                        radius: BorderRadius.circular(
+                          30.h,
                         ),
                       ),
-                      CustomImageView(
-                        imagePath: ImageConstant.imgOvalCopy,
-                        height: 70.adaptSize,
-                        width: double.maxFinite,
-                        onTap: () {
-                          onTapImgUserimage3?.call();
-                        },
-                      )
-                    ],
-                  ),
+                    ),
+                    Obx(
+                      () => CustomImageView(
+                        imagePath:
+                            userprofilelistItemModelObj.userimage2!.value,
+                        height: 26.adaptSize,
+                        width: 26.adaptSize,
+                      ),
+                    )
+                  ],
                 ),
-                Obx(
-                  () => Text(
-                    userprofilelistItemModelObj.you!.value,
-                    style: CustomTextStyles.labelLargePoppinsBlack900,
-                  ),
-                )
-              ],
+              ),
             ),
           ),
-        ),
+          SizedBox(height: 2.v),
+          Obx(
+            () => Text(
+              userprofilelistItemModelObj.userText!.value,
+              style: CustomTextStyles.labelLargePoppinsBlack900,
+            ),
+          )
+        ],
       ),
     );
   }

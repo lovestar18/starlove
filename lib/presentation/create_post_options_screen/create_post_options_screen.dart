@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_subtitle_fifteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_eighteen.dart';
 import '../../widgets/app_bar/appbar_subtitle_sixteen.dart';
 import '../../widgets/app_bar/appbar_trailing_button.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
@@ -17,12 +17,13 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: _buildAppbarSection(),
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 14.h,
-            vertical: 20.v,
+            horizontal: 10.h,
+            vertical: 18.v,
           ),
           child: Column(
             children: [_buildProfileSection(), SizedBox(height: 4.v)],
@@ -33,18 +34,18 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
   }
 
   /// Section Widget
-  PreferredSizeWidget _buildAppbarSection() {
+  PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
-      height: 38.v,
+      height: 32.v,
       title: Padding(
-        padding: EdgeInsets.only(left: 15.h),
+        padding: EdgeInsets.only(left: 22.h),
         child: Row(
           children: [
-            AppbarSubtitleSixteen(
+            AppbarSubtitleEighteen(
               text: "lbl_cancel".tr,
               margin: EdgeInsets.only(bottom: 1.v),
             ),
-            AppbarSubtitleFifteen(
+            AppbarSubtitleSixteen(
               text: "lbl_create".tr.toUpperCase(),
               margin: EdgeInsets.only(left: 82.h),
             )
@@ -54,9 +55,9 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
       actions: [
         AppbarTrailingButton(
           margin: EdgeInsets.only(
-            top: 7.v,
-            right: 34.h,
-            bottom: 7.v,
+            top: 4.v,
+            right: 21.h,
+            bottom: 4.v,
           ),
         )
       ],
@@ -65,10 +66,8 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
 
   /// Section Widget
   Widget _buildProfileSection() {
-    return SizedBox(
-      width: double.maxFinite,
+    return Expanded(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             width: double.maxFinite,
@@ -83,6 +82,7 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
                   radius: BorderRadius.circular(
                     16.h,
                   ),
+                  alignment: Alignment.center,
                 ),
                 Padding(
                   padding: EdgeInsets.only(
@@ -117,8 +117,7 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
                     horizontal: 14.h,
                     vertical: 4.v,
                   ),
-                  decoration:
-                      AppDecoration.secondaryDarkGreySecondaryDarkGrey.copyWith(
+                  decoration: AppDecoration.outlineBluegray900011.copyWith(
                     borderRadius: BorderRadiusStyle.roundedBorder16,
                   ),
                   child: Row(
@@ -137,7 +136,7 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
                       ),
                       SizedBox(width: 16.h),
                       CustomImageView(
-                        imagePath: ImageConstant.imgCameraPrimary,
+                        imagePath: ImageConstant.imgCameraPrimary1,
                         height: 20.adaptSize,
                         width: 20.adaptSize,
                       ),
@@ -153,12 +152,11 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
               ],
             ),
           ),
-          SizedBox(height: 294.v),
+          Spacer(),
           Container(
-            margin: EdgeInsets.only(left: 74.h),
-            padding: EdgeInsets.all(4.h),
-            decoration: AppDecoration.secondaryDarkGrey.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder16,
+            padding: EdgeInsets.all(6.h),
+            decoration: AppDecoration.outlineBluegray90001.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder24,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +164,7 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 16.h,
-                    vertical: 2.v,
+                    vertical: 6.v,
                   ),
                   child: Text(
                     "lbl_post".tr.toUpperCase(),
@@ -177,7 +175,7 @@ class CreatePostOptionsScreen extends GetWidget<CreatePostOptionsController> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 16.h,
-                    vertical: 2.v,
+                    vertical: 6.v,
                   ),
                   child: Text(
                     "lbl_story2".tr.toUpperCase(),

@@ -5,15 +5,15 @@ import '../../../core/app_export.dart';
 
 // ignore_for_file: must_be_immutable
 class UserprofileItemModel {
-  UserprofileItemModel({this.adinanurrahma, this.you, this.id}) {
-    adinanurrahma = adinanurrahma ?? Rx("Adina Nurrahma");
-    you = you ?? Rx("You");
+  UserprofileItemModel({this.username, this.userText, this.id}) {
+    username = username ?? Rx("Adina Nurrahma");
+    userText = userText ?? Rx("You");
     id = id ?? Rx("");
   }
 
-  Rx<String>? adinanurrahma;
+  Rx<String>? username;
 
-  Rx<String>? you;
+  Rx<String>? userText;
 
   Rx<String>? id;
 }

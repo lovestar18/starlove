@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_five.dart';
+import '../../widgets/app_bar/appbar_subtitle_six.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -20,28 +20,16 @@ class EulaScreen extends GetWidget<EulaController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: appTheme.cyan40001,
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 28.v),
+            SizedBox(height: 44.v),
             Expanded(
               child: SingleChildScrollView(
-                child: Container(
-                  width: double.maxFinite,
-                  padding: EdgeInsets.all(14.h),
-                  decoration: AppDecoration.white.copyWith(
-                    borderRadius: BorderRadiusStyle.customBorderTL70,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      _buildEulaDescription(),
-                      SizedBox(height: 100.v)
-                    ],
-                  ),
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 14.h),
+                child: _buildEulaDescription(),
               ),
             )
           ],
@@ -50,6 +38,9 @@ class EulaScreen extends GetWidget<EulaController> {
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
+          onTap: () {
+            onTapFloatingactionb();
+          },
           child: CustomImageView(
             imagePath: ImageConstant.imgFieldNavigation,
             height: 27.0.v,
@@ -77,7 +68,7 @@ class EulaScreen extends GetWidget<EulaController> {
         },
       ),
       centerTitle: true,
-      title: AppbarSubtitleFive(
+      title: AppbarSubtitleSix(
         text: "lbl_eula".tr,
       ),
     );
@@ -85,16 +76,13 @@ class EulaScreen extends GetWidget<EulaController> {
 
   /// Section Widget
   Widget _buildEulaDescription() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Text(
-        "msg_h2_end_user_license".tr,
-        maxLines: 45,
-        overflow: TextOverflow.ellipsis,
-        textAlign: TextAlign.justify,
-        style: CustomTextStyles.bodyMediumLight.copyWith(
-          height: 1.15,
-        ),
+    return Text(
+      "msg_h2_end_user_license".tr,
+      maxLines: 45,
+      overflow: TextOverflow.ellipsis,
+      textAlign: TextAlign.justify,
+      style: CustomTextStyles.bodyMediumLight.copyWith(
+        height: 1.15,
       ),
     );
   }
@@ -111,11 +99,11 @@ class EulaScreen extends GetWidget<EulaController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -142,4 +130,6 @@ class EulaScreen extends GetWidget<EulaController> {
   onTapArrowleftone() {
     Get.back();
   }
+
+  onTapFloatingactionb() {}
 }

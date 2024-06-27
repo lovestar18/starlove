@@ -3,16 +3,18 @@ import '../presentation/add_comment_screen/add_comment_screen.dart';
 import '../presentation/add_comment_screen/binding/add_comment_binding.dart';
 import '../presentation/add_to_chat_screen/add_to_chat_screen.dart';
 import '../presentation/add_to_chat_screen/binding/add_to_chat_binding.dart';
-import '../presentation/admin_dashboard_screen/admin_dashboard_screen.dart';
-import '../presentation/admin_dashboard_screen/binding/admin_dashboard_binding.dart';
+import '../presentation/admin_dashboard_member_view_container_screen/admin_dashboard_member_view_container_screen.dart';
+import '../presentation/admin_dashboard_member_view_container_screen/binding/admin_dashboard_member_view_container_binding.dart';
+import '../presentation/admin_dashboard_tab_container_screen/admin_dashboard_tab_container_screen.dart';
+import '../presentation/admin_dashboard_tab_container_screen/binding/admin_dashboard_tab_container_binding.dart';
 import '../presentation/app_navigation_screen/app_navigation_screen.dart';
 import '../presentation/app_navigation_screen/binding/app_navigation_binding.dart';
 import '../presentation/application_review_screen/application_review_screen.dart';
 import '../presentation/application_review_screen/binding/application_review_binding.dart';
 import '../presentation/application_screen/application_screen.dart';
 import '../presentation/application_screen/binding/application_binding.dart';
-import '../presentation/blocking_3_screen/binding/blocking_3_binding.dart';
-import '../presentation/blocking_3_screen/blocking_3_screen.dart';
+import '../presentation/blocking_nine_screen/binding/blocking_nine_binding.dart';
+import '../presentation/blocking_nine_screen/blocking_nine_screen.dart';
 import '../presentation/camera_permission_2_screen/binding/camera_permission_2_binding.dart';
 import '../presentation/camera_permission_2_screen/camera_permission_2_screen.dart';
 import '../presentation/chat_profile_screen/binding/chat_profile_binding.dart';
@@ -29,8 +31,12 @@ import '../presentation/create_post_options_screen/binding/create_post_options_b
 import '../presentation/create_post_options_screen/create_post_options_screen.dart';
 import '../presentation/create_post_screen/binding/create_post_binding.dart';
 import '../presentation/create_post_screen/create_post_screen.dart';
+import '../presentation/create_wall_post_screen/binding/create_wall_post_binding.dart';
+import '../presentation/create_wall_post_screen/create_wall_post_screen.dart';
 import '../presentation/delete_account_screen/binding/delete_account_binding.dart';
 import '../presentation/delete_account_screen/delete_account_screen.dart';
+import '../presentation/delete_post_confirmation_screen/binding/delete_post_confirmation_binding.dart';
+import '../presentation/delete_post_confirmation_screen/delete_post_confirmation_screen.dart';
 import '../presentation/discover_groups_screen/binding/discover_groups_binding.dart';
 import '../presentation/discover_groups_screen/discover_groups_screen.dart';
 import '../presentation/edit_group_details_screen/binding/edit_group_details_binding.dart';
@@ -43,6 +49,10 @@ import '../presentation/eula_screen/binding/eula_binding.dart';
 import '../presentation/eula_screen/eula_screen.dart';
 import '../presentation/feed_screen/binding/feed_binding.dart';
 import '../presentation/feed_screen/feed_screen.dart';
+import '../presentation/followers_tab_container_screen/binding/followers_tab_container_binding.dart';
+import '../presentation/followers_tab_container_screen/followers_tab_container_screen.dart';
+import '../presentation/following_tab_container_screen/binding/following_tab_container_binding.dart';
+import '../presentation/following_tab_container_screen/following_tab_container_screen.dart';
 import '../presentation/forgot_password_screen/binding/forgot_password_binding.dart';
 import '../presentation/forgot_password_screen/forgot_password_screen.dart';
 import '../presentation/group_chat_screen/binding/group_chat_binding.dart';
@@ -53,16 +63,20 @@ import '../presentation/grouppage_v2_screen/binding/grouppage_v2_binding.dart';
 import '../presentation/grouppage_v2_screen/grouppage_v2_screen.dart';
 import '../presentation/groupsdashboard_screen/binding/groupsdashboard_binding.dart';
 import '../presentation/groupsdashboard_screen/groupsdashboard_screen.dart';
-import '../presentation/help_center_tab_container_screen/binding/help_center_tab_container_binding.dart';
-import '../presentation/help_center_tab_container_screen/help_center_tab_container_screen.dart';
-import '../presentation/home_recent_chats_screen/binding/home_recent_chats_binding.dart';
-import '../presentation/home_recent_chats_screen/home_recent_chats_screen.dart';
+import '../presentation/help_center_screen/binding/help_center_binding.dart';
+import '../presentation/help_center_screen/help_center_screen.dart';
+import '../presentation/help_contact_screen/binding/help_contact_binding.dart';
+import '../presentation/help_contact_screen/help_contact_screen.dart';
+import '../presentation/home_recent_chats_tab_container_screen/binding/home_recent_chats_tab_container_binding.dart';
+import '../presentation/home_recent_chats_tab_container_screen/home_recent_chats_tab_container_screen.dart';
 import '../presentation/homepage_container_screen/binding/homepage_container_binding.dart';
 import '../presentation/homepage_container_screen/homepage_container_screen.dart';
 import '../presentation/listofgroupmembers_screen/binding/listofgroupmembers_binding.dart';
 import '../presentation/listofgroupmembers_screen/listofgroupmembers_screen.dart';
 import '../presentation/login_version_2_screen/binding/login_version_2_binding.dart';
 import '../presentation/login_version_2_screen/login_version_2_screen.dart';
+import '../presentation/member_review_screen/binding/member_review_binding.dart';
+import '../presentation/member_review_screen/member_review_screen.dart';
 import '../presentation/moderate_members_screen/binding/moderate_members_binding.dart';
 import '../presentation/moderate_members_screen/moderate_members_screen.dart';
 import '../presentation/moderator_dashboard_screen/binding/moderator_dashboard_binding.dart';
@@ -79,36 +93,32 @@ import '../presentation/password_settings1_screen/binding/password_settings1_bin
 import '../presentation/password_settings1_screen/password_settings1_screen.dart';
 import '../presentation/password_settings_screen/binding/password_settings_binding.dart';
 import '../presentation/password_settings_screen/password_settings_screen.dart';
-import '../presentation/post_screen/binding/post_binding.dart';
-import '../presentation/post_screen/post_screen.dart';
 import '../presentation/privacy_policy_screen/binding/privacy_policy_binding.dart';
 import '../presentation/privacy_policy_screen/privacy_policy_screen.dart';
 import '../presentation/profile_screen/binding/profile_binding.dart';
 import '../presentation/profile_screen/profile_screen.dart';
 import '../presentation/refer_a_friend_screen/binding/refer_a_friend_binding.dart';
 import '../presentation/refer_a_friend_screen/refer_a_friend_screen.dart';
-import '../presentation/report_moderator_screen/binding/report_moderator_binding.dart';
-import '../presentation/report_moderator_screen/report_moderator_screen.dart';
-import '../presentation/report_user_screen/binding/report_user_binding.dart';
-import '../presentation/report_user_screen/report_user_screen.dart';
-import '../presentation/reporting_post_3_screen/binding/reporting_post_3_binding.dart';
-import '../presentation/reporting_post_3_screen/reporting_post_3_screen.dart';
 import '../presentation/reporting_post_5_screen/binding/reporting_post_5_binding.dart';
 import '../presentation/reporting_post_5_screen/reporting_post_5_screen.dart';
-import '../presentation/reporting_post_authenticated_user_screen/binding/reporting_post_authenticated_user_binding.dart';
-import '../presentation/reporting_post_authenticated_user_screen/reporting_post_authenticated_user_screen.dart';
+import '../presentation/reporting_post_eight_screen/binding/reporting_post_eight_binding.dart';
+import '../presentation/reporting_post_eight_screen/reporting_post_eight_screen.dart';
 import '../presentation/sidebar_screen/binding/sidebar_binding.dart';
 import '../presentation/sidebar_screen/sidebar_screen.dart';
 import '../presentation/sign_up_version_2_screen/binding/sign_up_version_2_binding.dart';
 import '../presentation/sign_up_version_2_screen/sign_up_version_2_screen.dart';
+import '../presentation/splash_screen/binding/splash_binding.dart';
+import '../presentation/splash_screen/splash_screen.dart';
+import '../presentation/stickers_screen/binding/stickers_binding.dart';
+import '../presentation/stickers_screen/stickers_screen.dart';
 import '../presentation/story_screen/binding/story_binding.dart';
 import '../presentation/story_screen/story_screen.dart';
 import '../presentation/successful_password_reset_screen/binding/successful_password_reset_binding.dart';
 import '../presentation/successful_password_reset_screen/successful_password_reset_screen.dart';
 import '../presentation/thank_you_application_screen/binding/thank_you_application_binding.dart';
 import '../presentation/thank_you_application_screen/thank_you_application_screen.dart';
-import '../presentation/user_profile_screen/binding/user_profile_binding.dart';
-import '../presentation/user_profile_screen/user_profile_screen.dart';
+import '../presentation/user_profile_tab_container_screen/binding/user_profile_tab_container_binding.dart';
+import '../presentation/user_profile_tab_container_screen/user_profile_tab_container_screen.dart';
 import '../presentation/view_post_screen/binding/view_post_binding.dart';
 import '../presentation/view_post_screen/view_post_screen.dart';
 import '../presentation/write_in_communty_screen/binding/write_in_communty_binding.dart';
@@ -117,13 +127,13 @@ import '../presentation/write_in_group_options_screen/binding/write_in_group_opt
 import '../presentation/write_in_group_options_screen/write_in_group_options_screen.dart';
 import '../presentation/write_in_group_screen/binding/write_in_group_binding.dart';
 import '../presentation/write_in_group_screen/write_in_group_screen.dart';
-import '../presentation/write_wall_post_options_screen/binding/write_wall_post_options_binding.dart';
-import '../presentation/write_wall_post_options_screen/write_wall_post_options_screen.dart';
-import '../presentation/write_wall_post_screen/binding/write_wall_post_binding.dart';
-import '../presentation/write_wall_post_screen/write_wall_post_screen.dart'; // ignore_for_file: must_be_immutable
+import '../presentation/write_on_wall_post_options_screen/binding/write_on_wall_post_options_binding.dart';
+import '../presentation/write_on_wall_post_options_screen/write_on_wall_post_options_screen.dart'; // ignore_for_file: must_be_immutable
 
 // ignore_for_file: must_be_immutable
 class AppRoutes {
+  static const String passwordResetScreen = '/password_reset_screen';
+
   static const String loginVersion2Screen = '/login_version_2_screen';
 
   static const String signUpVersion2Screen = '/sign_up_version_2_screen';
@@ -136,13 +146,13 @@ class AppRoutes {
 
   static const String emailVerificationScreen = '/email_verification_screen';
 
-  static const String passwordResetScreen = '/password_reset_screen';
-
   static const String successfulPasswordResetScreen =
       '/successful_password_reset_screen';
 
   static const String thankYouApplicationScreen =
       '/thank_you_application_screen';
+
+  static const String splashScreen = '/splash_screen';
 
   static const String homepageContainerScreen = '/homepage_container_screen';
 
@@ -152,22 +162,23 @@ class AppRoutes {
 
   static const String storyScreen = '/story_screen';
 
-  static const String userProfileScreen = '/user_profile_screen';
+  static const String userProfilePage = '/user_profile_page';
 
-  static const String reportingPostAuthenticatedUserScreen =
-      '/reporting_post_authenticated_user_screen';
+  static const String userProfileTabContainerScreen =
+      '/user_profile_tab_container_screen';
 
   static const String notificationsPageScreen = '/notifications_page_screen';
 
-  static const String reportingPost3Screen = '/reporting_post_3_screen';
+  static const String reportingPostEightScreen = '/reporting_post_eight_screen';
 
   static const String reportingPost5Screen = '/reporting_post_5_screen';
 
   static const String cameraPermission2Screen = '/camera_permission_2_screen';
 
-  static const String blocking3Screen = '/blocking_3_screen';
+  static const String blockingNineScreen = '/blocking_nine_screen';
 
-  static const String reportUserScreen = '/report_user_screen';
+  static const String deletePostConfirmationScreen =
+      '/delete_post_confirmation_screen';
 
   static const String addCommentScreen = '/add_comment_screen';
 
@@ -177,14 +188,22 @@ class AppRoutes {
 
   static const String createPostOptionsScreen = '/create_post_options_screen';
 
-  static const String writeWallPostScreen = '/write_wall_post_screen';
+  static const String createWallPostScreen = '/create_wall_post_screen';
 
-  static const String writeWallPostOptionsScreen =
-      '/write_wall_post_options_screen';
+  static const String writeOnWallPostOptionsScreen =
+      '/write_on_wall_post_options_screen';
 
   static const String referAFriendScreen = '/refer_a_friend_screen';
 
-  static const String postScreen = '/post_screen';
+  static const String followersPage = '/followers_page';
+
+  static const String followersTabContainerScreen =
+      '/followers_tab_container_screen';
+
+  static const String followingPage = '/following_page';
+
+  static const String followingTabContainerScreen =
+      '/following_tab_container_screen';
 
   static const String notificationSettingsScreen =
       '/notification_settings_screen';
@@ -195,18 +214,15 @@ class AppRoutes {
 
   static const String deleteAccountScreen = '/delete_account_screen';
 
-  static const String helpCenterPage = '/help_center_page';
+  static const String helpCenterScreen = '/help_center_screen';
 
-  static const String helpCenterTabContainerScreen =
-      '/help_center_tab_container_screen';
-
-  static const String helpContactPage = '/help_contact_page';
-
-  static const String profileScreen = '/profile_screen';
+  static const String helpContactScreen = '/help_contact_screen';
 
   static const String privacyPolicyScreen = '/privacy_policy_screen';
 
   static const String eulaScreen = '/eula_screen';
+
+  static const String profileScreen = '/profile_screen';
 
   static const String chatScreen = '/chat_screen';
 
@@ -223,15 +239,18 @@ class AppRoutes {
 
   static const String newChatScreen = '/new_chat_screen';
 
-  static const String homeRecentChatsScreen = '/home_recent_chats_screen';
+  static const String homeRecentChatsPage = '/home_recent_chats_page';
+
+  static const String homeRecentChatsTabContainerScreen =
+      '/home_recent_chats_tab_container_screen';
 
   static const String groupChatScreen = '/group_chat_screen';
 
   static const String groupsdashboardScreen = '/groupsdashboard_screen';
 
-  static const String listofgroupmembersScreen = '/listofgroupmembers_screen';
+  static const String moderatorDashboardScreen = '/moderator_dashboard_screen';
 
-  static const String reportModeratorScreen = '/report_moderator_screen';
+  static const String listofgroupmembersScreen = '/listofgroupmembers_screen';
 
   static const String writeInGroupScreen = '/write_in_group_screen';
 
@@ -248,8 +267,6 @@ class AppRoutes {
 
   static const String discoverGroupsScreen = '/discover_groups_screen';
 
-  static const String moderatorDashboardScreen = '/moderator_dashboard_screen';
-
   static const String communityForumsHomePage = '/community_forums_home_page';
 
   static const String communityForumsResponsePage =
@@ -260,9 +277,19 @@ class AppRoutes {
 
   static const String writeInCommuntyScreen = '/write_in_communty_screen';
 
-  static const String adminDashboardScreen = '/admin_dashboard_screen';
+  static const String adminDashboardPage = '/admin_dashboard_page';
+
+  static const String adminDashboardTabContainerScreen =
+      '/admin_dashboard_tab_container_screen';
 
   static const String applicationReviewScreen = '/application_review_screen';
+
+  static const String adminDashboardMemberViewContainerScreen =
+      '/admin_dashboard_member_view_container_screen';
+
+  static const String memberReviewScreen = '/member_review_screen';
+
+  static const String stickersScreen = '/stickers_screen';
 
   static const String sidebarScreen = '/sidebar_screen';
 
@@ -271,6 +298,11 @@ class AppRoutes {
   static const String initialRoute = '/initialRoute';
 
   static List<GetPage> pages = [
+    GetPage(
+      name: passwordResetScreen,
+      page: () => PasswordResetScreen(),
+      bindings: [PasswordResetBinding()],
+    ),
     GetPage(
       name: loginVersion2Screen,
       page: () => LoginVersion2Screen(),
@@ -302,11 +334,6 @@ class AppRoutes {
       bindings: [EmailVerificationBinding()],
     ),
     GetPage(
-      name: passwordResetScreen,
-      page: () => PasswordResetScreen(),
-      bindings: [PasswordResetBinding()],
-    ),
-    GetPage(
       name: successfulPasswordResetScreen,
       page: () => SuccessfulPasswordResetScreen(),
       bindings: [SuccessfulPasswordResetBinding()],
@@ -315,6 +342,11 @@ class AppRoutes {
       name: thankYouApplicationScreen,
       page: () => ThankYouApplicationScreen(),
       bindings: [ThankYouApplicationBinding()],
+    ),
+    GetPage(
+      name: splashScreen,
+      page: () => SplashScreen(),
+      bindings: [SplashBinding()],
     ),
     GetPage(
       name: homepageContainerScreen,
@@ -332,14 +364,9 @@ class AppRoutes {
       bindings: [StoryBinding()],
     ),
     GetPage(
-      name: userProfileScreen,
-      page: () => UserProfileScreen(),
-      bindings: [UserProfileBinding()],
-    ),
-    GetPage(
-      name: reportingPostAuthenticatedUserScreen,
-      page: () => ReportingPostAuthenticatedUserScreen(),
-      bindings: [ReportingPostAuthenticatedUserBinding()],
+      name: userProfileTabContainerScreen,
+      page: () => UserProfileTabContainerScreen(),
+      bindings: [UserProfileTabContainerBinding()],
     ),
     GetPage(
       name: notificationsPageScreen,
@@ -347,9 +374,9 @@ class AppRoutes {
       bindings: [NotificationsPageBinding()],
     ),
     GetPage(
-      name: reportingPost3Screen,
-      page: () => ReportingPost3Screen(),
-      bindings: [ReportingPost3Binding()],
+      name: reportingPostEightScreen,
+      page: () => ReportingPostEightScreen(),
+      bindings: [ReportingPostEightBinding()],
     ),
     GetPage(
       name: reportingPost5Screen,
@@ -362,14 +389,14 @@ class AppRoutes {
       bindings: [CameraPermission2Binding()],
     ),
     GetPage(
-      name: blocking3Screen,
-      page: () => Blocking3Screen(),
-      bindings: [Blocking3Binding()],
+      name: blockingNineScreen,
+      page: () => BlockingNineScreen(),
+      bindings: [BlockingNineBinding()],
     ),
     GetPage(
-      name: reportUserScreen,
-      page: () => ReportUserScreen(),
-      bindings: [ReportUserBinding()],
+      name: deletePostConfirmationScreen,
+      page: () => DeletePostConfirmationScreen(),
+      bindings: [DeletePostConfirmationBinding()],
     ),
     GetPage(
       name: addCommentScreen,
@@ -392,14 +419,14 @@ class AppRoutes {
       bindings: [CreatePostOptionsBinding()],
     ),
     GetPage(
-      name: writeWallPostScreen,
-      page: () => WriteWallPostScreen(),
-      bindings: [WriteWallPostBinding()],
+      name: createWallPostScreen,
+      page: () => CreateWallPostScreen(),
+      bindings: [CreateWallPostBinding()],
     ),
     GetPage(
-      name: writeWallPostOptionsScreen,
-      page: () => WriteWallPostOptionsScreen(),
-      bindings: [WriteWallPostOptionsBinding()],
+      name: writeOnWallPostOptionsScreen,
+      page: () => WriteOnWallPostOptionsScreen(),
+      bindings: [WriteOnWallPostOptionsBinding()],
     ),
     GetPage(
       name: referAFriendScreen,
@@ -407,9 +434,14 @@ class AppRoutes {
       bindings: [ReferAFriendBinding()],
     ),
     GetPage(
-      name: postScreen,
-      page: () => PostScreen(),
-      bindings: [PostBinding()],
+      name: followersTabContainerScreen,
+      page: () => FollowersTabContainerScreen(),
+      bindings: [FollowersTabContainerBinding()],
+    ),
+    GetPage(
+      name: followingTabContainerScreen,
+      page: () => FollowingTabContainerScreen(),
+      bindings: [FollowingTabContainerBinding()],
     ),
     GetPage(
       name: notificationSettingsScreen,
@@ -432,14 +464,14 @@ class AppRoutes {
       bindings: [DeleteAccountBinding()],
     ),
     GetPage(
-      name: helpCenterTabContainerScreen,
-      page: () => HelpCenterTabContainerScreen(),
-      bindings: [HelpCenterTabContainerBinding()],
+      name: helpCenterScreen,
+      page: () => HelpCenterScreen(),
+      bindings: [HelpCenterBinding()],
     ),
     GetPage(
-      name: profileScreen,
-      page: () => ProfileScreen(),
-      bindings: [ProfileBinding()],
+      name: helpContactScreen,
+      page: () => HelpContactScreen(),
+      bindings: [HelpContactBinding()],
     ),
     GetPage(
       name: privacyPolicyScreen,
@@ -450,6 +482,11 @@ class AppRoutes {
       name: eulaScreen,
       page: () => EulaScreen(),
       bindings: [EulaBinding()],
+    ),
+    GetPage(
+      name: profileScreen,
+      page: () => ProfileScreen(),
+      bindings: [ProfileBinding()],
     ),
     GetPage(
       name: chatScreen,
@@ -482,9 +519,9 @@ class AppRoutes {
       bindings: [NewChatBinding()],
     ),
     GetPage(
-      name: homeRecentChatsScreen,
-      page: () => HomeRecentChatsScreen(),
-      bindings: [HomeRecentChatsBinding()],
+      name: homeRecentChatsTabContainerScreen,
+      page: () => HomeRecentChatsTabContainerScreen(),
+      bindings: [HomeRecentChatsTabContainerBinding()],
     ),
     GetPage(
       name: groupChatScreen,
@@ -497,14 +534,14 @@ class AppRoutes {
       bindings: [GroupsdashboardBinding()],
     ),
     GetPage(
+      name: moderatorDashboardScreen,
+      page: () => ModeratorDashboardScreen(),
+      bindings: [ModeratorDashboardBinding()],
+    ),
+    GetPage(
       name: listofgroupmembersScreen,
       page: () => ListofgroupmembersScreen(),
       bindings: [ListofgroupmembersBinding()],
-    ),
-    GetPage(
-      name: reportModeratorScreen,
-      page: () => ReportModeratorScreen(),
-      bindings: [ReportModeratorBinding()],
     ),
     GetPage(
       name: writeInGroupScreen,
@@ -542,11 +579,6 @@ class AppRoutes {
       bindings: [DiscoverGroupsBinding()],
     ),
     GetPage(
-      name: moderatorDashboardScreen,
-      page: () => ModeratorDashboardScreen(),
-      bindings: [ModeratorDashboardBinding()],
-    ),
-    GetPage(
       name: communityForumsResponse1Screen,
       page: () => CommunityForumsResponse1Screen(),
       bindings: [CommunityForumsResponse1Binding()],
@@ -557,14 +589,29 @@ class AppRoutes {
       bindings: [WriteInCommuntyBinding()],
     ),
     GetPage(
-      name: adminDashboardScreen,
-      page: () => AdminDashboardScreen(),
-      bindings: [AdminDashboardBinding()],
+      name: adminDashboardTabContainerScreen,
+      page: () => AdminDashboardTabContainerScreen(),
+      bindings: [AdminDashboardTabContainerBinding()],
     ),
     GetPage(
       name: applicationReviewScreen,
       page: () => ApplicationReviewScreen(),
       bindings: [ApplicationReviewBinding()],
+    ),
+    GetPage(
+      name: adminDashboardMemberViewContainerScreen,
+      page: () => AdminDashboardMemberViewContainerScreen(),
+      bindings: [AdminDashboardMemberViewContainerBinding()],
+    ),
+    GetPage(
+      name: memberReviewScreen,
+      page: () => MemberReviewScreen(),
+      bindings: [MemberReviewBinding()],
+    ),
+    GetPage(
+      name: stickersScreen,
+      page: () => StickersScreen(),
+      bindings: [StickersBinding()],
     ),
     GetPage(
       name: sidebarScreen,
@@ -578,8 +625,8 @@ class AppRoutes {
     ),
     GetPage(
       name: initialRoute,
-      page: () => LoginVersion2Screen(),
-      bindings: [LoginVersion2Binding()],
+      page: () => PasswordResetScreen(),
+      bindings: [PasswordResetBinding()],
     )
   ];
 }

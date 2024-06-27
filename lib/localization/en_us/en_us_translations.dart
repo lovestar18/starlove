@@ -1,4 +1,11 @@
 final Map<String, String> enUs = {
+  // Password Reset Screen
+  "lbl_update_password": "Update Password",
+  "msg_confirm_password": "Confirm Password",
+  "msg_create_a_new_password":
+      "Create a new password. Ensure it differs from\nprevious ones for security",
+  "msg_set_a_new_password": "Set a new password",
+
   // Login Version 2 Screen
   "lbl": "*******",
   "lbl_log_in2": "Log In",
@@ -54,20 +61,13 @@ final Map<String, String> enUs = {
   "lbl_resend_email": "Resend email",
   "lbl_verify_code": "Verify Code",
   "msg_check_your_email": "Check your email",
-  "msg_contact_dscode_com": "contact@dscode...com\n",
   "msg_enter_5_digit_code": "enter 5 digit code that mentioned in the email",
   "msg_haven_t_got_the": "Haven’t got the email yet? Resend email",
   "msg_haven_t_got_the2": "Haven’t got the email yet?",
-  "msg_we_sent_a_reset":
-      "We sent a reset link to contact@dscode...com\nenter 5 digit code that mentioned in the email",
+  "msg_jacob_welove_com": "jacob@welove...com\n",
   "msg_we_sent_a_reset2": "We sent a reset link to ",
-
-  // Password Reset Screen
-  "lbl_update_password": "Update Password",
-  "msg_confirm_password": "Confirm Password",
-  "msg_create_a_new_password":
-      "Create a new password. Ensure it differs from\nprevious ones for security",
-  "msg_set_a_new_password": "Set a new password",
+  "msg_we_sent_a_reset3":
+      "We sent a reset link to jacob@welove...com\nenter 5 digit code that mentioned in the email",
 
   // Successful Password Reset Screen
   "lbl_successful": "Successful",
@@ -86,26 +86,29 @@ final Map<String, String> enUs = {
 
   // Feed Screen
   "lbl_benjamin": "Benjamin",
-  "lbl_claire": "Claire",
   "lbl_farita": "Farita",
   "lbl_forjew": "ForJew",
   "lbl_marie": "Marie",
-  "msg_welcome_to_the_forjew": "Welcome to the ForJew Page, ((NAME))",
+  "msg_welcome_to_the_forjew_page": "Welcome to the ForJew\nPage, ((NAME))",
 
   // Story Screen
   "lbl_4h": "4h", "lbl_send_message": "Send Message",
 
   // USER Profile Screen
+  "msg_write_on_jill_s": "Write on Jill’s wall",
+
+  // USER Profile - Tab Container Screen
   "lbl_150": "150",
   "lbl_150_following": "150 Following",
   "lbl_220": "220",
   "lbl_220_followers": "220 Followers",
   "lbl_bio3": "bio",
-  "lbl_followers": "Followers",
   "lbl_jill_joy": "Jill Joy",
   "lbl_posts": "Posts",
   "lbl_wall": "Wall",
-  "msg_write_on_jill_s": "Write on Jill’s wall",
+
+  // Reporting Post - Authenticated User Screen
+  "msg_turn_off_commenting": "Turn off commenting",
 
   // Notifications page Screen
   "lbl_3d": "3d",
@@ -145,7 +148,7 @@ final Map<String, String> enUs = {
   "msg_mis_potter_started": "mis_potter started following you. 3d",
   "msg_started_following": "started following you. ",
 
-  // Reporting post 3 Screen
+  // Reporting post Eight Screen
   "lbl_hate_speech": "Hate speech",
   "lbl_it_is_spam": "It is spam",
   "lbl_other": "Other",
@@ -211,12 +214,12 @@ final Map<String, String> enUs = {
   "msg_enable_microphone": "Enable Microphone Access",
   "msg_share_on_the_app": "Share on the App",
 
-  // Blocking 2 Screen
+  // Blocking Ten Screen
   "lbl_block_user": "Block user?",
   "msg_they_won_t_be_able":
       "They won't be able to send you messages.\nThey won't be informed that you blocked them.\nYou can always unblock the user.",
 
-  // Blocking 3 Screen
+  // Blocking Nine Screen
   "lbl_jeremy_dough": "Jeremy Dough",
   "lbl_see_profile": "See profile",
   "lbl_unblock": "Unblock",
@@ -229,23 +232,23 @@ final Map<String, String> enUs = {
   "msg_you_can_restore":
       "You can restore this post from Recently deleted within 30 days. After, that it will be permanently deleted.",
 
-  // Report - User Screen
-  "lbl_share": "Share",
-
   // Add Comment Screen
-  "lbl_comments": "Comments",
+  "lbl_comments": "Comments", "lbl_type_something": "Type something",
 
   // View post Screen
   "lbl_add_a_comment": "Add a comment",
-
-  // Write wall post Screen
-  "lbl_write_on_wall": "Write on wall",
 
   // Refer a friend Screen
   "lbl_friend_s_email": "Friend’s Email",
   "lbl_jake_maizel": "Jake Maizel",
   "msg_friend_s_first_and": "Friend’s First and Last Name",
   "msg_invite_a_friend": "Invite a friend to starlove",
+
+  // Followers Screen
+  "lbl_follow2": "Follow",
+
+  // Followers - Tab Container Screen
+  "lbl_followers2": "FOLLOWERS",
 
   // Notification Settings Screen
   "msg_chat_notifications": "Chat Notifications",
@@ -254,8 +257,6 @@ final Map<String, String> enUs = {
   "msg_post_notifications": "Post Notifications",
 
   // Password Settings Screen
-  "lbl_new_password": "New Password",
-  "msg_confirm_new_password": "Confirm New Password",
   "msg_current_password": "Current Password",
 
   // Password Settings Screen
@@ -275,27 +276,25 @@ final Map<String, String> enUs = {
       "By deleting your account, you agree that you understand the consequences of this action and that you agree to permanently delete your account and all associated data. ",
 
   // Help Center Screen
+  "lbl_hi": "Hi, \n",
   "msg_are_there_any_privacy":
       "Are there any privacy or data security measures in place?",
   "msg_can_i_customize": "Can I customize settings within the application?",
   "msg_can_i_use_the_app": "Can I use the app offline?",
+  "msg_hi_how_can_we": "Hi, \nhow can we help?",
   "msg_how_can_i_delete": "How can I delete my account?",
   "msg_how_can_i_reset": "How can I reset my password if I forget it?",
+  "msg_how_can_we_help2": "how can we help?",
   "msg_how_do_i_access": "How do I access my expense history?",
   "msg_how_much_does_it": "How much does it cost to use FinWise?",
   "msg_how_to_contact_support": "How to contact support?",
   "msg_how_to_use_finwise": "How to use FinWise?",
 
-  // Help Center - Tab Container Screen
-  "lbl_contact_us": "Contact Us", "lbl_faq": "FAQ",
-  "lbl_help_faqs": "Help & FAQS", "msg_how_can_we_help": "How Can We Help You?",
-
   // Help - Contact Screen
-  "lbl_email_us": "Email Us",
-
-  // Profile Screen
-  "lbl_help": "Help", "lbl_john_smith": "John Smith",
-  "lbl_johnsmith2": "@johnsmith",
+  "lbl_contact_us": "Contact Us",
+  "lbl_submit2": "SUBMIT",
+  "lbl_your_full_name": "Your Full Name",
+  "msg_questions_comments": "Questions / Comments / Feedback",
 
   // Privacy Policy Screen
   "msg_est_fugiat_assumenda":
@@ -308,6 +307,10 @@ final Map<String, String> enUs = {
   // Logout Screen
   "lbl_logout2": "Logout ", "lbl_yes_logout": "yes, Logout",
   "msg_are_you_sure_you3": "Are you sure you want to \nLogout?",
+
+  // Profile Screen
+  "lbl_help": "Help", "lbl_john_smith": "John Smith",
+  "lbl_johnsmith2": "@johnsmith",
 
   // 1:1 Chat Screen
   "lbl_active_20m_ago": "Active 20m ago",
@@ -329,8 +332,7 @@ final Map<String, String> enUs = {
   "msg_add_to_kibitz_chat": "Add to Kibitz (Chat)",
 
   // Chat Profile Screen
-  "lbl_cindy": "Cindy", "lbl_view_profile": "View profile",
-  "msg_delete_conversation": "Delete conversation",
+  "lbl_cindy": "Cindy", "msg_delete_conversation": "Delete conversation",
 
   // Group Description Screen
   "lbl_12_peoples": "12 Peoples",
@@ -378,10 +380,8 @@ final Map<String, String> enUs = {
   // Home / Recent Chats Screen
   "lbl_06_12": "06.12",
   "lbl_18_31": "18.31",
-  "lbl_1_1": "1:1",
   "lbl_5": "5",
   "lbl_albert_bell": "Albert Bell",
-  "lbl_all_chats": "All chats",
   "lbl_lee_williamson": "Lee Williamson",
   "lbl_ronald_mccoy": "Ronald Mccoy",
   "lbl_thanks_dude": "Thanks dude 😉",
@@ -391,9 +391,11 @@ final Map<String, String> enUs = {
   "msg_pls_take_a_look": "Pls take a look at the images.",
   "msg_yes_that_s_gonna": "Yes, that’s gonna work, hopefully. ",
 
+  // Home / Recent Chats - Tab Container Screen
+  "lbl_1_1": "1:1", "lbl_all_chats": "All chats",
+
   // Group Chat Screen
   "lbl_12_people": "12 people",
-  "lbl_admin": "admin",
   "lbl_mike_mazowski2": "Mike Mazowski ",
   "msg_2_others_are_typing": "+2 others are typing",
   "msg_hello_guys_we_have2":
@@ -402,8 +404,14 @@ final Map<String, String> enUs = {
       "That’s very nice place! you guys made a very good decision. Can’t wait to go on vacation!",
 
   // GroupsDashboard Screen
-  "lbl_created": "Created", "lbl_group_name2": "Group name", "lbl_join": "Join",
-  "lbl_joined": "Joined", "msg_groups_dashboard": "Groups Dashboard",
+  "lbl_created": "Created", "lbl_join": "Join", "lbl_joined": "Joined",
+  "msg_groups_dashboard": "Groups Dashboard",
+
+  // Moderator Dashboard Screen
+  "lbl_moderators": "Moderators",
+  "msg_edit_group_details2": "Edit group details",
+  "msg_name_description": "Name, description, cover, and members",
+  "msg_welcome_to_the_moderator": "Welcome to the moderator dashboard",
 
   // ListofGroupMembers Screen
   "lbl_group_members": "Group Members",
@@ -423,23 +431,11 @@ final Map<String, String> enUs = {
   "msg_of_members": "((# of members))",
   "msg_what_s_happening": "What’s Happening?",
 
-  // Moderate Members Screen
-  "lbl_remove": "Remove",
-
   // Create New Group Screen
   "msg_create_new_group": "Create new group",
 
   // Discover Groups Screen
   "lbl_find_your_tribe": "Find your tribe",
-
-  // Moderator Dashboard Screen
-  "lbl_moderators": "Moderators",
-  "lbl_now": "Now",
-  "lbl_saber_oro": "Saber & Oro",
-  "msg_edit_group_details2": "Edit group details",
-  "msg_information_architecture": "Information Architecture",
-  "msg_name_description": "Name, description, cover, and members",
-  "msg_welcome_to_the_moderator": "Welcome to the moderator dashboard",
 
   // Community Forums - Response Screen
   "lbl_12_minutes_ago": "12 minutes ago",
@@ -465,26 +461,15 @@ final Map<String, String> enUs = {
   "lbl_forum_post": "FORUM POST", "lbl_forum_post2": "Forum Post",
   "lbl_post_title": "Post title",
 
-  // Admin Dashboard Screen
-  "msg_pending_application": "Pending Application",
-  "msg_pending_applications": "Pending Applications",
-  "msg_welcome_to_the_admin": "Welcome to the admin dashboard",
-
   // Application Review Screen
-  "lbl_answer": "answer",
-  "lbl_approve": "Approve",
-  "lbl_facebook": "Facebook",
-  "lbl_instagram": "Instagram",
-  "lbl_keep_pending": "Keep pending",
-  "lbl_linkedin": "LinkedIn",
+  "lbl_approve": "Approve", "lbl_keep_pending": "Keep pending",
   "lbl_reject": "Reject",
-  "lbl_tiktok": "TikTok",
-  "lbl_username2": "Username",
-  "msg_favorite_jewish2": "Favorite Jewish dish",
-  "msg_favorite_jewish3": "Favorite Jewish holiday tradition",
-  "msg_which_temple_are": "Which temple are you part of?",
+
+  // Member Review Screen
+  "lbl_delete_user": "Delete user",
 
   // Sidebar Screen
+  "lbl_admin_dashboard": "Admin Dashboard",
   "lbl_find_friends": "Find Friends",
   "lbl_homepage": "Homepage",
   "lbl_kibutz_chat": "Kibutz (Chat)",
@@ -506,7 +491,7 @@ final Map<String, String> enUs = {
   "lbl_9_41": "9:41",
   "lbl_about": "((about)",
   "lbl_add": "Add",
-  "lbl_admin_dashboard": "Admin Dashboard",
+  "lbl_answer": "answer",
   "lbl_application": "Application",
   "lbl_block": "Block",
   "lbl_bruno_pham": "Bruno Pham",
@@ -525,19 +510,27 @@ final Map<String, String> enUs = {
   "lbl_edit_profile2": "Edit Profile",
   "lbl_email": "Email",
   "lbl_eula": "EULA",
-  "lbl_feed": "Feed",
+  "lbl_facebook": "Facebook",
+  "lbl_followers": "Followers",
   "lbl_following": "Following",
+  "lbl_following2": "FOLLOWING",
   "lbl_forjew_page": "ForJew Page",
   "lbl_forums": "Forums",
+  "lbl_friends": "Friends",
   "lbl_full_name": "Full Name",
   "lbl_group_name": "((Group Name))",
+  "lbl_group_name2": "Group name",
   "lbl_group_name3": "Group Name",
   "lbl_group_post": "group post",
   "lbl_groups": "Groups",
   "lbl_handle2": "@handle",
   "lbl_helena": "Helena ",
   "lbl_hi_name": "Hi ((NAME))",
+  "lbl_instagram": "Instagram",
+  "lbl_james": "@james",
+  "lbl_james_johnson": "James Johnson",
   "lbl_kibitz_chat": "Kibitz (Chat)",
+  "lbl_linkedin": "LinkedIn",
   "lbl_login": "Login",
   "lbl_logout": "Logout",
   "lbl_members": "Members",
@@ -555,24 +548,30 @@ final Map<String, String> enUs = {
   "lbl_save": "SAVE",
   "lbl_search": "Search",
   "lbl_settings": "Settings",
+  "lbl_share": "Share",
   "lbl_story2": "Story",
   "lbl_submit": "Submit",
+  "lbl_tiktok": "TikTok",
+  "lbl_username2": "Username",
   "lbl_view": "VIEW",
   "lbl_view2": "view",
-  "lbl_wall_post": "Wall post",
+  "lbl_view_profile": "View profile",
+  "lbl_wall_post2": "WALL POST",
   "lbl_write_a_comment": "Write a comment",
-  "lbl_write_wall_post": "Write wall post",
+  "lbl_write_wall_post2": "WRITE WALL POST",
   "lbl_you": "You",
   "lbl_your_email": "Your Email",
   "lbl_your_profile": "Your Profile",
   "msg_application_review": "Application Review",
   "msg_by_continuing_you": "By continuing, you agree to our Terms of Service",
   "msg_community_forums": "Community Forums",
-  "msg_contact_dscodetech_com": "contact@dscodetech.com",
   "msg_edit_group_details": "Edit Group Details",
+  "msg_favorite_jewish2": "Favorite Jewish dish",
+  "msg_favorite_jewish3": "Favorite Jewish holiday tradition",
   "msg_fullsnack_designers": "Fullsnack Designers",
   "msg_great_shot_i_love": "Great shot! I love it",
   "msg_group_is_private": "Group is private",
+  "msg_jacob_welovetokevel_com": "jacob@welovetokevel.com",
   "msg_matzah_ball_soup": "Matzah Ball Soup Lovers",
   "msg_minim_dolor_in_amet": "Minim dolor in amet nulla laboris",
   "msg_minim_dolor_in_amet2":
@@ -581,11 +580,15 @@ final Map<String, String> enUs = {
   "msg_moderate_members": "Moderate Members",
   "msg_notification_settings": "Notification Settings",
   "msg_password_settings": "Password Settings",
+  "msg_pending_application": "Pending Application",
+  "msg_pending_applications": "Pending Applications",
   "msg_people_who_love": "People who love matzah ball soup",
   "msg_post_description": "Post description",
   "msg_september_23_2021": "September 23, 2021",
   "msg_upload_group_photo": "upload group photo",
+  "msg_welcome_to_the_admin": "Welcome to the admin dashboard",
   "msg_what_s_on_your_mind": "What’s on your mind?",
+  "msg_which_temple_are": "Which temple are you part of?",
   "msg_yes_delete_account": "yes, Delete account",
 
   // App navigation Screen
@@ -593,23 +596,29 @@ final Map<String, String> enUs = {
   "lbl_add_comment": "Add Comment",
   "lbl_add_to_chat": "Add to chat",
   "lbl_app_navigation": "App Navigation",
-  "lbl_blocking_3": "Blocking 3",
+  "lbl_blocking_nine": "Blocking Nine",
   "lbl_chat_profile": "Chat Profile",
   "lbl_create_post": "Create Post",
+  "lbl_feed": "Feed",
   "lbl_forgot_password2": "Forgot Password",
   "lbl_group_chat": "Group Chat",
   "lbl_grouppage_v2": "GroupPage v2",
   "lbl_groupsdashboard": "GroupsDashboard",
+  "lbl_help_center": "Help Center",
+  "lbl_help_contact": "Help - Contact",
   "lbl_login_version_2": "Login Version 2",
   "lbl_logout_dialog": "Logout - Dialog",
+  "lbl_member_review": "Member Review",
   "lbl_new_chat": "New chat",
   "lbl_password_reset": "Password Reset",
-  "lbl_report_user": "Report - User",
   "lbl_sidebar": "Sidebar",
-  "lbl_user_profile": "USER Profile",
+  "lbl_splash_screen": "Splash Screen",
+  "lbl_stickers": "Stickers",
   "lbl_view_post": "View post",
   "lbl_write_in_group": "Write in group",
-  "msg_blocking_2_dialog": "Blocking 2 - Dialog",
+  "msg_admin_dashboard": "Admin Dashboard - Tab Container",
+  "msg_admin_dashboard2": "Admin Dashboard - Member View - Container",
+  "msg_blocking_ten_dialog": "Blocking Ten - Dialog",
   "msg_camera_permission": "Camera permission 2",
   "msg_check_your_app_s":
       "Check your app's UI from the below demo screens of your app.",
@@ -617,26 +626,30 @@ final Map<String, String> enUs = {
   "msg_create_group_chat": "Create group chat",
   "msg_create_new_group2": "Create New Group",
   "msg_create_post_options": "Create Post - Options",
+  "msg_create_wall_post": "Create Wall Post",
   "msg_delete_account_ii": "Delete Account II - Dialog",
-  "msg_delete_post_confirmation": "Delete Post-Confirmation - Dialog",
+  "msg_delete_post_confirmation": "Delete Post-Confirmation",
   "msg_email_verification": "Email Verification",
+  "msg_followers_tab": "Followers - Tab Container",
+  "msg_following_tab": "Following - Tab Container",
   "msg_group_description": "Group Description - Tab Container",
-  "msg_help_center_tab": "Help Center - Tab Container",
-  "msg_home_recent_chats": "Home / Recent Chats",
+  "msg_home_recent_chats": "Home / Recent Chats - Tab Container",
   "msg_homepage_container": "Homepage - Container",
   "msg_listofgroupmembers": "ListofGroupMembers",
   "msg_moderator_dashboard": "Moderator Dashboard",
   "msg_notifications_page": "Notifications page",
-  "msg_report_moderator": "Report - Moderator",
-  "msg_reporting_post": "Reporting Post - Authenticated User",
-  "msg_reporting_post_3": "Reporting post 3",
+  "msg_report_moderator": "Report - Moderator - Dialog",
+  "msg_report_user": "Report - User - Dialog",
+  "msg_reporting_post": "Reporting Post - Authenticated User - Dialog",
   "msg_reporting_post_5": "Reporting post 5",
+  "msg_reporting_post_eight": "Reporting post Eight",
   "msg_sign_up_version": "Sign Up Version 2",
   "msg_successful_password": "Successful Password Reset",
   "msg_thank_you_application": "Thank you - application",
+  "msg_user_profile_tab": "USER Profile - Tab Container",
   "msg_write_in_communty": "Write in communty",
   "msg_write_in_group": "Write in group - Options",
-  "msg_write_wall_post": "Write wall post - Options",
+  "msg_write_on_wall_post": "Write on Wall Post - Options",
 
 // Network Error String
   "msg_network_err": "Network Error",

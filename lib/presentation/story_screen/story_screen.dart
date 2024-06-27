@@ -111,7 +111,7 @@ class StoryScreen extends GetWidget<StoryController> {
                     ),
                     child: Text(
                       "lbl_craig_love".tr,
-                      style: CustomTextStyles.titleSmallPrimary_1,
+                      style: CustomTextStyles.titleSmallPrimary_2,
                     ),
                   ),
                 ),
@@ -127,7 +127,7 @@ class StoryScreen extends GetWidget<StoryController> {
                 ),
                 Spacer(),
                 CustomImageView(
-                  imagePath: ImageConstant.imgClose,
+                  imagePath: ImageConstant.imgClosePrimary,
                   height: 16.adaptSize,
                   width: 16.adaptSize,
                 )
@@ -141,14 +141,17 @@ class StoryScreen extends GetWidget<StoryController> {
 
   /// Section Widget
   Widget _buildStoryTimeline() {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 14.h,
-        top: 8.v,
-        right: 14.h,
-      ),
-      child: Row(
-        children: [_buildTopInfo()],
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: 10.h,
+          top: 8.v,
+          right: 10.h,
+        ),
+        child: Row(
+          children: [_buildTopInfo()],
+        ),
       ),
     );
   }
@@ -172,7 +175,7 @@ class StoryScreen extends GetWidget<StoryController> {
               prefix: Container(
                 margin: EdgeInsets.fromLTRB(4.h, 4.v, 12.h, 4.v),
                 child: CustomImageView(
-                  imagePath: ImageConstant.imgUser,
+                  imagePath: ImageConstant.imgUserPrimary,
                   height: 34.adaptSize,
                   width: 34.adaptSize,
                 ),
@@ -188,7 +191,7 @@ class StoryScreen extends GetWidget<StoryController> {
             ),
           ),
           CustomImageView(
-            imagePath: ImageConstant.imgSave,
+            imagePath: ImageConstant.imgSavePrimary,
             height: 20.v,
             width: 24.h,
             margin: EdgeInsets.only(left: 12.h),

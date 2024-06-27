@@ -18,4 +18,11 @@ class CommunityForumsResponseController extends GetxController {
     super.onClose();
     commentController.dispose();
   }
+
+  @override
+  void onReady() {
+    Get.toNamed(
+      AppRoutes.createNewGroupScreen,
+    );
+  }
 }

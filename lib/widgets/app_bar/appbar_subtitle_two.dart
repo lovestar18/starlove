@@ -25,8 +25,8 @@ class AppbarSubtitleTwo extends StatelessWidget {
         padding: margin ?? EdgeInsets.zero,
         child: Text(
           text,
-          style: CustomTextStyles.headlineSmallOpenSansIndigo90002.copyWith(
-            color: appTheme.indigo90002,
+          style: CustomTextStyles.headlineSmallOpenSansBlack900.copyWith(
+            color: appTheme.black900,
           ),
         ),
       ),

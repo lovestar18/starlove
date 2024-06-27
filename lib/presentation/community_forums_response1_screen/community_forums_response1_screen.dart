@@ -22,17 +22,18 @@ class CommunityForumsResponse1Screen
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: _buildAppbarSection(),
+        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(vertical: 24.v),
           child: Column(
             children: [
-              _buildUserPostSection(),
+              _buildUserPost(),
               CustomTextFormField(
                 controller: controller.commentController,
                 hintText: "lbl_write_a_comment".tr,
-                hintStyle: CustomTextStyles.bodyLargeRobotoGray60002,
+                hintStyle: CustomTextStyles.bodyLargeGray60002,
                 textInputAction: TextInputAction.done,
                 suffix: Container(
                   margin: EdgeInsets.symmetric(
@@ -62,7 +63,7 @@ class CommunityForumsResponse1Screen
         ),
         bottomNavigationBar: Padding(
           padding: EdgeInsets.only(right: 14.h),
-          child: _buildNavigationBarSection(),
+          child: _buildBottomNavigation(),
         ),
         floatingActionButton: CustomFloatingButton(
           height: 54,
@@ -79,7 +80,7 @@ class CommunityForumsResponse1Screen
   }
 
   /// Section Widget
-  PreferredSizeWidget _buildAppbarSection() {
+  PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
       centerTitle: true,
       title: Container(
@@ -101,16 +102,16 @@ class CommunityForumsResponse1Screen
         ),
       ),
       styleType:
-          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04_1,
+          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04,
     );
   }
 
   /// Section Widget
-  Widget _buildUserPostSection() {
+  Widget _buildUserPost() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 14.h),
-      padding: EdgeInsets.symmetric(horizontal: 12.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 14.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -128,6 +129,7 @@ class CommunityForumsResponse1Screen
                   radius: BorderRadius.circular(
                     30.h,
                   ),
+                  alignment: Alignment.center,
                 ),
                 SizedBox(width: 10.h),
                 Expanded(
@@ -159,7 +161,7 @@ class CommunityForumsResponse1Screen
               "msg_minim_dolor_in_amet".tr,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: CustomTextStyles.headlineMediumBlack900.copyWith(
+              style: theme.textTheme.headlineMedium!.copyWith(
                 height: 1.31,
               ),
             ),
@@ -167,7 +169,7 @@ class CommunityForumsResponse1Screen
           SizedBox(height: 12.v),
           Text(
             "msg_september_23_2021".tr,
-            style: CustomTextStyles.bodyLargeRobotoGray60003,
+            style: CustomTextStyles.bodyLargeGray60003,
           ),
           SizedBox(height: 10.v),
           SizedBox(
@@ -176,7 +178,7 @@ class CommunityForumsResponse1Screen
               "msg_minim_dolor_in_amet2".tr,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
-              style: CustomTextStyles.bodyLargeRoboto.copyWith(
+              style: CustomTextStyles.bodyLarge17.copyWith(
                 height: 1.42,
               ),
             ),
@@ -193,35 +195,38 @@ class CommunityForumsResponse1Screen
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     CustomImageView(
-                      imagePath: ImageConstant.imgFavoriteBlack90028x28,
+                      imagePath: ImageConstant.imgFavoriteBlack9003,
                       height: 28.adaptSize,
                       width: 28.adaptSize,
                     ),
                     SizedBox(width: 4.h),
                     Expanded(
-                      child: Row(
-                        children: [
-                          Text(
-                            "lbl_20k".tr,
-                            style: theme.textTheme.titleMedium,
-                          ),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgComment,
-                            height: 40.adaptSize,
-                            width: 40.adaptSize,
-                            radius: BorderRadius.circular(
-                              20.h,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Row(
+                          children: [
+                            Text(
+                              "lbl_20k".tr,
+                              style: CustomTextStyles.titleMediumMedium16,
                             ),
-                            margin: EdgeInsets.only(left: 22.h),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 4.h),
-                            child: Text(
-                              "lbl_567".tr,
-                              style: theme.textTheme.titleMedium,
+                            CustomImageView(
+                              imagePath: ImageConstant.imgCommentBlack900,
+                              height: 40.adaptSize,
+                              width: 40.adaptSize,
+                              radius: BorderRadius.circular(
+                                20.h,
+                              ),
+                              margin: EdgeInsets.only(left: 22.h),
                             ),
-                          )
-                        ],
+                            Padding(
+                              padding: EdgeInsets.only(left: 4.h),
+                              child: Text(
+                                "lbl_567".tr,
+                                style: CustomTextStyles.titleMediumMedium16,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],
@@ -235,7 +240,7 @@ class CommunityForumsResponse1Screen
   }
 
   /// Section Widget
-  Widget _buildNavigationBarSection() {
+  Widget _buildBottomNavigation() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -246,11 +251,11 @@ class CommunityForumsResponse1Screen
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home:
+      case BottomBarEnum.Homegray400:
         return AppRoutes.homepagePage;
-      case BottomBarEnum.Grid:
+      case BottomBarEnum.Gridgray400:
         return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotification:
+      case BottomBarEnum.Iconlylightnotificationgray400:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;

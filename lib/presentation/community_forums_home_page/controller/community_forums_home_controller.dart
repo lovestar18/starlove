@@ -9,4 +9,11 @@ class CommunityForumsHomeController extends GetxController {
   CommunityForumsHomeController(this.communityForumsHomeModelObj);
 
   Rx<CommunityForumsHomeModel> communityForumsHomeModelObj;
+
+  @override
+  void onReady() {
+    Get.toNamed(
+      AppRoutes.createNewGroupScreen,
+    );
+  }
 }
