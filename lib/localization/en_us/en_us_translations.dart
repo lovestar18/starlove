@@ -80,9 +80,9 @@ final Map<String, String> enUs = {
   "msg_you_ll_receive_an":
       "You’ll receive an email in a few days with your application status ",
 
-  // Homepage Screen
-  "lbl_invite_friends": "Invite friends", "lbl_shalom_jill": "Shalom, Jill!",
-  "lbl_welcome_to": "Welcome to",
+  // Homepage - Container Screen
+  "lbl_invite_friends": "Invite friends", "lbl_kibitz_chat": "Kibitz (Chat)",
+  "lbl_shalom_jill": "Shalom, Jill!", "lbl_welcome_to": "Welcome to",
 
   // Feed Screen
   "lbl_benjamin": "Benjamin",
@@ -192,7 +192,6 @@ final Map<String, String> enUs = {
   "lbl_q": "Q",
   "lbl_r": "R",
   "lbl_s": "S",
-  "lbl_send": "send",
   "lbl_space": "space",
   "lbl_t": "T",
   "lbl_u": "U",
@@ -250,6 +249,14 @@ final Map<String, String> enUs = {
   // Followers - Tab Container Screen
   "lbl_followers2": "FOLLOWERS",
 
+  // ImagePicker Screen
+  "lbl_upload": "Upload", "msg_photos_people": "Photos, People, Places...",
+  "msg_show_selected_1": "Show Selected (1)",
+
+  // ImagePicker - Tab Container Screen
+  "lbl_albums": "Albums", "lbl_photos": "Photos",
+  "msg_select_up_to_4_items": "Select up to 4 items.",
+
   // Notification Settings Screen
   "msg_chat_notifications": "Chat Notifications",
   "msg_general_notification": "General Notification",
@@ -263,14 +270,10 @@ final Map<String, String> enUs = {
   "msg_password_has_been": "Password Has been Changed successfully",
 
   // Delete Account Screen
-  "msg_are_you_sure_you": "Are you sure you want to delete your account?",
-  "msg_please_enter_your2":
-      "Please enter your password to confirm deletion of your account.",
   "msg_this_action_will":
       "This action will permanently delete all of your data, and you will not be able to recover it. Please keep the following in mind before proceeding:",
 
   // Delete Account II Screen
-  "lbl_delete_account2": "Delete account",
   "msg_are_you_sure_you2": "Are you sure you want to \ndelete Your Account?",
   "msg_by_deleting_your":
       "By deleting your account, you agree that you understand the consequences of this action and that you agree to permanently delete your account and all associated data. ",
@@ -334,6 +337,34 @@ final Map<String, String> enUs = {
   // Chat Profile Screen
   "lbl_cindy": "Cindy", "msg_delete_conversation": "Delete conversation",
 
+  // Home / Recent Chats Screen
+  "lbl_23": "2",
+  "lbl_9": "9",
+  "lbl_antwon_taylor": "Antwon Taylor",
+  "lbl_brooke_davis": "Brooke Davis",
+  "lbl_chat": " (Chat)",
+  "lbl_edit": "Edit",
+  "lbl_haley_james": "Haley James",
+  "lbl_jake_jagielski": "Jake Jagielski",
+  "lbl_jamie_scott": "Jamie Scott",
+  "lbl_kibitz": "Kibitz ",
+  "lbl_marvin_mcfadden": "Marvin McFadden",
+  "lbl_nathan_scott": "Nathan Scott",
+  "lbl_peyton_sawyer": "Peyton Sawyer",
+  "msg_every_song_ends":
+      "Every song ends, is that any reason not to enjoy the music?",
+  "msg_i_am_who_i_am_no": "I am who I am. No excuses.",
+  "msg_in_your_life_you_re":
+      "In your life, you're gonna go to some great places, and do some wonderful things.",
+  "msg_last_night_in_the":
+      "Last night in the NBA the Charlotte Bobcats quietly made a move that most sports fans...",
+  "msg_meet_me_at_the_rivercourt": "Meet me at the Rivercourt",
+  "msg_one_day_you_re_seventeen":
+      "One day you’re seventeen and planning for someday. And then quietly and without...",
+  "msg_some_people_are":
+      "Some people are a little different. I think that’s cool.",
+  "msg_stand_up_for_what": "Stand up for what you believe in",
+
   // Group Description Screen
   "lbl_12_peoples": "12 Peoples",
   "lbl_adina_nurrahma": "Adina Nurrahma",
@@ -370,48 +401,35 @@ final Map<String, String> enUs = {
   "lbl_add_people": "+  Add people",
   "lbl_ahmed_boustani": "Ahmed Boustani",
   "lbl_billie_anderson": "Billie Anderson",
-  "lbl_create_group": "Create group",
-  "msg_create_a_new_group": "Create a new group chat",
+  "lbl_darlene_steward": "Darlene Steward",
+  "lbl_edit_group": "Edit group",
+  "lbl_edit_group_chat": "Edit group chat",
   "msg_included_chats_3": "Included chats (3)",
-
-  // New chat Screen
-  "msg_new_kibitz_chat": "New Kibitz (Chat)",
-
-  // Home / Recent Chats Screen
-  "lbl_06_12": "06.12",
-  "lbl_18_31": "18.31",
-  "lbl_5": "5",
-  "lbl_albert_bell": "Albert Bell",
-  "lbl_lee_williamson": "Lee Williamson",
-  "lbl_ronald_mccoy": "Ronald Mccoy",
-  "lbl_thanks_dude": "Thanks dude 😉",
-  "lbl_yesterday": "Yesterday",
-  "msg_hello_guys_we_have": "Hello guys, we have discussed about ...",
-  "msg_i_m_happy_this_anime": "I‘m happy this anime has such grea...",
-  "msg_pls_take_a_look": "Pls take a look at the images.",
-  "msg_yes_that_s_gonna": "Yes, that’s gonna work, hopefully. ",
-
-  // Home / Recent Chats - Tab Container Screen
-  "lbl_1_1": "1:1", "lbl_all_chats": "All chats",
-
-  // Group Chat Screen
-  "lbl_12_people": "12 people",
-  "lbl_mike_mazowski2": "Mike Mazowski ",
-  "msg_2_others_are_typing": "+2 others are typing",
-  "msg_hello_guys_we_have2":
-      "Hello guys, we have discussed about post-corona vacation plan and our decision is to go to Bali. We will have a very big party after this corona ends! These are some images about our destination",
-  "msg_that_s_very_nice":
-      "That’s very nice place! you guys made a very good decision. Can’t wait to go on vacation!",
 
   // GroupsDashboard Screen
   "lbl_created": "Created", "lbl_join": "Join", "lbl_joined": "Joined",
   "msg_groups_dashboard": "Groups Dashboard",
+
+  // Discover Groups Screen
+  "lbl_find_your_tribe": "Find your tribe",
+
+  // GroupPage v2 Screen
+  "lbl_join_group": "Join Group",
+  "lbl_private": "Private",
+  "lbl_public": "Public",
+  "lbl_view_more": "view more",
+  "msg_moderator_dashboard": "Moderator\nDashboard",
+  "msg_of_members": "((# of members))",
+  "msg_what_s_happening": "What’s Happening?",
 
   // Moderator Dashboard Screen
   "lbl_moderators": "Moderators",
   "msg_edit_group_details2": "Edit group details",
   "msg_name_description": "Name, description, cover, and members",
   "msg_welcome_to_the_moderator": "Welcome to the moderator dashboard",
+
+  // Create New Group Screen
+  "msg_create_new_group": "Create new group",
 
   // ListofGroupMembers Screen
   "lbl_group_members": "Group Members",
@@ -421,21 +439,6 @@ final Map<String, String> enUs = {
 
   // Write in group - Options Screen
   "lbl_write_to_group2": "Write to group",
-
-  // GroupPage v2 Screen
-  "lbl_4_bathroom": "4 Bathroom",
-  "lbl_join_group": "Join Group",
-  "lbl_private": "Private",
-  "lbl_public": "Public",
-  "lbl_view_more": "view more",
-  "msg_of_members": "((# of members))",
-  "msg_what_s_happening": "What’s Happening?",
-
-  // Create New Group Screen
-  "msg_create_new_group": "Create new group",
-
-  // Discover Groups Screen
-  "lbl_find_your_tribe": "Find your tribe",
 
   // Community Forums - Response Screen
   "lbl_12_minutes_ago": "12 minutes ago",
@@ -461,12 +464,27 @@ final Map<String, String> enUs = {
   "lbl_forum_post": "FORUM POST", "lbl_forum_post2": "Forum Post",
   "lbl_post_title": "Post title",
 
+  // Admin Dashboard - Tab Container Screen
+  "msg_create_daily_notification": "Create Daily Notification",
+
   // Application Review Screen
   "lbl_approve": "Approve", "lbl_keep_pending": "Keep pending",
   "lbl_reject": "Reject",
 
-  // Member Review Screen
-  "lbl_delete_user": "Delete user",
+  // Daily Notification Sender Screen
+  "lbl_starlove": "@starlove",
+  "lbl_xoxo": "Xoxo",
+  "lbl_xoxo2": "XOXO",
+  "msg_notification_from": "Notification from",
+  "msg_notification_test": "Notification Test",
+  "msg_notification_title": "Notification Title",
+
+  // Admin - Delete Account Screen
+  "msg_are_you_sure_you4": "Are you sure you want to \ndelete This Account?",
+
+  // Admin - Make Admin Screen
+  "lbl_add_as_admin": "Add As Admin", "lbl_yes_make_admin": "yes, Make Admin",
+  "msg_are_you_sure_you5": "Are you sure you want to \nAdd As an Admin?",
 
   // Sidebar Screen
   "lbl_admin_dashboard": "Admin Dashboard",
@@ -478,6 +496,7 @@ final Map<String, String> enUs = {
 
   // Common String
   "lbl_02": "02",
+  "lbl_12_people": "12 people",
   "lbl_16_04": "16.04",
   "lbl_20k": "20k",
   "lbl_21_likes": "21 likes",
@@ -501,9 +520,10 @@ final Map<String, String> enUs = {
   "lbl_cover_photo": "Cover photo",
   "lbl_craig_love": "craig_love",
   "lbl_create": "Create",
-  "lbl_darlene_steward": "Darlene Steward",
   "lbl_delete": "Delete",
   "lbl_delete_account": "Delete Account",
+  "lbl_delete_account2": "Delete account",
+  "lbl_delete_user": "Delete user",
   "lbl_description": "Description",
   "lbl_description2": "description",
   "lbl_discover_groups": "Discover Groups",
@@ -518,6 +538,7 @@ final Map<String, String> enUs = {
   "lbl_forums": "Forums",
   "lbl_friends": "Friends",
   "lbl_full_name": "Full Name",
+  "lbl_group_chat": "Group Chat",
   "lbl_group_name": "((Group Name))",
   "lbl_group_name2": "Group name",
   "lbl_group_name3": "Group Name",
@@ -529,12 +550,13 @@ final Map<String, String> enUs = {
   "lbl_instagram": "Instagram",
   "lbl_james": "@james",
   "lbl_james_johnson": "James Johnson",
-  "lbl_kibitz_chat": "Kibitz (Chat)",
   "lbl_linkedin": "LinkedIn",
   "lbl_login": "Login",
   "lbl_logout": "Logout",
+  "lbl_make_admin": "Make Admin",
   "lbl_members": "Members",
   "lbl_message2": "Message...",
+  "lbl_mike_mazowski2": "Mike Mazowski ",
   "lbl_name": "Name",
   "lbl_password": "Password",
   "lbl_post": "Post",
@@ -547,6 +569,7 @@ final Map<String, String> enUs = {
   "lbl_robertfox2": "@robertfox",
   "lbl_save": "SAVE",
   "lbl_search": "Search",
+  "lbl_send": "send",
   "lbl_settings": "Settings",
   "lbl_share": "Share",
   "lbl_story2": "Story",
@@ -562,15 +585,20 @@ final Map<String, String> enUs = {
   "lbl_you": "You",
   "lbl_your_email": "Your Email",
   "lbl_your_profile": "Your Profile",
+  "msg_2_others_are_typing": "+2 others are typing",
   "msg_application_review": "Application Review",
+  "msg_are_you_sure_you": "Are you sure you want to delete your account?",
   "msg_by_continuing_you": "By continuing, you agree to our Terms of Service",
   "msg_community_forums": "Community Forums",
+  "msg_daily_notification": "Daily Notification Sender",
   "msg_edit_group_details": "Edit Group Details",
   "msg_favorite_jewish2": "Favorite Jewish dish",
   "msg_favorite_jewish3": "Favorite Jewish holiday tradition",
   "msg_fullsnack_designers": "Fullsnack Designers",
   "msg_great_shot_i_love": "Great shot! I love it",
   "msg_group_is_private": "Group is private",
+  "msg_hello_guys_we_have2":
+      "Hello guys, we have discussed about post-corona vacation plan and our decision is to go to Bali. We will have a very big party after this corona ends! These are some images about our destination",
   "msg_jacob_welovetokevel_com": "jacob@welovetokevel.com",
   "msg_matzah_ball_soup": "Matzah Ball Soup Lovers",
   "msg_minim_dolor_in_amet": "Minim dolor in amet nulla laboris",
@@ -583,8 +611,12 @@ final Map<String, String> enUs = {
   "msg_pending_application": "Pending Application",
   "msg_pending_applications": "Pending Applications",
   "msg_people_who_love": "People who love matzah ball soup",
+  "msg_please_enter_your2":
+      "Please enter your password to confirm deletion of your account.",
   "msg_post_description": "Post description",
   "msg_september_23_2021": "September 23, 2021",
+  "msg_that_s_very_nice":
+      "That’s very nice place! you guys made a very good decision. Can’t wait to go on vacation!",
   "msg_upload_group_photo": "upload group photo",
   "msg_welcome_to_the_admin": "Welcome to the admin dashboard",
   "msg_what_s_on_your_mind": "What’s on your mind?",
@@ -601,7 +633,6 @@ final Map<String, String> enUs = {
   "lbl_create_post": "Create Post",
   "lbl_feed": "Feed",
   "lbl_forgot_password2": "Forgot Password",
-  "lbl_group_chat": "Group Chat",
   "lbl_grouppage_v2": "GroupPage v2",
   "lbl_groupsdashboard": "GroupsDashboard",
   "lbl_help_center": "Help Center",
@@ -609,7 +640,6 @@ final Map<String, String> enUs = {
   "lbl_login_version_2": "Login Version 2",
   "lbl_logout_dialog": "Logout - Dialog",
   "lbl_member_review": "Member Review",
-  "lbl_new_chat": "New chat",
   "lbl_password_reset": "Password Reset",
   "lbl_sidebar": "Sidebar",
   "lbl_splash_screen": "Splash Screen",
@@ -618,6 +648,8 @@ final Map<String, String> enUs = {
   "lbl_write_in_group": "Write in group",
   "msg_admin_dashboard": "Admin Dashboard - Tab Container",
   "msg_admin_dashboard2": "Admin Dashboard - Member View - Container",
+  "msg_admin_delete_account": "Admin - Delete Account",
+  "msg_admin_make_admin": "Admin - Make Admin",
   "msg_blocking_ten_dialog": "Blocking Ten - Dialog",
   "msg_camera_permission": "Camera permission 2",
   "msg_check_your_app_s":
@@ -627,16 +659,17 @@ final Map<String, String> enUs = {
   "msg_create_new_group2": "Create New Group",
   "msg_create_post_options": "Create Post - Options",
   "msg_create_wall_post": "Create Wall Post",
-  "msg_delete_account_ii": "Delete Account II - Dialog",
+  "msg_delete_account_ii": "Delete Account II",
   "msg_delete_post_confirmation": "Delete Post-Confirmation",
   "msg_email_verification": "Email Verification",
   "msg_followers_tab": "Followers - Tab Container",
   "msg_following_tab": "Following - Tab Container",
   "msg_group_description": "Group Description - Tab Container",
-  "msg_home_recent_chats": "Home / Recent Chats - Tab Container",
+  "msg_group_group_chat": "Group - Group Chat",
+  "msg_home_recent_chats": "Home / Recent Chats",
   "msg_homepage_container": "Homepage - Container",
   "msg_listofgroupmembers": "ListofGroupMembers",
-  "msg_moderator_dashboard": "Moderator Dashboard",
+  "msg_moderator_dashboard2": "Moderator Dashboard",
   "msg_notifications_page": "Notifications page",
   "msg_report_moderator": "Report - Moderator - Dialog",
   "msg_report_user": "Report - User - Dialog",

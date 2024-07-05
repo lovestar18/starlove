@@ -4,8 +4,8 @@ import '../../theme/custom_button_style.dart';
 import '../../widgets/custom_elevated_button.dart';
 import 'controller/group_description_controller.dart';
 import 'models/group_description_model.dart';
-import 'models/userprofile_item_model.dart';
-import 'widgets/userprofile_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/userprofilelist4_item_model.dart';
+import 'widgets/userprofilelist4_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 // ignore_for_file: must_be_immutable
 class GroupDescriptionPage extends StatelessWidget {
@@ -32,20 +32,65 @@ class GroupDescriptionPage extends StatelessWidget {
               begin: Alignment(0.5, 0),
               end: Alignment(0.5, 1),
               colors: [
-                theme.colorScheme.primary.withOpacity(1),
-                appTheme.gray10004
+                theme.colorScheme.onErrorContainer.withOpacity(1),
+                appTheme.gray10003
               ],
             ),
           ),
           child: SingleChildScrollView(
             child: Container(
               width: double.maxFinite,
-              padding: EdgeInsets.symmetric(
-                horizontal: 10.h,
-                vertical: 8.v,
-              ),
+              padding: EdgeInsets.symmetric(vertical: 8.v),
               child: Column(
-                children: [SizedBox(height: 14.v), _buildMainColumn()],
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Column(
+                      children: [
+                        _buildMainContentColumn(),
+                        SizedBox(height: 48.v),
+                        Container(
+                          width: double.maxFinite,
+                          margin: EdgeInsets.symmetric(horizontal: 16.h),
+                          child: Column(
+                            children: [
+                              Container(
+                                width: double.maxFinite,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 6.h,
+                                  vertical: 20.v,
+                                ),
+                                decoration: AppDecoration.linear.copyWith(
+                                  borderRadius:
+                                      BorderRadiusStyle.roundedBorder8,
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    _buildPeopleCountStack(),
+                                    SizedBox(height: 14.v),
+                                    SizedBox(
+                                      width: double.maxFinite,
+                                      child: Divider(
+                                        color: appTheme.gray20005,
+                                        indent: 2.h,
+                                      ),
+                                    ),
+                                    SizedBox(height: 14.v),
+                                    _buildUserProfileList(),
+                                    SizedBox(height: 4.v)
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ),
@@ -55,41 +100,41 @@ class GroupDescriptionPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildInfoColumn() {
+  Widget _buildMainContentColumn() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.only(left: 6.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.h),
       child: Column(
         children: [
           Container(
             width: double.maxFinite,
-            margin: EdgeInsets.only(left: 10.h),
-            child: _buildNoteRow(
-              noteText: "msg_the_next_thing_we".tr,
+            margin: EdgeInsets.only(left: 16.h),
+            child: _buildVacationNoteRow(
+              notificationText: "msg_the_next_thing_we".tr,
             ),
           ),
           SizedBox(height: 22.v),
           Container(
             width: double.maxFinite,
-            margin: EdgeInsets.only(left: 10.h),
-            child: _buildNoteRow(
-              noteText: "msg_pls_keep_a_note".tr,
+            margin: EdgeInsets.only(left: 16.h),
+            child: _buildVacationNoteRow(
+              notificationText: "msg_pls_keep_a_note".tr,
             ),
           ),
           SizedBox(height: 22.v),
           Container(
             width: double.maxFinite,
-            margin: EdgeInsets.only(left: 10.h),
-            child: _buildNoteRow(
-              noteText: "msg_the_event_will_be".tr,
+            margin: EdgeInsets.only(left: 16.h),
+            child: _buildVacationNoteRow(
+              notificationText: "msg_the_event_will_be".tr,
             ),
           ),
           SizedBox(height: 22.v),
           CustomElevatedButton(
             height: 40.v,
             text: "lbl_see_more".tr,
-            margin: EdgeInsets.only(right: 6.h),
-            buttonStyle: CustomButtonStyles.fillGrayTL8,
+            margin: EdgeInsets.symmetric(horizontal: 6.h),
+            buttonStyle: CustomButtonStyles.fillPrimaryContainer,
             buttonTextStyle: CustomTextStyles.bodySmallBlue60001,
           )
         ],
@@ -98,121 +143,90 @@ class GroupDescriptionPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildMainColumn() {
+  Widget _buildPeopleCountStack() {
     return Container(
+      height: 24.v,
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 4.h),
-      child: Column(
+      margin: EdgeInsets.symmetric(horizontal: 6.h),
+      child: Stack(
+        alignment: Alignment.center,
         children: [
-          _buildInfoColumn(),
-          SizedBox(height: 48.v),
-          Container(
-            width: double.maxFinite,
-            padding: EdgeInsets.symmetric(
-              horizontal: 8.h,
-              vertical: 20.v,
-            ),
-            decoration: AppDecoration.linear.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder8,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 24.v,
-                  width: double.maxFinite,
-                  margin: EdgeInsets.symmetric(horizontal: 6.h),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      CustomImageView(
-                        imagePath: ImageConstant.imgFrame,
-                        height: 24.adaptSize,
-                        width: 24.adaptSize,
-                        alignment: Alignment.centerRight,
-                        margin: EdgeInsets.only(right: 46.h),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CustomImageView(
-                            imagePath: ImageConstant.imgFrameBlueA40001,
-                            height: 24.adaptSize,
-                            width: 24.adaptSize,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 16.h),
-                            child: Text(
-                              "lbl_12_peoples".tr,
-                              style: CustomTextStyles.bodySmallIndigo90002,
-                            ),
-                          ),
-                          Spacer(),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgSearchBlueA400011,
-                            height: 24.adaptSize,
-                            width: 24.adaptSize,
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+          CustomImageView(
+            imagePath: ImageConstant.imgFrame,
+            height: 24.adaptSize,
+            width: 24.adaptSize,
+            alignment: Alignment.centerRight,
+            margin: EdgeInsets.only(right: 46.h),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomImageView(
+                imagePath: ImageConstant.imgFrameBlueA40001,
+                height: 24.adaptSize,
+                width: 24.adaptSize,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 16.h),
+                child: Text(
+                  "lbl_12_peoples".tr,
+                  style: CustomTextStyles.bodySmallIndigo90002,
                 ),
-                SizedBox(height: 14.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Divider(
-                    color: appTheme.gray20005,
-                  ),
-                ),
-                SizedBox(height: 14.v),
-                Container(
-                  width: double.maxFinite,
-                  margin: EdgeInsets.only(
-                    left: 6.h,
-                    right: 14.h,
-                  ),
-                  child: Obx(
-                    () => ListView.separated(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      separatorBuilder: (context, index) {
-                        return SizedBox(
-                          height: 24.v,
-                        );
-                      },
-                      itemCount: controller.groupDescriptionModelObj.value
-                          .userprofileItemList.value.length,
-                      itemBuilder: (context, index) {
-                        UserprofileItemModel model = controller
-                            .groupDescriptionModelObj
-                            .value
-                            .userprofileItemList
-                            .value[index];
-                        return UserprofileItemWidget(
-                          model,
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                SizedBox(height: 4.v)
-              ],
-            ),
+              ),
+              Spacer(),
+              CustomImageView(
+                imagePath: ImageConstant.imgSearchBlueA400,
+                height: 24.adaptSize,
+                width: 24.adaptSize,
+              )
+            ],
           )
         ],
       ),
     );
   }
 
+  /// Section Widget
+  Widget _buildUserProfileList() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 6.h,
+        right: 14.h,
+      ),
+      child: Obx(
+        () => ListView.separated(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              height: 24.v,
+            );
+          },
+          itemCount: controller.groupDescriptionModelObj.value
+              .userprofilelist4ItemList.value.length,
+          itemBuilder: (context, index) {
+            Userprofilelist4ItemModel model = controller
+                .groupDescriptionModelObj
+                .value
+                .userprofilelist4ItemList
+                .value[index];
+            return Userprofilelist4ItemWidget(
+              model,
+            );
+          },
+        ),
+      ),
+    );
+  }
+
   /// Common widget
-  Widget _buildNoteRow({required String noteText}) {
+  Widget _buildVacationNoteRow({required String notificationText}) {
     return Row(
       children: [
         Expanded(
           child: Text(
-            noteText,
+            notificationText,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
             style: CustomTextStyles.bodyMediumBluegray60001.copyWith(
@@ -222,7 +236,7 @@ class GroupDescriptionPage extends StatelessWidget {
         ),
         SizedBox(width: 26.h),
         CustomImageView(
-          imagePath: ImageConstant.imgArrowRightBlueGray600011,
+          imagePath: ImageConstant.imgArrowRightBlueGray60001,
           height: 24.adaptSize,
           width: 24.adaptSize,
           alignment: Alignment.bottomCenter,

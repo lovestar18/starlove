@@ -85,3 +85,12 @@ Resolve the errors and warnings that are shown in the application.
 ### Support
 
 If you have any problems or questions, go to our Discord channel, where we will help you as quickly as possible: https://discord.com/invite/rFMnCG5MZ7
+
+### Fonts
+We were unable to find the following Fonts, Please add manually to ```assets/fonts``` 
+
+```
+SFProTextSemibold.ttf
+SFProTextRegular.ttf
+SFProTextMedium.ttf
+```

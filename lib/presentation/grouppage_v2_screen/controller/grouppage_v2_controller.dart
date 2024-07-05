@@ -7,4 +7,6 @@ import '../models/grouppage_v2_model.dart';
 /// current grouppageV2ModelObj
 class GrouppageV2Controller extends GetxController {
   Rx<GrouppageV2Model> grouppageV2ModelObj = GrouppageV2Model().obs;
+
+  Rx<int> sliderIndex = 0.obs;
 }

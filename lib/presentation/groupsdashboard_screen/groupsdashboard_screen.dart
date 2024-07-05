@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_four.dart';
+import '../../widgets/app_bar/appbar_button.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/groupsdashboard_controller.dart';
 import 'models/grouplist_item_model.dart';
 import 'widgets/grouplist_item_widget.dart'; // ignore_for_file: must_be_immutable
@@ -22,12 +21,12 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Column(
           children: [
             SizedBox(height: 12.v),
-            _buildFeaturedSection(),
+            _buildFeaturedGroup(),
             SizedBox(height: 22.v),
             _buildGroupList()
           ],
@@ -37,7 +36,7 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
           height: 54,
           width: 60,
           child: CustomImageView(
-            imagePath: ImageConstant.imgFieldNavigation,
+            imagePath: ImageConstant.imgSearchOnerrorcontainer,
             height: 27.0.v,
             width: 30.0.h,
           ),
@@ -53,87 +52,78 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
       centerTitle: true,
       title: Container(
         width: double.maxFinite,
-        decoration: AppDecoration.gradientIndigoAToCyan400011,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              ImageConstant.imgGroup4741,
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
-          children: [
-            SizedBox(height: 13.v),
-            AppbarImage(
-              imagePath: ImageConstant.imgPlusPrimary,
-              margin: EdgeInsets.only(
-                left: 20.h,
-                right: 324.h,
-              ),
-            ),
-            AppbarSubtitleFour(
-              text: "msg_groups_dashboard".tr,
-              margin: EdgeInsets.symmetric(horizontal: 96.h),
-            ),
-            SizedBox(height: 10.v)
-          ],
+          children: [AppbarButton()],
         ),
       ),
-      styleType:
-          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04,
+      styleType: Style.bgGradientnameprimaryopacity04namecyan40001opacity04,
     );
   }
 
   /// Section Widget
-  Widget _buildFeaturedImage() {
+  Widget _buildFeaturedGroup() {
     return Container(
-      height: 170.v,
       width: double.maxFinite,
-      margin: EdgeInsets.only(right: 2.h),
-      child: Stack(
-        alignment: Alignment.center,
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
+      child: Column(
         children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgWebaliserTptx,
+          SizedBox(
             height: 170.v,
             width: double.maxFinite,
-            radius: BorderRadius.circular(
-              20.h,
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: 26.h,
-                right: 26.h,
-                bottom: 14.v,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "lbl_group_name".tr,
-                    style: CustomTextStyles.titleLargeOpenSansPrimary,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                CustomImageView(
+                  imagePath: ImageConstant.imgWebaliserTptx170x342,
+                  height: 170.v,
+                  width: double.maxFinite,
+                  radius: BorderRadius.circular(
+                    20.h,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 6.h),
-                    child: Text(
-                      "lbl_about".tr,
-                      style: CustomTextStyles.bodySmallBluegray10002,
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: 24.h,
+                      right: 24.h,
+                      bottom: 14.v,
                     ),
-                  )
-                ],
-              ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "lbl_group_name".tr,
+                          style: CustomTextStyles
+                              .titleLargeOpenSansOnErrorContainerSemiBold,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 6.h),
+                          child: Text(
+                            "lbl_about".tr,
+                            style: CustomTextStyles.bodySmallBluegray10002,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
           )
         ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildFeaturedSection() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      padding: EdgeInsets.symmetric(horizontal: 2.h),
-      child: Column(
-        children: [_buildFeaturedImage()],
       ),
     );
   }
@@ -173,11 +163,11 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -189,10 +179,10 @@ class GroupsdashboardScreen extends GetWidget<GroupsdashboardController> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

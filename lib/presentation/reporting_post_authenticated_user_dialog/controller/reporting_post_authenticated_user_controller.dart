@@ -7,9 +7,10 @@ import '../models/reporting_post_authenticated_user_model.dart';
 /// This class manages the state of the ReportingPostAuthenticatedUserDialog, including the
 /// current reportingPostAuthenticatedUserModelObj
 class ReportingPostAuthenticatedUserController extends GetxController {
-  TextEditingController deletevalueoneController = TextEditingController();
+  TextEditingController deleteOptionController = TextEditingController();
 
-  TextEditingController commentController = TextEditingController();
+  TextEditingController turnOffCommentingOptionController =
+      TextEditingController();
 
   Rx<ReportingPostAuthenticatedUserModel>
       reportingPostAuthenticatedUserModelObj =
@@ -18,7 +19,7 @@ class ReportingPostAuthenticatedUserController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    deletevalueoneController.dispose();
-    commentController.dispose();
+    deleteOptionController.dispose();
+    turnOffCommentingOptionController.dispose();
   }
 }

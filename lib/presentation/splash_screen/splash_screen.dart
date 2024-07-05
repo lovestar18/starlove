@@ -12,7 +12,7 @@ class SplashScreen extends GetWidget<SplashController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

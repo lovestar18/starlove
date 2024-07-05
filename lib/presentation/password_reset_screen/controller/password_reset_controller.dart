@@ -7,17 +7,16 @@ import '../models/password_reset_model.dart';
 /// This class manages the state of the PasswordResetScreen, including the
 /// current passwordResetModelObj
 class PasswordResetController extends GetxController {
-  TextEditingController passwordInputController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
-  TextEditingController confirmPasswordInputController =
-      TextEditingController();
+  TextEditingController confirmpasswordController = TextEditingController();
 
   Rx<PasswordResetModel> passwordResetModelObj = PasswordResetModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    passwordInputController.dispose();
-    confirmPasswordInputController.dispose();
+    passwordController.dispose();
+    confirmpasswordController.dispose();
   }
 }

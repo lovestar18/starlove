@@ -20,8 +20,8 @@ class CommunityForumsHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
-        appBar: _buildAppbar(),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+        appBar: _buildAppBar(),
         body: Padding(
           padding: EdgeInsets.only(top: 24.v),
           child: SingleChildScrollView(
@@ -42,7 +42,7 @@ class CommunityForumsHomePage extends StatelessWidget {
                         "msg_minim_dolor_in_amet".tr,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.headlineMedium!.copyWith(
+                        style: CustomTextStyles.headlineMediumBlack900.copyWith(
                           height: 1.31,
                         ),
                       ),
@@ -62,7 +62,6 @@ class CommunityForumsHomePage extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 56.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
                           "lbl_20k".tr,
@@ -70,24 +69,29 @@ class CommunityForumsHomePage extends StatelessWidget {
                         ),
                         SizedBox(width: 22.h),
                         Expanded(
-                          child: Row(
-                            children: [
-                              CustomImageView(
-                                imagePath: ImageConstant.imgCommentBlack900,
-                                height: 40.adaptSize,
-                                width: 40.adaptSize,
-                                radius: BorderRadius.circular(
-                                  20.h,
+                          child: GestureDetector(
+                            onTap: () {
+                              onTapComment2();
+                            },
+                            child: Row(
+                              children: [
+                                CustomImageView(
+                                  imagePath: ImageConstant.imgComment,
+                                  height: 40.adaptSize,
+                                  width: 40.adaptSize,
+                                  radius: BorderRadius.circular(
+                                    20.h,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 4.h),
-                                child: Text(
-                                  "lbl_567".tr,
-                                  style: CustomTextStyles.titleMediumMedium16,
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(left: 4.h),
+                                  child: Text(
+                                    "lbl_567".tr,
+                                    style: CustomTextStyles.titleMediumMedium16,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )
                       ],
@@ -103,30 +107,29 @@ class CommunityForumsHomePage extends StatelessWidget {
   }
 
   /// Section Widget
-  PreferredSizeWidget _buildAppbar() {
+  PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
       centerTitle: true,
       title: Container(
-        decoration: AppDecoration.gradientIndigoAToCyan400011,
+        decoration: AppDecoration.gradientPrimaryToCyan400011,
         child: Row(
           children: [
             AppbarImage(
-              imagePath: ImageConstant.imgPlusPrimary,
+              imagePath: ImageConstant.imgContrast,
               margin: EdgeInsets.only(
-                left: 4.h,
+                left: 13.h,
                 top: 14.v,
                 bottom: 18.v,
               ),
             ),
             AppbarSubtitleThree(
               text: "msg_community_forums".tr,
-              margin: EdgeInsets.fromLTRB(56.h, 17.v, 86.h, 14.v),
+              margin: EdgeInsets.fromLTRB(56.h, 17.v, 94.h, 14.v),
             )
           ],
         ),
       ),
-      styleType:
-          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04_1,
+      styleType: Style.bgGradientnameprimaryopacity04namecyan40001opacity04,
     );
   }
 
@@ -134,94 +137,113 @@ class CommunityForumsHomePage extends StatelessWidget {
   Widget _buildPostSectionOne() {
     return SizedBox(
       width: double.maxFinite,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: double.maxFinite,
-            child: Text(
-              "msg_minim_dolor_in_amet".tr,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.headlineMedium!.copyWith(
-                height: 1.31,
-              ),
-            ),
-          ),
-          SizedBox(height: 12.v),
-          Text(
-            "msg_september_23_2021".tr,
-            style: CustomTextStyles.bodyLargeGray60003,
-          ),
-          SizedBox(height: 12.v),
-          Text(
-            "msg_minim_dolor_in_amet2".tr,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            style: CustomTextStyles.bodyLarge17.copyWith(
-              height: 1.42,
-            ),
-          ),
-          SizedBox(height: 12.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 22.h),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgFavorite,
-                      height: 28.adaptSize,
-                      width: 28.adaptSize,
-                    ),
-                    SizedBox(width: 4.h),
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "lbl_20k".tr,
-                              style: CustomTextStyles.titleMediumMedium16,
-                            ),
-                            SizedBox(width: 22.h),
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  CustomImageView(
-                                    imagePath: ImageConstant.imgCommentBlack900,
-                                    height: 40.adaptSize,
-                                    width: 40.adaptSize,
-                                    radius: BorderRadius.circular(
-                                      20.h,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 4.h),
-                                    child: Text(
-                                      "lbl_567".tr,
-                                      style:
-                                          CustomTextStyles.titleMediumMedium16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
+      child: GestureDetector(
+        onTap: () {
+          onTapPostSectionOne();
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: double.maxFinite,
+              child: GestureDetector(
+                onTap: () {
+                  onTapTxtMinimdolorin();
+                },
+                child: Text(
+                  "msg_minim_dolor_in_amet".tr,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: CustomTextStyles.headlineMediumBlack900.copyWith(
+                    height: 1.31,
+                  ),
                 ),
               ),
             ),
-          )
-        ],
+            SizedBox(height: 12.v),
+            Text(
+              "msg_september_23_2021".tr,
+              style: CustomTextStyles.bodyLargeGray60003,
+            ),
+            SizedBox(height: 12.v),
+            GestureDetector(
+              onTap: () {
+                onTapTxtMinimdolorin1();
+              },
+              child: Text(
+                "msg_minim_dolor_in_amet2".tr,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: CustomTextStyles.bodyLarge17.copyWith(
+                  height: 1.42,
+                ),
+              ),
+            ),
+            SizedBox(height: 12.v),
+            SizedBox(
+              width: double.maxFinite,
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 22.h),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomImageView(
+                        imagePath: ImageConstant.imgFavoriteBlack900,
+                        height: 28.adaptSize,
+                        width: 28.adaptSize,
+                      ),
+                      SizedBox(width: 4.h),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "lbl_20k".tr,
+                                style: CustomTextStyles.titleMediumMedium16,
+                              ),
+                              SizedBox(width: 22.h),
+                              Expanded(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    onTapComment();
+                                  },
+                                  child: Row(
+                                    children: [
+                                      CustomImageView(
+                                        imagePath: ImageConstant.imgComment,
+                                        height: 40.adaptSize,
+                                        width: 40.adaptSize,
+                                        radius: BorderRadius.circular(
+                                          20.h,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 4.h),
+                                        child: Text(
+                                          "lbl_567".tr,
+                                          style: CustomTextStyles
+                                              .titleMediumMedium16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -230,78 +252,136 @@ class CommunityForumsHomePage extends StatelessWidget {
   Widget _buildPostSectionTwo() {
     return SizedBox(
       width: double.maxFinite,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: double.maxFinite,
-            child: Text(
-              "msg_minim_dolor_in_amet".tr,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.headlineMedium!.copyWith(
-                height: 1.31,
-              ),
-            ),
-          ),
-          SizedBox(height: 12.v),
-          Text(
-            "msg_september_23_2021".tr,
-            style: CustomTextStyles.bodyLargeGray60003,
-          ),
-          SizedBox(height: 12.v),
-          Text(
-            "msg_minim_dolor_in_amet2".tr,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            style: CustomTextStyles.bodyLarge17.copyWith(
-              height: 1.42,
-            ),
-          ),
-          SizedBox(height: 12.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: Align(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 54.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      "lbl_20k".tr,
-                      style: CustomTextStyles.titleMediumMedium16,
-                    ),
-                    SizedBox(width: 22.h),
-                    Expanded(
-                      child: Row(
-                        children: [
-                          CustomImageView(
-                            imagePath: ImageConstant.imgCommentBlack900,
-                            height: 40.adaptSize,
-                            width: 40.adaptSize,
-                            radius: BorderRadius.circular(
-                              20.h,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 4.h),
-                            child: Text(
-                              "lbl_567".tr,
-                              style: CustomTextStyles.titleMediumMedium16,
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
+      child: GestureDetector(
+        onTap: () {
+          onTapPostSectionTwo();
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: double.maxFinite,
+              child: Text(
+                "msg_minim_dolor_in_amet".tr,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: CustomTextStyles.headlineMediumBlack900.copyWith(
+                  height: 1.31,
                 ),
               ),
             ),
-          )
-        ],
+            SizedBox(height: 12.v),
+            Text(
+              "msg_september_23_2021".tr,
+              style: CustomTextStyles.bodyLargeGray60003,
+            ),
+            SizedBox(height: 12.v),
+            Text(
+              "msg_minim_dolor_in_amet2".tr,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: CustomTextStyles.bodyLarge17.copyWith(
+                height: 1.42,
+              ),
+            ),
+            SizedBox(height: 12.v),
+            SizedBox(
+              width: double.maxFinite,
+              child: Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 54.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "lbl_20k".tr,
+                        style: CustomTextStyles.titleMediumMedium16,
+                      ),
+                      SizedBox(width: 22.h),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            onTapComment1();
+                          },
+                          child: Row(
+                            children: [
+                              CustomImageView(
+                                imagePath: ImageConstant.imgComment,
+                                height: 40.adaptSize,
+                                width: 40.adaptSize,
+                                radius: BorderRadius.circular(
+                                  20.h,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 4.h),
+                                child: Text(
+                                  "lbl_567".tr,
+                                  style: CustomTextStyles.titleMediumMedium16,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
+    );
+  }
+
+  /// Navigates to the communityForumsResponseScreen when the action is triggered.
+  onTapPostSectionOne() {
+    Get.toNamed(
+      AppRoutes.communityForumsResponseScreen,
+    );
+  }
+
+  /// Navigates to the communityForumsResponseScreen when the action is triggered.
+  onTapTxtMinimdolorin() {
+    Get.toNamed(
+      AppRoutes.communityForumsResponseScreen,
+    );
+  }
+
+  /// Navigates to the communityForumsResponseScreen when the action is triggered.
+  onTapTxtMinimdolorin1() {
+    Get.toNamed(
+      AppRoutes.communityForumsResponseScreen,
+    );
+  }
+
+  /// Navigates to the communityForumsResponseScreen when the action is triggered.
+  onTapComment() {
+    Get.toNamed(
+      AppRoutes.communityForumsResponseScreen,
+    );
+  }
+
+  /// Navigates to the communityForumsResponseScreen when the action is triggered.
+  onTapPostSectionTwo() {
+    Get.toNamed(
+      AppRoutes.communityForumsResponseScreen,
+    );
+  }
+
+  /// Navigates to the communityForumsResponseScreen when the action is triggered.
+  onTapComment1() {
+    Get.toNamed(
+      AppRoutes.communityForumsResponseScreen,
+    );
+  }
+
+  /// Navigates to the communityForumsResponseScreen when the action is triggered.
+  onTapComment2() {
+    Get.toNamed(
+      AppRoutes.communityForumsResponseScreen,
     );
   }
 }

@@ -23,7 +23,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: SingleChildScrollView(
           padding: EdgeInsets.only(
@@ -33,12 +33,20 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             key: _formKey,
             child: Container(
               width: double.maxFinite,
-              padding: EdgeInsets.symmetric(
-                horizontal: 10.h,
-                vertical: 22.v,
-              ),
+              padding: EdgeInsets.symmetric(vertical: 22.v),
               child: Column(
-                children: [_buildReferAFriendForm(), SizedBox(height: 4.v)],
+                children: [
+                  _buildReferAFriendSection(),
+                  SizedBox(height: 30.v),
+                  _buildYourEmailSection(),
+                  SizedBox(height: 16.v),
+                  _buildFriendsEmailSection(),
+                  SizedBox(height: 14.v),
+                  _buildFriendsNameSection(),
+                  SizedBox(height: 14.v),
+                  _buildSubmitSection(),
+                  SizedBox(height: 4.v)
+                ],
               ),
             ),
           ),
@@ -50,25 +58,52 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
   /// Section Widget
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
-      leadingWidth: 49.h,
+      leadingWidth: 53.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgUnionGray90003,
+        imagePath: ImageConstant.imgArrowLeftGray90004,
         margin: EdgeInsets.only(
-          left: 33.h,
-          top: 20.v,
-          bottom: 20.v,
+          left: 29.h,
+          top: 16.v,
+          bottom: 16.v,
         ),
         onTap: () {
-          onTapUnionone();
+          onTapArrowleftone();
         },
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildYourEmailSection() {
-    return SizedBox(
+  Widget _buildReferAFriendSection() {
+    return Container(
       width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
+      padding: EdgeInsets.only(left: 2.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "lbl_refer_a_friend".tr,
+            style: CustomTextStyles.titleLargePoppinsGray90005,
+          ),
+          SizedBox(height: 12.v),
+          Text(
+            "msg_invite_a_friend".tr,
+            style: CustomTextStyles.titleMediumInterGray50003SemiBold,
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildYourEmailSection() {
+    return Container(
+      width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 14.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -76,23 +111,25 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "lbl_your_email".tr,
-              style: CustomTextStyles.titleMediumInterGray90008SemiBold,
+              style: CustomTextStyles.titleMediumInterGray90010SemiBold,
             ),
           ),
           SizedBox(height: 8.v),
-          CustomTextFormField(
-            controller: controller.emailController,
-            hintText: "msg_jacob_welovetokevel_com".tr,
-            hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
-            textInputType: TextInputType.emailAddress,
-            validator: (value) {
-              if (value == null || (!isValidEmail(value, isRequired: true))) {
-                return "err_msg_please_enter_valid_email".tr;
-              }
-              return null;
-            },
-            borderDecoration: TextFormFieldStyleHelper.outlineGray,
-            filled: false,
+          Padding(
+            padding: EdgeInsets.only(right: 4.h),
+            child: CustomTextFormField(
+              controller: controller.emailController,
+              hintText: "msg_jacob_welovetokevel_com".tr,
+              hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
+              textInputType: TextInputType.emailAddress,
+              validator: (value) {
+                if (value == null || (!isValidEmail(value, isRequired: true))) {
+                  return "err_msg_please_enter_valid_email";
+                }
+                return null;
+              },
+              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+            ),
           )
         ],
       ),
@@ -101,8 +138,9 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
 
   /// Section Widget
   Widget _buildFriendsEmailSection() {
-    return SizedBox(
+    return Container(
       width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 14.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -110,23 +148,25 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "lbl_friend_s_email".tr,
-              style: CustomTextStyles.titleMediumInterGray90008SemiBold,
+              style: CustomTextStyles.titleMediumInterGray90010SemiBold,
             ),
           ),
           SizedBox(height: 8.v),
-          CustomTextFormField(
-            controller: controller.email1Controller,
-            hintText: "msg_jacob_welovetokevel_com".tr,
-            hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
-            textInputType: TextInputType.emailAddress,
-            validator: (value) {
-              if (value == null || (!isValidEmail(value, isRequired: true))) {
-                return "err_msg_please_enter_valid_email".tr;
-              }
-              return null;
-            },
-            borderDecoration: TextFormFieldStyleHelper.outlineGray,
-            filled: false,
+          Padding(
+            padding: EdgeInsets.only(right: 4.h),
+            child: CustomTextFormField(
+              controller: controller.email1Controller,
+              hintText: "msg_jacob_welovetokevel_com".tr,
+              hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
+              textInputType: TextInputType.emailAddress,
+              validator: (value) {
+                if (value == null || (!isValidEmail(value, isRequired: true))) {
+                  return "err_msg_please_enter_valid_email";
+                }
+                return null;
+              },
+              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+            ),
           )
         ],
       ),
@@ -135,8 +175,9 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
 
   /// Section Widget
   Widget _buildFriendsNameSection() {
-    return SizedBox(
+    return Container(
       width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 14.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -144,17 +185,19 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "msg_friend_s_first_and".tr,
-              style: CustomTextStyles.titleMediumInterGray90008SemiBold,
+              style: CustomTextStyles.titleMediumInterGray90010SemiBold,
             ),
           ),
           SizedBox(height: 8.v),
-          CustomTextFormField(
-            controller: controller.lastNameController,
-            hintText: "lbl_jake_maizel".tr,
-            hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
-            textInputAction: TextInputAction.done,
-            borderDecoration: TextFormFieldStyleHelper.outlineGray,
-            filled: false,
+          Padding(
+            padding: EdgeInsets.only(right: 4.h),
+            child: CustomTextFormField(
+              controller: controller.lastNameController,
+              hintText: "lbl_jake_maizel".tr,
+              hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
+              textInputAction: TextInputAction.done,
+              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+            ),
           )
         ],
       ),
@@ -162,53 +205,30 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
   }
 
   /// Section Widget
-  Widget _buildSubmitButton() {
-    return CustomElevatedButton(
-      height: 48.v,
-      text: "lbl_submit".tr,
-      buttonStyle: CustomButtonStyles.fillIndigoATL12,
-      buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16_1,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildReferAFriendForm() {
+  Widget _buildSubmitSection() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 2.h),
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(left: 4.h),
-            child: Text(
-              "lbl_refer_a_friend".tr,
-              style: CustomTextStyles.titleLargePoppinsGray90004,
-            ),
-          ),
-          SizedBox(height: 12.v),
-          Padding(
-            padding: EdgeInsets.only(left: 4.h),
-            child: Text(
-              "msg_invite_a_friend".tr,
-              style: CustomTextStyles.titleMediumInterGray50001SemiBold,
-            ),
-          ),
-          SizedBox(height: 30.v),
-          _buildYourEmailSection(),
-          SizedBox(height: 16.v),
-          _buildFriendsEmailSection(),
-          SizedBox(height: 14.v),
-          _buildFriendsNameSection(),
-          SizedBox(height: 14.v),
-          _buildSubmitButton()
+          CustomElevatedButton(
+            height: 48.v,
+            text: "lbl_submit".tr,
+            margin: EdgeInsets.only(right: 6.h),
+            buttonStyle: CustomButtonStyles.fillPrimaryTL12,
+            buttonTextStyle:
+                CustomTextStyles.titleMediumInterOnErrorContainer16,
+          )
         ],
       ),
     );
   }
 
   /// Navigates to the previous screen.
-  onTapUnionone() {
+  onTapArrowleftone() {
     Get.back();
   }
 }

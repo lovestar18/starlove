@@ -18,16 +18,22 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
-          padding: EdgeInsets.symmetric(
-            horizontal: 10.h,
-            vertical: 16.v,
-          ),
+          padding: EdgeInsets.symmetric(vertical: 16.v),
           child: Column(
-            children: [_buildPasswordResetForm(), SizedBox(height: 4.v)],
+            children: [
+              _buildNewPasswordSection(),
+              SizedBox(height: 34.v),
+              _buildPasswordSection(),
+              SizedBox(height: 16.v),
+              _buildConfirmPasswordSection(),
+              SizedBox(height: 16.v),
+              _buildUpdatePasswordSection(),
+              SizedBox(height: 4.v)
+            ],
           ),
         ),
       ),
@@ -39,7 +45,7 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
     return CustomAppBar(
       leadingWidth: 54.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeft,
+        imagePath: ImageConstant.imgArrowLeftGray20004,
         margin: EdgeInsets.only(
           left: 12.h,
           top: 7.v,
@@ -53,100 +59,107 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
   }
 
   /// Section Widget
-  Widget _buildDescriptionText() {
-    return GestureDetector(
-      onTap: () {
-        onTapTxtDescriptionText();
-      },
-      child: Text(
-        "msg_create_a_new_password".tr,
-        maxLines: 3,
-        overflow: TextOverflow.ellipsis,
-        style: CustomTextStyles.titleMediumInterGray50001Medium16,
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildPasswordInput() {
-    return CustomTextFormField(
-      controller: controller.passwordInputController,
-      obscureText: true,
-      borderDecoration: TextFormFieldStyleHelper.outlineGray,
-      filled: false,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildPasswordSection() {
-    return SizedBox(
+  Widget _buildNewPasswordSection() {
+    return Container(
       width: double.maxFinite,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "lbl_password".tr,
-            style: CustomTextStyles.titleMediumInterGray90008SemiBold,
-          ),
-          SizedBox(height: 8.v),
-          _buildPasswordInput()
-        ],
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
       ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildConfirmPasswordInput() {
-    return CustomTextFormField(
-      controller: controller.confirmPasswordInputController,
-      textInputAction: TextInputAction.done,
-      obscureText: true,
-      borderDecoration: TextFormFieldStyleHelper.outlineGray,
-      filled: false,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildConfirmPasswordSection() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "msg_confirm_password".tr,
-            style: CustomTextStyles.titleMediumInterGray90008SemiBold,
-          ),
-          SizedBox(height: 8.v),
-          _buildConfirmPasswordInput()
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildPasswordResetForm() {
-    return SizedBox(
-      width: double.maxFinite,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "msg_set_a_new_password".tr,
-            style: CustomTextStyles.titleLargePoppinsGray90004,
+            style: CustomTextStyles.titleLargePoppinsGray90005,
           ),
           SizedBox(height: 8.v),
-          _buildDescriptionText(),
-          SizedBox(height: 34.v),
-          _buildPasswordSection(),
-          SizedBox(height: 16.v),
-          _buildConfirmPasswordSection(),
-          SizedBox(height: 16.v),
+          GestureDetector(
+            onTap: () {
+              onTapTxtDescription();
+            },
+            child: Text(
+              "msg_create_a_new_password".tr,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: CustomTextStyles.titleMediumInterGray50003Medium16,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildPasswordSection() {
+    return Container(
+      width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 12.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "lbl_password".tr,
+            style: CustomTextStyles.titleMediumInterGray90010SemiBold,
+          ),
+          SizedBox(height: 8.v),
+          Padding(
+            padding: EdgeInsets.only(right: 10.h),
+            child: CustomTextFormField(
+              controller: controller.passwordController,
+              obscureText: true,
+              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildConfirmPasswordSection() {
+    return Container(
+      width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 12.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "msg_confirm_password".tr,
+            style: CustomTextStyles.titleMediumInterGray90010SemiBold,
+          ),
+          SizedBox(height: 8.v),
+          Padding(
+            padding: EdgeInsets.only(right: 10.h),
+            child: CustomTextFormField(
+              controller: controller.confirmpasswordController,
+              textInputAction: TextInputAction.done,
+              obscureText: true,
+              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildUpdatePasswordSection() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
+      child: Column(
+        children: [
           CustomElevatedButton(
             height: 48.v,
             text: "lbl_update_password".tr,
-            buttonStyle: CustomButtonStyles.fillIndigoATL12,
-            buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16_1,
+            margin: EdgeInsets.only(right: 10.h),
+            buttonStyle: CustomButtonStyles.fillPrimaryTL12,
+            buttonTextStyle:
+                CustomTextStyles.titleMediumInterOnErrorContainer16,
           )
         ],
       ),
@@ -158,5 +171,5 @@ class PasswordResetScreen extends GetWidget<PasswordResetController> {
     Get.back();
   }
 
-  onTapTxtDescriptionText() {}
+  onTapTxtDescription() {}
 }

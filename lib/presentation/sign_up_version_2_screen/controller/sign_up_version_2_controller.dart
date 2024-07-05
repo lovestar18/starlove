@@ -7,13 +7,13 @@ import '../models/sign_up_version_2_model.dart';
 /// This class manages the state of the SignUpVersion2Screen, including the
 /// current signUpVersion2ModelObj
 class SignUpVersion2Controller extends GetxController {
-  TextEditingController fullNameController = TextEditingController();
+  TextEditingController fullNameInputController = TextEditingController();
 
-  TextEditingController emailController = TextEditingController();
+  TextEditingController emailInputController = TextEditingController();
 
-  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController phoneNumberInputController = TextEditingController();
 
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordInputController = TextEditingController();
 
   Rx<SignUpVersion2Model> signUpVersion2ModelObj = SignUpVersion2Model().obs;
 
@@ -22,9 +22,9 @@ class SignUpVersion2Controller extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    fullNameController.dispose();
-    emailController.dispose();
-    phoneNumberController.dispose();
-    passwordController.dispose();
+    fullNameInputController.dispose();
+    emailInputController.dispose();
+    phoneNumberInputController.dispose();
+    passwordInputController.dispose();
   }
 }

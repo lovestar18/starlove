@@ -49,7 +49,8 @@ class CustomElevatedButton extends BaseButton {
         height: this.height ?? 36.v,
         width: this.width ?? double.maxFinite,
         margin: margin,
-        decoration: decoration,
+        decoration:
+            decoration ?? CustomButtonStyles.gradientTealAToCyanATL18Decoration,
         child: ElevatedButton(
           style: buttonStyle,
           onPressed: isDisabled ?? false ? null : onPressed ?? () {},
@@ -61,7 +62,7 @@ class CustomElevatedButton extends BaseButton {
               Text(
                 text,
                 style: buttonTextStyle ??
-                    CustomTextStyles.titleSmallOpenSansPrimary,
+                    CustomTextStyles.titleMediumOnErrorContainer,
               ),
               rightIcon ?? const SizedBox.shrink()
             ],

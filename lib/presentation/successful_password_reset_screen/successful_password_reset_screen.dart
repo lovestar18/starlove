@@ -15,7 +15,7 @@ class SuccessfulPasswordResetScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.only(top: 92.v),
@@ -23,9 +23,9 @@ class SuccessfulPasswordResetScreen
             children: [
               _buildImageSection(),
               SizedBox(height: 82.v),
-              _buildMainContentSection(),
+              _buildSuccessMessageSection(),
               SizedBox(height: 32.v),
-              _buildLoginSection(),
+              _buildLoginButtonSection(),
               SizedBox(height: 4.v)
             ],
           ),
@@ -38,7 +38,10 @@ class SuccessfulPasswordResetScreen
   Widget _buildImageSection() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
       child: Column(
         children: [
           CustomImageView(
@@ -55,20 +58,28 @@ class SuccessfulPasswordResetScreen
   Widget _buildSuccessMessageSection() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 32.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.h),
+      decoration: AppDecoration.mainwhite,
       child: Column(
         children: [
-          Text(
-            "lbl_successful".tr,
-            style: CustomTextStyles.titleLargePoppinsGray90004,
-          ),
-          SizedBox(height: 28.v),
-          Text(
-            "msg_congratulations".tr,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-            style: CustomTextStyles.titleMediumInterGray50001Medium16,
+          SizedBox(
+            width: double.maxFinite,
+            child: Column(
+              children: [
+                Text(
+                  "lbl_successful".tr,
+                  style: CustomTextStyles.titleLargePoppinsGray90005,
+                ),
+                SizedBox(height: 28.v),
+                Text(
+                  "msg_congratulations".tr,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: CustomTextStyles.titleMediumInterGray50003Medium16,
+                )
+              ],
+            ),
           )
         ],
       ),
@@ -76,35 +87,24 @@ class SuccessfulPasswordResetScreen
   }
 
   /// Section Widget
-  Widget _buildMainContentSection() {
+  Widget _buildLoginButtonSection() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 10.h),
-      decoration: AppDecoration.mainwhite,
-      child: Column(
-        children: [_buildSuccessMessageSection()],
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
       ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildLoginButton() {
-    return CustomElevatedButton(
-      height: 48.v,
-      text: "lbl_login".tr,
-      buttonStyle: CustomButtonStyles.fillIndigoATL12,
-      buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16_1,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildLoginSection() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      padding: EdgeInsets.symmetric(horizontal: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: 2.h),
       child: Column(
-        children: [_buildLoginButton()],
+        children: [
+          CustomElevatedButton(
+            height: 48.v,
+            text: "lbl_login".tr,
+            buttonStyle: CustomButtonStyles.fillPrimaryTL12,
+            buttonTextStyle:
+                CustomTextStyles.titleMediumInterOnErrorContainer16,
+          )
+        ],
       ),
     );
   }

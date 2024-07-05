@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_subtitle_fourteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_fifteen.dart';
 import '../../widgets/app_bar/appbar_subtitle_one.dart';
 import '../../widgets/app_bar/appbar_trailing_image_one.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
@@ -8,8 +8,8 @@ import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_icon_button.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/discover_groups_controller.dart'; // ignore_for_file: must_be_immutable
 
 class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
@@ -22,7 +22,7 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: SizedBox(
           width: 374.h,
@@ -32,8 +32,58 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
               SizedBox(height: 30.v),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: 10.h),
-                  child: _buildVerticalScroll(),
+                  padding: EdgeInsets.symmetric(horizontal: 16.h),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              width: double.maxFinite,
+                              child: _buildCardSection(
+                                userimageThree: ImageConstant.imgImage220x1621,
+                                groupnameOne: "lbl_group_name3".tr,
+                                descriptionOne: "lbl_description2".tr,
+                              ),
+                            ),
+                            SizedBox(height: 32.v),
+                            SizedBox(
+                              width: double.maxFinite,
+                              child: _buildCardSection(
+                                userimageThree: ImageConstant.imgImage376x1621,
+                                groupnameOne: "lbl_group_name3".tr,
+                                descriptionOne: "lbl_description2".tr,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 16.h),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              width: double.maxFinite,
+                              child: _buildCardSection(
+                                userimageThree: ImageConstant.imgImage398x1621,
+                                groupnameOne: "lbl_group_name3".tr,
+                                descriptionOne: "lbl_description2".tr,
+                              ),
+                            ),
+                            SizedBox(height: 32.v),
+                            SizedBox(
+                              width: double.maxFinite,
+                              child: _buildCardSection(
+                                userimageThree: ImageConstant.imgImage200x1621,
+                                groupnameOne: "lbl_group_name3".tr,
+                                descriptionOne: "lbl_description2".tr,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
@@ -47,7 +97,7 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
             onTapFloatingactionb();
           },
           child: CustomImageView(
-            imagePath: ImageConstant.imgFieldNavigation,
+            imagePath: ImageConstant.imgSearchOnerrorcontainer,
             height: 27.0.v,
             width: 30.0.h,
           ),
@@ -63,7 +113,7 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
       height: 62.v,
       title: Container(
         width: 288.h,
-        decoration: AppDecoration.fillPrimary,
+        decoration: AppDecoration.fillOnErrorContainer,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -76,7 +126,7 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
               ),
             ),
             SizedBox(height: 2.v),
-            AppbarSubtitleFourteen(
+            AppbarSubtitleFifteen(
               text: "lbl_find_your_tribe".tr,
               margin: EdgeInsets.only(
                 left: 16.h,
@@ -89,7 +139,7 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
       ),
       actions: [
         AppbarTrailingImageOne(
-          imagePath: ImageConstant.imgSearchBlack900,
+          imagePath: ImageConstant.imgSearchBlack9001,
           margin: EdgeInsets.only(
             top: 22.v,
             right: 37.h,
@@ -98,65 +148,6 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
         )
       ],
       styleType: Style.bgFill_2,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildVerticalScroll() {
-    return Container(
-      margin: EdgeInsets.only(bottom: 22.v),
-      padding: EdgeInsets.symmetric(horizontal: 4.h),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              children: [
-                SizedBox(
-                  width: double.maxFinite,
-                  child: _buildCardSection(
-                    imageThree: ImageConstant.imgImage220x162,
-                    cardheadline: "lbl_group_name3".tr,
-                    cardOne: "lbl_description2".tr,
-                  ),
-                ),
-                SizedBox(height: 32.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: _buildCardSection(
-                    imageThree: ImageConstant.imgImage376x162,
-                    cardheadline: "lbl_group_name3".tr,
-                    cardOne: "lbl_description2".tr,
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(width: 16.h),
-          Expanded(
-            child: Column(
-              children: [
-                SizedBox(
-                  width: double.maxFinite,
-                  child: _buildCardSection(
-                    imageThree: ImageConstant.imgImage398x162,
-                    cardheadline: "lbl_group_name3".tr,
-                    cardOne: "lbl_description2".tr,
-                  ),
-                ),
-                SizedBox(height: 32.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: _buildCardSection(
-                    imageThree: ImageConstant.imgImage200x162,
-                    cardheadline: "lbl_group_name3".tr,
-                    cardOne: "lbl_description2".tr,
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
     );
   }
 
@@ -171,9 +162,9 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
 
   /// Common widget
   Widget _buildCardSection({
-    required String imageThree,
-    required String cardheadline,
-    required String cardOne,
+    required String userimageThree,
+    required String groupnameOne,
+    required String descriptionOne,
   }) {
     return Container(
       decoration: BoxDecoration(
@@ -182,7 +173,7 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
       child: Column(
         children: [
           CustomImageView(
-            imagePath: imageThree,
+            imagePath: userimageThree,
             height: 376.v,
             width: double.maxFinite,
             radius: BorderRadius.circular(
@@ -194,27 +185,24 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
             width: double.maxFinite,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        cardheadline,
-                        style: CustomTextStyles
-                            .titleMediumGothicA1OnPrimaryContainer
+                        groupnameOne,
+                        style: CustomTextStyles.titleMediumGothicA1OnPrimary
                             .copyWith(
-                          color: theme.colorScheme.onPrimaryContainer,
+                          color: theme.colorScheme.onPrimary,
                         ),
                       ),
                       SizedBox(height: 2.v),
                       Text(
-                        cardOne,
-                        style: CustomTextStyles
-                            .bodyMediumGothicA1OnPrimaryContainer
+                        descriptionOne,
+                        style: CustomTextStyles.bodyMediumGothicA1OnPrimary
                             .copyWith(
-                          color: theme.colorScheme.onPrimaryContainer,
+                          color: theme.colorScheme.onPrimary,
                         ),
                       )
                     ],
@@ -227,7 +215,7 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
                   padding: EdgeInsets.all(8.h),
                   decoration: IconButtonStyleHelper.radiusTL20,
                   child: CustomImageView(
-                    imagePath: ImageConstant.imgArrowRightGray9001,
+                    imagePath: ImageConstant.imgArrowRightGray900,
                   ),
                 )
               ],
@@ -241,11 +229,11 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -257,10 +245,10 @@ class DiscoverGroupsScreen extends GetWidget<DiscoverGroupsController> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

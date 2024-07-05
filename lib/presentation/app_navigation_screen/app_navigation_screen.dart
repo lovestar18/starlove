@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../blocking_ten_dialog/blocking_ten_dialog.dart';
 import '../blocking_ten_dialog/controller/blocking_ten_controller.dart';
-import '../delete_account_ii_dialog/controller/delete_account_ii_controller.dart';
-import '../delete_account_ii_dialog/delete_account_ii_dialog.dart';
 import '../logout_dialog/controller/logout_controller.dart';
 import '../logout_dialog/logout_dialog.dart';
 import '../report_moderator_dialog/controller/report_moderator_controller.dart';
@@ -24,7 +22,7 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: SizedBox(
           width: double.maxFinite,
           child: Column(
@@ -224,10 +222,8 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_delete_account_ii".tr,
-                          onTapScreenTitle: () => onTapDialogTitle(
-                              context,
-                              DeleteAccountIiDialog(
-                                  Get.put(DeleteAccountIiController()))),
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.deleteAccountIiScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_help_center".tr,
@@ -275,6 +271,11 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               onTapScreenTitle(AppRoutes.chatProfileScreen),
                         ),
                         _buildScreenTitle(
+                          screenTitle: "msg_home_recent_chats".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.homeRecentChatsScreen),
+                        ),
+                        _buildScreenTitle(
                           screenTitle: "msg_group_description".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
                               AppRoutes.groupDescriptionTabContainerScreen),
@@ -283,16 +284,6 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                           screenTitle: "msg_create_group_chat".tr,
                           onTapScreenTitle: () =>
                               onTapScreenTitle(AppRoutes.createGroupChatScreen),
-                        ),
-                        _buildScreenTitle(
-                          screenTitle: "lbl_new_chat".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.newChatScreen),
-                        ),
-                        _buildScreenTitle(
-                          screenTitle: "msg_home_recent_chats".tr,
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              AppRoutes.homeRecentChatsTabContainerScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_group_chat".tr,
@@ -305,9 +296,34 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               onTapScreenTitle(AppRoutes.groupsdashboardScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "msg_moderator_dashboard".tr,
+                          screenTitle: "lbl_discover_groups".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.discoverGroupsScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "lbl_grouppage_v2".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.grouppageV2Screen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_moderate_members".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.moderateMembersScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_moderator_dashboard2".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
                               AppRoutes.moderatorDashboardScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_edit_group_details".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.editGroupDetailsScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_create_new_group2".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.createNewGroupScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_listofgroupmembers".tr,
@@ -332,29 +348,14 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                               AppRoutes.writeInGroupOptionsScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "lbl_grouppage_v2".tr,
+                          screenTitle: "msg_group_group_chat".tr,
                           onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.grouppageV2Screen),
+                              onTapScreenTitle(AppRoutes.groupGroupChatScreen),
                         ),
                         _buildScreenTitle(
-                          screenTitle: "msg_moderate_members".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.moderateMembersScreen),
-                        ),
-                        _buildScreenTitle(
-                          screenTitle: "msg_edit_group_details".tr,
+                          screenTitle: "msg_community_forums2".tr,
                           onTapScreenTitle: () => onTapScreenTitle(
-                              AppRoutes.editGroupDetailsScreen),
-                        ),
-                        _buildScreenTitle(
-                          screenTitle: "msg_create_new_group2".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.createNewGroupScreen),
-                        ),
-                        _buildScreenTitle(
-                          screenTitle: "lbl_discover_groups".tr,
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(AppRoutes.discoverGroupsScreen),
+                              AppRoutes.communityForumsResponseScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "msg_community_forums2".tr,
@@ -390,6 +391,21 @@ class AppNavigationScreen extends GetWidget<AppNavigationController> {
                           screenTitle: "lbl_stickers".tr,
                           onTapScreenTitle: () =>
                               onTapScreenTitle(AppRoutes.stickersScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_daily_notification".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.dailyNotificationSenderScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_admin_delete_account".tr,
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              AppRoutes.adminDeleteAccountScreen),
+                        ),
+                        _buildScreenTitle(
+                          screenTitle: "msg_admin_make_admin".tr,
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(AppRoutes.adminMakeAdminScreen),
                         ),
                         _buildScreenTitle(
                           screenTitle: "lbl_sidebar".tr,

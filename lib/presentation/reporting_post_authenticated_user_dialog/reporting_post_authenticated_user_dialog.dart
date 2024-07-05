@@ -22,39 +22,55 @@ class ReportingPostAuthenticatedUserDialog extends StatelessWidget {
       children: [
         Column(
           children: [
-            CustomTextFormField(
-              controller: controller.deletevalueoneController,
-              hintText: "lbl_delete".tr,
-              hintStyle: CustomTextStyles.bodyLargeOpenSansRed300,
-              borderDecoration: TextFormFieldStyleHelper.underLineGrayTL16,
-              filled: false,
-            ),
-            CustomTextFormField(
-              controller: controller.commentController,
-              hintText: "msg_turn_off_commenting".tr,
-              hintStyle: CustomTextStyles.bodyLargeOpenSansOnErrorContainer,
-              textInputAction: TextInputAction.done,
-              borderDecoration: TextFormFieldStyleHelper.underLineGray2,
-              filled: false,
-            ),
-            CustomElevatedButton(
-              height: 56.v,
-              text: "lbl_share".tr,
-              buttonStyle: CustomButtonStyles.fillGrayBL16,
-              buttonTextStyle:
-                  CustomTextStyles.bodyLargeOpenSansOnErrorContainer,
-            ),
+            _buildDeleteOption(),
+            _buildTurnOffCommentingOption(),
+            _buildShare(),
             SizedBox(height: 16.v),
-            CustomElevatedButton(
-              height: 56.v,
-              text: "lbl_cancel".tr,
-              buttonStyle: CustomButtonStyles.fillGrayTL16,
-              buttonTextStyle:
-                  CustomTextStyles.bodyLargeOpenSansOnErrorContainer,
-            )
+            _buildCancel()
           ],
         )
       ],
+    );
+  }
+
+  /// Section Widget
+  Widget _buildDeleteOption() {
+    return CustomTextFormField(
+      controller: controller.deleteOptionController,
+      hintText: "lbl_delete".tr,
+      hintStyle: CustomTextStyles.bodyLargeOpenSansRed30001,
+      borderDecoration: TextFormFieldStyleHelper.underLineGray,
+    );
+  }
+
+  /// Section Widget
+  Widget _buildTurnOffCommentingOption() {
+    return CustomTextFormField(
+      controller: controller.turnOffCommentingOptionController,
+      hintText: "msg_turn_off_commenting".tr,
+      hintStyle: CustomTextStyles.bodyLargeOpenSansGray90001,
+      textInputAction: TextInputAction.done,
+      borderDecoration: TextFormFieldStyleHelper.underLineGray1,
+    );
+  }
+
+  /// Section Widget
+  Widget _buildShare() {
+    return CustomElevatedButton(
+      height: 56.v,
+      text: "lbl_share".tr,
+      buttonStyle: CustomButtonStyles.fillGrayBL161,
+      buttonTextStyle: CustomTextStyles.bodyLargeOpenSansGray90001,
+    );
+  }
+
+  /// Section Widget
+  Widget _buildCancel() {
+    return CustomElevatedButton(
+      height: 56.v,
+      text: "lbl_cancel".tr,
+      buttonStyle: CustomButtonStyles.fillGrayTL161,
+      buttonTextStyle: CustomTextStyles.bodyLargeOpenSansGray90001,
     );
   }
 }

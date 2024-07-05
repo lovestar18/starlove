@@ -3,13 +3,13 @@ import '../../core/app_export.dart';
 
 enum Style {
   bgStyle,
+  bgGradientnameprimaryopacity04namecyan40001opacity04_1,
   bgOutline_1,
-  bgGradientnameindigoA70001opacity04namecyan40001opacity04_1,
   bgFill_1,
+  bgGradientnameprimaryopacity04namecyan40001opacity04,
   bgOutline,
   bgFill_2,
   bgOutline_2,
-  bgGradientnameindigoA70001opacity04namecyan40001opacity04,
   bgFill
 }
 
@@ -79,6 +79,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         );
+      case Style.bgGradientnameprimaryopacity04namecyan40001opacity04_1:
+        return Container(
+          height: 56.v,
+          width: 374.h,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment(0, 0.5),
+              end: Alignment(1, 0.5),
+              colors: [
+                theme.colorScheme.primary.withOpacity(0.4),
+                appTheme.cyan40001.withOpacity(0.4)
+              ],
+            ),
+          ),
+        );
       case Style.bgOutline_1:
         return Container(
           height: 56.v,
@@ -92,7 +107,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         );
-      case Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04_1:
+      case Style.bgFill_1:
+        return Container(
+          height: 64.v,
+          width: 360.h,
+          decoration: BoxDecoration(
+            color: appTheme.whiteA700,
+          ),
+        );
+      case Style.bgGradientnameprimaryopacity04namecyan40001opacity04:
         return Stack(
           children: [
             Container(
@@ -103,7 +126,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   begin: Alignment(0, 0.5),
                   end: Alignment(1, 0.5),
                   colors: [
-                    appTheme.indigoA70001.withOpacity(0.4),
+                    theme.colorScheme.primary.withOpacity(0.4),
                     appTheme.cyan40001.withOpacity(0.4)
                   ],
                 ),
@@ -111,31 +134,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             Container(
               height: 56.v,
-              width: 352.h,
-              margin: EdgeInsets.only(
-                left: 12.h,
-                right: 10.h,
-              ),
+              width: 368.h,
+              margin: EdgeInsets.only(right: 6.h),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment(0, 0.5),
-                  end: Alignment(1, 0.5),
-                  colors: [
-                    appTheme.indigoA70001.withOpacity(0.4),
-                    appTheme.cyan40001.withOpacity(0.4)
-                  ],
+                image: DecorationImage(
+                  image: AssetImage(
+                    ImageConstant.imgGroup4741,
+                  ),
+                  fit: BoxFit.cover,
                 ),
               ),
             )
           ],
-        );
-      case Style.bgFill_1:
-        return Container(
-          height: 64.v,
-          width: 360.h,
-          decoration: BoxDecoration(
-            color: theme.colorScheme.secondaryContainer,
-          ),
         );
       case Style.bgOutline:
         return Container(
@@ -156,7 +166,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           width: 288.h,
           margin: EdgeInsets.only(right: 86.h),
           decoration: BoxDecoration(
-            color: theme.colorScheme.primary.withOpacity(0.8),
+            color: theme.colorScheme.onErrorContainer.withOpacity(0.8),
           ),
         );
       case Style.bgOutline_2:
@@ -164,7 +174,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           height: 72.v,
           width: 374.h,
           decoration: BoxDecoration(
-            color: theme.colorScheme.primary.withOpacity(1),
+            color: theme.colorScheme.onErrorContainer.withOpacity(1),
             border: Border(
               bottom: BorderSide(
                 color: appTheme.gray200,
@@ -173,46 +183,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         );
-      case Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04:
-        return Stack(
-          children: [
-            Container(
-              height: 56.v,
-              width: 374.h,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment(0, 0.5),
-                  end: Alignment(1, 0.5),
-                  colors: [
-                    appTheme.indigoA70001.withOpacity(0.4),
-                    appTheme.cyan40001.withOpacity(0.4)
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              height: 56.v,
-              width: 368.h,
-              margin: EdgeInsets.only(right: 6.h),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment(0, 0.5),
-                  end: Alignment(1, 0.5),
-                  colors: [
-                    appTheme.indigoA70001.withOpacity(0.4),
-                    appTheme.cyan40001.withOpacity(0.4)
-                  ],
-                ),
-              ),
-            )
-          ],
-        );
       case Style.bgFill:
         return Container(
           height: 48.v,
           width: 374.h,
           decoration: BoxDecoration(
-            color: theme.colorScheme.primary.withOpacity(1),
+            color: theme.colorScheme.onErrorContainer.withOpacity(1),
           ),
         );
       default:

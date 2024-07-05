@@ -2,19 +2,13 @@ import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 import '../theme/custom_button_style.dart';
 
-extension FloatingButtonStyleHelper on CustomFloatingButton {
-  static BoxDecoration get fillBlueA => BoxDecoration(
-        color: appTheme.blueA40001,
-        borderRadius: BorderRadius.circular(28.h),
-      );
-}
-
 class CustomFloatingButton extends StatelessWidget {
   CustomFloatingButton(
       {Key? key,
       this.alignment,
       this.backgroundColor,
       this.onTap,
+      this.shape,
       this.width,
       this.height,
       this.decoration,
@@ -28,6 +22,8 @@ class CustomFloatingButton extends StatelessWidget {
   final Color? backgroundColor;
 
   final VoidCallback? onTap;
+
+  final ShapeBorder? shape;
 
   final double? width;
 
@@ -47,6 +43,10 @@ class CustomFloatingButton extends StatelessWidget {
   Widget get fabWidget => FloatingActionButton(
         backgroundColor: backgroundColor,
         onPressed: onTap,
+        shape: shape ??
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.h),
+            ),
         child: Container(
           alignment: Alignment.center,
           width: width ?? 0,

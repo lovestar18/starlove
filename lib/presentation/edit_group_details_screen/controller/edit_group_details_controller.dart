@@ -7,9 +7,9 @@ import '../models/edit_group_details_model.dart';
 /// This class manages the state of the EditGroupDetailsScreen, including the
 /// current editGroupDetailsModelObj
 class EditGroupDetailsController extends GetxController {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController groupNameInputController = TextEditingController();
 
-  TextEditingController yournamegmailcoController = TextEditingController();
+  TextEditingController descriptionInputController = TextEditingController();
 
   Rx<EditGroupDetailsModel> editGroupDetailsModelObj =
       EditGroupDetailsModel().obs;
@@ -19,7 +19,7 @@ class EditGroupDetailsController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    nameController.dispose();
-    yournamegmailcoController.dispose();
+    groupNameInputController.dispose();
+    descriptionInputController.dispose();
   }
 }

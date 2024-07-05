@@ -7,11 +7,11 @@ import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_search_view.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/add_to_chat_controller.dart';
-import 'models/userprofilelist4_item_model.dart';
-import 'widgets/userprofilelist4_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/userprofilelist3_item_model.dart';
+import 'widgets/userprofilelist3_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class AddToChatScreen extends GetWidget<AddToChatController> {
   const AddToChatScreen({Key? key})
@@ -24,24 +24,43 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 10.h,
+            horizontal: 16.h,
             vertical: 6.v,
           ),
           child: Column(
-            children: [_buildSearchColumn(), SizedBox(height: 20.v)],
+            children: [
+              SizedBox(
+                width: double.maxFinite,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 4.h),
+                      child: CustomSearchView(
+                        controller: controller.searchController,
+                        hintText: "lbl_search".tr,
+                        hintStyle: CustomTextStyles.bodyLargeInterGray50001,
+                      ),
+                    ),
+                    SizedBox(height: 18.v),
+                    _buildUserProfileList()
+                  ],
+                ),
+              ),
+              SizedBox(height: 4.v)
+            ],
           ),
         ),
-        bottomNavigationBar: _buildBottomNavigationBar(),
+        bottomNavigationBar: _buildBottomNavigation(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
           child: CustomImageView(
-            imagePath: ImageConstant.imgFieldNavigation,
+            imagePath: ImageConstant.imgCloseOnerrorcontainer,
             height: 27.0.v,
             width: 30.0.h,
           ),
@@ -56,7 +75,7 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
     return CustomAppBar(
       leadingWidth: 25.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftIndigo9001,
+        imagePath: ImageConstant.imgArrowLeftIndigo900,
         margin: EdgeInsets.only(
           left: 19.h,
           top: 19.v,
@@ -69,17 +88,6 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
       centerTitle: true,
       title: AppbarSubtitle(
         text: "msg_add_to_kibitz_chat".tr,
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildSearchView() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8.h),
-      child: CustomSearchView(
-        controller: controller.searchViewController,
-        hintText: "lbl_search".tr,
       ),
     );
   }
@@ -98,11 +106,11 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
             );
           },
           itemCount: controller
-              .addToChatModelObj.value.userprofilelist4ItemList.value.length,
+              .addToChatModelObj.value.userprofilelist3ItemList.value.length,
           itemBuilder: (context, index) {
-            Userprofilelist4ItemModel model = controller
-                .addToChatModelObj.value.userprofilelist4ItemList.value[index];
-            return Userprofilelist4ItemWidget(
+            Userprofilelist3ItemModel model = controller
+                .addToChatModelObj.value.userprofilelist3ItemList.value[index];
+            return Userprofilelist3ItemWidget(
               model,
             );
           },
@@ -112,31 +120,7 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
   }
 
   /// Section Widget
-  Widget _buildAddToChatSection() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Column(
-        children: [
-          _buildSearchView(),
-          SizedBox(height: 18.v),
-          _buildUserProfileList()
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildSearchColumn() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Column(
-        children: [_buildAddToChatSection()],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildBottomNavigationBar() {
+  Widget _buildBottomNavigation() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -147,11 +131,11 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -163,10 +147,10 @@ class AddToChatScreen extends GetWidget<AddToChatController> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

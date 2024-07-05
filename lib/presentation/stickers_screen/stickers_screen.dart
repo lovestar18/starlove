@@ -12,13 +12,13 @@ class StickersScreen extends GetWidget<StickersController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.only(
-            left: 18.h,
+            left: 16.h,
             top: 30.v,
-            right: 18.h,
+            right: 16.h,
           ),
           child: Column(
             children: [
@@ -29,7 +29,7 @@ class StickersScreen extends GetWidget<StickersController> {
                 height: 94.v,
                 width: 174.h,
                 alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(left: 14.h),
+                margin: EdgeInsets.only(left: 16.h),
               ),
               SizedBox(height: 6.v),
               _buildRowILChaim()
@@ -45,12 +45,11 @@ class StickersScreen extends GetWidget<StickersController> {
     return Container(
       width: double.maxFinite,
       margin: EdgeInsets.only(
-        left: 8.h,
-        right: 14.h,
+        left: 10.h,
+        right: 16.h,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
             child: Column(
@@ -104,11 +103,9 @@ class StickersScreen extends GetWidget<StickersController> {
 
   /// Section Widget
   Widget _buildRowILChaim() {
-    return Container(
+    return SizedBox(
       width: double.maxFinite,
-      margin: EdgeInsets.only(right: 6.h),
       child: Row(
-        mainAxisSize: MainAxisSize.max,
         children: [
           CustomImageView(
             imagePath: ImageConstant.imgILChaim,
@@ -118,19 +115,23 @@ class StickersScreen extends GetWidget<StickersController> {
           SizedBox(width: 24.h),
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomImageView(
                   imagePath: ImageConstant.imgGFoodForThought,
                   height: 108.v,
                   width: double.maxFinite,
-                  alignment: Alignment.centerRight,
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(
+                    left: 8.h,
+                    right: 4.h,
+                  ),
                 ),
                 SizedBox(height: 34.v),
                 CustomImageView(
                   imagePath: ImageConstant.imgULarry,
                   height: 138.v,
                   width: double.maxFinite,
-                  margin: EdgeInsets.only(right: 8.h),
                 )
               ],
             ),

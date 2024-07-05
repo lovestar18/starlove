@@ -7,11 +7,11 @@ import '../models/password_settings_model.dart';
 /// This class manages the state of the PasswordSettingsScreen, including the
 /// current passwordSettingsModelObj
 class PasswordSettingsController extends GetxController {
+  TextEditingController passwordInputController = TextEditingController();
+
+  TextEditingController newPasswordInputController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
-
-  TextEditingController password1Controller = TextEditingController();
-
-  TextEditingController password2Controller = TextEditingController();
 
   Rx<PasswordSettingsModel> passwordSettingsModelObj =
       PasswordSettingsModel().obs;
@@ -25,8 +25,8 @@ class PasswordSettingsController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+    passwordInputController.dispose();
+    newPasswordInputController.dispose();
     passwordController.dispose();
-    password1Controller.dispose();
-    password2Controller.dispose();
   }
 }

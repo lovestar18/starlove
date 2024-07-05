@@ -7,28 +7,29 @@ import '../models/application_model.dart';
 /// This class manages the state of the ApplicationScreen, including the
 /// current applicationModelObj
 class ApplicationController extends GetxController {
-  TextEditingController fullNameController = TextEditingController();
+  TextEditingController fullNameInputController = TextEditingController();
 
-  TextEditingController userNameController = TextEditingController();
+  TextEditingController usernameInputController = TextEditingController();
 
-  TextEditingController whattempleareyoController = TextEditingController();
+  TextEditingController templeInputController = TextEditingController();
 
-  TextEditingController yournamegmailcoController = TextEditingController();
+  TextEditingController favoriteDishInputController = TextEditingController();
 
-  TextEditingController yournamegmailco1Controller = TextEditingController();
+  TextEditingController holidayTraditionInputController =
+      TextEditingController();
 
-  TextEditingController yournamegmailco2Controller = TextEditingController();
+  TextEditingController linkedinInputController = TextEditingController();
 
   Rx<ApplicationModel> applicationModelObj = ApplicationModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    fullNameController.dispose();
-    userNameController.dispose();
-    whattempleareyoController.dispose();
-    yournamegmailcoController.dispose();
-    yournamegmailco1Controller.dispose();
-    yournamegmailco2Controller.dispose();
+    fullNameInputController.dispose();
+    usernameInputController.dispose();
+    templeInputController.dispose();
+    favoriteDishInputController.dispose();
+    holidayTraditionInputController.dispose();
+    linkedinInputController.dispose();
   }
 }

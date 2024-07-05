@@ -22,38 +22,54 @@ class ReportModeratorDialog extends StatelessWidget {
       children: [
         Column(
           children: [
-            CustomTextFormField(
-              controller: controller.deletevalueoneController,
-              hintText: "lbl_delete".tr,
-              hintStyle: CustomTextStyles.bodyLargeOpenSansRed300,
-              borderDecoration: TextFormFieldStyleHelper.underLineGrayTL16,
-              filled: false,
-            ),
-            CustomTextFormField(
-              controller: controller.reportvalueoneController,
-              hintText: "lbl_report".tr,
-              textInputAction: TextInputAction.done,
-              borderDecoration: TextFormFieldStyleHelper.underLineGray2,
-              filled: false,
-            ),
-            CustomElevatedButton(
-              height: 56.v,
-              text: "lbl_block".tr,
-              buttonStyle: CustomButtonStyles.fillGrayBL16,
-              buttonTextStyle:
-                  CustomTextStyles.bodyLargeOpenSansOnErrorContainer,
-            ),
+            _buildDeleteValue(),
+            _buildReportValue(),
+            _buildBlockButton(),
             SizedBox(height: 16.v),
-            CustomElevatedButton(
-              height: 56.v,
-              text: "lbl_cancel".tr,
-              buttonStyle: CustomButtonStyles.fillGrayTL16,
-              buttonTextStyle:
-                  CustomTextStyles.bodyLargeOpenSansOnErrorContainer,
-            )
+            _buildCancelButton()
           ],
         )
       ],
+    );
+  }
+
+  /// Section Widget
+  Widget _buildDeleteValue() {
+    return CustomTextFormField(
+      controller: controller.deleteValueController,
+      hintText: "lbl_delete".tr,
+      hintStyle: CustomTextStyles.bodyLargeOpenSansRed30001,
+      borderDecoration: TextFormFieldStyleHelper.underLineGray,
+    );
+  }
+
+  /// Section Widget
+  Widget _buildReportValue() {
+    return CustomTextFormField(
+      controller: controller.reportValueController,
+      hintText: "lbl_report".tr,
+      textInputAction: TextInputAction.done,
+      borderDecoration: TextFormFieldStyleHelper.underLineGray1,
+    );
+  }
+
+  /// Section Widget
+  Widget _buildBlockButton() {
+    return CustomElevatedButton(
+      height: 56.v,
+      text: "lbl_block".tr,
+      buttonStyle: CustomButtonStyles.fillGrayBL161,
+      buttonTextStyle: CustomTextStyles.bodyLargeOpenSansGray90001,
+    );
+  }
+
+  /// Section Widget
+  Widget _buildCancelButton() {
+    return CustomElevatedButton(
+      height: 56.v,
+      text: "lbl_cancel".tr,
+      buttonStyle: CustomButtonStyles.fillGrayTL161,
+      buttonTextStyle: CustomTextStyles.bodyLargeOpenSansGray90001,
     );
   }
 }

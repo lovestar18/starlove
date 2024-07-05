@@ -7,13 +7,13 @@ import '../models/moderate_members_model.dart';
 /// This class manages the state of the ModerateMembersScreen, including the
 /// current moderateMembersModelObj
 class ModerateMembersController extends GetxController {
-  TextEditingController searchBarController = TextEditingController();
+  TextEditingController searchController = TextEditingController();
 
   Rx<ModerateMembersModel> moderateMembersModelObj = ModerateMembersModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    searchBarController.dispose();
+    searchController.dispose();
   }
 }

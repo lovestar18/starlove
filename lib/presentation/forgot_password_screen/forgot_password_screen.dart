@@ -23,7 +23,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: SingleChildScrollView(
           padding: EdgeInsets.only(
@@ -33,12 +33,16 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
             key: _formKey,
             child: Container(
               width: double.maxFinite,
-              padding: EdgeInsets.symmetric(
-                horizontal: 10.h,
-                vertical: 16.v,
-              ),
+              padding: EdgeInsets.symmetric(vertical: 16.v),
               child: Column(
-                children: [_buildForgotPasswordForm(), SizedBox(height: 4.v)],
+                children: [
+                  _buildForgotPasswordInfo(),
+                  SizedBox(height: 26.v),
+                  _buildEmailInputSection(),
+                  SizedBox(height: 26.v),
+                  _buildResetPasswordButton(),
+                  SizedBox(height: 4.v)
+                ],
               ),
             ),
           ),
@@ -52,7 +56,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
     return CustomAppBar(
       leadingWidth: 61.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeft,
+        imagePath: ImageConstant.imgArrowLeftGray20004,
         margin: EdgeInsets.only(
           left: 19.h,
           top: 7.v,
@@ -66,37 +70,36 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
   }
 
   /// Section Widget
-  Widget _buildInstructionText() {
-    return Text(
-      "msg_please_enter_your".tr,
-      style: CustomTextStyles.titleMediumInterGray50001SemiBold,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildEmailInput() {
-    return CustomTextFormField(
-      controller: controller.emailInputController,
-      hintText: "msg_jacob_welovetokevel_com".tr,
-      hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
-      textInputAction: TextInputAction.done,
-      textInputType: TextInputType.emailAddress,
-      validator: (value) {
-        if (value == null || (!isValidEmail(value, isRequired: true))) {
-          return "err_msg_please_enter_valid_email".tr;
-        }
-        return null;
-      },
-      borderDecoration: TextFormFieldStyleHelper.outlineGray,
-      filled: false,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildEmailSection() {
+  Widget _buildForgotPasswordInfo() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 2.h),
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
+      padding: EdgeInsets.only(left: 2.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "lbl_forgot_password".tr,
+            style: CustomTextStyles.titleLargePoppinsGray90005,
+          ),
+          SizedBox(height: 12.v),
+          Text(
+            "msg_please_enter_your".tr,
+            style: CustomTextStyles.titleMediumInterGray50003SemiBold,
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildEmailInputSection() {
+    return Container(
+      width: double.maxFinite,
+      padding: EdgeInsets.symmetric(horizontal: 14.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -104,11 +107,27 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "lbl_your_email".tr,
-              style: CustomTextStyles.titleMediumInterGray90008SemiBold,
+              style: CustomTextStyles.titleMediumInterGray90010SemiBold,
             ),
           ),
           SizedBox(height: 8.v),
-          _buildEmailInput()
+          Padding(
+            padding: EdgeInsets.only(right: 4.h),
+            child: CustomTextFormField(
+              controller: controller.emailController,
+              hintText: "msg_jacob_welovetokevel_com".tr,
+              hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
+              textInputAction: TextInputAction.done,
+              textInputType: TextInputType.emailAddress,
+              validator: (value) {
+                if (value == null || (!isValidEmail(value, isRequired: true))) {
+                  return "err_msg_please_enter_valid_email";
+                }
+                return null;
+              },
+              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+            ),
+          )
         ],
       ),
     );
@@ -116,37 +135,21 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
 
   /// Section Widget
   Widget _buildResetPasswordButton() {
-    return CustomElevatedButton(
-      height: 48.v,
-      text: "lbl_reset_password".tr,
-      margin: EdgeInsets.symmetric(horizontal: 8.h),
-      buttonStyle: CustomButtonStyles.fillIndigoATL12,
-      buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16_1,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildForgotPasswordForm() {
-    return SizedBox(
+    return Container(
       width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
       child: Column(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 6.h),
-              child: Text(
-                "lbl_forgot_password".tr,
-                style: CustomTextStyles.titleLargePoppinsGray90004,
-              ),
-            ),
-          ),
-          SizedBox(height: 12.v),
-          _buildInstructionText(),
-          SizedBox(height: 28.v),
-          _buildEmailSection(),
-          SizedBox(height: 26.v),
-          _buildResetPasswordButton()
+          CustomElevatedButton(
+            height: 48.v,
+            text: "lbl_reset_password".tr,
+            buttonStyle: CustomButtonStyles.fillPrimaryTL12,
+            buttonTextStyle:
+                CustomTextStyles.titleMediumInterOnErrorContainer16,
+          )
         ],
       ),
     );

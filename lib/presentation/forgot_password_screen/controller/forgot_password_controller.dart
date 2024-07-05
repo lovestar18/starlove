@@ -7,13 +7,13 @@ import '../models/forgot_password_model.dart';
 /// This class manages the state of the ForgotPasswordScreen, including the
 /// current forgotPasswordModelObj
 class ForgotPasswordController extends GetxController {
-  TextEditingController emailInputController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
 
   Rx<ForgotPasswordModel> forgotPasswordModelObj = ForgotPasswordModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    emailInputController.dispose();
+    emailController.dispose();
   }
 }

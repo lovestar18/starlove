@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 
 extension TextFormFieldStyleHelper on CustomTextFormField {
+  static OutlineInputBorder get outlineBlueGrayTL10 => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.h),
+        borderSide: BorderSide(
+          color: appTheme.blueGray5001,
+          width: 1,
+        ),
+      );
   static OutlineInputBorder get outlineGray => OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.h),
         borderSide: BorderSide(
@@ -9,11 +16,11 @@ extension TextFormFieldStyleHelper on CustomTextFormField {
           width: 2,
         ),
       );
-  static OutlineInputBorder get fillGrayTL24 => OutlineInputBorder(
+  static OutlineInputBorder get fillGray => OutlineInputBorder(
         borderRadius: BorderRadius.circular(24.h),
         borderSide: BorderSide.none,
       );
-  static OutlineInputBorder get underLineGrayTL16 => OutlineInputBorder(
+  static OutlineInputBorder get underLineGray => OutlineInputBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(
             16.h,
@@ -21,20 +28,20 @@ extension TextFormFieldStyleHelper on CustomTextFormField {
         ),
         borderSide: BorderSide.none,
       );
-  static UnderlineInputBorder get underLineGray2 => UnderlineInputBorder(
+  static UnderlineInputBorder get underLineGray1 => UnderlineInputBorder(
         borderSide: BorderSide(
           color: appTheme.gray30005,
           width: 1,
         ),
       );
-  static OutlineInputBorder get outlineGrayTL4 => OutlineInputBorder(
+  static OutlineInputBorder get outlineGrayTL41 => OutlineInputBorder(
         borderRadius: BorderRadius.circular(4.h),
         borderSide: BorderSide(
           color: appTheme.gray30005,
           width: 1,
         ),
       );
-  static OutlineInputBorder get underLineGrayTL8 => OutlineInputBorder(
+  static OutlineInputBorder get underLineGrayTL81 => OutlineInputBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(
             8.h,
@@ -42,30 +49,14 @@ extension TextFormFieldStyleHelper on CustomTextFormField {
         ),
         borderSide: BorderSide.none,
       );
-  static UnderlineInputBorder get underLineGray3 => UnderlineInputBorder(
+  static UnderlineInputBorder get underLineGray4 => UnderlineInputBorder(
         borderSide: BorderSide(
           color: appTheme.blueGray20001,
           width: 1,
         ),
       );
-  static OutlineInputBorder get fillPrimary => OutlineInputBorder(
+  static OutlineInputBorder get fillOnErrorContainer => OutlineInputBorder(
         borderRadius: BorderRadius.circular(18.h),
-        borderSide: BorderSide.none,
-      );
-  static OutlineInputBorder get outlineGrayTL8 => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8.h),
-        borderSide: BorderSide(
-          color: appTheme.gray300,
-          width: 1,
-        ),
-      );
-  static UnderlineInputBorder get underLineBlueA => UnderlineInputBorder(
-        borderSide: BorderSide(
-          color: appTheme.blueA40001,
-        ),
-      );
-  static OutlineInputBorder get fillGrayTL8 => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8.h),
         borderSide: BorderSide.none,
       );
 }
@@ -93,7 +84,7 @@ class CustomTextFormField extends StatelessWidget {
       this.contentPadding,
       this.borderDecoration,
       this.fillColor,
-      this.filled = true,
+      this.filled = false,
       this.validator})
       : super(
           key: key,
@@ -167,7 +158,7 @@ class CustomTextFormField extends StatelessWidget {
             }
           },
           autofocus: autofocus!,
-          style: textStyle ?? CustomTextStyles.bodyMediumInterPrimary,
+          style: textStyle ?? CustomTextStyles.bodyLargePoppinsGray90001,
           obscureText: obscureText!,
           textInputAction: textInputAction,
           keyboardType: textInputType,
@@ -179,36 +170,36 @@ class CustomTextFormField extends StatelessWidget {
   InputDecoration get decoration => InputDecoration(
         hintText: hintText ?? "",
         hintStyle:
-            hintStyle ?? CustomTextStyles.bodyLargePoppinsOnErrorContainer,
+            hintStyle ?? CustomTextStyles.bodyMediumInterOnErrorContainer_1,
         prefixIcon: prefix,
         prefixIconConstraints: prefixConstraints,
         suffixIcon: suffix,
         suffixIconConstraints: suffixConstraints,
         isDense: true,
         contentPadding: contentPadding ?? EdgeInsets.all(14.h),
-        fillColor: fillColor ?? theme.colorScheme.primary.withOpacity(1),
+        fillColor: fillColor,
         filled: filled,
         border: borderDecoration ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.h),
+              borderRadius: BorderRadius.circular(20.h),
               borderSide: BorderSide(
-                color: appTheme.blueGray5001,
+                color: theme.colorScheme.onErrorContainer,
                 width: 1,
               ),
             ),
         enabledBorder: borderDecoration ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.h),
+              borderRadius: BorderRadius.circular(20.h),
               borderSide: BorderSide(
-                color: appTheme.blueGray5001,
+                color: theme.colorScheme.onErrorContainer,
                 width: 1,
               ),
             ),
         focusedBorder: borderDecoration ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20.h),
+              borderRadius: BorderRadius.circular(8.h),
               borderSide: BorderSide(
-                color: theme.colorScheme.onError,
+                color: appTheme.gray300,
                 width: 1,
               ),
             ),

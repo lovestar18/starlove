@@ -7,4 +7,13 @@ import '../models/splash_model.dart';
 /// current splashModelObj
 class SplashController extends GetxController {
   Rx<SplashModel> splashModelObj = SplashModel().obs;
+
+  @override
+  void onReady() {
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      Get.offNamed(
+        AppRoutes.loginVersion2Screen,
+      );
+    });
+  }
 }

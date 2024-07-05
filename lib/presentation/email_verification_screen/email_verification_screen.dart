@@ -18,16 +18,16 @@ class EmailVerificationScreen extends GetWidget<EmailVerificationController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 10.h,
+            horizontal: 16.h,
             vertical: 14.v,
           ),
           child: Column(
-            children: [_buildEmailVerificationContent(), SizedBox(height: 4.v)],
+            children: [_buildEmailVerificationSection(), SizedBox(height: 4.v)],
           ),
         ),
       ),
@@ -39,7 +39,7 @@ class EmailVerificationScreen extends GetWidget<EmailVerificationController> {
     return CustomAppBar(
       leadingWidth: 56.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeft,
+        imagePath: ImageConstant.imgArrowLeftGray20004,
         margin: EdgeInsets.only(
           left: 14.h,
           top: 7.v,
@@ -53,15 +53,17 @@ class EmailVerificationScreen extends GetWidget<EmailVerificationController> {
   }
 
   /// Section Widget
-  Widget _buildEmailVerificationContent() {
+  Widget _buildEmailVerificationSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "msg_check_your_email".tr,
-            style: CustomTextStyles.titleLargePoppinsGray90004,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "msg_check_your_email".tr,
+              style: CustomTextStyles.titleLargePoppinsGray90005,
+            ),
           ),
           SizedBox(height: 10.v),
           RichText(
@@ -69,7 +71,7 @@ class EmailVerificationScreen extends GetWidget<EmailVerificationController> {
               children: [
                 TextSpan(
                   text: "msg_we_sent_a_reset2".tr,
-                  style: CustomTextStyles.titleMediumInterGray50001Medium,
+                  style: CustomTextStyles.titleMediumInterGray50003Medium,
                 ),
                 TextSpan(
                   text: "msg_jacob_welove_com".tr,
@@ -77,7 +79,7 @@ class EmailVerificationScreen extends GetWidget<EmailVerificationController> {
                 ),
                 TextSpan(
                   text: "msg_enter_5_digit_code".tr,
-                  style: CustomTextStyles.titleMediumInterGray50001Medium,
+                  style: CustomTextStyles.titleMediumInterGray50003Medium,
                 )
               ],
             ),
@@ -98,33 +100,31 @@ class EmailVerificationScreen extends GetWidget<EmailVerificationController> {
           CustomElevatedButton(
             height: 48.v,
             text: "lbl_verify_code".tr,
-            buttonStyle: CustomButtonStyles.fillIndigoATL12,
-            buttonTextStyle: CustomTextStyles.titleMediumInterPrimary16_1,
+            margin: EdgeInsets.only(right: 10.h),
+            buttonStyle: CustomButtonStyles.fillPrimaryTL12,
+            buttonTextStyle:
+                CustomTextStyles.titleMediumInterOnErrorContainer16,
           ),
           SizedBox(height: 44.v),
-          Align(
-            alignment: Alignment.center,
-            child: RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "msg_haven_t_got_the2".tr,
-                    style: CustomTextStyles.titleMediumInterGray50001,
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "msg_haven_t_got_the2".tr,
+                  style: CustomTextStyles.titleMediumInterGray50003,
+                ),
+                TextSpan(
+                  text: " ",
+                ),
+                TextSpan(
+                  text: "lbl_resend_email".tr,
+                  style: CustomTextStyles.titleMediumInterPrimary.copyWith(
+                    decoration: TextDecoration.underline,
                   ),
-                  TextSpan(
-                    text: " ",
-                  ),
-                  TextSpan(
-                    text: "lbl_resend_email".tr,
-                    style:
-                        CustomTextStyles.titleMediumInterIndigoA70001.copyWith(
-                      decoration: TextDecoration.underline,
-                    ),
-                  )
-                ],
-              ),
-              textAlign: TextAlign.left,
+                )
+              ],
             ),
+            textAlign: TextAlign.left,
           )
         ],
       ),

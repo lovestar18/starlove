@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_thirteen.dart';
+import '../../widgets/app_bar/appbar_subtitle_fourteen.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import 'controller/reporting_post_eight_controller.dart';
-import 'models/questionnaire_item_model.dart';
-import 'widgets/questionnaire_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/questionnairelist_item_model.dart';
+import 'widgets/questionnairelist_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class ReportingPostEightScreen extends GetWidget<ReportingPostEightController> {
   const ReportingPostEightScreen({Key? key})
@@ -19,16 +19,29 @@ class ReportingPostEightScreen extends GetWidget<ReportingPostEightController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
-          padding: EdgeInsets.symmetric(
-            horizontal: 10.h,
-            vertical: 16.v,
-          ),
+          padding: EdgeInsets.all(16.h),
           child: Column(
-            children: [_buildReportingSection(), SizedBox(height: 4.v)],
+            children: [
+              SizedBox(
+                width: double.maxFinite,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "msg_why_are_you_reporting".tr,
+                      style: CustomTextStyles.titleLargeOpenSansGray90004,
+                    ),
+                    SizedBox(height: 14.v),
+                    _buildQuestionnaireList()
+                  ],
+                ),
+              ),
+              SizedBox(height: 4.v)
+            ],
           ),
         ),
         bottomNavigationBar: _buildSubmitButton(),
@@ -41,7 +54,7 @@ class ReportingPostEightScreen extends GetWidget<ReportingPostEightController> {
     return CustomAppBar(
       leadingWidth: 40.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftGray900031,
+        imagePath: ImageConstant.imgArrowLeftGray90004,
         margin: EdgeInsets.only(
           left: 16.h,
           top: 16.v,
@@ -51,7 +64,7 @@ class ReportingPostEightScreen extends GetWidget<ReportingPostEightController> {
           onTapArrowleftone();
         },
       ),
-      title: AppbarSubtitleThirteen(
+      title: AppbarSubtitleFourteen(
         text: "lbl_report".tr,
         margin: EdgeInsets.only(left: 130.h),
       ),
@@ -60,56 +73,31 @@ class ReportingPostEightScreen extends GetWidget<ReportingPostEightController> {
   }
 
   /// Section Widget
-  Widget _buildReportingBody() {
-    return Container(
+  Widget _buildQuestionnaireList() {
+    return SizedBox(
       width: double.maxFinite,
-      margin: EdgeInsets.only(right: 2.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "msg_why_are_you_reporting".tr,
-            style: CustomTextStyles.titleLargeOpenSansGray90003,
-          ),
-          SizedBox(height: 14.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: Obx(
-              () => ListView.separated(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                separatorBuilder: (context, index) {
-                  return SizedBox(
-                    height: 16.v,
-                  );
-                },
-                itemCount: controller.reportingPostEightModelObj.value
-                    .questionnaireItemList.value.length,
-                itemBuilder: (context, index) {
-                  QuestionnaireItemModel model = controller
-                      .reportingPostEightModelObj
-                      .value
-                      .questionnaireItemList
-                      .value[index];
-                  return QuestionnaireItemWidget(
-                    model,
-                  );
-                },
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildReportingSection() {
-    return Container(
-      width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 4.h),
-      child: Column(
-        children: [_buildReportingBody()],
+      child: Obx(
+        () => ListView.separated(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              height: 16.v,
+            );
+          },
+          itemCount: controller.reportingPostEightModelObj.value
+              .questionnairelistItemList.value.length,
+          itemBuilder: (context, index) {
+            QuestionnairelistItemModel model = controller
+                .reportingPostEightModelObj
+                .value
+                .questionnairelistItemList
+                .value[index];
+            return QuestionnairelistItemWidget(
+              model,
+            );
+          },
+        ),
       ),
     );
   }
@@ -125,7 +113,7 @@ class ReportingPostEightScreen extends GetWidget<ReportingPostEightController> {
         bottom: 50.v,
       ),
       buttonStyle: CustomButtonStyles.fillBlueGray,
-      buttonTextStyle: CustomTextStyles.titleMediumOpenSansPrimary_1,
+      buttonTextStyle: CustomTextStyles.titleMediumOpenSansOnErrorContainer_1,
       onPressed: () {
         onTapSubmitButton();
       },

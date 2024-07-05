@@ -15,7 +15,7 @@ class CameraPermission2Screen extends GetWidget<CameraPermission2Controller> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.onErrorContainer,
+        backgroundColor: appTheme.gray90001,
         body: Column(
           children: [
             Expanded(
@@ -30,7 +30,101 @@ class CameraPermission2Screen extends GetWidget<CameraPermission2Controller> {
                       child: _buildAppBar(),
                     ),
                     Spacer(),
-                    _buildMainColumn(),
+                    Container(
+                      width: double.maxFinite,
+                      margin: EdgeInsets.only(
+                        left: 16.h,
+                        right: 18.h,
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: double.maxFinite,
+                            child: Column(
+                              children: [
+                                Text(
+                                  "msg_share_on_the_app".tr,
+                                  style: CustomTextStyles
+                                      .titleMediumOpenSansOnErrorContainerSemiBold,
+                                ),
+                                SizedBox(height: 6.v),
+                                Text(
+                                  "msg_enable_access_so".tr,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: CustomTextStyles
+                                      .bodyLargeOpenSansOnErrorContainer
+                                      .copyWith(
+                                    height: 1.50,
+                                  ),
+                                ),
+                                SizedBox(height: 54.v),
+                                Text(
+                                  "msg_enable_camera_access".tr,
+                                  style: CustomTextStyles
+                                      .bodyLargeOpenSansBluegray30001,
+                                ),
+                                SizedBox(height: 10.v),
+                                Text(
+                                  "msg_enable_microphone".tr,
+                                  style: CustomTextStyles
+                                      .bodyLargeOpenSansBluegray30001,
+                                ),
+                                SizedBox(height: 112.v),
+                                Container(
+                                  width: 80.h,
+                                  padding: EdgeInsets.all(10.h),
+                                  decoration: AppDecoration.mainwhite.copyWith(
+                                    borderRadius:
+                                        BorderRadiusStyle.circleBorder40,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Container(
+                                        height: 60.adaptSize,
+                                        width: 60.adaptSize,
+                                        decoration: BoxDecoration(
+                                          color: theme
+                                              .colorScheme.onErrorContainer
+                                              .withOpacity(1),
+                                          borderRadius: BorderRadius.circular(
+                                            30.h,
+                                          ),
+                                          border: Border.all(
+                                            color: appTheme.gray90004,
+                                            width: 3.h,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(height: 80.v),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      "lbl_post2".tr,
+                                      style: CustomTextStyles
+                                          .bodyLargeOpenSansOnErrorContainer,
+                                    ),
+                                    SizedBox(width: 24.h),
+                                    Text(
+                                      "lbl_story".tr,
+                                      style: CustomTextStyles
+                                          .titleMediumOpenSansOnErrorContainer,
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                     SizedBox(height: 24.v)
                   ],
                 ),
@@ -54,100 +148,10 @@ class CameraPermission2Screen extends GetWidget<CameraPermission2Controller> {
       ),
       actions: [
         AppbarTrailingCircleimage(
-          imagePath: ImageConstant.imgVectorPrimary,
+          imagePath: ImageConstant.imgVector,
           margin: EdgeInsets.only(right: 15.h),
         )
       ],
-    );
-  }
-
-  /// Section Widget
-  Widget _buildBodyContent() {
-    return Expanded(
-      child: Column(
-        children: [
-          Text(
-            "msg_share_on_the_app".tr,
-            style: CustomTextStyles.titleMediumOpenSansPrimarySemiBold,
-          ),
-          SizedBox(height: 6.v),
-          Text(
-            "msg_enable_access_so".tr,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-            style: CustomTextStyles.bodyLargeOpenSansPrimary.copyWith(
-              height: 1.50,
-            ),
-          ),
-          SizedBox(height: 54.v),
-          Text(
-            "msg_enable_camera_access".tr,
-            style: CustomTextStyles.bodyLargeOpenSansErrorContainer,
-          ),
-          SizedBox(height: 10.v),
-          Text(
-            "msg_enable_microphone".tr,
-            style: CustomTextStyles.bodyLargeOpenSansErrorContainer,
-          ),
-          Spacer(),
-          Container(
-            width: 80.h,
-            padding: EdgeInsets.all(10.h),
-            decoration: AppDecoration.mainwhite.copyWith(
-              borderRadius: BorderRadiusStyle.circleBorder40,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  height: 60.adaptSize,
-                  width: 60.adaptSize,
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary.withOpacity(1),
-                    borderRadius: BorderRadius.circular(
-                      30.h,
-                    ),
-                    border: Border.all(
-                      color: appTheme.gray90003,
-                      width: 3.h,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(height: 80.v),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "lbl_post2".tr,
-                style: CustomTextStyles.bodyLargeOpenSansPrimary,
-              ),
-              SizedBox(width: 24.h),
-              Text(
-                "lbl_story".tr,
-                style: CustomTextStyles.titleMediumOpenSansPrimary,
-              )
-            ],
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildMainColumn() {
-    return Expanded(
-      child: Container(
-        width: double.maxFinite,
-        margin: EdgeInsets.symmetric(horizontal: 10.h),
-        padding: EdgeInsets.symmetric(horizontal: 10.h),
-        child: Column(
-          children: [_buildBodyContent()],
-        ),
-      ),
     );
   }
 }

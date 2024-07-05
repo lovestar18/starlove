@@ -21,11 +21,12 @@ class BlockingTenDialog extends StatelessWidget {
       children: [
         Container(
           width: double.maxFinite,
-          padding: EdgeInsets.symmetric(horizontal: 26.h),
+          padding: EdgeInsets.symmetric(horizontal: 18.h),
           child: Column(
             children: [
               Container(
                 width: double.maxFinite,
+                margin: EdgeInsets.only(left: 2.h),
                 decoration: AppDecoration.mainwhite.copyWith(
                   borderRadius: BorderRadiusStyle.circleBorder40,
                 ),
@@ -44,7 +45,7 @@ class BlockingTenDialog extends StatelessWidget {
                           Text(
                             "lbl_block_user".tr,
                             style:
-                                CustomTextStyles.titleMediumOpenSansGray90006,
+                                CustomTextStyles.titleMediumOpenSansGray90008,
                           ),
                           SizedBox(height: 4.v),
                           SizedBox(
@@ -55,7 +56,7 @@ class BlockingTenDialog extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.center,
                               style:
-                                  CustomTextStyles.bodyMediumGray90006.copyWith(
+                                  CustomTextStyles.bodyMediumGray90008.copyWith(
                                 height: 1.60,
                               ),
                             ),
@@ -64,16 +65,16 @@ class BlockingTenDialog extends StatelessWidget {
                           CustomOutlinedButton(
                             height: 54.v,
                             text: "lbl_block".tr,
-                            buttonStyle: CustomButtonStyles.outlineGray,
+                            buttonStyle: CustomButtonStyles.outlineGray1,
                             buttonTextStyle:
-                                CustomTextStyles.titleMediumOpenSansRed300,
+                                CustomTextStyles.titleMediumOpenSansRed30001,
                           ),
                           CustomOutlinedButton(
                             height: 54.v,
                             text: "lbl_cancel".tr,
-                            buttonStyle: CustomButtonStyles.outlineGray,
+                            buttonStyle: CustomButtonStyles.outlineGray1,
                             buttonTextStyle:
-                                CustomTextStyles.titleMediumOpenSansGray90006,
+                                CustomTextStyles.titleMediumOpenSansGray90008,
                           )
                         ],
                       ),

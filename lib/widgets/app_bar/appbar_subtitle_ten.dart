@@ -25,12 +25,8 @@ class AppbarSubtitleTen extends StatelessWidget {
         padding: margin ?? EdgeInsets.zero,
         child: Text(
           text,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.center,
-          style: CustomTextStyles.titleLargeOpenSansPrimarySemiBold20.copyWith(
-            color: theme.colorScheme.primary.withOpacity(1),
-            height: 1.40,
+          style: CustomTextStyles.titleLargeInterPrimary.copyWith(
+            color: theme.colorScheme.primary,
           ),
         ),
       ),

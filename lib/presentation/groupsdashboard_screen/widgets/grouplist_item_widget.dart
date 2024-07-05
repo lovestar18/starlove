@@ -19,33 +19,30 @@ class GrouplistItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 6.h,
+        horizontal: 12.h,
         vertical: 8.v,
       ),
       decoration: AppDecoration.mainwhite,
       child: Row(
-        children: [_buildHeaderInfo()],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildHeaderInfo() {
-    return Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Obx(
-            () => Text(
-              grouplistItemModelObj.joinedText!.value,
-              style: CustomTextStyles.titleSmallOpenSansBlack900,
-            ),
-          ),
-          SizedBox(width: 30.h),
-          Obx(
-            () => Text(
-              grouplistItemModelObj.createdText!.value,
-              style: CustomTextStyles.titleSmallOpenSans,
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Obx(
+                  () => Text(
+                    grouplistItemModelObj.joinedText!.value,
+                    style: CustomTextStyles.titleSmallOpenSansBlack900,
+                  ),
+                ),
+                SizedBox(width: 30.h),
+                Obx(
+                  () => Text(
+                    grouplistItemModelObj.createdText!.value,
+                    style: CustomTextStyles.titleSmallOpenSans,
+                  ),
+                )
+              ],
             ),
           )
         ],

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_six.dart';
+import '../../widgets/app_bar/appbar_subtitle_seven.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_text_form_field.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/help_contact_controller.dart'; // ignore_for_file: must_be_immutable
 
 class HelpContactScreen extends GetWidget<HelpContactController> {
@@ -24,16 +24,34 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 10.h,
+            horizontal: 28.h,
             vertical: 44.v,
           ),
           child: Column(
-            children: [_buildContactForm(), SizedBox(height: 234.v)],
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              _buildFullNameInput(),
+              SizedBox(height: 20.v),
+              _buildEmailInput(),
+              SizedBox(height: 20.v),
+              _buildCommentsInput(),
+              SizedBox(height: 20.v),
+              CustomElevatedButton(
+                height: 30.v,
+                width: 72.h,
+                text: "lbl_submit2".tr.toUpperCase(),
+                buttonStyle: CustomButtonStyles.fillGrayTL14,
+                buttonTextStyle:
+                    CustomTextStyles.labelMediumRobotoOnErrorContainer,
+                alignment: Alignment.center,
+              ),
+              SizedBox(height: 4.v)
+            ],
           ),
         ),
         bottomNavigationBar: Padding(
@@ -62,7 +80,7 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
     return CustomAppBar(
       leadingWidth: 40.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftBlack9002,
+        imagePath: ImageConstant.imgArrowLeftBlack90016x18,
         margin: EdgeInsets.only(
           left: 22.h,
           top: 19.v,
@@ -73,14 +91,14 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
         },
       ),
       centerTitle: true,
-      title: AppbarSubtitleSix(
+      title: AppbarSubtitleSeven(
         text: "lbl_contact_us".tr,
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildInputfield() {
+  Widget _buildFullNameInput() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
@@ -93,6 +111,9 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
           SizedBox(height: 4.v),
           CustomTextFormField(
             controller: controller.fullNameController,
+            borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+            filled: true,
+            fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
           )
         ],
       ),
@@ -100,7 +121,7 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
   }
 
   /// Section Widget
-  Widget _buildInputfield1() {
+  Widget _buildEmailInput() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
@@ -113,6 +134,9 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
           SizedBox(height: 4.v),
           CustomTextFormField(
             controller: controller.emailController,
+            borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+            filled: true,
+            fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
           )
         ],
       ),
@@ -120,7 +144,7 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
   }
 
   /// Section Widget
-  Widget _buildInputfield2() {
+  Widget _buildCommentsInput() {
     return SizedBox(
       width: double.maxFinite,
       child: Column(
@@ -134,40 +158,9 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
           CustomTextFormField(
             controller: controller.commentController,
             textInputAction: TextInputAction.done,
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildContactForm() {
-    return Container(
-      width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 18.h),
-      child: Column(
-        children: [
-          SizedBox(
-            width: double.maxFinite,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                _buildInputfield(),
-                SizedBox(height: 20.v),
-                _buildInputfield1(),
-                SizedBox(height: 20.v),
-                _buildInputfield2(),
-                SizedBox(height: 20.v),
-                CustomElevatedButton(
-                  height: 30.v,
-                  width: 72.h,
-                  text: "lbl_submit2".tr.toUpperCase(),
-                  buttonStyle: CustomButtonStyles.fillGray,
-                  buttonTextStyle: CustomTextStyles.labelMediumRobotoPrimary,
-                  alignment: Alignment.center,
-                )
-              ],
-            ),
+            borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+            filled: true,
+            fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
           )
         ],
       ),
@@ -186,11 +179,11 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -202,10 +195,10 @@ class HelpContactScreen extends GetWidget<HelpContactController> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

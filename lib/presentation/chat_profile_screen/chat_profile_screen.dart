@@ -5,8 +5,8 @@ import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/chat_profile_controller.dart'; // ignore_for_file: must_be_immutable
 
 class ChatProfileScreen extends GetWidget<ChatProfileController> {
@@ -19,7 +19,7 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Column(
           children: [
@@ -27,46 +27,24 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
               height: 10.v,
               width: 360.h,
               decoration: BoxDecoration(
-                color: theme.colorScheme.secondaryContainer,
+                color: appTheme.whiteA700,
               ),
             ),
             SizedBox(height: 64.v),
-            SizedBox(
-              width: 120.h,
-              child: Column(
-                children: [
-                  CustomImageView(
-                    imagePath: ImageConstant.imgEllipse17,
-                    height: 120.adaptSize,
-                    width: double.maxFinite,
-                    radius: BorderRadius.circular(
-                      60.h,
-                    ),
-                  ),
-                  SizedBox(height: 20.v),
-                  Text(
-                    "lbl_cindy".tr,
-                    style: CustomTextStyles.headlineLargeOpenSansGray90007,
-                  )
-                ],
-              ),
-            ),
+            _buildProfileSection(),
             SizedBox(height: 6.v),
-            _buildProfileViewRow(),
+            _buildViewProfileRow(),
             _buildDeleteConversationRow(),
             Spacer(),
             _buildHomeSection()
           ],
         ),
-        bottomNavigationBar: _buildBottomNavigationBar(),
+        bottomNavigationBar: _buildNavigationBar(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
-          onTap: () {
-            onTapFloatingactionb();
-          },
           child: CustomImageView(
-            imagePath: ImageConstant.imgFieldNavigation,
+            imagePath: ImageConstant.imgCloseOnerrorcontainer,
             height: 27.0.v,
             width: 30.0.h,
           ),
@@ -82,7 +60,7 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
       height: 74.v,
       leadingWidth: 40.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowDownGray90007,
+        imagePath: ImageConstant.imgArrowDownGray90009,
         margin: EdgeInsets.only(
           left: 16.h,
           top: 20.v,
@@ -94,24 +72,62 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
   }
 
   /// Section Widget
-  Widget _buildProfileViewRow() {
+  Widget _buildProfileSection() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 2.h,
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+            width: 132.h,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomImageView(
+                  imagePath: ImageConstant.imgEllipse17,
+                  height: 120.adaptSize,
+                  width: double.maxFinite,
+                  radius: BorderRadius.circular(
+                    60.h,
+                  ),
+                ),
+                SizedBox(height: 20.v),
+                Padding(
+                  padding: EdgeInsets.only(left: 18.h),
+                  child: Text(
+                    "lbl_cindy".tr,
+                    style: CustomTextStyles.headlineLargeOpenSansGray90009,
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildViewProfileRow() {
     return SizedBox(
       width: double.maxFinite,
       child: GestureDetector(
         onTap: () {
-          onTapProfileViewRow();
+          onTapViewProfileRow();
         },
         child: Container(
           padding: EdgeInsets.symmetric(
             horizontal: 16.h,
             vertical: 14.v,
           ),
-          decoration: AppDecoration.fillSecondaryContainer,
+          decoration: AppDecoration.fillWhiteA,
           child: Row(
-            mainAxisSize: MainAxisSize.max,
             children: [
               CustomImageView(
-                imagePath: ImageConstant.imgBookmarkBlue800,
+                imagePath: ImageConstant.imgBookmark,
                 height: 24.adaptSize,
                 width: 24.adaptSize,
               ),
@@ -121,7 +137,7 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
                   padding: EdgeInsets.only(left: 16.h),
                   child: Text(
                     "lbl_view_profile".tr,
-                    style: CustomTextStyles.bodyLargeOpenSansGray90007,
+                    style: CustomTextStyles.bodyLargeOpenSansGray90009,
                   ),
                 ),
               )
@@ -139,10 +155,9 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
         horizontal: 18.h,
         vertical: 16.v,
       ),
-      decoration: AppDecoration.fillSecondaryContainer,
+      decoration: AppDecoration.fillWhiteA,
       width: double.maxFinite,
       child: Row(
-        mainAxisSize: MainAxisSize.max,
         children: [
           CustomImageView(
             imagePath: ImageConstant.imgTrash2,
@@ -153,7 +168,7 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
             padding: EdgeInsets.only(left: 18.h),
             child: Text(
               "msg_delete_conversation".tr,
-              style: CustomTextStyles.bodyLargeOpenSansGray90007,
+              style: CustomTextStyles.bodyLargeOpenSansGray90009,
             ),
           )
         ],
@@ -165,14 +180,27 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
   Widget _buildHomeSection() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(vertical: 8.v),
-      decoration: AppDecoration.fillSecondaryContainer,
+      padding: EdgeInsets.symmetric(
+        horizontal: 2.h,
+        vertical: 8.v,
+      ),
+      decoration: AppDecoration.fillWhiteA,
       child: Column(
         children: [
-          SizedBox(
-            width: 72.h,
-            child: Divider(
-              color: appTheme.gray90004,
+          Container(
+            width: double.maxFinite,
+            margin: EdgeInsets.only(left: 12.h),
+            padding: EdgeInsets.only(left: 128.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 72.h,
+                  child: Divider(
+                    color: appTheme.gray90005,
+                  ),
+                )
+              ],
             ),
           )
         ],
@@ -181,7 +209,7 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
   }
 
   /// Section Widget
-  Widget _buildBottomNavigationBar() {
+  Widget _buildNavigationBar() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -192,11 +220,11 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -208,10 +236,10 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:
@@ -219,6 +247,5 @@ class ChatProfileScreen extends GetWidget<ChatProfileController> {
     }
   }
 
-  onTapProfileViewRow() {}
-  onTapFloatingactionb() {}
+  onTapViewProfileRow() {}
 }

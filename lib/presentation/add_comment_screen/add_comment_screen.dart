@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_eight.dart';
+import '../../widgets/app_bar/appbar_subtitle_nine.dart';
 import '../../widgets/app_bar/appbar_trailing_image_one.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import 'controller/add_comment_controller.dart';
-import 'models/userprofilelist1_item_model.dart';
-import 'widgets/userprofilelist1_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/userprofilelist_item_model.dart';
+import 'widgets/userprofilelist_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class AddCommentScreen extends GetWidget<AddCommentController> {
   const AddCommentScreen({Key? key})
@@ -18,13 +18,16 @@ class AddCommentScreen extends GetWidget<AddCommentController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
-          padding: EdgeInsets.all(10.h),
+          padding: EdgeInsets.symmetric(
+            horizontal: 16.h,
+            vertical: 10.v,
+          ),
           child: Column(
-            children: [_buildUserProfileColumn(), SizedBox(height: 4.v)],
+            children: [_buildUserProfileList()],
           ),
         ),
         bottomNavigationBar: _buildCommentSection(),
@@ -38,7 +41,7 @@ class AddCommentScreen extends GetWidget<AddCommentController> {
       height: 48.v,
       leadingWidth: 40.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowDownGray90012,
+        imagePath: ImageConstant.imgArrowDownGray90014,
         margin: EdgeInsets.only(
           left: 16.h,
           top: 12.v,
@@ -46,12 +49,12 @@ class AddCommentScreen extends GetWidget<AddCommentController> {
         ),
       ),
       centerTitle: true,
-      title: AppbarSubtitleEight(
+      title: AppbarSubtitleNine(
         text: "lbl_comments".tr,
       ),
       actions: [
         AppbarTrailingImageOne(
-          imagePath: ImageConstant.imgEdit,
+          imagePath: ImageConstant.imgEditGray90014,
           margin: EdgeInsets.only(
             top: 12.v,
             right: 15.h,
@@ -76,26 +79,15 @@ class AddCommentScreen extends GetWidget<AddCommentController> {
             );
           },
           itemCount: controller
-              .addCommentModelObj.value.userprofilelist1ItemList.value.length,
+              .addCommentModelObj.value.userprofilelistItemList.value.length,
           itemBuilder: (context, index) {
-            Userprofilelist1ItemModel model = controller
-                .addCommentModelObj.value.userprofilelist1ItemList.value[index];
-            return Userprofilelist1ItemWidget(
+            UserprofilelistItemModel model = controller
+                .addCommentModelObj.value.userprofilelistItemList.value[index];
+            return UserprofilelistItemWidget(
               model,
             );
           },
         ),
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildUserProfileColumn() {
-    return Container(
-      width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 4.h),
-      child: Column(
-        children: [_buildUserProfileList()],
       ),
     );
   }
@@ -116,7 +108,7 @@ class AddCommentScreen extends GetWidget<AddCommentController> {
           VerticalDivider(
             width: 1.h,
             thickness: 1.v,
-            color: appTheme.blueGray90002,
+            color: appTheme.blueGray90003,
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -142,7 +134,8 @@ class AddCommentScreen extends GetWidget<AddCommentController> {
               children: [
                 Text(
                   "lbl_post".tr,
-                  style: CustomTextStyles.titleSmallOpenSansPrimaryBold_1,
+                  style:
+                      CustomTextStyles.titleSmallOpenSansOnErrorContainerBold,
                 )
               ],
             ),

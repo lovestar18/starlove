@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_image.dart';
-import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_outlined_button.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
-import 'controller/grouppage_v2_controller.dart'; // ignore_for_file: must_be_immutable
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
+import 'controller/grouppage_v2_controller.dart';
+import 'models/slidergroupname_item_model.dart';
+import 'widgets/slidergroupname_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   const GrouppageV2Screen({Key? key})
@@ -22,28 +23,22 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
-        body: Column(
-          children: [
-            _buildWebaliserColumn(),
-            SizedBox(height: 10.v),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 8.v),
-                  child: Column(
-                    children: [
-                      _buildPublicColumn(),
-                      SizedBox(height: 10.v),
-                      _buildPostRow(),
-                      SizedBox(height: 34.v),
-                      _buildHelenaColumn()
-                    ],
-                  ),
-                ),
-              ),
-            )
-          ],
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+        body: SizedBox(
+          width: double.maxFinite,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildPublicPrivateSection(),
+                SizedBox(height: 20.v),
+                _buildCreatePostSection(),
+                SizedBox(height: 10.v),
+                _buildPostSection(),
+                SizedBox(height: 34.v),
+                _buildPostSection1()
+              ],
+            ),
+          ),
         ),
         bottomNavigationBar: Padding(
           padding: EdgeInsets.only(left: 6.h),
@@ -53,7 +48,7 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
           height: 54,
           width: 60,
           child: CustomImageView(
-            imagePath: ImageConstant.imgFieldNavigation,
+            imagePath: ImageConstant.imgSearchOnerrorcontainer,
             height: 27.0.v,
             width: 30.0.h,
           ),
@@ -64,327 +59,272 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   }
 
   /// Section Widget
-  Widget _buildDreamsvilleSection() {
-    return SizedBox(
-      height: 168.v,
+  Widget _buildPublicPrivateSection() {
+    return Container(
       width: double.maxFinite,
-      child: Stack(
-        alignment: Alignment.center,
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
+      child: Column(
         children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgWebaliserTptx,
-            height: 168.v,
+          SizedBox(
             width: double.maxFinite,
-            radius: BorderRadius.circular(
-              20.h,
+            child: Obx(
+              () => CarouselSlider.builder(
+                options: CarouselOptions(
+                  height: 168.v,
+                  initialPage: 0,
+                  autoPlay: true,
+                  viewportFraction: 1.0,
+                  enableInfiniteScroll: false,
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: (index, reason) {
+                    controller.sliderIndex.value = index;
+                  },
+                ),
+                itemCount: controller.grouppageV2ModelObj.value
+                    .slidergroupnameItemList.value.length,
+                itemBuilder: (context, index, realIndex) {
+                  SlidergroupnameItemModel model = controller
+                      .grouppageV2ModelObj
+                      .value
+                      .slidergroupnameItemList
+                      .value[index];
+                  return SlidergroupnameItemWidget(
+                    model,
+                    onTapImgLeftArrowImage: () {
+                      onTapImgLeftArrowImage();
+                    },
+                  );
+                },
+              ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.h),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomAppBar(
-                  height: 34.v,
-                  leadingWidth: 69.h,
-                  leading: GestureDetector(
-                    onTap: () {
-                      onTapStackicbackone();
-                    },
-                    child: Container(
-                      width: double.maxFinite,
-                      margin: EdgeInsets.only(left: 35.h),
-                      decoration: AppDecoration.fillBlack900.copyWith(
-                        borderRadius: BorderRadiusStyle.roundedBorder16,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(height: 5.v),
-                          AppbarImage(
-                            imagePath: ImageConstant.imgIcBackPrimary,
-                            margin: EdgeInsets.only(
-                              left: 5.h,
-                              right: 4.h,
-                            ),
-                            onTap: () {
-                              onTapIcbackone();
-                            },
-                          ),
-                          SizedBox(height: 5.v)
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 64.v),
-                Padding(
-                  padding: EdgeInsets.only(left: 4.h),
-                  child: Text(
-                    "lbl_group_name".tr,
-                    style: CustomTextStyles.titleLargeRalewayPrimary,
-                  ),
-                ),
-                SizedBox(height: 2.v),
-                Padding(
-                  padding: EdgeInsets.only(left: 10.h),
-                  child: Text(
-                    "lbl_about".tr,
-                    style: CustomTextStyles.bodySmallRalewayBluegray10002,
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 60.h),
-                    child: Text(
-                      "lbl_4_bathroom".tr,
-                      style: CustomTextStyles.bodySmallRalewayBluegray10002,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildWebaliserColumn() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      child: Column(
-        children: [_buildDreamsvilleSection()],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildPublicColumn() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      child: Column(
-        children: [
-          Container(
+          SizedBox(height: 16.v),
+          SizedBox(
             width: double.maxFinite,
-            margin: EdgeInsets.only(left: 14.h),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 6.v),
-                    child: Row(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Column(
                       children: [
-                        Text(
-                          "lbl_public".tr,
-                          style: CustomTextStyles.labelLargeRobotoIndigoA70001,
+                        Container(
+                          width: double.maxFinite,
+                          margin: EdgeInsets.symmetric(horizontal: 16.h),
+                          child: Row(
+                            children: [
+                              Text(
+                                "lbl_public".tr,
+                                style: CustomTextStyles.labelLargeRobotoPrimary,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10.h),
+                                child: Text(
+                                  "lbl_private".tr,
+                                  style: CustomTextStyles
+                                      .labelLargeRobotoCyan40001,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.h),
-                          child: Text(
-                            "lbl_private".tr,
-                            style: CustomTextStyles.labelLargeRobotoCyan40001,
+                        SizedBox(height: 38.v),
+                        SizedBox(
+                          width: double.maxFinite,
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: SizedBox(
+                              height: 50.v,
+                              width: double.maxFinite,
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  CustomImageView(
+                                    imagePath: ImageConstant.imgAvatar32x32,
+                                    height: 32.adaptSize,
+                                    width: 32.adaptSize,
+                                    radius: BorderRadius.circular(
+                                      16.h,
+                                    ),
+                                    alignment: Alignment.bottomCenter,
+                                  ),
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        height: 50.v,
+                                        width: 32.h,
+                                        child: Stack(
+                                          alignment: Alignment.bottomCenter,
+                                          children: [
+                                            CustomImageView(
+                                              imagePath:
+                                                  ImageConstant.imgAvatar32x32,
+                                              height: 32.adaptSize,
+                                              width: double.maxFinite,
+                                              radius: BorderRadius.circular(
+                                                16.h,
+                                              ),
+                                            ),
+                                            CustomImageView(
+                                              imagePath:
+                                                  ImageConstant.imgPeople1,
+                                              height: 24.adaptSize,
+                                              width: 24.adaptSize,
+                                              alignment: Alignment.topCenter,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 2.h),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "msg_of_members".tr,
+                                              style: CustomTextStyles
+                                                  .bodySmallRobotoBlueA400,
+                                            ),
+                                            SizedBox(height: 2.v),
+                                            SizedBox(
+                                              width: double.maxFinite,
+                                              child: Row(
+                                                children: [
+                                                  CustomImageView(
+                                                    imagePath: ImageConstant
+                                                        .imgAvatar32x32,
+                                                    height: 32.adaptSize,
+                                                    width: 32.adaptSize,
+                                                    radius:
+                                                        BorderRadius.circular(
+                                                      16.h,
+                                                    ),
+                                                  ),
+                                                  CustomImageView(
+                                                    imagePath: ImageConstant
+                                                        .imgAvatar32x32,
+                                                    height: 32.adaptSize,
+                                                    width: 32.adaptSize,
+                                                    radius:
+                                                        BorderRadius.circular(
+                                                      16.h,
+                                                    ),
+                                                    margin: EdgeInsets.only(
+                                                        left: 2.h),
+                                                  ),
+                                                  Spacer(),
+                                                  CustomOutlinedButton(
+                                                    height: 30.v,
+                                                    width: 92.h,
+                                                    text: "lbl_view_more"
+                                                        .tr
+                                                        .toUpperCase(),
+                                                    buttonTextStyle:
+                                                        CustomTextStyles
+                                                            .labelMediumRoboto,
+                                                    onPressed: () {
+                                                      onTapViewmore();
+                                                    },
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         )
                       ],
                     ),
                   ),
                 ),
-                CustomElevatedButton(
-                  height: 34.v,
-                  width: 126.h,
-                  text: "lbl_join_group".tr,
-                  buttonStyle: CustomButtonStyles.none,
-                  decoration:
-                      CustomButtonStyles.gradientOnPrimaryToPurpleDecoration,
-                  buttonTextStyle: CustomTextStyles.titleMediumPrimary,
-                  alignment: Alignment.center,
-                )
-              ],
-            ),
-          ),
-          Container(
-            height: 50.v,
-            width: double.maxFinite,
-            margin: EdgeInsets.symmetric(horizontal: 14.h),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 36.h),
-                    child: Text(
-                      "msg_of_members".tr,
-                      style: CustomTextStyles.bodySmallRobotoBlueA40001,
-                    ),
-                  ),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: SizedBox(
-                        height: 50.v,
-                        width: 32.h,
-                        child: Stack(
-                          alignment: Alignment.bottomCenter,
+                SizedBox(width: 14.h),
+                SizedBox(
+                  width: 96.h,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        decoration: AppDecoration
+                            .gradientOnPrimaryContainerToPurple
+                            .copyWith(
+                          borderRadius: BorderRadiusStyle.roundedBorder8,
+                        ),
+                        width: double.maxFinite,
+                        child: Row(
                           children: [
                             CustomImageView(
-                              imagePath: ImageConstant.imgAvatar32x321,
-                              height: 32.adaptSize,
-                              width: double.maxFinite,
-                              radius: BorderRadius.circular(
-                                16.h,
-                              ),
+                              imagePath: ImageConstant.imgContrast,
+                              height: 12.adaptSize,
+                              width: 12.adaptSize,
+                              alignment: Alignment.bottomCenter,
                             ),
-                            CustomImageView(
-                              imagePath: ImageConstant.imgPeople1,
-                              height: 24.adaptSize,
-                              width: 24.adaptSize,
-                              alignment: Alignment.topCenter,
+                            Text(
+                              "lbl_join_group".tr,
+                              style: CustomTextStyles
+                                  .labelLargeOpenSansOnErrorContainer,
                             )
                           ],
                         ),
                       ),
-                    ),
-                    CustomImageView(
-                      imagePath: ImageConstant.imgAvatar32x321,
-                      height: 32.adaptSize,
-                      width: 32.adaptSize,
-                      radius: BorderRadius.circular(
-                        16.h,
+                      SizedBox(height: 2.v),
+                      CustomElevatedButton(
+                        height: 18.v,
+                        text: "lbl_group_chat".tr,
+                        leftIcon: SizedBox(
+                          child: CustomImageView(
+                            imagePath: ImageConstant.imgUserOnerrorcontainer,
+                            height: 16.v,
+                            width: 18.h,
+                          ),
+                        ),
+                        buttonStyle: CustomButtonStyles.none,
+                        decoration: CustomButtonStyles
+                            .gradientLightBlueToCyanDecoration,
+                        buttonTextStyle:
+                            CustomTextStyles.labelLargeOpenSansOnErrorContainer,
+                        onPressed: () {
+                          onTapGroupchat();
+                        },
                       ),
-                      margin: EdgeInsets.only(left: 2.h),
-                    ),
-                    CustomImageView(
-                      imagePath: ImageConstant.imgAvatar32x321,
-                      height: 32.adaptSize,
-                      width: 32.adaptSize,
-                      radius: BorderRadius.circular(
-                        16.h,
-                      ),
-                      margin: EdgeInsets.only(left: 2.h),
-                    ),
-                    CustomImageView(
-                      imagePath: ImageConstant.imgAvatar32x321,
-                      height: 32.adaptSize,
-                      width: 32.adaptSize,
-                      radius: BorderRadius.circular(
-                        16.h,
-                      ),
-                      margin: EdgeInsets.only(left: 2.h),
-                    ),
-                    CustomOutlinedButton(
-                      height: 30.v,
-                      width: 92.h,
-                      text: "lbl_view_more".tr.toUpperCase(),
-                      margin: EdgeInsets.only(left: 4.h),
-                      buttonTextStyle: CustomTextStyles.labelMediumRoboto,
-                      onPressed: () {
-                        onTapViewmore();
-                      },
-                    )
-                  ],
+                      SizedBox(height: 2.v),
+                      Container(
+                        width: double.maxFinite,
+                        decoration: AppDecoration.fillPinkA.copyWith(
+                          borderRadius: BorderRadiusStyle.roundedBorder16,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "msg_moderator_dashboard".tr,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.right,
+                              style: CustomTextStyles
+                                  .labelMediumOnErrorContainer
+                                  .copyWith(
+                                height: 1.60,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 )
               ],
-            ),
-          ),
-          SizedBox(height: 46.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 16.h),
-                decoration: AppDecoration.mainwhite.copyWith(
-                  borderRadius: BorderRadiusStyle.roundedBorder16,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(height: 8.v),
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          CustomImageView(
-                            imagePath: ImageConstant.imgAvatar,
-                            height: 40.adaptSize,
-                            width: 40.adaptSize,
-                            radius: BorderRadius.circular(
-                              20.h,
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                left: 8.h,
-                                bottom: 8.v,
-                              ),
-                              child: Text(
-                                "msg_what_s_happening".tr,
-                                style:
-                                    CustomTextStyles.bodyLargeInterBluegray600,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 16.v),
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          CustomImageView(
-                            imagePath: ImageConstant.imgImageBlueGray600,
-                            height: 24.adaptSize,
-                            width: 24.adaptSize,
-                          ),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgGif,
-                            height: 24.adaptSize,
-                            width: 24.adaptSize,
-                            margin: EdgeInsets.only(left: 16.h),
-                          ),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgEmoji,
-                            height: 24.adaptSize,
-                            width: 24.adaptSize,
-                            margin: EdgeInsets.only(left: 16.h),
-                          ),
-                          Spacer(),
-                          CustomElevatedButton(
-                            width: 72.h,
-                            text: "lbl_post".tr,
-                            buttonStyle: CustomButtonStyles.fillBlueA,
-                            buttonTextStyle:
-                                CustomTextStyles.titleMediumInterPrimary,
-                            onPressed: () {
-                              onTapPost();
-                            },
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
             ),
           )
         ],
@@ -393,17 +333,115 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   }
 
   /// Section Widget
-  Widget _buildPostRow() {
+  Widget _buildCreatePostSection() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: Container(
+          width: double.maxFinite,
+          padding: EdgeInsets.symmetric(horizontal: 16.h),
+          decoration: AppDecoration.mainwhite.copyWith(
+            borderRadius: BorderRadiusStyle.roundedBorder16,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 8.v),
+              SizedBox(
+                width: double.maxFinite,
+                child: Row(
+                  children: [
+                    CustomImageView(
+                      imagePath: ImageConstant.imgAvatar,
+                      height: 40.adaptSize,
+                      width: 40.adaptSize,
+                      radius: BorderRadius.circular(
+                        20.h,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: 8.h,
+                          bottom: 8.v,
+                        ),
+                        child: Text(
+                          "msg_what_s_happening".tr,
+                          style: CustomTextStyles.bodyLargeInterBluegray600,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(height: 16.v),
+              SizedBox(
+                width: double.maxFinite,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 6.v),
+                        child: Row(
+                          children: [
+                            CustomImageView(
+                              imagePath: ImageConstant.imgImageBlueGray600,
+                              height: 24.adaptSize,
+                              width: 24.adaptSize,
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgGif,
+                              height: 24.adaptSize,
+                              width: 24.adaptSize,
+                              margin: EdgeInsets.only(left: 16.h),
+                              onTap: () {
+                                onTapImgGifoneoneone();
+                              },
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgEmoji,
+                              height: 24.adaptSize,
+                              width: 24.adaptSize,
+                              margin: EdgeInsets.only(left: 16.h),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    CustomElevatedButton(
+                      width: 72.h,
+                      text: "lbl_post".tr,
+                      buttonStyle: CustomButtonStyles.fillBlueATL18,
+                      buttonTextStyle:
+                          CustomTextStyles.titleMediumInterOnErrorContainer,
+                      onPressed: () {
+                        onTapPost();
+                      },
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildPostSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
         children: [
           Container(
             height: 32.adaptSize,
             width: 32.adaptSize,
-            decoration: AppDecoration.fillGray.copyWith(
+            decoration: AppDecoration.fillPrimaryContainer.copyWith(
               borderRadius: BorderRadiusStyle.roundedBorder16,
             ),
             child: Stack(
@@ -427,9 +465,9 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildPostHeaderTwo(
-                    titleText: "lbl_helena".tr,
-                    timeText: "lbl_3_min_ago".tr,
+                  _buildPostHeaderSection(
+                    userName: "lbl_helena".tr,
+                    timeAgo: "lbl_3_min_ago".tr,
                   ),
                   SizedBox(height: 12.v),
                   CustomImageView(
@@ -448,8 +486,8 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
                   SizedBox(height: 12.v),
                   SizedBox(
                     width: double.maxFinite,
-                    child: _buildPostActionsTwo(
-                      favoriteThree: ImageConstant.imgFavorite,
+                    child: _buildPostActionsSection(
+                      favoritethree: ImageConstant.imgFavoriteBlack900,
                       likesCounter: "lbl_21_likes".tr,
                       starsCounter: "lbl_21_stars".tr,
                       commentsCounter: "lbl_4_comments".tr,
@@ -465,17 +503,17 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   }
 
   /// Section Widget
-  Widget _buildPostRowTwo() {
-    return SizedBox(
+  Widget _buildPostSection1() {
+    return Container(
       width: double.maxFinite,
+      margin: EdgeInsets.symmetric(horizontal: 4.h),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
         children: [
           Container(
             height: 32.adaptSize,
             width: 32.adaptSize,
-            decoration: AppDecoration.fillGray.copyWith(
+            decoration: AppDecoration.fillPrimaryContainer.copyWith(
               borderRadius: BorderRadiusStyle.roundedBorder16,
             ),
             child: Stack(
@@ -501,9 +539,9 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
                 children: [
                   SizedBox(
                     width: double.maxFinite,
-                    child: _buildPostHeaderTwo(
-                      titleText: "lbl_helena".tr,
-                      timeText: "lbl_3_min_ago".tr,
+                    child: _buildPostHeaderSection(
+                      userName: "lbl_helena".tr,
+                      timeAgo: "lbl_3_min_ago".tr,
                     ),
                   ),
                   SizedBox(height: 12.v),
@@ -523,8 +561,8 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
                   SizedBox(height: 12.v),
                   SizedBox(
                     width: double.maxFinite,
-                    child: _buildPostActionsTwo(
-                      favoriteThree: ImageConstant.imgFavoriteBlack9001,
+                    child: _buildPostActionsSection(
+                      favoritethree: ImageConstant.imgFavoriteBlack90028x28,
                       likesCounter: "lbl_21_likes".tr,
                       starsCounter: "lbl_21_stars".tr,
                       commentsCounter: "lbl_4_comments".tr,
@@ -540,17 +578,6 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   }
 
   /// Section Widget
-  Widget _buildHelenaColumn() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      child: Column(
-        children: [_buildPostRowTwo()],
-      ),
-    );
-  }
-
-  /// Section Widget
   Widget _buildNavigationBar() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
@@ -560,9 +587,9 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   }
 
   /// Common widget
-  Widget _buildPostHeaderTwo({
-    required String titleText,
-    required String timeText,
+  Widget _buildPostHeaderSection({
+    required String userName,
+    required String timeAgo,
   }) {
     return Row(
       children: [
@@ -571,14 +598,14 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                titleText,
+                userName,
                 style: CustomTextStyles.titleSmallSemiBold_1.copyWith(
                   color: appTheme.black900,
                 ),
               ),
               SizedBox(height: 2.v),
               Text(
-                timeText,
+                timeAgo,
                 style: CustomTextStyles.bodySmallInterGray60003.copyWith(
                   color: appTheme.gray60003,
                 ),
@@ -596,8 +623,8 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   }
 
   /// Common widget
-  Widget _buildPostActionsTwo({
-    required String favoriteThree,
+  Widget _buildPostActionsSection({
+    required String favoritethree,
     required String likesCounter,
     required String starsCounter,
     required String commentsCounter,
@@ -605,7 +632,7 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
     return Row(
       children: [
         CustomImageView(
-          imagePath: favoriteThree,
+          imagePath: favoritethree,
           height: 28.adaptSize,
           width: 28.adaptSize,
         ),
@@ -619,7 +646,7 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
           ),
         ),
         CustomImageView(
-          imagePath: ImageConstant.imgLockBlack900,
+          imagePath: ImageConstant.imgLock,
           height: 20.v,
           width: 16.h,
           margin: EdgeInsets.only(left: 16.h),
@@ -655,11 +682,11 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -671,10 +698,10 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:
@@ -683,12 +710,7 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   }
 
   /// Navigates to the previous screen.
-  onTapStackicbackone() {
-    Get.back();
-  }
-
-  /// Navigates to the previous screen.
-  onTapIcbackone() {
+  onTapImgLeftArrowImage() {
     Get.back();
   }
 
@@ -696,6 +718,20 @@ class GrouppageV2Screen extends GetWidget<GrouppageV2Controller> {
   onTapViewmore() {
     Get.toNamed(
       AppRoutes.listofgroupmembersScreen,
+    );
+  }
+
+  /// Navigates to the groupGroupChatScreen when the action is triggered.
+  onTapGroupchat() {
+    Get.toNamed(
+      AppRoutes.groupGroupChatScreen,
+    );
+  }
+
+  /// Navigates to the stickersScreen when the action is triggered.
+  onTapImgGifoneoneone() {
+    Get.toNamed(
+      AppRoutes.stickersScreen,
     );
   }
 

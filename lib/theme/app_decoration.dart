@@ -6,75 +6,54 @@ class AppDecoration {
   static BoxDecoration get fillBlack => BoxDecoration(
         color: appTheme.black900,
       );
-  static BoxDecoration get fillBlack900 => BoxDecoration(
-        color: appTheme.black900.withOpacity(0.24),
-      );
   static BoxDecoration get fillBlueA => BoxDecoration(
-        color: appTheme.blueA40001,
-      );
-  static BoxDecoration get fillBlueA40001 => BoxDecoration(
-        color: appTheme.blueA40001.withOpacity(0.1),
+        color: appTheme.blueA400,
       );
   static BoxDecoration get fillBlueGrayEd => BoxDecoration(
         color: appTheme.blueGray100Ed,
       );
   static BoxDecoration get fillGray => BoxDecoration(
-        color: appTheme.gray10002,
-      );
-  static BoxDecoration get fillGray10005 => BoxDecoration(
-        color: appTheme.gray10005,
+        color: appTheme.gray10004,
       );
   static BoxDecoration get fillGray20001 => BoxDecoration(
         color: appTheme.gray20001,
       );
-  static BoxDecoration get fillGray50 => BoxDecoration(
-        color: appTheme.gray50,
+  static BoxDecoration get fillGray5001 => BoxDecoration(
+        color: appTheme.gray5001,
+      );
+  static BoxDecoration get fillGray5002 => BoxDecoration(
+        color: appTheme.gray5002,
+      );
+  static BoxDecoration get fillGray90001 => BoxDecoration(
+        color: appTheme.gray90001.withOpacity(0.5),
+      );
+  static BoxDecoration get fillGrayDb => BoxDecoration(
+        color: appTheme.gray50Db,
+      );
+  static BoxDecoration get fillLightBlueA => BoxDecoration(
+        color: appTheme.lightBlueA70001,
       );
   static BoxDecoration get fillOnErrorContainer => BoxDecoration(
-        color: theme.colorScheme.onErrorContainer.withOpacity(0.5),
+        color: theme.colorScheme.onErrorContainer.withOpacity(0.8),
       );
-  static BoxDecoration get fillPrimary => BoxDecoration(
-        color: theme.colorScheme.primary.withOpacity(0.8),
+  static BoxDecoration get fillPinkA => BoxDecoration(
+        color: appTheme.pinkA200,
       );
-  static BoxDecoration get fillSecondaryContainer => BoxDecoration(
-        color: theme.colorScheme.secondaryContainer,
+  static BoxDecoration get fillPrimaryContainer => BoxDecoration(
+        color: theme.colorScheme.primaryContainer,
+      );
+  static BoxDecoration get fillWhiteA => BoxDecoration(
+        color: appTheme.whiteA700,
       );
 // Gradient decorations
-  static BoxDecoration get gradientIndigoAToCyan => BoxDecoration(
+  static BoxDecoration get gradientCyanToOnErrorContainer => BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment(0.5, 0),
-          end: Alignment(0.5, 1),
-          colors: [appTheme.indigoA70001, appTheme.cyan40001],
-        ),
-      );
-  static BoxDecoration get gradientIndigoAToCyan40001 => BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment(0.5, 0),
-          end: Alignment(0.5, 1),
-          colors: [appTheme.indigoA70001.withOpacity(0.7), appTheme.cyan40001],
-        ),
-      );
-  static BoxDecoration get gradientIndigoAToCyan400011 => BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment(0, 0.5),
-          end: Alignment(1, 0.5),
+          begin: Alignment(1, 0.5),
+          end: Alignment(0, 0.5),
           colors: [
-            appTheme.indigoA70001.withOpacity(0.4),
-            appTheme.cyan40001.withOpacity(0.4)
+            appTheme.cyan40001,
+            theme.colorScheme.onErrorContainer.withOpacity(1)
           ],
-        ),
-      );
-  static BoxDecoration get gradientIndigoAToCyan400012 => BoxDecoration(
-        border: Border(
-          right: BorderSide(
-            color: appTheme.gray300,
-            width: 1.h,
-          ),
-        ),
-        gradient: LinearGradient(
-          begin: Alignment(0.5, 0),
-          end: Alignment(0.5, 1),
-          colors: [appTheme.indigoA70001, appTheme.cyan40001],
         ),
       );
   static BoxDecoration get gradientIndigoAToIndigo => BoxDecoration(
@@ -91,24 +70,61 @@ class AppDecoration {
           colors: [appTheme.lightBlue100, appTheme.cyan400],
         ),
       );
-  static BoxDecoration get gradientPrimaryToGray => BoxDecoration(
+  static BoxDecoration get gradientOnErrorContainerToGray => BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment(0.5, 0),
           end: Alignment(0.5, 1),
           colors: [
-            theme.colorScheme.primary.withOpacity(1),
-            appTheme.gray10004
+            theme.colorScheme.onErrorContainer.withOpacity(1),
+            appTheme.gray10003
           ],
         ),
       );
-  static BoxDecoration get gradientPrimaryToGray10004 => BoxDecoration(
+  static BoxDecoration get gradientOnPrimaryContainerToPurple => BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment(0, 0.5),
+          end: Alignment(1, 0.5),
+          colors: [theme.colorScheme.onPrimaryContainer, appTheme.purple900],
+        ),
+      );
+  static BoxDecoration get gradientPrimaryToCyan => BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment(0.5, 0),
+          end: Alignment(0.5, 1),
+          colors: [theme.colorScheme.primary, appTheme.cyan40001],
+        ),
+      );
+  static BoxDecoration get gradientPrimaryToCyan40001 => BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment(0.5, 0),
           end: Alignment(0.5, 1),
           colors: [
-            theme.colorScheme.primary.withOpacity(1),
-            appTheme.gray10004
+            theme.colorScheme.primary.withOpacity(0.7),
+            appTheme.cyan40001
           ],
+        ),
+      );
+  static BoxDecoration get gradientPrimaryToCyan400011 => BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment(0, 0.5),
+          end: Alignment(1, 0.5),
+          colors: [
+            theme.colorScheme.primary.withOpacity(0.4),
+            appTheme.cyan40001.withOpacity(0.4)
+          ],
+        ),
+      );
+  static BoxDecoration get gradientPrimaryToCyan400012 => BoxDecoration(
+        border: Border(
+          right: BorderSide(
+            color: appTheme.gray300,
+            width: 1.h,
+          ),
+        ),
+        gradient: LinearGradient(
+          begin: Alignment(0.5, 0),
+          end: Alignment(0.5, 1),
+          colors: [theme.colorScheme.primary, appTheme.cyan40001],
         ),
       );
   static BoxDecoration get gradientTealAToCyanA => BoxDecoration(
@@ -127,7 +143,7 @@ class AppDecoration {
       );
 // Greyscale decorations
   static BoxDecoration get greyscaleGrey12 => BoxDecoration(
-        color: theme.colorScheme.onErrorContainer,
+        color: appTheme.gray90001,
       );
 // Light decorations
   static BoxDecoration get lightShadow => BoxDecoration();
@@ -141,18 +157,18 @@ class AppDecoration {
           begin: Alignment(0.5, 0),
           end: Alignment(0.5, 1),
           colors: [
-            theme.colorScheme.primary.withOpacity(1),
-            appTheme.gray10004
+            theme.colorScheme.onErrorContainer.withOpacity(1),
+            appTheme.gray10003
           ],
         ),
       );
 // Mainwhite decorations
   static BoxDecoration get mainwhite => BoxDecoration(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       );
 // Monochromatic decorations
   static BoxDecoration get monochromatic10 => BoxDecoration(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         boxShadow: [
           BoxShadow(
             color: appTheme.blueGray2003d,
@@ -168,7 +184,7 @@ class AppDecoration {
 // Outline decorations
   static BoxDecoration get outline => BoxDecoration();
   static BoxDecoration get outlineBlack => BoxDecoration(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         boxShadow: [
           BoxShadow(
             color: appTheme.black900.withOpacity(0.15),
@@ -189,7 +205,7 @@ class AppDecoration {
       );
   static BoxDecoration get outlineBlack9001 => BoxDecoration();
   static BoxDecoration get outlineBlueGray => BoxDecoration(
-        color: appTheme.whiteA700,
+        color: appTheme.whiteA70001,
         boxShadow: [
           BoxShadow(
             color: appTheme.blueGray400,
@@ -217,7 +233,7 @@ class AppDecoration {
         ],
       );
   static BoxDecoration get outlineBluegray4001 => BoxDecoration(
-        color: appTheme.blueA400,
+        color: theme.colorScheme.onError,
         boxShadow: [
           BoxShadow(
             color: appTheme.blueGray400,
@@ -230,22 +246,8 @@ class AppDecoration {
           )
         ],
       );
-  static BoxDecoration get outlineBluegray60019 => BoxDecoration(
-        color: theme.colorScheme.primary.withOpacity(1),
-        boxShadow: [
-          BoxShadow(
-            color: appTheme.blueGray60019,
-            spreadRadius: 2.h,
-            blurRadius: 2.h,
-            offset: Offset(
-              0,
-              -8,
-            ),
-          )
-        ],
-      );
   static BoxDecoration get outlineBluegray90001 => BoxDecoration(
-        color: appTheme.gray90001,
+        color: appTheme.gray90002,
         border: Border.all(
           color: appTheme.blueGray90001,
           width: 1.h,
@@ -256,6 +258,15 @@ class AppDecoration {
         border: Border.all(
           color: appTheme.blueGray90001,
           width: 1.h,
+        ),
+      );
+  static BoxDecoration get outlineGray => BoxDecoration(
+        color: appTheme.gray50Db,
+        border: Border(
+          top: BorderSide(
+            color: appTheme.gray800.withOpacity(0.36),
+            width: 1.h,
+          ),
         ),
       );
 }
@@ -298,6 +309,9 @@ class BorderRadiusStyle {
         topRight: Radius.circular(18.h),
         bottomLeft: Radius.circular(18.h),
         bottomRight: Radius.circular(4.h),
+      );
+  static BorderRadius get customBorderTL70 => BorderRadius.vertical(
+        top: Radius.circular(70.h),
       );
   static BorderRadius get customBorderTL8 => BorderRadius.only(
         topLeft: Radius.circular(8.h),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_subtitle_three.dart';
+import '../../widgets/app_bar/appbar_title_button.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_text_form_field.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/community_forums_response1_controller.dart'; // ignore_for_file: must_be_immutable
 
 class CommunityForumsResponse1Screen
@@ -22,7 +22,7 @@ class CommunityForumsResponse1Screen
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
@@ -30,41 +30,12 @@ class CommunityForumsResponse1Screen
           child: Column(
             children: [
               _buildUserPost(),
-              CustomTextFormField(
-                controller: controller.commentController,
-                hintText: "lbl_write_a_comment".tr,
-                hintStyle: CustomTextStyles.bodyLargeGray60002,
-                textInputAction: TextInputAction.done,
-                suffix: Container(
-                  margin: EdgeInsets.symmetric(
-                    horizontal: 30.h,
-                    vertical: 10.v,
-                  ),
-                  child: CustomImageView(
-                    imagePath: ImageConstant.imgBiemojismile,
-                    height: 20.adaptSize,
-                    width: 20.adaptSize,
-                  ),
-                ),
-                suffixConstraints: BoxConstraints(
-                  maxHeight: 42.v,
-                ),
-                contentPadding: EdgeInsets.only(
-                  left: 14.h,
-                  top: 10.v,
-                  bottom: 10.v,
-                ),
-                borderDecoration: TextFormFieldStyleHelper.fillGrayTL8,
-                fillColor: appTheme.gray5001,
-              ),
-              SizedBox(height: 236.v)
+              _buildCommentInput(),
+              SizedBox(height: 4.v)
             ],
           ),
         ),
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.only(right: 14.h),
-          child: _buildBottomNavigation(),
-        ),
+        bottomNavigationBar: _buildBottomNavigation(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
@@ -83,26 +54,8 @@ class CommunityForumsResponse1Screen
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
       centerTitle: true,
-      title: Container(
-        width: double.maxFinite,
-        decoration: AppDecoration.gradientIndigoAToCyan400011,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 17.v),
-            AppbarSubtitleThree(
-              text: "msg_community_forums".tr,
-              margin: EdgeInsets.only(
-                left: 91.h,
-                right: 94.h,
-              ),
-            ),
-            SizedBox(height: 14.v)
-          ],
-        ),
-      ),
-      styleType:
-          Style.bgGradientnameindigoA70001opacity04namecyan40001opacity04,
+      title: AppbarTitleButton(),
+      styleType: Style.bgGradientnameprimaryopacity04namecyan40001opacity04_1,
     );
   }
 
@@ -110,8 +63,11 @@ class CommunityForumsResponse1Screen
   Widget _buildUserPost() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      padding: EdgeInsets.symmetric(horizontal: 14.h),
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 10.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -120,7 +76,6 @@ class CommunityForumsResponse1Screen
             margin: EdgeInsets.only(left: 2.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
               children: [
                 CustomImageView(
                   imagePath: ImageConstant.imgAvatar2,
@@ -161,7 +116,7 @@ class CommunityForumsResponse1Screen
               "msg_minim_dolor_in_amet".tr,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.headlineMedium!.copyWith(
+              style: CustomTextStyles.headlineMediumBlack900.copyWith(
                 height: 1.31,
               ),
             ),
@@ -172,15 +127,12 @@ class CommunityForumsResponse1Screen
             style: CustomTextStyles.bodyLargeGray60003,
           ),
           SizedBox(height: 10.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: Text(
-              "msg_minim_dolor_in_amet2".tr,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: CustomTextStyles.bodyLarge17.copyWith(
-                height: 1.42,
-              ),
+          Text(
+            "msg_minim_dolor_in_amet2".tr,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: CustomTextStyles.bodyLarge17.copyWith(
+              height: 1.42,
             ),
           ),
           SizedBox(height: 8.v),
@@ -192,10 +144,9 @@ class CommunityForumsResponse1Screen
                 padding: EdgeInsets.symmetric(horizontal: 22.h),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
                   children: [
                     CustomImageView(
-                      imagePath: ImageConstant.imgFavoriteBlack9003,
+                      imagePath: ImageConstant.imgFavorite28x28,
                       height: 28.adaptSize,
                       width: 28.adaptSize,
                     ),
@@ -210,7 +161,7 @@ class CommunityForumsResponse1Screen
                               style: CustomTextStyles.titleMediumMedium16,
                             ),
                             CustomImageView(
-                              imagePath: ImageConstant.imgCommentBlack900,
+                              imagePath: ImageConstant.imgComment,
                               height: 40.adaptSize,
                               width: 40.adaptSize,
                               radius: BorderRadius.circular(
@@ -240,6 +191,41 @@ class CommunityForumsResponse1Screen
   }
 
   /// Section Widget
+  Widget _buildCommentInput() {
+    return Container(
+      padding: EdgeInsets.all(6.h),
+      decoration: AppDecoration.fillGray5002.copyWith(
+        borderRadius: BorderRadiusStyle.roundedBorder8,
+      ),
+      width: double.maxFinite,
+      child: Row(
+        children: [
+          Expanded(
+            child: CustomTextFormField(
+              controller: controller.commentController,
+              hintText: "lbl_write_a_comment".tr,
+              hintStyle: CustomTextStyles.bodyLargeGray60002,
+              textInputAction: TextInputAction.done,
+            ),
+          ),
+          SizedBox(width: 12.h),
+          CustomImageView(
+            imagePath: ImageConstant.imgBiemojismile,
+            height: 20.adaptSize,
+            width: 20.adaptSize,
+          ),
+          SizedBox(width: 12.h),
+          CustomImageView(
+            imagePath: ImageConstant.imgFluentsend28filled,
+            height: 28.adaptSize,
+            width: 28.adaptSize,
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
   Widget _buildBottomNavigation() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
@@ -251,11 +237,11 @@ class CommunityForumsResponse1Screen
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -267,10 +253,10 @@ class CommunityForumsResponse1Screen
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

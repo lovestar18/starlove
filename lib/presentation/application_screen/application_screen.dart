@@ -26,7 +26,7 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
             gradient: LinearGradient(
               begin: Alignment(0.5, 0),
               end: Alignment(0.5, 1),
-              colors: [appTheme.indigoA70001, appTheme.cyan40001],
+              colors: [theme.colorScheme.primary, appTheme.cyan40001],
             ),
           ),
           child: Container(
@@ -45,7 +45,6 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
                 SizedBox(height: 6.v),
                 Container(
                   width: double.maxFinite,
-                  margin: EdgeInsets.only(right: 6.h),
                   padding: EdgeInsets.symmetric(
                     horizontal: 20.h,
                     vertical: 12.v,
@@ -66,50 +65,103 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
                         ),
                       ),
                       SizedBox(height: 36.v),
-                      _buildFullNameInput(),
-                      SizedBox(height: 18.v),
-                      _buildUsernameInput(),
-                      SizedBox(height: 18.v),
-                      _buildTempleInput(),
-                      SizedBox(height: 18.v),
-                      _buildFavoriteDishInput(),
-                      SizedBox(height: 18.v),
-                      _buildHolidayTraditionInput(),
-                      SizedBox(height: 18.v),
-                      _buildLinkedinInput(),
-                      SizedBox(height: 12.v),
-                      OutlineGradientButton(
-                        padding: EdgeInsets.only(
-                          left: 1.h,
-                          top: 1.v,
-                          right: 1.h,
-                          bottom: 1.v,
-                        ),
-                        strokeWidth: 1.h,
-                        gradient: LinearGradient(
-                          begin: Alignment(0.5, 0),
-                          end: Alignment(0.5, 1),
-                          colors: [
-                            theme.colorScheme.primary,
-                            theme.colorScheme.primary
+                      Container(
+                        width: double.maxFinite,
+                        margin: EdgeInsets.only(left: 2.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "lbl_full_name".tr,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            SizedBox(height: 4.v),
+                            _buildFullNameInput()
                           ],
                         ),
-                        corners: Corners(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
+                      ),
+                      SizedBox(height: 18.v),
+                      Container(
+                        width: double.maxFinite,
+                        margin: EdgeInsets.only(left: 2.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "lbl_username".tr,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            SizedBox(height: 2.v),
+                            _buildUsernameInput()
+                          ],
                         ),
-                        child: CustomOutlinedButton(
-                          height: 48.v,
-                          text: "lbl_submit".tr,
-                          buttonStyle: CustomButtonStyles.outline,
-                          buttonTextStyle: CustomTextStyles.titleSmallPrimary,
-                          onPressed: () {
-                            onTapSubmit();
-                          },
+                      ),
+                      SizedBox(height: 18.v),
+                      Container(
+                        width: double.maxFinite,
+                        margin: EdgeInsets.only(left: 2.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "msg_what_temple_are".tr,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            SizedBox(height: 2.v),
+                            _buildTempleInput()
+                          ],
                         ),
-                      )
+                      ),
+                      SizedBox(height: 18.v),
+                      Container(
+                        width: double.maxFinite,
+                        margin: EdgeInsets.only(left: 2.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "msg_favorite_jewish".tr,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            SizedBox(height: 4.v),
+                            _buildFavoriteDishInput()
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 18.v),
+                      Container(
+                        width: double.maxFinite,
+                        margin: EdgeInsets.only(left: 2.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "msg_best_jewish_holiday".tr,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            SizedBox(height: 2.v),
+                            _buildHolidayTraditionInput()
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 18.v),
+                      Container(
+                        width: double.maxFinite,
+                        margin: EdgeInsets.only(left: 2.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "msg_linkedin_account".tr,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            SizedBox(height: 2.v),
+                            _buildLinkedinInput()
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 12.v),
+                      _buildSubmitButton()
                     ],
                   ),
                 ),
@@ -124,143 +176,113 @@ class ApplicationScreen extends GetWidget<ApplicationController> {
 
   /// Section Widget
   Widget _buildFullNameInput() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.only(left: 2.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "lbl_full_name".tr,
-            style: theme.textTheme.labelLarge,
-          ),
-          SizedBox(height: 4.v),
-          CustomTextFormField(
-            controller: controller.fullNameController,
-            hintText: "msg_miram_berenstein".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90009_1,
-          )
-        ],
-      ),
+    return CustomTextFormField(
+      controller: controller.fullNameInputController,
+      hintText: "msg_miram_berenstein".tr,
+      hintStyle: CustomTextStyles.titleSmallGray90011_1,
+      borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+      filled: true,
+      fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
     );
   }
 
   /// Section Widget
   Widget _buildUsernameInput() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.only(left: 2.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "lbl_username".tr,
-            style: theme.textTheme.labelLarge,
-          ),
-          SizedBox(height: 2.v),
-          CustomTextFormField(
-            controller: controller.userNameController,
-            hintText: "lbl_moses".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90009_1,
-          )
-        ],
-      ),
+    return CustomTextFormField(
+      controller: controller.usernameInputController,
+      hintText: "lbl_moses".tr,
+      hintStyle: CustomTextStyles.titleSmallGray90011_1,
+      borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+      filled: true,
+      fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
     );
   }
 
   /// Section Widget
   Widget _buildTempleInput() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.only(left: 2.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "msg_what_temple_are".tr,
-            style: theme.textTheme.labelLarge,
-          ),
-          SizedBox(height: 2.v),
-          CustomTextFormField(
-            controller: controller.whattempleareyoController,
-            hintText: "lbl_temple_emanuel".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90009_1,
-            contentPadding: EdgeInsets.symmetric(vertical: 14.v),
-          )
-        ],
-      ),
+    return CustomTextFormField(
+      controller: controller.templeInputController,
+      hintText: "lbl_temple_emanuel".tr,
+      hintStyle: CustomTextStyles.titleSmallGray90011_1,
+      contentPadding: EdgeInsets.symmetric(vertical: 14.v),
+      borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+      filled: true,
+      fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
     );
   }
 
   /// Section Widget
   Widget _buildFavoriteDishInput() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.only(left: 2.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "msg_favorite_jewish".tr,
-            style: theme.textTheme.labelLarge,
-          ),
-          SizedBox(height: 4.v),
-          CustomTextFormField(
-            controller: controller.yournamegmailcoController,
-            hintText: "lbl_kugel".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90009_1,
-          )
-        ],
-      ),
+    return CustomTextFormField(
+      controller: controller.favoriteDishInputController,
+      hintText: "lbl_kugel".tr,
+      hintStyle: CustomTextStyles.titleSmallGray90011_1,
+      borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+      filled: true,
+      fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
     );
   }
 
   /// Section Widget
   Widget _buildHolidayTraditionInput() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.only(left: 2.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "msg_best_jewish_holiday".tr,
-            style: theme.textTheme.labelLarge,
-          ),
-          SizedBox(height: 2.v),
-          CustomTextFormField(
-            controller: controller.yournamegmailco1Controller,
-            hintText: "lbl_mazel_tov".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90009_1,
-          )
-        ],
-      ),
+    return CustomTextFormField(
+      controller: controller.holidayTraditionInputController,
+      hintText: "lbl_mazel_tov".tr,
+      hintStyle: CustomTextStyles.titleSmallGray90011_1,
+      borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+      filled: true,
+      fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
     );
   }
 
   /// Section Widget
   Widget _buildLinkedinInput() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.only(left: 2.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "msg_linkedin_account".tr,
-            style: theme.textTheme.labelLarge,
-          ),
-          SizedBox(height: 2.v),
-          CustomTextFormField(
-            controller: controller.yournamegmailco2Controller,
-            hintText: "msg_linkedin_com_miram".tr,
-            hintStyle: CustomTextStyles.titleSmallGray90009_1,
-            textInputAction: TextInputAction.done,
-          )
+    return CustomTextFormField(
+      controller: controller.linkedinInputController,
+      hintText: "msg_linkedin_com_miram".tr,
+      hintStyle: CustomTextStyles.titleSmallGray90011_1,
+      textInputAction: TextInputAction.done,
+      borderDecoration: TextFormFieldStyleHelper.outlineBlueGrayTL10,
+      filled: true,
+      fillColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildSubmitButton() {
+    return OutlineGradientButton(
+      padding: EdgeInsets.only(
+        left: 1.h,
+        top: 1.v,
+        right: 1.h,
+        bottom: 1.v,
+      ),
+      strokeWidth: 1.h,
+      gradient: LinearGradient(
+        begin: Alignment(0.5, 0),
+        end: Alignment(0.5, 1),
+        colors: [
+          theme.colorScheme.onErrorContainer.withOpacity(0.12),
+          theme.colorScheme.onErrorContainer.withOpacity(0.12)
         ],
+      ),
+      corners: Corners(
+        topLeft: Radius.circular(10),
+        topRight: Radius.circular(10),
+        bottomLeft: Radius.circular(10),
+        bottomRight: Radius.circular(10),
+      ),
+      child: CustomOutlinedButton(
+        height: 48.v,
+        text: "lbl_submit".tr,
+        buttonStyle: CustomButtonStyles.outlineTL101,
+        buttonTextStyle: CustomTextStyles.titleSmallOnErrorContainer_2,
+        onPressed: () {
+          onTapSubmitButton();
+        },
       ),
     );
   }
 
-  onTapSubmit() {}
+  onTapSubmitButton() {}
 }

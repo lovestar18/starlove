@@ -6,8 +6,8 @@ import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_search_view.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/help_center_controller.dart'; // ignore_for_file: must_be_immutable
 
 class HelpCenterScreen extends GetWidget<HelpCenterController> {
@@ -21,15 +21,21 @@ class HelpCenterScreen extends GetWidget<HelpCenterController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: Column(
           children: [
             SizedBox(height: 12.v),
-            _buildContentSection(),
-            SizedBox(height: 44.v)
+            _buildHeaderSection(),
+            Container(
+              width: double.maxFinite,
+              padding: EdgeInsets.symmetric(vertical: 26.v),
+              child: Column(
+                children: [_buildFaqSection(), SizedBox(height: 4.v)],
+              ),
+            )
           ],
         ),
-        bottomNavigationBar: _buildFooterSection(),
+        bottomNavigationBar: _buildNavigationBar(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
@@ -51,6 +57,10 @@ class HelpCenterScreen extends GetWidget<HelpCenterController> {
   Widget _buildHeaderSection() {
     return Container(
       width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
       padding: EdgeInsets.symmetric(vertical: 20.v),
       decoration: AppDecoration.gradientTealAToCyanA.copyWith(
         borderRadius: BorderRadiusStyle.roundedBorder50,
@@ -64,7 +74,7 @@ class HelpCenterScreen extends GetWidget<HelpCenterController> {
             height: 16.v,
             leadingWidth: 45.h,
             leading: AppbarLeadingImage(
-              imagePath: ImageConstant.imgArrowLeftGray10001,
+              imagePath: ImageConstant.imgArrowLeftGray100011,
               margin: EdgeInsets.only(left: 27.h),
               onTap: () {
                 onTapArrowleftone();
@@ -75,7 +85,7 @@ class HelpCenterScreen extends GetWidget<HelpCenterController> {
           Container(
             height: 144.v,
             width: double.maxFinite,
-            margin: EdgeInsets.symmetric(horizontal: 12.h),
+            margin: EdgeInsets.symmetric(horizontal: 8.h),
             child: Stack(
               alignment: Alignment.bottomLeft,
               children: [
@@ -101,7 +111,6 @@ class HelpCenterScreen extends GetWidget<HelpCenterController> {
                   ),
                 ),
                 CustomSearchView(
-                  width: 296.h,
                   controller: controller.searchController,
                   hintText: "lbl_search".tr,
                   contentPadding: EdgeInsets.only(
@@ -124,22 +133,7 @@ class HelpCenterScreen extends GetWidget<HelpCenterController> {
   }
 
   /// Section Widget
-  Widget _buildContentSection() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      child: Column(
-        children: [
-          _buildHeaderSection(),
-          SizedBox(height: 26.v),
-          _buildFaqSection()
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildFooterSection() {
+  Widget _buildNavigationBar() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -150,11 +144,11 @@ class HelpCenterScreen extends GetWidget<HelpCenterController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -166,10 +160,10 @@ class HelpCenterScreen extends GetWidget<HelpCenterController> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

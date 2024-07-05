@@ -25,7 +25,7 @@ class AppbarSubtitleEight extends StatelessWidget {
         padding: margin ?? EdgeInsets.zero,
         child: Text(
           text,
-          style: CustomTextStyles.titleLargeOpenSansBold.copyWith(
+          style: CustomTextStyles.titleLargeOpenSans.copyWith(
             color: appTheme.black900,
           ),
         ),

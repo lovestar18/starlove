@@ -7,21 +7,21 @@ import '../models/login_version_2_model.dart';
 /// This class manages the state of the LoginVersion2Screen, including the
 /// current loginVersion2ModelObj
 class LoginVersion2Controller extends GetxController {
-  TextEditingController emailController = TextEditingController();
+  TextEditingController emailInputFieldController = TextEditingController();
 
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordInputFieldController = TextEditingController();
 
   Rx<LoginVersion2Model> loginVersion2ModelObj = LoginVersion2Model().obs;
 
   Rx<bool> isShowPassword = true.obs;
 
-  Rx<bool> rememberMe = false.obs;
+  Rx<bool> rememberMeCheckbox = false.obs;
 
   @override
   void onClose() {
     super.onClose();
-    emailController.dispose();
-    passwordController.dispose();
+    emailInputFieldController.dispose();
+    passwordInputFieldController.dispose();
   }
 
   @override

@@ -3,8 +3,8 @@ import '../../core/app_export.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/password_settings1_controller.dart'; // ignore_for_file: must_be_immutable
 
 class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
@@ -17,16 +17,33 @@ class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: Container(
           width: double.maxFinite,
-          padding: EdgeInsets.symmetric(
-            horizontal: 10.h,
-            vertical: 206.v,
-          ),
+          padding: EdgeInsets.symmetric(vertical: 206.v),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [SizedBox(height: 38.v), _buildCheckProgressSection()],
+            children: [
+              SizedBox(height: 38.v),
+              CustomImageView(
+                imagePath: ImageConstant.imgCheckProgressIndigoA70001,
+                height: 142.adaptSize,
+                width: 142.adaptSize,
+              ),
+              SizedBox(height: 30.v),
+              SizedBox(
+                width: 206.h,
+                child: Text(
+                  "msg_password_has_been".tr,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: CustomTextStyles.titleLargeOpenSansPrimary.copyWith(
+                    height: 1.30,
+                  ),
+                ),
+              )
+            ],
           ),
         ),
         bottomNavigationBar: _buildNavigationBar(),
@@ -45,41 +62,6 @@ class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
   }
 
   /// Section Widget
-  Widget _buildCheckProgressSection() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Column(
-        children: [
-          SizedBox(
-            width: 206.h,
-            child: Column(
-              children: [
-                CustomImageView(
-                  imagePath: ImageConstant.imgCheckProgressIndigoA70001,
-                  height: 142.adaptSize,
-                  width: double.maxFinite,
-                  margin: EdgeInsets.symmetric(horizontal: 32.h),
-                ),
-                SizedBox(height: 30.v),
-                Text(
-                  "msg_password_has_been".tr,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style:
-                      CustomTextStyles.titleLargeOpenSansIndigoA70001.copyWith(
-                    height: 1.30,
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
   Widget _buildNavigationBar() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
@@ -91,11 +73,11 @@ class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -107,10 +89,10 @@ class PasswordSettings1Screen extends GetWidget<PasswordSettings1Controller> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

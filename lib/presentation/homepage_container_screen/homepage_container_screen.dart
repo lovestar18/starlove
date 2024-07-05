@@ -3,8 +3,8 @@ import '../../core/app_export.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/homepage_container_controller.dart'; // ignore_for_file: must_be_immutable
 
 class HomepageContainerScreen extends GetWidget<HomepageContainerController> {
@@ -28,21 +28,21 @@ class HomepageContainerScreen extends GetWidget<HomepageContainerController> {
               begin: Alignment(0.5, 0),
               end: Alignment(0.5, 1),
               colors: [
-                appTheme.indigoA70001.withOpacity(0.7),
+                theme.colorScheme.primary.withOpacity(0.7),
                 appTheme.cyan40001
               ],
             ),
           ),
           child: Navigator(
             key: Get.nestedKey(1),
-            initialRoute: AppRoutes.homepagePage,
+            initialRoute: AppRoutes.homepageContainer1Page,
             onGenerateRoute: (routeSetting) => GetPageRoute(
               page: () => getCurrentPage(routeSetting.name!),
               transition: Transition.noTransition,
             ),
           ),
         ),
-        bottomNavigationBar: _buildBottomNavigation(),
+        bottomNavigationBar: _buildBottomNavigationBar(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
@@ -58,7 +58,7 @@ class HomepageContainerScreen extends GetWidget<HomepageContainerController> {
   }
 
   /// Section Widget
-  Widget _buildBottomNavigation() {
+  Widget _buildBottomNavigationBar() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -69,11 +69,11 @@ class HomepageContainerScreen extends GetWidget<HomepageContainerController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -85,10 +85,10 @@ class HomepageContainerScreen extends GetWidget<HomepageContainerController> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

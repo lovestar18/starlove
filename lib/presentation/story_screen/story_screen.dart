@@ -38,119 +38,119 @@ class StoryScreen extends GetWidget<StoryController> {
   }
 
   /// Section Widget
-  Widget _buildTopInfo() {
-    return Expanded(
-      child: Column(
-        children: [
-          SizedBox(
-            width: double.maxFinite,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Divider(
-                    color: theme.colorScheme.primary.withOpacity(1),
-                  ),
-                ),
-                Expanded(
-                  child: Divider(
-                    color: theme.colorScheme.primary.withOpacity(1),
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: Divider(),
-                      ),
-                      Container(
-                        height: 2.v,
-                        width: 46.h,
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.primary.withOpacity(1),
-                          borderRadius: BorderRadius.circular(
-                            1.h,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Divider(),
-                ),
-                Expanded(
-                  child: Divider(),
-                )
-              ],
-            ),
-          ),
-          SizedBox(height: 8.v),
-          SizedBox(
-            width: double.maxFinite,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                CustomImageView(
-                  imagePath: ImageConstant.imgUserPicture1,
-                  height: 32.adaptSize,
-                  width: 32.adaptSize,
-                  radius: BorderRadius.circular(
-                    16.h,
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: 12.h,
-                      bottom: 4.v,
-                    ),
-                    child: Text(
-                      "lbl_craig_love".tr,
-                      style: CustomTextStyles.titleSmallPrimary_2,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 6.v),
-                    child: Text(
-                      "lbl_4h".tr,
-                      style: CustomTextStyles.bodyMediumInterOnError,
-                    ),
-                  ),
-                ),
-                Spacer(),
-                CustomImageView(
-                  imagePath: ImageConstant.imgClosePrimary,
-                  height: 16.adaptSize,
-                  width: 16.adaptSize,
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
   Widget _buildStoryTimeline() {
     return Align(
       alignment: Alignment.topCenter,
       child: Padding(
         padding: EdgeInsets.only(
-          left: 10.h,
+          left: 16.h,
           top: 8.v,
-          right: 10.h,
+          right: 18.h,
         ),
         child: Row(
-          children: [_buildTopInfo()],
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Divider(
+                            color: theme.colorScheme.onErrorContainer
+                                .withOpacity(1),
+                          ),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            color: theme.colorScheme.onErrorContainer
+                                .withOpacity(1),
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: double.maxFinite,
+                                child: Divider(),
+                              ),
+                              Container(
+                                height: 2.v,
+                                width: 46.h,
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.onErrorContainer
+                                      .withOpacity(1),
+                                  borderRadius: BorderRadius.circular(
+                                    1.h,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Divider(),
+                        ),
+                        Expanded(
+                          child: Divider(),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 8.v),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomImageView(
+                          imagePath: ImageConstant.imgUserPicture1,
+                          height: 32.adaptSize,
+                          width: 32.adaptSize,
+                          radius: BorderRadius.circular(
+                            16.h,
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: 12.h,
+                              bottom: 4.v,
+                            ),
+                            child: Text(
+                              "lbl_craig_love".tr,
+                              style:
+                                  CustomTextStyles.titleSmallOnErrorContainer_1,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 6.v),
+                            child: Text(
+                              "lbl_4h".tr,
+                              style: CustomTextStyles
+                                  .bodyMediumInterOnErrorContainer,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        CustomImageView(
+                          imagePath: ImageConstant.imgClose,
+                          height: 16.adaptSize,
+                          width: 16.adaptSize,
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -175,7 +175,7 @@ class StoryScreen extends GetWidget<StoryController> {
               prefix: Container(
                 margin: EdgeInsets.fromLTRB(4.h, 4.v, 12.h, 4.v),
                 child: CustomImageView(
-                  imagePath: ImageConstant.imgUserPrimary,
+                  imagePath: ImageConstant.imgUser,
                   height: 34.adaptSize,
                   width: 34.adaptSize,
                 ),
@@ -191,7 +191,7 @@ class StoryScreen extends GetWidget<StoryController> {
             ),
           ),
           CustomImageView(
-            imagePath: ImageConstant.imgSavePrimary,
+            imagePath: ImageConstant.imgSave,
             height: 20.v,
             width: 24.h,
             margin: EdgeInsets.only(left: 12.h),

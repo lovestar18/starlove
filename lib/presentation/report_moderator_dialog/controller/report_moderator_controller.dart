@@ -7,16 +7,16 @@ import '../models/report_moderator_model.dart';
 /// This class manages the state of the ReportModeratorDialog, including the
 /// current reportModeratorModelObj
 class ReportModeratorController extends GetxController {
-  TextEditingController deletevalueoneController = TextEditingController();
+  TextEditingController deleteValueController = TextEditingController();
 
-  TextEditingController reportvalueoneController = TextEditingController();
+  TextEditingController reportValueController = TextEditingController();
 
   Rx<ReportModeratorModel> reportModeratorModelObj = ReportModeratorModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    deletevalueoneController.dispose();
-    reportvalueoneController.dispose();
+    deleteValueController.dispose();
+    reportValueController.dispose();
   }
 }

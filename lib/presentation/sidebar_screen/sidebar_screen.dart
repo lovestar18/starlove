@@ -27,7 +27,7 @@ class SidebarScreen extends GetWidget<SidebarController> {
             gradient: LinearGradient(
               begin: Alignment(0.5, 0),
               end: Alignment(0.5, 1),
-              colors: [appTheme.indigoA70001, appTheme.cyan40001],
+              colors: [theme.colorScheme.primary, appTheme.cyan40001],
             ),
           ),
           child: Container(
@@ -51,8 +51,8 @@ class SidebarScreen extends GetWidget<SidebarController> {
                     children: [
                       Text(
                         "lbl_navigation_menu".tr,
-                        style:
-                            CustomTextStyles.titleLargeOpenSansPrimarySemiBold,
+                        style: CustomTextStyles
+                            .titleLargeOpenSansOnErrorContainerSemiBold20,
                       ),
                       CustomImageView(
                         imagePath: ImageConstant.imgStarlove2Transparent01,
@@ -71,108 +71,111 @@ class SidebarScreen extends GetWidget<SidebarController> {
                     children: [
                       SizedBox(
                         width: double.maxFinite,
-                        child: _buildFindFriendsMenuItem(
-                          smileOne: ImageConstant.imgHomeBlack900,
-                          findfriends: "lbl_homepage".tr,
-                          onTapFindFriendsMenuItem: () {
-                            onTapHomepageMenuItem();
+                        child: _buildMenuItemFindFriends(
+                          userImage: ImageConstant.imgHomeBlack900,
+                          userText: "lbl_homepage".tr,
+                          onTapMenuItemFindFriends: () {
+                            onTapMenuItemHomepage();
                           },
                         ),
                       ),
                       SizedBox(height: 6.v),
-                      _buildForjewPageMenuItem(),
+                      _buildMenuItemForjewPage(),
                       SizedBox(height: 6.v),
                       SizedBox(
                         width: double.maxFinite,
-                        child: _buildGroupsMenuItem(
-                          imageOne: ImageConstant.imgMaNishtana120x20,
-                          groups: "lbl_kibutz_chat".tr,
-                        ),
-                      ),
-                      SizedBox(height: 6.v),
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: _buildGroupsMenuItem(
-                          imageOne: ImageConstant.img150938401,
-                          groups: "lbl_groups".tr,
-                          onTapGroupsMenuItem: () {
-                            onTapGroupsMenuItem();
+                        child: _buildMenuItemGroups(
+                          userimageThree: ImageConstant.imgMaNishtana120x20,
+                          userGroupsText: "lbl_kibutz_chat".tr,
+                          onTapMenuItemGroups: () {
+                            onTapMenuItemKibutzChat();
                           },
                         ),
                       ),
                       SizedBox(height: 6.v),
                       SizedBox(
                         width: double.maxFinite,
-                        child: _buildGroupsMenuItem(
-                          imageOne: ImageConstant.img23125851,
-                          groups: "lbl_forums".tr,
-                        ),
-                      ),
-                      SizedBox(height: 6.v),
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: _buildFindFriendsMenuItem(
-                          smileOne: ImageConstant.imgSmile,
-                          findfriends: "lbl_find_friends".tr,
-                        ),
-                      ),
-                      SizedBox(height: 6.v),
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: _buildGroupsMenuItem(
-                          imageOne: ImageConstant.img4562831,
-                          groups: "lbl_your_profile".tr,
-                          onTapGroupsMenuItem: () {
-                            onTapYourProfileMenuItem();
+                        child: _buildMenuItemGroups(
+                          userimageThree: ImageConstant.img150938401,
+                          userGroupsText: "lbl_groups".tr,
+                          onTapMenuItemGroups: () {
+                            onTapMenuItemGroups();
                           },
                         ),
                       ),
                       SizedBox(height: 6.v),
                       SizedBox(
                         width: double.maxFinite,
-                        child: _buildGroupsMenuItem(
-                          imageOne: ImageConstant.img11596331,
-                          groups: "lbl_edit_profile2".tr,
-                          onTapGroupsMenuItem: () {
-                            onTapEditProfileMenuItem();
+                        child: _buildMenuItemGroups(
+                          userimageThree: ImageConstant.img23125851,
+                          userGroupsText: "lbl_forums".tr,
+                        ),
+                      ),
+                      SizedBox(height: 6.v),
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: _buildMenuItemFindFriends(
+                          userImage: ImageConstant.imgSmile,
+                          userText: "lbl_find_friends".tr,
+                        ),
+                      ),
+                      SizedBox(height: 6.v),
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: _buildMenuItemGroups(
+                          userimageThree: ImageConstant.img4562831,
+                          userGroupsText: "lbl_your_profile".tr,
+                          onTapMenuItemGroups: () {
+                            onTapMenuItemYourProfile();
                           },
                         ),
                       ),
                       SizedBox(height: 6.v),
                       SizedBox(
                         width: double.maxFinite,
-                        child: _buildGroupsMenuItem(
-                          imageOne: ImageConstant.img20405041,
-                          groups: "lbl_settings".tr,
-                          onTapGroupsMenuItem: () {
-                            onTapSettingsMenuItem();
+                        child: _buildMenuItemGroups(
+                          userimageThree: ImageConstant.img11596331,
+                          userGroupsText: "lbl_edit_profile2".tr,
+                          onTapMenuItemGroups: () {
+                            onTapMenuItemEditProfile();
                           },
                         ),
                       ),
                       SizedBox(height: 6.v),
                       SizedBox(
                         width: double.maxFinite,
-                        child: _buildGroupsMenuItem(
-                          imageOne: ImageConstant.img6460941,
-                          groups: "lbl_support".tr,
-                          onTapGroupsMenuItem: () {
-                            onTapSupportMenuItem();
+                        child: _buildMenuItemGroups(
+                          userimageThree: ImageConstant.img20405041,
+                          userGroupsText: "lbl_settings".tr,
+                          onTapMenuItemGroups: () {
+                            onTapMenuItemSettings();
                           },
                         ),
                       ),
                       SizedBox(height: 6.v),
                       SizedBox(
                         width: double.maxFinite,
-                        child: _buildGroupsMenuItem(
-                          imageOne: ImageConstant.img12868531,
-                          groups: "lbl_logout".tr,
-                          onTapGroupsMenuItem: () {
-                            onTapLogoutMenuItem();
+                        child: _buildMenuItemGroups(
+                          userimageThree: ImageConstant.img6460941,
+                          userGroupsText: "lbl_support".tr,
+                          onTapMenuItemGroups: () {
+                            onTapMenuItemSupport();
                           },
                         ),
                       ),
                       SizedBox(height: 6.v),
-                      _buildAdminDashboardMenuItem()
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: _buildMenuItemGroups(
+                          userimageThree: ImageConstant.img12868531,
+                          userGroupsText: "lbl_logout".tr,
+                          onTapMenuItemGroups: () {
+                            onTapMenuItemLogout();
+                          },
+                        ),
+                      ),
+                      SizedBox(height: 6.v),
+                      _buildMenuItemAdminDashboard()
                     ],
                   ),
                 ),
@@ -186,12 +189,12 @@ class SidebarScreen extends GetWidget<SidebarController> {
   }
 
   /// Section Widget
-  Widget _buildForjewPageMenuItem() {
+  Widget _buildMenuItemForjewPage() {
     return SizedBox(
       width: double.maxFinite,
       child: GestureDetector(
         onTap: () {
-          onTapForjewPageMenuItem();
+          onTapMenuItemForjewPage();
         },
         child: Container(
           padding: EdgeInsets.symmetric(
@@ -202,7 +205,6 @@ class SidebarScreen extends GetWidget<SidebarController> {
             borderRadius: BorderRadiusStyle.roundedBorder8,
           ),
           child: Row(
-            mainAxisSize: MainAxisSize.max,
             children: [
               CustomImageView(
                 imagePath: ImageConstant.imgJewish51,
@@ -218,7 +220,7 @@ class SidebarScreen extends GetWidget<SidebarController> {
                   ),
                   child: Text(
                     "lbl_forjew_page".tr,
-                    style: CustomTextStyles.bodyLargeOpenSans16,
+                    style: CustomTextStyles.bodyLargeOpenSans,
                   ),
                 ),
               )
@@ -230,18 +232,19 @@ class SidebarScreen extends GetWidget<SidebarController> {
   }
 
   /// Section Widget
-  Widget _buildAdminDashboardMenuItem() {
+  Widget _buildMenuItemAdminDashboard() {
     return SizedBox(
       width: double.maxFinite,
       child: GestureDetector(
         onTap: () {
-          onTapAdminDashboardMenuItem();
+          onTapMenuItemAdminDashboard();
         },
         child: Container(
           width: double.maxFinite,
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.h,
-            vertical: 8.v,
+          padding: EdgeInsets.only(
+            left: 16.h,
+            top: 8.v,
+            bottom: 8.v,
           ),
           decoration: AppDecoration.mainwhite.copyWith(
             borderRadius: BorderRadiusStyle.roundedBorder8,
@@ -252,7 +255,7 @@ class SidebarScreen extends GetWidget<SidebarController> {
             children: [
               Text(
                 "lbl_admin_dashboard".tr,
-                style: CustomTextStyles.bodyLargeOpenSans16,
+                style: CustomTextStyles.bodyLargeOpenSans,
               )
             ],
           ),
@@ -262,14 +265,14 @@ class SidebarScreen extends GetWidget<SidebarController> {
   }
 
   /// Common widget
-  Widget _buildGroupsMenuItem({
-    required String imageOne,
-    required String groups,
-    Function? onTapGroupsMenuItem,
+  Widget _buildMenuItemGroups({
+    required String userimageThree,
+    required String userGroupsText,
+    Function? onTapMenuItemGroups,
   }) {
     return GestureDetector(
       onTap: () {
-        onTapGroupsMenuItem?.call();
+        onTapMenuItemGroups?.call();
       },
       child: Container(
         padding: EdgeInsets.symmetric(
@@ -282,7 +285,7 @@ class SidebarScreen extends GetWidget<SidebarController> {
         child: Row(
           children: [
             CustomImageView(
-              imagePath: imageOne,
+              imagePath: userimageThree,
               height: 20.adaptSize,
               width: 20.adaptSize,
             ),
@@ -294,8 +297,8 @@ class SidebarScreen extends GetWidget<SidebarController> {
                   top: 4.v,
                 ),
                 child: Text(
-                  groups,
-                  style: CustomTextStyles.bodyLargeOpenSans16.copyWith(
+                  userGroupsText,
+                  style: CustomTextStyles.bodyLargeOpenSans.copyWith(
                     color: appTheme.black900,
                   ),
                 ),
@@ -308,14 +311,14 @@ class SidebarScreen extends GetWidget<SidebarController> {
   }
 
   /// Common widget
-  Widget _buildFindFriendsMenuItem({
-    required String smileOne,
-    required String findfriends,
-    Function? onTapFindFriendsMenuItem,
+  Widget _buildMenuItemFindFriends({
+    required String userImage,
+    required String userText,
+    Function? onTapMenuItemFindFriends,
   }) {
     return GestureDetector(
       onTap: () {
-        onTapFindFriendsMenuItem?.call();
+        onTapMenuItemFindFriends?.call();
       },
       child: Container(
         padding: EdgeInsets.symmetric(
@@ -328,15 +331,15 @@ class SidebarScreen extends GetWidget<SidebarController> {
         child: Row(
           children: [
             CustomImageView(
-              imagePath: smileOne,
+              imagePath: userImage,
               height: 24.adaptSize,
               width: 24.adaptSize,
             ),
             Padding(
               padding: EdgeInsets.only(left: 16.h),
               child: Text(
-                findfriends,
-                style: CustomTextStyles.bodyLargeOpenSans16.copyWith(
+                userText,
+                style: CustomTextStyles.bodyLargeOpenSans.copyWith(
                   color: appTheme.black900,
                 ),
               ),
@@ -347,20 +350,28 @@ class SidebarScreen extends GetWidget<SidebarController> {
     );
   }
 
-  onTapHomepageMenuItem() {}
-  onTapForjewPageMenuItem() {}
-  onTapGroupsMenuItem() {}
-  onTapYourProfileMenuItem() {}
+  onTapMenuItemHomepage() {}
+  onTapMenuItemForjewPage() {}
+
+  /// Navigates to the homeRecentChatsScreen when the action is triggered.
+  onTapMenuItemKibutzChat() {
+    Get.toNamed(
+      AppRoutes.homeRecentChatsScreen,
+    );
+  }
+
+  onTapMenuItemGroups() {}
+  onTapMenuItemYourProfile() {}
 
   /// Navigates to the editProfileScreen when the action is triggered.
-  onTapEditProfileMenuItem() {
+  onTapMenuItemEditProfile() {
     Get.toNamed(
       AppRoutes.editProfileScreen,
     );
   }
 
-  onTapSettingsMenuItem() {}
-  onTapSupportMenuItem() {}
-  onTapLogoutMenuItem() {}
-  onTapAdminDashboardMenuItem() {}
+  onTapMenuItemSettings() {}
+  onTapMenuItemSupport() {}
+  onTapMenuItemLogout() {}
+  onTapMenuItemAdminDashboard() {}
 }

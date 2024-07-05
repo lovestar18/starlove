@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_seven.dart';
+import '../../widgets/app_bar/appbar_subtitle_eight.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_switch.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/notification_settings_controller.dart'; // ignore_for_file: must_be_immutable
 
 class NotificationSettingsScreen
@@ -22,19 +22,28 @@ class NotificationSettingsScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 10.h,
+            horizontal: 30.h,
             vertical: 78.v,
           ),
           child: Column(
-            children: [_buildNotificationSettings(), SizedBox(height: 284.v)],
+            children: [
+              _buildGeneralNotificationRow(),
+              SizedBox(height: 28.v),
+              _buildChatNotificationRow(),
+              SizedBox(height: 28.v),
+              _buildGroupNotificationRow(),
+              SizedBox(height: 28.v),
+              _buildPostNotificationRow(),
+              SizedBox(height: 4.v)
+            ],
           ),
         ),
-        bottomNavigationBar: _buildBottomNavigation(),
+        bottomNavigationBar: _buildBottomNavigationBar(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
@@ -57,7 +66,7 @@ class NotificationSettingsScreen
     return CustomAppBar(
       leadingWidth: 56.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftGray10001,
+        imagePath: ImageConstant.imgArrowLeftGray100011,
         margin: EdgeInsets.only(
           left: 38.h,
           top: 19.v,
@@ -68,127 +77,33 @@ class NotificationSettingsScreen
         },
       ),
       centerTitle: true,
-      title: AppbarSubtitleSeven(
+      title: AppbarSubtitleEight(
         text: "msg_notification_settings".tr,
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildNotificationSettings() {
-    return Container(
+  Widget _buildGeneralNotificationRow() {
+    return SizedBox(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 18.h),
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: double.maxFinite,
-            child: Column(
-              children: [
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "msg_general_notification".tr,
-                          style: CustomTextStyles.bodyMediumBluegray90004_1,
-                        ),
-                      ),
-                      Obx(
-                        () => CustomSwitch(
-                          value: controller.isSelectedSwitch.value,
-                          onChange: (value) {
-                            controller.isSelectedSwitch.value = value;
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 28.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "msg_chat_notifications".tr,
-                          style: CustomTextStyles.bodyMediumBluegray90004_1,
-                        ),
-                      ),
-                      Obx(
-                        () => CustomSwitch(
-                          value: controller.isSelectedSwitch1.value,
-                          onChange: (value) {
-                            controller.isSelectedSwitch1.value = value;
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 28.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "msg_group_notifications".tr,
-                          style: CustomTextStyles.bodyMediumBluegray90004_1,
-                        ),
-                      ),
-                      Obx(
-                        () => CustomSwitch(
-                          value: controller.isSelectedSwitch2.value,
-                          onChange: (value) {
-                            controller.isSelectedSwitch2.value = value;
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 28.v),
-                SizedBox(
-                  width: double.maxFinite,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "msg_post_notifications".tr,
-                          style: CustomTextStyles.bodyMediumBluegray90004_1,
-                        ),
-                      ),
-                      Obx(
-                        () => CustomSwitch(
-                          value: controller.isSelectedSwitch3.value,
-                          onChange: (value) {
-                            controller.isSelectedSwitch3.value = value;
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "msg_general_notification".tr,
+              style: CustomTextStyles.bodyMediumBluegray90005_1,
+            ),
+          ),
+          Obx(
+            () => CustomSwitch(
+              value: controller.isSelectedSwitch.value,
+              onChange: (value) {
+                controller.isSelectedSwitch.value = value;
+              },
             ),
           )
         ],
@@ -197,7 +112,91 @@ class NotificationSettingsScreen
   }
 
   /// Section Widget
-  Widget _buildBottomNavigation() {
+  Widget _buildChatNotificationRow() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "msg_chat_notifications".tr,
+              style: CustomTextStyles.bodyMediumBluegray90005_1,
+            ),
+          ),
+          Obx(
+            () => CustomSwitch(
+              value: controller.isSelectedSwitch1.value,
+              onChange: (value) {
+                controller.isSelectedSwitch1.value = value;
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildGroupNotificationRow() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "msg_group_notifications".tr,
+              style: CustomTextStyles.bodyMediumBluegray90005_1,
+            ),
+          ),
+          Obx(
+            () => CustomSwitch(
+              value: controller.isSelectedSwitch2.value,
+              onChange: (value) {
+                controller.isSelectedSwitch2.value = value;
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildPostNotificationRow() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "msg_post_notifications".tr,
+              style: CustomTextStyles.bodyMediumBluegray90005_1,
+            ),
+          ),
+          Obx(
+            () => CustomSwitch(
+              value: controller.isSelectedSwitch3.value,
+              onChange: (value) {
+                controller.isSelectedSwitch3.value = value;
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildBottomNavigationBar() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -208,11 +207,11 @@ class NotificationSettingsScreen
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -224,10 +223,10 @@ class NotificationSettingsScreen
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

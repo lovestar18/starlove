@@ -20,6 +20,12 @@ extension on TextStyle {
     );
   }
 
+  TextStyle get sFProText {
+    return copyWith(
+      fontFamily: 'SF Pro Text',
+    );
+  }
+
   TextStyle get inter {
     return copyWith(
       fontFamily: 'Inter',
@@ -56,9 +62,9 @@ class CustomTextStyles {
   static get bodyLarge17 => theme.textTheme.bodyLarge!.copyWith(
         fontSize: 17.fSize,
       );
-  static get bodyLargeGothicA1OnPrimaryContainer =>
+  static get bodyLargeGothicA1OnPrimary =>
       theme.textTheme.bodyLarge!.gothicA1.copyWith(
-        color: theme.colorScheme.onPrimaryContainer,
+        color: theme.colorScheme.onPrimary,
         fontSize: 16.fSize,
       );
   static get bodyLargeGray60002 => theme.textTheme.bodyLarge!.copyWith(
@@ -73,9 +79,9 @@ class CustomTextStyles {
       theme.textTheme.bodyLarge!.iBMPlexSans.copyWith(
         fontSize: 16.fSize,
       );
-  static get bodyLargeIBMPlexSansPrimary =>
+  static get bodyLargeIBMPlexSansOnErrorContainer =>
       theme.textTheme.bodyLarge!.iBMPlexSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 16.fSize,
       );
   static get bodyLargeInterBluegray600 =>
@@ -83,8 +89,9 @@ class CustomTextStyles {
         color: appTheme.blueGray600,
         fontSize: 16.fSize,
       );
-  static get bodyLargeInterGray500 => theme.textTheme.bodyLarge!.inter.copyWith(
-        color: appTheme.gray500,
+  static get bodyLargeInterGray50001 =>
+      theme.textTheme.bodyLarge!.inter.copyWith(
+        color: appTheme.gray50001,
         fontSize: 17.fSize,
       );
   static get bodyLargeOpenSans => theme.textTheme.bodyLarge!.openSans.copyWith(
@@ -94,33 +101,37 @@ class CustomTextStyles {
       theme.textTheme.bodyLarge!.openSans.copyWith(
         fontSize: 16.fSize,
       );
-  static get bodyLargeOpenSansBluegray80002 =>
+  static get bodyLargeOpenSansBluegray30001 =>
       theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: appTheme.blueGray80002,
-      );
-  static get bodyLargeOpenSansBluegray90003 =>
-      theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: appTheme.blueGray90003,
+        color: appTheme.blueGray30001,
         fontSize: 16.fSize,
       );
-  static get bodyLargeOpenSansErrorContainer =>
+  static get bodyLargeOpenSansBluegray80001 =>
       theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: theme.colorScheme.errorContainer,
+        color: appTheme.blueGray80001,
+      );
+  static get bodyLargeOpenSansBluegray90004 =>
+      theme.textTheme.bodyLarge!.openSans.copyWith(
+        color: appTheme.blueGray90004,
         fontSize: 16.fSize,
       );
-  static get bodyLargeOpenSansGray60004 =>
+  static get bodyLargeOpenSansGray60005 =>
       theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: appTheme.gray60004,
+        color: appTheme.gray60005,
         fontSize: 16.fSize,
       );
-  static get bodyLargeOpenSansGray90003 =>
+  static get bodyLargeOpenSansGray90001 =>
       theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: appTheme.gray90003,
+        color: appTheme.gray90001,
+      );
+  static get bodyLargeOpenSansGray90004 =>
+      theme.textTheme.bodyLarge!.openSans.copyWith(
+        color: appTheme.gray90004,
         fontSize: 16.fSize,
       );
-  static get bodyLargeOpenSansGray90007 =>
+  static get bodyLargeOpenSansGray90009 =>
       theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: appTheme.gray90007,
+        color: appTheme.gray90009,
         fontSize: 16.fSize,
       );
   static get bodyLargeOpenSansIndigo90002 =>
@@ -129,20 +140,25 @@ class CustomTextStyles {
       );
   static get bodyLargeOpenSansOnErrorContainer =>
       theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: theme.colorScheme.onErrorContainer,
-      );
-  static get bodyLargeOpenSansPrimary =>
-      theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 16.fSize,
       );
-  static get bodyLargeOpenSansRed300 =>
+  static get bodyLargeOpenSansRed30001 =>
       theme.textTheme.bodyLarge!.openSans.copyWith(
-        color: appTheme.red300,
+        color: appTheme.red30001,
       );
-  static get bodyLargePoppinsOnErrorContainer =>
+  static get bodyLargePoppinsGray90001 =>
       theme.textTheme.bodyLarge!.poppins.copyWith(
-        color: theme.colorScheme.onErrorContainer,
+        color: appTheme.gray90001,
+      );
+  static get bodyLargeSFProTextGray800 =>
+      theme.textTheme.bodyLarge!.sFProText.copyWith(
+        color: appTheme.gray800.withOpacity(0.3),
+        fontSize: 17.fSize,
+      );
+  static get bodyLargeSFProTextLightblueA700 =>
+      theme.textTheme.bodyLarge!.sFProText.copyWith(
+        color: appTheme.lightBlueA700,
       );
   static get bodyMedium14 => theme.textTheme.bodyMedium!.copyWith(
         fontSize: 14.fSize,
@@ -155,44 +171,44 @@ class CustomTextStyles {
         color: appTheme.blueGray60001,
         fontSize: 14.fSize,
       );
-  static get bodyMediumBluegray800 => theme.textTheme.bodyMedium!.copyWith(
-        color: appTheme.blueGray800,
-        fontSize: 14.fSize,
-      );
-  static get bodyMediumBluegray90003 => theme.textTheme.bodyMedium!.copyWith(
-        color: appTheme.blueGray90003,
-      );
   static get bodyMediumBluegray90004 => theme.textTheme.bodyMedium!.copyWith(
         color: appTheme.blueGray90004,
+      );
+  static get bodyMediumBluegray90005 => theme.textTheme.bodyMedium!.copyWith(
+        color: appTheme.blueGray90005,
         fontSize: 13.fSize,
         fontWeight: FontWeight.w300,
       );
-  static get bodyMediumBluegray90004_1 => theme.textTheme.bodyMedium!.copyWith(
-        color: appTheme.blueGray90004,
+  static get bodyMediumBluegray90005_1 => theme.textTheme.bodyMedium!.copyWith(
+        color: appTheme.blueGray90005,
       );
-  static get bodyMediumGothicA1OnPrimaryContainer =>
+  static get bodyMediumErrorContainer => theme.textTheme.bodyMedium!.copyWith(
+        color: theme.colorScheme.errorContainer,
+        fontSize: 14.fSize,
+      );
+  static get bodyMediumGothicA1OnPrimary =>
       theme.textTheme.bodyMedium!.gothicA1.copyWith(
-        color: theme.colorScheme.onPrimaryContainer,
+        color: theme.colorScheme.onPrimary,
         fontSize: 14.fSize,
       );
-  static get bodyMediumGray60004 => theme.textTheme.bodyMedium!.copyWith(
-        color: appTheme.gray60004,
+  static get bodyMediumGray60005 => theme.textTheme.bodyMedium!.copyWith(
+        color: appTheme.gray60005,
         fontSize: 14.fSize,
       );
-  static get bodyMediumGray90003 => theme.textTheme.bodyMedium!.copyWith(
-        color: appTheme.gray90003,
+  static get bodyMediumGray90004 => theme.textTheme.bodyMedium!.copyWith(
+        color: appTheme.gray90004,
         fontSize: 14.fSize,
-      );
-  static get bodyMediumGray90005 => theme.textTheme.bodyMedium!.copyWith(
-        color: appTheme.gray90005,
-        fontSize: 13.fSize,
       );
   static get bodyMediumGray90006 => theme.textTheme.bodyMedium!.copyWith(
         color: appTheme.gray90006,
+        fontSize: 13.fSize,
+      );
+  static get bodyMediumGray90008 => theme.textTheme.bodyMedium!.copyWith(
+        color: appTheme.gray90008,
         fontSize: 14.fSize,
       );
-  static get bodyMediumGray90009 => theme.textTheme.bodyMedium!.copyWith(
-        color: appTheme.gray90009,
+  static get bodyMediumGray90011 => theme.textTheme.bodyMedium!.copyWith(
+        color: appTheme.gray90011,
         fontSize: 14.fSize,
       );
   static get bodyMediumIndigo90001 => theme.textTheme.bodyMedium!.copyWith(
@@ -211,27 +227,32 @@ class CustomTextStyles {
         color: appTheme.blueGray60001,
         fontSize: 14.fSize,
       );
+  static get bodyMediumInterGray500 =>
+      theme.textTheme.bodyMedium!.inter.copyWith(
+        color: appTheme.gray500,
+        fontSize: 14.fSize,
+      );
   static get bodyMediumInterGray60003 =>
       theme.textTheme.bodyMedium!.inter.copyWith(
         color: appTheme.gray60003,
         fontSize: 14.fSize,
       );
-  static get bodyMediumInterOnError =>
+  static get bodyMediumInterOnErrorContainer =>
       theme.textTheme.bodyMedium!.inter.copyWith(
-        color: theme.colorScheme.onError,
+        color: theme.colorScheme.onErrorContainer,
         fontSize: 13.fSize,
       );
-  static get bodyMediumInterPrimary =>
+  static get bodyMediumInterOnErrorContainer_1 =>
       theme.textTheme.bodyMedium!.inter.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       );
   static get bodyMediumLight => theme.textTheme.bodyMedium!.copyWith(
         fontSize: 13.fSize,
         fontWeight: FontWeight.w300,
       );
-  static get bodyMediumPoppinsBluegray90003 =>
+  static get bodyMediumPoppinsBluegray90004 =>
       theme.textTheme.bodyMedium!.poppins.copyWith(
-        color: appTheme.blueGray90003,
+        color: appTheme.blueGray90004,
         fontSize: 13.fSize,
         fontWeight: FontWeight.w300,
       );
@@ -250,22 +271,26 @@ class CustomTextStyles {
         color: appTheme.gray60002,
         fontSize: 14.fSize,
       );
-  static get bodyMediumRobotoPrimary =>
+  static get bodyMediumRobotoOnErrorContainer =>
       theme.textTheme.bodyMedium!.roboto.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 14.fSize,
+      );
+  static get bodyMediumSFProText =>
+      theme.textTheme.bodyMedium!.sFProText.copyWith(
+        fontSize: 13.fSize,
       );
   static get bodySmallBlue60001 => theme.textTheme.bodySmall!.copyWith(
         color: appTheme.blue60001,
       );
-  static get bodySmallBlueA40001 => theme.textTheme.bodySmall!.copyWith(
-        color: appTheme.blueA40001,
+  static get bodySmallBlueA400 => theme.textTheme.bodySmall!.copyWith(
+        color: appTheme.blueA400,
       );
   static get bodySmallBluegray10002 => theme.textTheme.bodySmall!.copyWith(
         color: appTheme.blueGray10002,
       );
-  static get bodySmallBluegray30001 => theme.textTheme.bodySmall!.copyWith(
-        color: appTheme.blueGray30001,
+  static get bodySmallBluegray30002 => theme.textTheme.bodySmall!.copyWith(
+        color: appTheme.blueGray30002,
       );
   static get bodySmallBluegray60001 => theme.textTheme.bodySmall!.copyWith(
         color: appTheme.blueGray60001,
@@ -273,24 +298,14 @@ class CustomTextStyles {
   static get bodySmallBluegray60001_1 => theme.textTheme.bodySmall!.copyWith(
         color: appTheme.blueGray60001.withOpacity(0.6),
       );
-  static get bodySmallBluegray90002 => theme.textTheme.bodySmall!.copyWith(
-        color: appTheme.blueGray90002.withOpacity(0.6),
-      );
-  static get bodySmallBluegray90004 => theme.textTheme.bodySmall!.copyWith(
-        color: appTheme.blueGray90004,
+  static get bodySmallBluegray90005 => theme.textTheme.bodySmall!.copyWith(
+        color: appTheme.blueGray90005,
       );
   static get bodySmallCyanA400 => theme.textTheme.bodySmall!.copyWith(
         color: appTheme.cyanA400,
       );
   static get bodySmallIndigo90002 => theme.textTheme.bodySmall!.copyWith(
         color: appTheme.indigo90002,
-      );
-  static get bodySmallIndigo90002_1 => theme.textTheme.bodySmall!.copyWith(
-        color: appTheme.indigo90002.withOpacity(0.5),
-      );
-  static get bodySmallIndigoA70001 => theme.textTheme.bodySmall!.copyWith(
-        color: appTheme.indigoA70001,
-        fontSize: 10.fSize,
       );
   static get bodySmallInterBlack900 =>
       theme.textTheme.bodySmall!.inter.copyWith(
@@ -304,24 +319,33 @@ class CustomTextStyles {
       theme.textTheme.bodySmall!.inter.copyWith(
         color: appTheme.gray60003,
       );
+  static get bodySmallInterGray60004 =>
+      theme.textTheme.bodySmall!.inter.copyWith(
+        color: appTheme.gray60004,
+      );
   static get bodySmallInterIndigo90002 =>
       theme.textTheme.bodySmall!.inter.copyWith(
         color: appTheme.indigo90002,
       );
-  static get bodySmallInterPrimary => theme.textTheme.bodySmall!.inter.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+  static get bodySmallInterOnErrorContainer =>
+      theme.textTheme.bodySmall!.inter.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+      );
+  static get bodySmallOnErrorContainer => theme.textTheme.bodySmall!.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       );
   static get bodySmallPrimary => theme.textTheme.bodySmall!.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.primary,
+        fontSize: 10.fSize,
       );
   static get bodySmallRalewayBluegray10002 =>
       theme.textTheme.bodySmall!.raleway.copyWith(
         color: appTheme.blueGray10002,
       );
   static get bodySmallRoboto => theme.textTheme.bodySmall!.roboto;
-  static get bodySmallRobotoBlueA40001 =>
+  static get bodySmallRobotoBlueA400 =>
       theme.textTheme.bodySmall!.roboto.copyWith(
-        color: appTheme.blueA40001,
+        color: appTheme.blueA400,
       );
 // Display text style
   static get displayMediumRoboto =>
@@ -334,45 +358,44 @@ class CustomTextStyles {
         color: appTheme.black900,
         fontSize: 30.fSize,
       );
-  static get headlineLargeOpenSansGray90007 =>
+  static get headlineLargeOpenSansGray90009 =>
       theme.textTheme.headlineLarge!.openSans.copyWith(
-        color: appTheme.gray90007,
+        color: appTheme.gray90009,
         fontWeight: FontWeight.w400,
       );
-  static get headlineMediumBluegray80001 =>
-      theme.textTheme.headlineMedium!.copyWith(
-        color: appTheme.blueGray80001,
-        fontSize: 28.fSize,
+  static get headlineMediumBlack900 => theme.textTheme.headlineMedium!.copyWith(
+        color: appTheme.black900,
+        fontSize: 29.fSize,
       );
-  static get headlineMediumGothicA1OnPrimaryContainer =>
+  static get headlineMediumGothicA1OnPrimary =>
       theme.textTheme.headlineMedium!.gothicA1.copyWith(
-        color: theme.colorScheme.onPrimaryContainer,
+        color: theme.colorScheme.onPrimary,
         fontSize: 26.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get headlineMediumOpenSans =>
+  static get headlineMediumOpenSansBlack900 =>
       theme.textTheme.headlineMedium!.openSans.copyWith(
-        fontSize: 28.fSize,
+        color: appTheme.black900,
       );
   static get headlineSmallBlack900 => theme.textTheme.headlineSmall!.copyWith(
         color: appTheme.black900,
       );
-  static get headlineSmallInterIndigoA70001 =>
+  static get headlineSmallInterPrimary =>
       theme.textTheme.headlineSmall!.inter.copyWith(
-        color: appTheme.indigoA70001,
+        color: theme.colorScheme.primary,
       );
   static get headlineSmallOpenSansBlack900 =>
       theme.textTheme.headlineSmall!.openSans.copyWith(
         color: appTheme.black900,
         fontSize: 25.fSize,
       );
-  static get headlineSmallOpenSansGray90006 =>
+  static get headlineSmallOpenSansGray90008 =>
       theme.textTheme.headlineSmall!.openSans.copyWith(
-        color: appTheme.gray90006,
+        color: appTheme.gray90008,
       );
-  static get headlineSmallOpenSansWhiteA700 =>
+  static get headlineSmallOpenSansWhiteA70001 =>
       theme.textTheme.headlineSmall!.openSans.copyWith(
-        color: appTheme.whiteA700,
+        color: appTheme.whiteA70001,
         fontWeight: FontWeight.w600,
       );
   static get headlineSmallTealA40001 => theme.textTheme.headlineSmall!.copyWith(
@@ -390,15 +413,25 @@ class CustomTextStyles {
       theme.textTheme.labelLarge!.inter.copyWith(
         color: appTheme.blueGray60001,
       );
-  static get labelLargeInterGray90005 =>
+  static get labelLargeInterGray90006 =>
       theme.textTheme.labelLarge!.inter.copyWith(
-        color: appTheme.gray90005,
+        color: appTheme.gray90006,
         fontSize: 13.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get labelLargeInterIndigoA70001 =>
+  static get labelLargeInterGray90007 =>
       theme.textTheme.labelLarge!.inter.copyWith(
-        color: appTheme.indigoA70001,
+        color: appTheme.gray90007,
+        fontWeight: FontWeight.w700,
+      );
+  static get labelLargeInterLightblueA70001 =>
+      theme.textTheme.labelLarge!.inter.copyWith(
+        color: appTheme.lightBlueA70001,
+        fontWeight: FontWeight.w600,
+      );
+  static get labelLargeInterPrimary =>
+      theme.textTheme.labelLarge!.inter.copyWith(
+        color: theme.colorScheme.primary,
         fontWeight: FontWeight.w600,
       );
   static get labelLargeOpenSans =>
@@ -411,9 +444,9 @@ class CustomTextStyles {
         fontSize: 13.fSize,
         fontWeight: FontWeight.w700,
       );
-  static get labelLargeOpenSansBlueA40001 =>
+  static get labelLargeOpenSansBlueA400 =>
       theme.textTheme.labelLarge!.openSans.copyWith(
-        color: appTheme.blueA40001,
+        color: appTheme.blueA400,
         fontWeight: FontWeight.w700,
       );
   static get labelLargeOpenSansBluegray60001 =>
@@ -421,9 +454,9 @@ class CustomTextStyles {
         color: appTheme.blueGray60001.withOpacity(0.6),
         fontWeight: FontWeight.w700,
       );
-  static get labelLargeOpenSansBluegray90003 =>
+  static get labelLargeOpenSansBluegray90004 =>
       theme.textTheme.labelLarge!.openSans.copyWith(
-        color: appTheme.blueGray90003,
+        color: appTheme.blueGray90004,
         fontSize: 13.fSize,
         fontWeight: FontWeight.w600,
       );
@@ -438,21 +471,21 @@ class CustomTextStyles {
         color: appTheme.gray60003,
         fontWeight: FontWeight.w700,
       );
-  static get labelLargeOpenSansGray90005 =>
+  static get labelLargeOpenSansGray90006 =>
       theme.textTheme.labelLarge!.openSans.copyWith(
-        color: appTheme.gray90005,
+        color: appTheme.gray90006,
         fontSize: 13.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get labelLargeOpenSansPrimary =>
+  static get labelLargeOpenSansOnErrorContainer =>
       theme.textTheme.labelLarge!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
-        fontSize: 13.fSize,
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontWeight: FontWeight.w700,
       );
-  static get labelLargeOpenSansPrimaryBold =>
+  static get labelLargeOpenSansOnErrorContainerBold =>
       theme.textTheme.labelLarge!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+        fontSize: 13.fSize,
         fontWeight: FontWeight.w700,
       );
   static get labelLargePoppinsBlack900 =>
@@ -476,52 +509,68 @@ class CustomTextStyles {
       theme.textTheme.labelLarge!.roboto.copyWith(
         color: appTheme.indigoA100,
       );
-  static get labelLargeRobotoIndigoA70001 =>
+  static get labelLargeRobotoOnErrorContainer =>
       theme.textTheme.labelLarge!.roboto.copyWith(
-        color: appTheme.indigoA70001,
-        fontWeight: FontWeight.w700,
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       );
   static get labelLargeRobotoPrimary =>
       theme.textTheme.labelLarge!.roboto.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.primary,
+        fontWeight: FontWeight.w700,
+      );
+  static get labelLargeSFProTextBlack900 =>
+      theme.textTheme.labelLarge!.sFProText.copyWith(
+        color: appTheme.black900,
+        fontSize: 13.fSize,
+        fontWeight: FontWeight.w600,
+      );
+  static get labelLargeSFProTextBlack90013 =>
+      theme.textTheme.labelLarge!.sFProText.copyWith(
+        color: appTheme.black900,
+        fontSize: 13.fSize,
       );
   static get labelMediumInterBlack900 =>
       theme.textTheme.labelMedium!.inter.copyWith(
         color: appTheme.black900.withOpacity(0.4),
         fontWeight: FontWeight.w600,
       );
+  static get labelMediumInterOnErrorContainer =>
+      theme.textTheme.labelMedium!.inter.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+        fontSize: 10.fSize,
+        fontWeight: FontWeight.w600,
+      );
+  static get labelMediumOnErrorContainer =>
+      theme.textTheme.labelMedium!.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+        fontSize: 10.fSize,
+      );
   static get labelMediumRoboto => theme.textTheme.labelMedium!.roboto;
-  static get labelMediumRobotoPrimary =>
+  static get labelMediumRobotoOnErrorContainer =>
       theme.textTheme.labelMedium!.roboto.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       );
 // Title text style
-  static get titleLargeInterIndigoA70001 =>
+  static get titleLargeInterOnErrorContainer =>
       theme.textTheme.titleLarge!.inter.copyWith(
-        color: appTheme.indigoA70001,
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleLargeInterPrimary =>
+  static get titleLargeInterOnErrorContainerBold =>
       theme.textTheme.titleLarge!.inter.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
-        fontSize: 20.fSize,
-        fontWeight: FontWeight.w600,
-      );
-  static get titleLargeInterPrimaryBold =>
-      theme.textTheme.titleLarge!.inter.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 20.fSize,
         fontWeight: FontWeight.w700,
       );
-  static get titleLargeOpenSans =>
-      theme.textTheme.titleLarge!.openSans.copyWith(
+  static get titleLargeInterPrimary =>
+      theme.textTheme.titleLarge!.inter.copyWith(
+        color: theme.colorScheme.primary,
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleLargeOpenSansBluegray90003 =>
+  static get titleLargeOpenSans =>
       theme.textTheme.titleLarge!.openSans.copyWith(
-        color: appTheme.blueGray90003,
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
@@ -529,10 +578,16 @@ class CustomTextStyles {
       theme.textTheme.titleLarge!.openSans.copyWith(
         color: appTheme.blueGray90004,
         fontSize: 20.fSize,
+        fontWeight: FontWeight.w600,
       );
-  static get titleLargeOpenSansBluegray90004Bold =>
+  static get titleLargeOpenSansBluegray90005 =>
       theme.textTheme.titleLarge!.openSans.copyWith(
-        color: appTheme.blueGray90004,
+        color: appTheme.blueGray90005,
+        fontSize: 20.fSize,
+      );
+  static get titleLargeOpenSansBluegray90005Bold =>
+      theme.textTheme.titleLarge!.openSans.copyWith(
+        color: appTheme.blueGray90005,
         fontSize: 20.fSize,
         fontWeight: FontWeight.w700,
       );
@@ -541,32 +596,43 @@ class CustomTextStyles {
         fontSize: 20.fSize,
         fontWeight: FontWeight.w700,
       );
-  static get titleLargeOpenSansGray90003 =>
+  static get titleLargeOpenSansGray90004 =>
       theme.textTheme.titleLarge!.openSans.copyWith(
-        color: appTheme.gray90003,
+        color: appTheme.gray90004,
         fontSize: 20.fSize,
       );
-  static get titleLargeOpenSansIndigoA70001 =>
+  static get titleLargeOpenSansGray90007 =>
       theme.textTheme.titleLarge!.openSans.copyWith(
-        color: appTheme.indigoA70001,
+        color: appTheme.gray90007,
+        fontSize: 20.fSize,
+        fontWeight: FontWeight.w700,
+      );
+  static get titleLargeOpenSansGray9000720 =>
+      theme.textTheme.titleLarge!.openSans.copyWith(
+        color: appTheme.gray90007,
+        fontSize: 20.fSize,
+      );
+  static get titleLargeOpenSansOnErrorContainer =>
+      theme.textTheme.titleLarge!.openSans.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+        fontSize: 20.fSize,
+        fontWeight: FontWeight.w600,
+      );
+  static get titleLargeOpenSansOnErrorContainerSemiBold =>
+      theme.textTheme.titleLarge!.openSans.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+        fontSize: 20.fSize,
+        fontWeight: FontWeight.w600,
+      );
+  static get titleLargeOpenSansOnErrorContainerSemiBold20 =>
+      theme.textTheme.titleLarge!.openSans.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
   static get titleLargeOpenSansPrimary =>
       theme.textTheme.titleLarge!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
-        fontSize: 20.fSize,
-        fontWeight: FontWeight.w600,
-      );
-  static get titleLargeOpenSansPrimarySemiBold =>
-      theme.textTheme.titleLarge!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
-        fontSize: 20.fSize,
-        fontWeight: FontWeight.w600,
-      );
-  static get titleLargeOpenSansPrimarySemiBold20 =>
-      theme.textTheme.titleLarge!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.primary,
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
@@ -576,27 +642,27 @@ class CustomTextStyles {
         fontSize: 20.fSize,
         fontWeight: FontWeight.w700,
       );
-  static get titleLargeOpenSansWhiteA700 =>
+  static get titleLargeOpenSansWhiteA70001 =>
       theme.textTheme.titleLarge!.openSans.copyWith(
-        color: appTheme.whiteA700,
+        color: appTheme.whiteA70001,
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleLargePoppinsBluegray90003 =>
+  static get titleLargePoppinsBluegray90004 =>
       theme.textTheme.titleLarge!.poppins.copyWith(
-        color: appTheme.blueGray90003,
+        color: appTheme.blueGray90004,
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleLargePoppinsGray90004 =>
+  static get titleLargePoppinsGray90005 =>
       theme.textTheme.titleLarge!.poppins.copyWith(
-        color: appTheme.gray90004,
+        color: appTheme.gray90005,
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleLargeRalewayPrimary =>
+  static get titleLargeRalewayOnErrorContainer =>
       theme.textTheme.titleLarge!.raleway.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 20.fSize,
         fontWeight: FontWeight.w600,
       );
@@ -604,9 +670,9 @@ class CustomTextStyles {
         fontSize: 20.fSize,
         fontWeight: FontWeight.w500,
       );
-  static get titleMediumGothicA1OnPrimaryContainer =>
+  static get titleMediumGothicA1OnPrimary =>
       theme.textTheme.titleMedium!.gothicA1.copyWith(
-        color: theme.colorScheme.onPrimaryContainer,
+        color: theme.colorScheme.onPrimary,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
@@ -632,27 +698,27 @@ class CustomTextStyles {
         fontSize: 16.fSize,
         fontWeight: FontWeight.w900,
       );
-  static get titleMediumInterGray50001 =>
+  static get titleMediumInterGray50003 =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray50001,
+        color: appTheme.gray50003,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumInterGray50001Medium =>
+  static get titleMediumInterGray50003Medium =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray50001,
+        color: appTheme.gray50003,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w500,
       );
-  static get titleMediumInterGray50001Medium16 =>
+  static get titleMediumInterGray50003Medium16 =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray50001,
+        color: appTheme.gray50003,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w500,
       );
-  static get titleMediumInterGray50001SemiBold =>
+  static get titleMediumInterGray50003SemiBold =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray50001,
+        color: appTheme.gray50003,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
@@ -662,38 +728,38 @@ class CustomTextStyles {
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumInterGray90008 =>
+  static get titleMediumInterGray90010 =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray90008,
+        color: appTheme.gray90010,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumInterGray90008SemiBold =>
+  static get titleMediumInterGray90010SemiBold =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray90008,
+        color: appTheme.gray90010,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumInterGray90011 =>
+  static get titleMediumInterGray90013 =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray90011,
+        color: appTheme.gray90013,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w900,
       );
-  static get titleMediumInterGray9001116 =>
+  static get titleMediumInterGray9001316 =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray90011,
+        color: appTheme.gray90013,
         fontSize: 16.fSize,
       );
-  static get titleMediumInterGray90011Black =>
+  static get titleMediumInterGray90013Black =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray90011,
+        color: appTheme.gray90013,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w900,
       );
-  static get titleMediumInterGray90011Black16 =>
+  static get titleMediumInterGray90013Black16 =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.gray90011,
+        color: appTheme.gray90013,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w900,
       );
@@ -702,27 +768,27 @@ class CustomTextStyles {
         color: appTheme.indigo500,
         fontSize: 16.fSize,
       );
-  static get titleMediumInterIndigoA70001 =>
+  static get titleMediumInterOnErrorContainer =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: appTheme.indigoA70001,
-        fontSize: 16.fSize,
-        fontWeight: FontWeight.w600,
-      );
-  static get titleMediumInterPrimary =>
-      theme.textTheme.titleMedium!.inter.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 16.fSize,
         fontWeight: FontWeight.w500,
       );
-  static get titleMediumInterPrimary16 =>
+  static get titleMediumInterOnErrorContainer16 =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 16.fSize,
       );
-  static get titleMediumInterPrimary16_1 =>
+  static get titleMediumInterOnErrorContainer16_1 =>
       theme.textTheme.titleMedium!.inter.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 16.fSize,
+      );
+  static get titleMediumInterPrimary =>
+      theme.textTheme.titleMedium!.inter.copyWith(
+        color: theme.colorScheme.primary,
+        fontSize: 16.fSize,
+        fontWeight: FontWeight.w600,
       );
   static get titleMediumMedium => theme.textTheme.titleMedium!.copyWith(
         fontSize: 16.fSize,
@@ -731,6 +797,10 @@ class CustomTextStyles {
   static get titleMediumMedium16 => theme.textTheme.titleMedium!.copyWith(
         fontSize: 16.fSize,
         fontWeight: FontWeight.w500,
+      );
+  static get titleMediumOnErrorContainer =>
+      theme.textTheme.titleMedium!.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       );
   static get titleMediumOpenSans =>
       theme.textTheme.titleMedium!.openSans.copyWith(
@@ -741,50 +811,50 @@ class CustomTextStyles {
         color: appTheme.gray600,
         fontSize: 16.fSize,
       );
-  static get titleMediumOpenSansGray90003 =>
+  static get titleMediumOpenSansGray90004 =>
       theme.textTheme.titleMedium!.openSans.copyWith(
-        color: appTheme.gray90003,
+        color: appTheme.gray90004,
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumOpenSansGray90003SemiBold =>
+  static get titleMediumOpenSansGray90004SemiBold =>
       theme.textTheme.titleMedium!.openSans.copyWith(
-        color: appTheme.gray90003,
+        color: appTheme.gray90004,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumOpenSansGray90006 =>
+  static get titleMediumOpenSansGray90008 =>
       theme.textTheme.titleMedium!.openSans.copyWith(
-        color: appTheme.gray90006,
+        color: appTheme.gray90008,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumOpenSansGray90012 =>
+  static get titleMediumOpenSansGray90014 =>
       theme.textTheme.titleMedium!.openSans.copyWith(
-        color: appTheme.gray90012,
+        color: appTheme.gray90014,
         fontSize: 16.fSize,
       );
   static get titleMediumOpenSansIndigo90002 =>
       theme.textTheme.titleMedium!.openSans.copyWith(
         color: appTheme.indigo90002,
       );
-  static get titleMediumOpenSansPrimary =>
+  static get titleMediumOpenSansOnErrorContainer =>
       theme.textTheme.titleMedium!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumOpenSansPrimarySemiBold =>
+  static get titleMediumOpenSansOnErrorContainerSemiBold =>
       theme.textTheme.titleMedium!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontWeight: FontWeight.w600,
       );
-  static get titleMediumOpenSansPrimary_1 =>
+  static get titleMediumOpenSansOnErrorContainer_1 =>
       theme.textTheme.titleMedium!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       );
-  static get titleMediumOpenSansRed300 =>
+  static get titleMediumOpenSansRed30001 =>
       theme.textTheme.titleMedium!.openSans.copyWith(
-        color: appTheme.red300,
+        color: appTheme.red30001,
         fontSize: 16.fSize,
         fontWeight: FontWeight.w600,
       );
@@ -800,8 +870,10 @@ class CustomTextStyles {
         fontSize: 16.fSize,
         fontWeight: FontWeight.w500,
       );
-  static get titleMediumPrimary => theme.textTheme.titleMedium!.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+  static get titleMediumSFProTextLightblueA700 =>
+      theme.textTheme.titleMedium!.sFProText.copyWith(
+        color: appTheme.lightBlueA700,
+        fontWeight: FontWeight.w600,
       );
   static get titleSmallBlack900 => theme.textTheme.titleSmall!.copyWith(
         color: appTheme.black900.withOpacity(0.4),
@@ -811,12 +883,23 @@ class CustomTextStyles {
         color: appTheme.blueGray100,
         fontWeight: FontWeight.w600,
       );
-  static get titleSmallGray90009 => theme.textTheme.titleSmall!.copyWith(
-        color: appTheme.gray90009,
+  static get titleSmallGray90011 => theme.textTheme.titleSmall!.copyWith(
+        color: appTheme.gray90011,
         fontWeight: FontWeight.w600,
       );
-  static get titleSmallGray90009_1 => theme.textTheme.titleSmall!.copyWith(
-        color: appTheme.gray90009,
+  static get titleSmallGray90011_1 => theme.textTheme.titleSmall!.copyWith(
+        color: appTheme.gray90011,
+      );
+  static get titleSmallOnErrorContainer => theme.textTheme.titleSmall!.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+      );
+  static get titleSmallOnErrorContainer_1 =>
+      theme.textTheme.titleSmall!.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+      );
+  static get titleSmallOnErrorContainer_2 =>
+      theme.textTheme.titleSmall!.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       );
   static get titleSmallOpenSans =>
       theme.textTheme.titleSmall!.openSans.copyWith(
@@ -832,9 +915,9 @@ class CustomTextStyles {
         color: appTheme.blue500,
         fontWeight: FontWeight.w700,
       );
-  static get titleSmallOpenSansBluegray90003 =>
+  static get titleSmallOpenSansBluegray90004 =>
       theme.textTheme.titleSmall!.openSans.copyWith(
-        color: appTheme.blueGray90003,
+        color: appTheme.blueGray90004,
         fontSize: 15.fSize,
         fontWeight: FontWeight.w700,
       );
@@ -847,14 +930,14 @@ class CustomTextStyles {
         color: appTheme.gray400,
         fontWeight: FontWeight.w700,
       );
-  static get titleSmallOpenSansGray90003 =>
+  static get titleSmallOpenSansGray90004 =>
       theme.textTheme.titleSmall!.openSans.copyWith(
-        color: appTheme.gray90003,
+        color: appTheme.gray90004,
         fontWeight: FontWeight.w600,
       );
-  static get titleSmallOpenSansGray90012 =>
+  static get titleSmallOpenSansGray90014 =>
       theme.textTheme.titleSmall!.openSans.copyWith(
-        color: appTheme.gray90012,
+        color: appTheme.gray90014,
         fontWeight: FontWeight.w700,
       );
   static get titleSmallOpenSansIndigo90002 =>
@@ -862,19 +945,19 @@ class CustomTextStyles {
         color: appTheme.indigo90002,
         fontWeight: FontWeight.w700,
       );
-  static get titleSmallOpenSansPrimary =>
+  static get titleSmallOpenSansOnErrorContainer =>
       theme.textTheme.titleSmall!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontWeight: FontWeight.w700,
       );
-  static get titleSmallOpenSansPrimaryBold =>
+  static get titleSmallOpenSansOnErrorContainerBold =>
       theme.textTheme.titleSmall!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontWeight: FontWeight.w700,
       );
-  static get titleSmallOpenSansPrimaryBold_1 =>
+  static get titleSmallOpenSansOnErrorContainerBold_1 =>
       theme.textTheme.titleSmall!.openSans.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
         fontWeight: FontWeight.w700,
       );
   static get titleSmallOpenSansTeal900 =>
@@ -883,19 +966,25 @@ class CustomTextStyles {
         fontSize: 15.fSize,
         fontWeight: FontWeight.w700,
       );
-  static get titleSmallPoppinsPrimary =>
+  static get titleSmallPoppinsBluegray90004 =>
       theme.textTheme.titleSmall!.poppins.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: appTheme.blueGray90004,
         fontSize: 15.fSize,
       );
-  static get titleSmallPrimary => theme.textTheme.titleSmall!.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+  static get titleSmallPoppinsBluegray90005 =>
+      theme.textTheme.titleSmall!.poppins.copyWith(
+        color: appTheme.blueGray90005,
+        fontSize: 15.fSize,
       );
-  static get titleSmallPrimary_1 => theme.textTheme.titleSmall!.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+  static get titleSmallPoppinsOnErrorContainer =>
+      theme.textTheme.titleSmall!.poppins.copyWith(
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
+        fontSize: 15.fSize,
       );
-  static get titleSmallPrimary_2 => theme.textTheme.titleSmall!.copyWith(
-        color: theme.colorScheme.primary.withOpacity(1),
+  static get titleSmallPoppinsTeal900 =>
+      theme.textTheme.titleSmall!.poppins.copyWith(
+        color: appTheme.teal900,
+        fontSize: 15.fSize,
       );
   static get titleSmallRoboto => theme.textTheme.titleSmall!.roboto.copyWith(
         fontSize: 15.fSize,

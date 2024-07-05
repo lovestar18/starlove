@@ -3,8 +3,8 @@ import '../../core/app_export.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import '../user_profile_page/user_profile_page.dart';
 import 'controller/user_profile_tab_container_controller.dart'; // ignore_for_file: must_be_immutable
 
@@ -19,7 +19,7 @@ class UserProfileTabContainerScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: SizedBox(
           width: double.maxFinite,
           child: SingleChildScrollView(
@@ -27,7 +27,7 @@ class UserProfileTabContainerScreen
               children: [
                 _buildHeader(),
                 SizedBox(height: 12.v),
-                _buildSocialIcons(),
+                _buildProfileSection(),
                 SizedBox(height: 8.v),
                 _buildTabview(),
                 SizedBox(
@@ -85,92 +85,90 @@ class UserProfileTabContainerScreen
   }
 
   /// Section Widget
-  Widget _buildProfileInfo() {
-    return SizedBox(
+  Widget _buildProfileSection() {
+    return Container(
       width: double.maxFinite,
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 22.h,
+      ),
       child: Column(
         children: [
-          Text(
-            "lbl_jill_joy".tr,
-            style: CustomTextStyles.headlineSmallTealA40001,
-          ),
-          SizedBox(height: 6.v),
-          Text(
-            "lbl_bio3".tr,
-            style: CustomTextStyles.bodyLargeOpenSans,
-          ),
-          SizedBox(height: 20.v),
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 36.h,
-              vertical: 8.v,
-            ),
-            decoration: AppDecoration.fillGray10005.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder8,
-            ),
+          SizedBox(
             width: double.maxFinite,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
+            child: Column(
               children: [
-                RichText(
-                  text: TextSpan(
+                Text(
+                  "lbl_jill_joy".tr,
+                  style: CustomTextStyles.headlineSmallTealA40001,
+                ),
+                SizedBox(height: 6.v),
+                Text(
+                  "lbl_bio3".tr,
+                  style: CustomTextStyles.bodyLargeOpenSans16,
+                ),
+                SizedBox(height: 20.v),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 36.h,
+                    vertical: 8.v,
+                  ),
+                  decoration: AppDecoration.fillGray.copyWith(
+                    borderRadius: BorderRadiusStyle.roundedBorder8,
+                  ),
+                  width: double.maxFinite,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextSpan(
-                        text: "lbl_220".tr,
-                        style: CustomTextStyles.titleMediumInterGray9001116,
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "lbl_220".tr,
+                              style:
+                                  CustomTextStyles.titleMediumInterGray9001316,
+                            ),
+                            TextSpan(
+                              text: " ",
+                            ),
+                            TextSpan(
+                              text: "lbl_followers".tr,
+                              style:
+                                  CustomTextStyles.titleMediumInterGray400Black,
+                            )
+                          ],
+                        ),
+                        textAlign: TextAlign.left,
                       ),
-                      TextSpan(
-                        text: " ",
-                      ),
-                      TextSpan(
-                        text: "lbl_followers".tr,
-                        style: CustomTextStyles.titleMediumInterGray400Black,
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "lbl_150".tr,
+                                style: CustomTextStyles
+                                    .titleMediumInterGray9001316,
+                              ),
+                              TextSpan(
+                                text: " ",
+                              ),
+                              TextSpan(
+                                text: "lbl_following".tr,
+                                style: CustomTextStyles
+                                    .titleMediumInterGray400Black,
+                              )
+                            ],
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
                       )
                     ],
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "lbl_150".tr,
-                          style: CustomTextStyles.titleMediumInterGray9001116,
-                        ),
-                        TextSpan(
-                          text: " ",
-                        ),
-                        TextSpan(
-                          text: "lbl_following".tr,
-                          style: CustomTextStyles.titleMediumInterGray400Black,
-                        )
-                      ],
-                    ),
-                    textAlign: TextAlign.left,
                   ),
                 )
               ],
             ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildSocialIcons() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.only(
-        left: 12.h,
-        right: 14.h,
-      ),
-      child: Column(
-        children: [
-          _buildProfileInfo(),
+          ),
           SizedBox(height: 6.v),
           SizedBox(
             width: 152.h,
@@ -240,7 +238,7 @@ class UserProfileTabContainerScreen
                   ),
                 ),
                 CustomImageView(
-                  imagePath: ImageConstant.imgInfo,
+                  imagePath: ImageConstant.imgInfoBlueGray300,
                   height: 14.v,
                   width: 16.h,
                   margin: EdgeInsets.only(left: 10.h),
@@ -259,7 +257,7 @@ class UserProfileTabContainerScreen
       height: 50.v,
       margin: EdgeInsets.only(right: 4.h),
       decoration: BoxDecoration(
-        color: theme.colorScheme.primary.withOpacity(1),
+        color: theme.colorScheme.onErrorContainer.withOpacity(1),
       ),
       width: double.maxFinite,
       child: TabBar(
@@ -333,11 +331,11 @@ class UserProfileTabContainerScreen
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -349,10 +347,10 @@ class UserProfileTabContainerScreen
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 
-enum BottomBarEnum {
-  Homegray400,
-  Gridgray400,
-  Iconlylightnotificationgray400,
-  Iconlylightprofile
-}
+enum BottomBarEnum { Home, Grid, Iconlylightnotification, Iconlylightprofile }
 // ignore_for_file: must_be_immutable
 
 // ignore_for_file: must_be_immutable
@@ -18,19 +13,19 @@ class CustomBottomAppBar extends StatelessWidget {
 
   RxList<BottomMenuModel> bottomMenuList = [
     BottomMenuModel(
-        icon: ImageConstant.imgHomeGray400,
-        activeIcon: ImageConstant.imgHomeGray400,
-        type: BottomBarEnum.Homegray400,
+        icon: ImageConstant.imgHome,
+        activeIcon: ImageConstant.imgHome,
+        type: BottomBarEnum.Home,
         isSelected: true),
     BottomMenuModel(
-      icon: ImageConstant.imgGridGray400,
-      activeIcon: ImageConstant.imgGridGray400,
-      type: BottomBarEnum.Gridgray400,
+      icon: ImageConstant.imgGrid,
+      activeIcon: ImageConstant.imgGrid,
+      type: BottomBarEnum.Grid,
     ),
     BottomMenuModel(
-      icon: ImageConstant.imgIconlyLightNotificationGray400,
-      activeIcon: ImageConstant.imgIconlyLightNotificationGray400,
-      type: BottomBarEnum.Iconlylightnotificationgray400,
+      icon: ImageConstant.imgIconlyLightNotification,
+      activeIcon: ImageConstant.imgIconlyLightNotification,
+      type: BottomBarEnum.Iconlylightnotification,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgIconlyLightProfile,

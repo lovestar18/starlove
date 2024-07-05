@@ -3,13 +3,13 @@ import '../../core/app_export.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/admin_dashboard_member_view_container_controller.dart';
-import 'models/listtwentytwote_item_model.dart';
-import 'models/memberlist_item_model.dart';
-import 'widgets/listtwentytwote_item_widget.dart';
-import 'widgets/memberlist_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/columntwentytwo1_item_model.dart';
+import 'models/headerlist_item_model.dart';
+import 'widgets/columntwentytwo1_item_widget.dart';
+import 'widgets/headerlist_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class AdminDashboardMemberViewContainerScreen
     extends GetWidget<AdminDashboardMemberViewContainerController> {
@@ -22,16 +22,16 @@ class AdminDashboardMemberViewContainerScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: Column(
           children: [
             SizedBox(height: 56.v),
-            _buildMainColumn(),
+            _buildWelcomeSection(),
             SizedBox(height: 48.v),
-            _buildMemberList()
+            _buildHeaderList()
           ],
         ),
-        bottomNavigationBar: _buildBottomNavigation(),
+        bottomNavigationBar: _buildNavigationBar(),
         floatingActionButton: CustomFloatingButton(
           height: 54,
           width: 60,
@@ -47,75 +47,88 @@ class AdminDashboardMemberViewContainerScreen
   }
 
   /// Section Widget
-  Widget _buildUserInfoSection() {
+  Widget _buildWelcomeSection() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.only(right: 8.h),
+      margin: EdgeInsets.only(
+        left: 16.h,
+        right: 18.h,
+      ),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             width: double.maxFinite,
-            margin: EdgeInsets.only(right: 4.h),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
+            child: Column(
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 2.v),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "lbl_hi_name".tr,
-                          style: CustomTextStyles.headlineMediumBluegray80001,
+                Container(
+                  width: double.maxFinite,
+                  margin: EdgeInsets.only(right: 4.h),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: 2.v),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "lbl_hi_name".tr,
+                                style: theme.textTheme.headlineMedium,
+                              ),
+                              SizedBox(height: 6.v),
+                              Text(
+                                "msg_welcome_to_the_admin".tr,
+                                style: CustomTextStyles
+                                    .bodyMediumRobotoBluegray40002,
+                              )
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 6.v),
-                        Text(
-                          "msg_welcome_to_the_admin".tr,
-                          style: CustomTextStyles.bodyMediumRobotoBluegray40002,
-                        )
-                      ],
-                    ),
+                      ),
+                      CustomImageView(
+                        imagePath: ImageConstant.imgMohammadreza,
+                        height: 56.adaptSize,
+                        width: 56.adaptSize,
+                        radius: BorderRadius.circular(
+                          28.h,
+                        ),
+                        alignment: Alignment.bottomCenter,
+                      )
+                    ],
                   ),
                 ),
-                CustomImageView(
-                  imagePath: ImageConstant.imgMohammadreza,
-                  height: 56.adaptSize,
-                  width: 56.adaptSize,
-                  radius: BorderRadius.circular(
-                    28.h,
+                SizedBox(height: 48.v),
+                SizedBox(
+                  height: 122.v,
+                  width: double.maxFinite,
+                  child: Obx(
+                    () => ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      separatorBuilder: (context, index) {
+                        return SizedBox(
+                          width: 20.h,
+                        );
+                      },
+                      itemCount: controller
+                          .adminDashboardMemberViewContainerModelObj
+                          .value
+                          .columntwentytwo1ItemList
+                          .value
+                          .length,
+                      itemBuilder: (context, index) {
+                        Columntwentytwo1ItemModel model = controller
+                            .adminDashboardMemberViewContainerModelObj
+                            .value
+                            .columntwentytwo1ItemList
+                            .value[index];
+                        return Columntwentytwo1ItemWidget(
+                          model,
+                        );
+                      },
+                    ),
                   ),
-                  alignment: Alignment.bottomCenter,
                 )
               ],
-            ),
-          ),
-          SizedBox(height: 48.v),
-          SizedBox(
-            height: 122.v,
-            width: double.maxFinite,
-            child: Obx(
-              () => ListView.separated(
-                padding: EdgeInsets.only(left: 4.h),
-                scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, index) {
-                  return SizedBox(
-                    width: 20.h,
-                  );
-                },
-                itemCount: controller.adminDashboardMemberViewContainerModelObj
-                    .value.listtwentytwoteItemList.value.length,
-                itemBuilder: (context, index) {
-                  ListtwentytwoteItemModel model = controller
-                      .adminDashboardMemberViewContainerModelObj
-                      .value
-                      .listtwentytwoteItemList
-                      .value[index];
-                  return ListtwentytwoteItemWidget(
-                    model,
-                  );
-                },
-              ),
             ),
           )
         ],
@@ -124,18 +137,7 @@ class AdminDashboardMemberViewContainerScreen
   }
 
   /// Section Widget
-  Widget _buildMainColumn() {
-    return Container(
-      width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 10.h),
-      child: Column(
-        children: [_buildUserInfoSection()],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildMemberList() {
+  Widget _buildHeaderList() {
     return SizedBox(
       width: double.maxFinite,
       child: Obx(
@@ -143,14 +145,14 @@ class AdminDashboardMemberViewContainerScreen
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: controller.adminDashboardMemberViewContainerModelObj.value
-              .memberlistItemList.value.length,
+              .headerlistItemList.value.length,
           itemBuilder: (context, index) {
-            MemberlistItemModel model = controller
+            HeaderlistItemModel model = controller
                 .adminDashboardMemberViewContainerModelObj
                 .value
-                .memberlistItemList
+                .headerlistItemList
                 .value[index];
-            return MemberlistItemWidget(
+            return HeaderlistItemWidget(
               model,
             );
           },
@@ -160,7 +162,7 @@ class AdminDashboardMemberViewContainerScreen
   }
 
   /// Section Widget
-  Widget _buildBottomNavigation() {
+  Widget _buildNavigationBar() {
     return CustomBottomAppBar(
       onChanged: (BottomBarEnum type) {
         Get.toNamed(getCurrentRoute(type), id: 1);
@@ -171,11 +173,11 @@ class AdminDashboardMemberViewContainerScreen
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -187,10 +189,10 @@ class AdminDashboardMemberViewContainerScreen
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

@@ -7,11 +7,11 @@ import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_search_view.dart';
 import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_page/community_forums_response_page.dart';
-import '../homepage_page/homepage_page.dart';
+import '../community_forums_response_screen/community_forums_response_screen.dart';
+import '../homepage_container1_page/homepage_container1_page.dart';
 import 'controller/moderate_members_controller.dart';
-import 'models/userprofileslist1_item_model.dart';
-import 'widgets/userprofileslist1_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/userprofilelist5_item_model.dart';
+import 'widgets/userprofilelist5_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   const ModerateMembersScreen({Key? key})
@@ -24,16 +24,35 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 10.h,
+            horizontal: 16.h,
             vertical: 8.v,
           ),
           child: Column(
-            children: [_buildSearchColumn(), SizedBox(height: 18.v)],
+            children: [
+              SizedBox(
+                width: double.maxFinite,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 4.h),
+                      child: CustomSearchView(
+                        controller: controller.searchController,
+                        hintText: "lbl_search".tr,
+                        hintStyle: CustomTextStyles.bodyLargeInterGray50001,
+                      ),
+                    ),
+                    SizedBox(height: 18.v),
+                    _buildUserProfileList()
+                  ],
+                ),
+              ),
+              SizedBox(height: 4.v)
+            ],
           ),
         ),
         bottomNavigationBar: _buildBottomNavigationBar(),
@@ -41,7 +60,7 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
           height: 54,
           width: 60,
           child: CustomImageView(
-            imagePath: ImageConstant.imgFieldNavigation,
+            imagePath: ImageConstant.imgSearchOnerrorcontainer,
             height: 27.0.v,
             width: 30.0.h,
           ),
@@ -56,7 +75,7 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
     return CustomAppBar(
       leadingWidth: 25.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftIndigo9001,
+        imagePath: ImageConstant.imgArrowLeftIndigo900,
         margin: EdgeInsets.only(
           left: 19.h,
           top: 22.v,
@@ -74,18 +93,7 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   }
 
   /// Section Widget
-  Widget _buildSearchBar() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8.h),
-      child: CustomSearchView(
-        controller: controller.searchBarController,
-        hintText: "lbl_search".tr,
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildUserProfilesList() {
+  Widget _buildUserProfileList() {
     return SizedBox(
       width: double.maxFinite,
       child: Obx(
@@ -98,42 +106,15 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
             );
           },
           itemCount: controller.moderateMembersModelObj.value
-              .userprofileslist1ItemList.value.length,
+              .userprofilelist5ItemList.value.length,
           itemBuilder: (context, index) {
-            Userprofileslist1ItemModel model = controller
-                .moderateMembersModelObj
-                .value
-                .userprofileslist1ItemList
-                .value[index];
-            return Userprofileslist1ItemWidget(
+            Userprofilelist5ItemModel model = controller.moderateMembersModelObj
+                .value.userprofilelist5ItemList.value[index];
+            return Userprofilelist5ItemWidget(
               model,
             );
           },
         ),
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildModerateMembersColumn() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Column(
-        children: [
-          _buildSearchBar(),
-          SizedBox(height: 18.v),
-          _buildUserProfilesList()
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildSearchColumn() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Column(
-        children: [_buildModerateMembersColumn()],
       ),
     );
   }
@@ -150,11 +131,11 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Homegray400:
-        return AppRoutes.homepagePage;
-      case BottomBarEnum.Gridgray400:
-        return AppRoutes.communityForumsResponsePage;
-      case BottomBarEnum.Iconlylightnotificationgray400:
+      case BottomBarEnum.Home:
+        return AppRoutes.homepageContainer1Page;
+      case BottomBarEnum.Grid:
+        return AppRoutes.communityForumsResponseScreen;
+      case BottomBarEnum.Iconlylightnotification:
         return "/";
       case BottomBarEnum.Iconlylightprofile:
         return AppRoutes.communityForumsHomePage;
@@ -166,10 +147,10 @@ class ModerateMembersScreen extends GetWidget<ModerateMembersController> {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homepagePage:
-        return HomepagePage();
-      case AppRoutes.communityForumsResponsePage:
-        return CommunityForumsResponsePage();
+      case AppRoutes.homepageContainer1Page:
+        return HomepageContainer1Page();
+      case AppRoutes.communityForumsResponseScreen:
+        return CommunityForumsResponseScreen();
       case AppRoutes.communityForumsHomePage:
         return CommunityForumsHomePage();
       default:

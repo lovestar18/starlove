@@ -7,9 +7,9 @@ import '../models/create_new_group_model.dart';
 /// This class manages the state of the CreateNewGroupScreen, including the
 /// current createNewGroupModelObj
 class CreateNewGroupController extends GetxController {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController groupNameInputController = TextEditingController();
 
-  TextEditingController descriptionvaluController = TextEditingController();
+  TextEditingController descriptionInputController = TextEditingController();
 
   Rx<CreateNewGroupModel> createNewGroupModelObj = CreateNewGroupModel().obs;
 
@@ -18,7 +18,7 @@ class CreateNewGroupController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    nameController.dispose();
-    descriptionvaluController.dispose();
+    groupNameInputController.dispose();
+    descriptionInputController.dispose();
   }
 }

@@ -22,7 +22,7 @@ class LogoutDialog extends StatelessWidget {
         Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 50.h,
+            horizontal: 46.h,
             vertical: 44.v,
           ),
           decoration: AppDecoration.mainwhite.copyWith(
@@ -42,22 +42,28 @@ class LogoutDialog extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
-                style: CustomTextStyles.titleLargeOpenSansBluegray90004,
+                style: CustomTextStyles.titleLargeOpenSansBluegray90005,
               ),
               SizedBox(height: 74.v),
               CustomElevatedButton(
                 height: 44.v,
                 text: "lbl_yes_logout".tr,
-                margin: EdgeInsets.symmetric(horizontal: 16.h),
+                margin: EdgeInsets.only(
+                  left: 16.h,
+                  right: 12.h,
+                ),
                 buttonStyle: CustomButtonStyles.fillCyan,
                 buttonTextStyle:
-                    CustomTextStyles.titleSmallOpenSansBluegray90003,
+                    CustomTextStyles.titleSmallOpenSansBluegray90004,
               ),
               SizedBox(height: 10.v),
               CustomElevatedButton(
                 height: 44.v,
                 text: "lbl_cancel2".tr,
-                margin: EdgeInsets.symmetric(horizontal: 16.h),
+                margin: EdgeInsets.only(
+                  left: 16.h,
+                  right: 12.h,
+                ),
                 buttonStyle: CustomButtonStyles.fillTeal,
                 buttonTextStyle: CustomTextStyles.titleSmallOpenSansTeal900,
               )

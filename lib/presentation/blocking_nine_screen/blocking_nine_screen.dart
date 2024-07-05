@@ -16,7 +16,7 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.primary.withOpacity(1),
+        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
         body: Column(
           children: [
             Container(
@@ -25,90 +25,14 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
               decoration: AppDecoration.mainwhite,
               child: Column(
                 children: [
-                  CustomAppBar(
-                    height: 24.v,
-                    leadingWidth: 36.h,
-                    leading: AppbarLeadingImage(
-                      imagePath: ImageConstant.imgUnionGray90003,
-                      margin: EdgeInsets.only(
-                        left: 20.h,
-                        top: 4.v,
-                        bottom: 4.v,
-                      ),
-                      onTap: () {
-                        onTapUnionone();
-                      },
-                    ),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: _buildAppBar(),
                   ),
                   SizedBox(height: 16.v),
-                  Container(
-                    width: double.maxFinite,
-                    margin: EdgeInsets.symmetric(horizontal: 16.h),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            height: 72.adaptSize,
-                            width: 72.adaptSize,
-                            decoration: BoxDecoration(
-                              color: appTheme.gray10006,
-                              borderRadius: BorderRadius.circular(
-                                36.h,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 14.h),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 2.v),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "lbl_jeremy_dough".tr,
-                                  style: CustomTextStyles
-                                      .headlineSmallOpenSansGray90006,
-                                ),
-                                SizedBox(height: 2.v),
-                                Text(
-                                  "msg_justjeremydough".tr,
-                                  style: CustomTextStyles
-                                      .bodyLargeOpenSansGray60004,
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  _buildUserInfo(),
                   SizedBox(height: 24.v),
-                  Container(
-                    width: double.maxFinite,
-                    margin: EdgeInsets.symmetric(horizontal: 24.h),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        CustomImageView(
-                          imagePath: ImageConstant.imgSlashBlock,
-                          height: 24.adaptSize,
-                          width: 24.adaptSize,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 12.h),
-                          child: Text(
-                            "msg_you_blocked_this".tr,
-                            style:
-                                CustomTextStyles.titleMediumOpenSansGray90006,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  _buildBlockedMessage(),
                   SizedBox(height: 40.v),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.h),
@@ -116,7 +40,7 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
                       controller: controller.profilelinkoneController,
                       hintText: "lbl_see_profile".tr,
                       hintStyle:
-                          CustomTextStyles.bodyLargeOpenSansBluegray80002,
+                          CustomTextStyles.bodyLargeOpenSansBluegray80001,
                       prefix: Container(
                         margin: EdgeInsets.fromLTRB(16.h, 16.v, 8.h, 22.v),
                         child: CustomImageView(
@@ -134,8 +58,7 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
                         bottom: 18.v,
                       ),
                       borderDecoration:
-                          TextFormFieldStyleHelper.underLineGrayTL8,
-                      filled: false,
+                          TextFormFieldStyleHelper.underLineGrayTL81,
                     ),
                   ),
                   Padding(
@@ -144,11 +67,11 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
                       controller: controller.mutenotificatioController,
                       hintText: "msg_mute_notifications".tr,
                       hintStyle:
-                          CustomTextStyles.bodyLargeOpenSansBluegray80002,
+                          CustomTextStyles.bodyLargeOpenSansBluegray80001,
                       prefix: Container(
                         margin: EdgeInsets.fromLTRB(16.h, 16.v, 8.h, 16.v),
                         child: CustomImageView(
-                          imagePath: ImageConstant.imgUserBlueGray80002,
+                          imagePath: ImageConstant.imgUserBlueGray80001,
                           height: 24.adaptSize,
                           width: 24.adaptSize,
                         ),
@@ -161,8 +84,7 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
                         right: 30.h,
                         bottom: 14.v,
                       ),
-                      borderDecoration: TextFormFieldStyleHelper.underLineGray3,
-                      filled: false,
+                      borderDecoration: TextFormFieldStyleHelper.underLineGray4,
                     ),
                   ),
                   Padding(
@@ -171,7 +93,7 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
                       controller: controller.unblockvalueController,
                       hintText: "lbl_unblock".tr,
                       hintStyle:
-                          CustomTextStyles.bodyLargeOpenSansBluegray80002,
+                          CustomTextStyles.bodyLargeOpenSansBluegray80001,
                       textInputAction: TextInputAction.done,
                       prefix: Container(
                         margin: EdgeInsets.fromLTRB(16.h, 16.v, 8.h, 22.v),
@@ -189,40 +111,10 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
                         right: 30.h,
                         bottom: 14.v,
                       ),
-                      borderDecoration: TextFormFieldStyleHelper.underLineGray3,
-                      filled: false,
+                      borderDecoration: TextFormFieldStyleHelper.underLineGray4,
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 16.h),
-                    padding: EdgeInsets.all(16.h),
-                    decoration: AppDecoration.fillGray50.copyWith(
-                      borderRadius: BorderRadiusStyle.customBorderBL8,
-                    ),
-                    width: double.maxFinite,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        CustomImageView(
-                          imagePath: ImageConstant.imgWarningSquare,
-                          height: 24.adaptSize,
-                          width: 24.adaptSize,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 8.h,
-                            bottom: 2.v,
-                          ),
-                          child: Text(
-                            "lbl_report".tr,
-                            style:
-                                CustomTextStyles.bodyLargeOpenSansBluegray80002,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  _buildMenuListIcon(),
                   SizedBox(height: 250.v)
                 ],
               ),
@@ -234,8 +126,125 @@ class BlockingNineScreen extends GetWidget<BlockingNineController> {
     );
   }
 
+  /// Section Widget
+  PreferredSizeWidget _buildAppBar() {
+    return CustomAppBar(
+      height: 24.v,
+      leadingWidth: 40.h,
+      leading: AppbarLeadingImage(
+        imagePath: ImageConstant.imgArrowLeftGray90004,
+        margin: EdgeInsets.only(left: 16.h),
+        onTap: () {
+          onTapArrowleftone();
+        },
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildUserInfo() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.symmetric(horizontal: 16.h),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+              height: 72.adaptSize,
+              width: 72.adaptSize,
+              decoration: BoxDecoration(
+                color: appTheme.gray10005,
+                borderRadius: BorderRadius.circular(
+                  36.h,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 14.h),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(top: 2.v),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "lbl_jeremy_dough".tr,
+                    style: CustomTextStyles.headlineSmallOpenSansGray90008,
+                  ),
+                  SizedBox(height: 2.v),
+                  Text(
+                    "msg_justjeremydough".tr,
+                    style: CustomTextStyles.bodyLargeOpenSansGray60005,
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildBlockedMessage() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.symmetric(horizontal: 24.h),
+      child: Row(
+        children: [
+          CustomImageView(
+            imagePath: ImageConstant.imgSlashBlock,
+            height: 24.adaptSize,
+            width: 24.adaptSize,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 12.h),
+            child: Text(
+              "msg_you_blocked_this".tr,
+              style: CustomTextStyles.titleMediumOpenSansGray90008,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildMenuListIcon() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 16.h),
+      padding: EdgeInsets.all(16.h),
+      decoration: AppDecoration.fillGray5001.copyWith(
+        borderRadius: BorderRadiusStyle.customBorderBL8,
+      ),
+      width: double.maxFinite,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomImageView(
+            imagePath: ImageConstant.imgWarningSquare,
+            height: 24.adaptSize,
+            width: 24.adaptSize,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: 8.h,
+              bottom: 2.v,
+            ),
+            child: Text(
+              "lbl_report".tr,
+              style: CustomTextStyles.bodyLargeOpenSansBluegray80001,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   /// Navigates to the previous screen.
-  onTapUnionone() {
+  onTapArrowleftone() {
     Get.back();
   }
 }

@@ -7,6 +7,10 @@ import '../presentation/admin_dashboard_member_view_container_screen/admin_dashb
 import '../presentation/admin_dashboard_member_view_container_screen/binding/admin_dashboard_member_view_container_binding.dart';
 import '../presentation/admin_dashboard_tab_container_screen/admin_dashboard_tab_container_screen.dart';
 import '../presentation/admin_dashboard_tab_container_screen/binding/admin_dashboard_tab_container_binding.dart';
+import '../presentation/admin_delete_account_screen/admin_delete_account_screen.dart';
+import '../presentation/admin_delete_account_screen/binding/admin_delete_account_binding.dart';
+import '../presentation/admin_make_admin_screen/admin_make_admin_screen.dart';
+import '../presentation/admin_make_admin_screen/binding/admin_make_admin_binding.dart';
 import '../presentation/app_navigation_screen/app_navigation_screen.dart';
 import '../presentation/app_navigation_screen/binding/app_navigation_binding.dart';
 import '../presentation/application_review_screen/application_review_screen.dart';
@@ -23,6 +27,8 @@ import '../presentation/chat_screen/binding/chat_binding.dart';
 import '../presentation/chat_screen/chat_screen.dart';
 import '../presentation/community_forums_response1_screen/binding/community_forums_response1_binding.dart';
 import '../presentation/community_forums_response1_screen/community_forums_response1_screen.dart';
+import '../presentation/community_forums_response_screen/binding/community_forums_response_binding.dart';
+import '../presentation/community_forums_response_screen/community_forums_response_screen.dart';
 import '../presentation/create_group_chat_screen/binding/create_group_chat_binding.dart';
 import '../presentation/create_group_chat_screen/create_group_chat_screen.dart';
 import '../presentation/create_new_group_screen/binding/create_new_group_binding.dart';
@@ -33,6 +39,10 @@ import '../presentation/create_post_screen/binding/create_post_binding.dart';
 import '../presentation/create_post_screen/create_post_screen.dart';
 import '../presentation/create_wall_post_screen/binding/create_wall_post_binding.dart';
 import '../presentation/create_wall_post_screen/create_wall_post_screen.dart';
+import '../presentation/daily_notification_sender_screen/binding/daily_notification_sender_binding.dart';
+import '../presentation/daily_notification_sender_screen/daily_notification_sender_screen.dart';
+import '../presentation/delete_account_ii_screen/binding/delete_account_ii_binding.dart';
+import '../presentation/delete_account_ii_screen/delete_account_ii_screen.dart';
 import '../presentation/delete_account_screen/binding/delete_account_binding.dart';
 import '../presentation/delete_account_screen/delete_account_screen.dart';
 import '../presentation/delete_post_confirmation_screen/binding/delete_post_confirmation_binding.dart';
@@ -59,6 +69,8 @@ import '../presentation/group_chat_screen/binding/group_chat_binding.dart';
 import '../presentation/group_chat_screen/group_chat_screen.dart';
 import '../presentation/group_description_tab_container_screen/binding/group_description_tab_container_binding.dart';
 import '../presentation/group_description_tab_container_screen/group_description_tab_container_screen.dart';
+import '../presentation/group_group_chat_screen/binding/group_group_chat_binding.dart';
+import '../presentation/group_group_chat_screen/group_group_chat_screen.dart';
 import '../presentation/grouppage_v2_screen/binding/grouppage_v2_binding.dart';
 import '../presentation/grouppage_v2_screen/grouppage_v2_screen.dart';
 import '../presentation/groupsdashboard_screen/binding/groupsdashboard_binding.dart';
@@ -67,8 +79,8 @@ import '../presentation/help_center_screen/binding/help_center_binding.dart';
 import '../presentation/help_center_screen/help_center_screen.dart';
 import '../presentation/help_contact_screen/binding/help_contact_binding.dart';
 import '../presentation/help_contact_screen/help_contact_screen.dart';
-import '../presentation/home_recent_chats_tab_container_screen/binding/home_recent_chats_tab_container_binding.dart';
-import '../presentation/home_recent_chats_tab_container_screen/home_recent_chats_tab_container_screen.dart';
+import '../presentation/home_recent_chats_screen/binding/home_recent_chats_binding.dart';
+import '../presentation/home_recent_chats_screen/home_recent_chats_screen.dart';
 import '../presentation/homepage_container_screen/binding/homepage_container_binding.dart';
 import '../presentation/homepage_container_screen/homepage_container_screen.dart';
 import '../presentation/listofgroupmembers_screen/binding/listofgroupmembers_binding.dart';
@@ -81,8 +93,6 @@ import '../presentation/moderate_members_screen/binding/moderate_members_binding
 import '../presentation/moderate_members_screen/moderate_members_screen.dart';
 import '../presentation/moderator_dashboard_screen/binding/moderator_dashboard_binding.dart';
 import '../presentation/moderator_dashboard_screen/moderator_dashboard_screen.dart';
-import '../presentation/new_chat_screen/binding/new_chat_binding.dart';
-import '../presentation/new_chat_screen/new_chat_screen.dart';
 import '../presentation/notification_settings_screen/binding/notification_settings_binding.dart';
 import '../presentation/notification_settings_screen/notification_settings_screen.dart';
 import '../presentation/notifications_page_screen/binding/notifications_page_binding.dart';
@@ -156,7 +166,7 @@ class AppRoutes {
 
   static const String homepageContainerScreen = '/homepage_container_screen';
 
-  static const String homepagePage = '/homepage_page';
+  static const String homepageContainer1Page = '/homepage_container1_page';
 
   static const String feedScreen = '/feed_screen';
 
@@ -205,6 +215,11 @@ class AppRoutes {
   static const String followingTabContainerScreen =
       '/following_tab_container_screen';
 
+  static const String imagepickerPage = '/imagepicker_page';
+
+  static const String imagepickerTabContainerPage =
+      '/imagepicker_tab_container_page';
+
   static const String notificationSettingsScreen =
       '/notification_settings_screen';
 
@@ -213,6 +228,8 @@ class AppRoutes {
   static const String passwordSettings1Screen = '/password_settings1_screen';
 
   static const String deleteAccountScreen = '/delete_account_screen';
+
+  static const String deleteAccountIiScreen = '/delete_account_ii_screen';
 
   static const String helpCenterScreen = '/help_center_screen';
 
@@ -230,6 +247,8 @@ class AppRoutes {
 
   static const String chatProfileScreen = '/chat_profile_screen';
 
+  static const String homeRecentChatsScreen = '/home_recent_chats_screen';
+
   static const String groupDescriptionPage = '/group_description_page';
 
   static const String groupDescriptionTabContainerScreen =
@@ -237,18 +256,21 @@ class AppRoutes {
 
   static const String createGroupChatScreen = '/create_group_chat_screen';
 
-  static const String newChatScreen = '/new_chat_screen';
-
-  static const String homeRecentChatsPage = '/home_recent_chats_page';
-
-  static const String homeRecentChatsTabContainerScreen =
-      '/home_recent_chats_tab_container_screen';
-
   static const String groupChatScreen = '/group_chat_screen';
 
   static const String groupsdashboardScreen = '/groupsdashboard_screen';
 
+  static const String discoverGroupsScreen = '/discover_groups_screen';
+
+  static const String grouppageV2Screen = '/grouppage_v2_screen';
+
+  static const String moderateMembersScreen = '/moderate_members_screen';
+
   static const String moderatorDashboardScreen = '/moderator_dashboard_screen';
+
+  static const String editGroupDetailsScreen = '/edit_group_details_screen';
+
+  static const String createNewGroupScreen = '/create_new_group_screen';
 
   static const String listofgroupmembersScreen = '/listofgroupmembers_screen';
 
@@ -257,20 +279,12 @@ class AppRoutes {
   static const String writeInGroupOptionsScreen =
       '/write_in_group_options_screen';
 
-  static const String grouppageV2Screen = '/grouppage_v2_screen';
-
-  static const String moderateMembersScreen = '/moderate_members_screen';
-
-  static const String editGroupDetailsScreen = '/edit_group_details_screen';
-
-  static const String createNewGroupScreen = '/create_new_group_screen';
-
-  static const String discoverGroupsScreen = '/discover_groups_screen';
+  static const String groupGroupChatScreen = '/group_group_chat_screen';
 
   static const String communityForumsHomePage = '/community_forums_home_page';
 
-  static const String communityForumsResponsePage =
-      '/community_forums_response_page';
+  static const String communityForumsResponseScreen =
+      '/community_forums_response_screen';
 
   static const String communityForumsResponse1Screen =
       '/community_forums_response1_screen';
@@ -290,6 +304,13 @@ class AppRoutes {
   static const String memberReviewScreen = '/member_review_screen';
 
   static const String stickersScreen = '/stickers_screen';
+
+  static const String dailyNotificationSenderScreen =
+      '/daily_notification_sender_screen';
+
+  static const String adminDeleteAccountScreen = '/admin_delete_account_screen';
+
+  static const String adminMakeAdminScreen = '/admin_make_admin_screen';
 
   static const String sidebarScreen = '/sidebar_screen';
 
@@ -464,6 +485,11 @@ class AppRoutes {
       bindings: [DeleteAccountBinding()],
     ),
     GetPage(
+      name: deleteAccountIiScreen,
+      page: () => DeleteAccountIiScreen(),
+      bindings: [DeleteAccountIiBinding()],
+    ),
+    GetPage(
       name: helpCenterScreen,
       page: () => HelpCenterScreen(),
       bindings: [HelpCenterBinding()],
@@ -504,6 +530,11 @@ class AppRoutes {
       bindings: [ChatProfileBinding()],
     ),
     GetPage(
+      name: homeRecentChatsScreen,
+      page: () => HomeRecentChatsScreen(),
+      bindings: [HomeRecentChatsBinding()],
+    ),
+    GetPage(
       name: groupDescriptionTabContainerScreen,
       page: () => GroupDescriptionTabContainerScreen(),
       bindings: [GroupDescriptionTabContainerBinding()],
@@ -512,16 +543,6 @@ class AppRoutes {
       name: createGroupChatScreen,
       page: () => CreateGroupChatScreen(),
       bindings: [CreateGroupChatBinding()],
-    ),
-    GetPage(
-      name: newChatScreen,
-      page: () => NewChatScreen(),
-      bindings: [NewChatBinding()],
-    ),
-    GetPage(
-      name: homeRecentChatsTabContainerScreen,
-      page: () => HomeRecentChatsTabContainerScreen(),
-      bindings: [HomeRecentChatsTabContainerBinding()],
     ),
     GetPage(
       name: groupChatScreen,
@@ -534,9 +555,34 @@ class AppRoutes {
       bindings: [GroupsdashboardBinding()],
     ),
     GetPage(
+      name: discoverGroupsScreen,
+      page: () => DiscoverGroupsScreen(),
+      bindings: [DiscoverGroupsBinding()],
+    ),
+    GetPage(
+      name: grouppageV2Screen,
+      page: () => GrouppageV2Screen(),
+      bindings: [GrouppageV2Binding()],
+    ),
+    GetPage(
+      name: moderateMembersScreen,
+      page: () => ModerateMembersScreen(),
+      bindings: [ModerateMembersBinding()],
+    ),
+    GetPage(
       name: moderatorDashboardScreen,
       page: () => ModeratorDashboardScreen(),
       bindings: [ModeratorDashboardBinding()],
+    ),
+    GetPage(
+      name: editGroupDetailsScreen,
+      page: () => EditGroupDetailsScreen(),
+      bindings: [EditGroupDetailsBinding()],
+    ),
+    GetPage(
+      name: createNewGroupScreen,
+      page: () => CreateNewGroupScreen(),
+      bindings: [CreateNewGroupBinding()],
     ),
     GetPage(
       name: listofgroupmembersScreen,
@@ -554,29 +600,14 @@ class AppRoutes {
       bindings: [WriteInGroupOptionsBinding()],
     ),
     GetPage(
-      name: grouppageV2Screen,
-      page: () => GrouppageV2Screen(),
-      bindings: [GrouppageV2Binding()],
+      name: groupGroupChatScreen,
+      page: () => GroupGroupChatScreen(),
+      bindings: [GroupGroupChatBinding()],
     ),
     GetPage(
-      name: moderateMembersScreen,
-      page: () => ModerateMembersScreen(),
-      bindings: [ModerateMembersBinding()],
-    ),
-    GetPage(
-      name: editGroupDetailsScreen,
-      page: () => EditGroupDetailsScreen(),
-      bindings: [EditGroupDetailsBinding()],
-    ),
-    GetPage(
-      name: createNewGroupScreen,
-      page: () => CreateNewGroupScreen(),
-      bindings: [CreateNewGroupBinding()],
-    ),
-    GetPage(
-      name: discoverGroupsScreen,
-      page: () => DiscoverGroupsScreen(),
-      bindings: [DiscoverGroupsBinding()],
+      name: communityForumsResponseScreen,
+      page: () => CommunityForumsResponseScreen(),
+      bindings: [CommunityForumsResponseBinding()],
     ),
     GetPage(
       name: communityForumsResponse1Screen,
@@ -614,6 +645,21 @@ class AppRoutes {
       bindings: [StickersBinding()],
     ),
     GetPage(
+      name: dailyNotificationSenderScreen,
+      page: () => DailyNotificationSenderScreen(),
+      bindings: [DailyNotificationSenderBinding()],
+    ),
+    GetPage(
+      name: adminDeleteAccountScreen,
+      page: () => AdminDeleteAccountScreen(),
+      bindings: [AdminDeleteAccountBinding()],
+    ),
+    GetPage(
+      name: adminMakeAdminScreen,
+      page: () => AdminMakeAdminScreen(),
+      bindings: [AdminMakeAdminBinding()],
+    ),
+    GetPage(
       name: sidebarScreen,
       page: () => SidebarScreen(),
       bindings: [SidebarBinding()],
@@ -625,8 +671,8 @@ class AppRoutes {
     ),
     GetPage(
       name: initialRoute,
-      page: () => PasswordResetScreen(),
-      bindings: [PasswordResetBinding()],
+      page: () => SplashScreen(),
+      bindings: [SplashBinding()],
     )
   ];
 }

@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 
+extension SearchViewStyleHelper on CustomSearchView {
+  static OutlineInputBorder get fillGrayE => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.h),
+        borderSide: BorderSide.none,
+      );
+  static OutlineInputBorder get fillGray => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(22.h),
+        borderSide: BorderSide.none,
+      );
+}
+
 class CustomSearchView extends StatelessWidget {
   CustomSearchView(
       {Key? key,
@@ -106,7 +117,7 @@ class CustomSearchView extends StatelessWidget {
       );
   InputDecoration get decoration => InputDecoration(
         hintText: hintText ?? "",
-        hintStyle: hintStyle ?? CustomTextStyles.bodyLargeInterGray500,
+        hintStyle: hintStyle ?? CustomTextStyles.bodyMediumInterGray500,
         prefixIcon: prefix ??
             Container(
               margin: EdgeInsets.fromLTRB(18.h, 12.v, 14.h, 12.v),
@@ -144,7 +155,8 @@ class CustomSearchView extends StatelessWidget {
               right: 12.h,
               bottom: 12.v,
             ),
-        fillColor: fillColor ?? theme.colorScheme.primary.withOpacity(1),
+        fillColor:
+            fillColor ?? theme.colorScheme.onErrorContainer.withOpacity(1),
         filled: filled,
         border: borderDecoration ??
             OutlineInputBorder(
