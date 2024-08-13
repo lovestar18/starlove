@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_sixteen.dart';
-import '../../widgets/app_bar/appbar_subtitle_twentytwo.dart';
-import '../../widgets/app_bar/appbar_title_image.dart';
-import '../../widgets/app_bar/appbar_trailing_image_two.dart';
+import '../../widgets/app_bar/appbar_subtitle_one.dart';
+import '../../widgets/app_bar/appbar_title_image_one.dart';
+import '../../widgets/app_bar/appbar_trailing_iconbutton_one.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
-import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_form_field.dart';
 import 'controller/chat_controller.dart'; // ignore_for_file: must_be_immutable
 
@@ -22,297 +18,332 @@ class ChatScreen extends GetWidget<ChatController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
-        appBar: _buildHeader(),
-        body: Container(
-          width: double.maxFinite,
-          padding: EdgeInsets.all(16.h),
-          child: Column(
-            children: [
-              SizedBox(height: 94.v),
-              SizedBox(
-                width: double.maxFinite,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    _buildMainChatButton(),
-                    SizedBox(height: 22.v),
-                    Padding(
-                      padding: EdgeInsets.only(right: 88.h),
-                      child: Text(
-                        "msg_nov_30_2023_9_41".tr,
-                        textAlign: TextAlign.center,
-                        style: CustomTextStyles.bodySmallInterGray60003,
-                      ),
-                    ),
-                    SizedBox(height: 20.v),
-                    _buildRecipientChatRow(),
-                    SizedBox(height: 20.v),
-                    Container(
-                      width: 266.h,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.h,
-                        vertical: 6.v,
-                      ),
-                      decoration: AppDecoration.fillBlueA.copyWith(
-                        borderRadius: BorderRadiusStyle.customBorderTL181,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "msg_you_just_edit_any".tr,
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
-                            style: CustomTextStyles.titleSmallOnErrorContainer
-                                .copyWith(
-                              height: 1.40,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    _buildBoomButton(),
-                    SizedBox(height: 20.v),
-                    _buildRecipientChatRow1()
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-        bottomNavigationBar: _buildReplyInput(),
-      ),
-    );
-  }
-
-  /// Section Widget
-  PreferredSizeWidget _buildHeader() {
-    return CustomAppBar(
-      leadingWidth: 40.h,
-      leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftBlack900,
-        margin: EdgeInsets.only(
-          left: 16.h,
-          top: 16.v,
-          bottom: 16.v,
-        ),
-        onTap: () {
-          onTapArrowleftone();
-        },
-      ),
-      title: Padding(
-        padding: EdgeInsets.only(left: 12.h),
-        child: Row(
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
+        body: Column(
           children: [
-            AppbarTitleImage(
-              imagePath: ImageConstant.imgRectangle1,
-              margin: EdgeInsets.only(
-                top: 3.v,
-                bottom: 2.v,
+            _buildUsernameSection(),
+            Container(
+              width: double.maxFinite,
+              padding: EdgeInsets.symmetric(
+                horizontal: 18.h,
+                vertical: 6.v,
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 8.h),
               child: Column(
                 children: [
-                  AppbarSubtitleSixteen(
-                    text: "lbl_helena_hills".tr,
+                  _buildPostSection(),
+                  SizedBox(height: 18.v),
+                  _buildImageGallerySection(),
+                  SizedBox(height: 18.v),
+                  _buildCommentSection(),
+                  SizedBox(height: 18.v),
+                  SizedBox(
+                    width: 170.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 56.h,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 12.h,
+                            vertical: 8.v,
+                          ),
+                          decoration:
+                              AppDecoration.fillPrimaryContainer.copyWith(
+                            borderRadius: BorderRadiusStyle.roundedBorder8,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Align(
+                                alignment: Alignment.center,
+                                child: Container(
+                                  height: 4.adaptSize,
+                                  width: 4.adaptSize,
+                                  decoration: BoxDecoration(
+                                    color: appTheme.blueGray60001,
+                                    borderRadius: BorderRadius.circular(
+                                      2.h,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 4.adaptSize,
+                                width: 4.adaptSize,
+                                decoration: BoxDecoration(
+                                  color: appTheme.blueGray60001,
+                                  borderRadius: BorderRadius.circular(
+                                    2.h,
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: Container(
+                                  height: 4.adaptSize,
+                                  width: 4.adaptSize,
+                                  decoration: BoxDecoration(
+                                    color: appTheme.blueGray60001,
+                                    borderRadius: BorderRadius.circular(
+                                      2.h,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 2.v),
+                            child: Text(
+                              "msg_username_is_typing".tr,
+                              style: CustomTextStyles.bodySmall12_2,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  SizedBox(height: 3.v),
-                  AppbarSubtitleTwentytwo(
-                    text: "lbl_active_20m_ago".tr,
-                    margin: EdgeInsets.only(right: 4.h),
-                  )
+                  SizedBox(height: 4.v)
                 ],
               ),
             )
           ],
         ),
+        bottomNavigationBar: _buildMessageInputSection(),
       ),
-      actions: [
-        AppbarTrailingImageTwo(
-          imagePath: ImageConstant.imgUserBlack9001,
-          margin: EdgeInsets.only(
-            top: 12.v,
-            right: 15.h,
-            bottom: 20.v,
+    );
+  }
+
+  /// Section Widget
+  Widget _buildUsernameSection() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Container(
+          width: double.maxFinite,
+          padding: EdgeInsets.symmetric(vertical: 16.v),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                ImageConstant.imgGroup7860,
+              ),
+              fit: BoxFit.cover,
+            ),
           ),
-          onTap: () {
-            onTapUseroneoneone();
-          },
-        )
-      ],
-      styleType: Style.bgOutline_1,
+          child: Column(
+            children: [
+              SizedBox(height: 6.v),
+              CustomAppBar(
+                centerTitle: true,
+                title: Row(
+                  children: [
+                    AppbarTitleImageOne(
+                      imagePath: ImageConstant.imgEllipse3890,
+                    ),
+                    AppbarSubtitleOne(
+                      text: "lbl_username2".tr,
+                      margin: EdgeInsets.only(
+                        left: 7.h,
+                        top: 3.v,
+                        bottom: 2.v,
+                      ),
+                    )
+                  ],
+                ),
+                actions: [
+                  AppbarTrailingIconbuttonOne(
+                    imagePath: ImageConstant.imgNotification,
+                    margin: EdgeInsets.only(right: 19.h),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 
   /// Section Widget
-  Widget _buildMainChatButton() {
-    return CustomElevatedButton(
-      width: 232.h,
-      text: "msg_this_is_the_main".tr,
-      buttonStyle: CustomButtonStyles.fillBlueATL182,
-      buttonTextStyle: CustomTextStyles.titleSmallOnErrorContainer,
+  Widget _buildPostSection() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Row(
+        children: [
+          CustomImageView(
+            imagePath: ImageConstant.imgImage40x401,
+            height: 40.adaptSize,
+            width: 40.adaptSize,
+            radius: BorderRadius.circular(
+              20.h,
+            ),
+            alignment: Alignment.bottomCenter,
+          ),
+          Expanded(
+            child: Container(
+              width: double.maxFinite,
+              margin: EdgeInsets.only(left: 8.h),
+              padding: EdgeInsets.only(
+                left: 10.h,
+                top: 6.v,
+                bottom: 6.v,
+              ),
+              decoration: AppDecoration.outlineGray50001.copyWith(
+                borderRadius: BorderRadiusStyle.roundedBorder8,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "lbl_mike_mazowski2".tr,
+                    style: CustomTextStyles.labelLargeBold,
+                  ),
+                  SizedBox(height: 12.v),
+                  Text(
+                    "msg_hello_guys_we_have2".tr,
+                    maxLines: 6,
+                    overflow: TextOverflow.ellipsis,
+                    style: CustomTextStyles.bodySmallBluegray9000112.copyWith(
+                      height: 1.50,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      "lbl_16_04".tr,
+                      style: CustomTextStyles.bodySmall12_2,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 
   /// Section Widget
-  Widget _buildCoolButton() {
-    return CustomElevatedButton(
-      width: 62.h,
-      text: "lbl_cool".tr,
-      buttonStyle: CustomButtonStyles.fillGrayLR18,
-      buttonTextStyle: theme.textTheme.titleSmall!,
+  Widget _buildImageGallerySection() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Row(
+        children: [
+          CustomImageView(
+            imagePath: ImageConstant.imgImage40x401,
+            height: 40.adaptSize,
+            width: 40.adaptSize,
+            radius: BorderRadius.circular(
+              20.h,
+            ),
+            alignment: Alignment.bottomCenter,
+          ),
+          Expanded(
+            child: Container(
+              width: double.maxFinite,
+              padding: EdgeInsets.symmetric(horizontal: 8.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomImageView(
+                    imagePath: ImageConstant.imgRectangle100x204,
+                    height: 100.v,
+                    width: 204.h,
+                    radius: BorderRadius.circular(
+                      4.h,
+                    ),
+                  ),
+                  SizedBox(height: 4.v),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: Row(
+                      children: [
+                        CustomImageView(
+                          imagePath: ImageConstant.imgRectangle100x100,
+                          height: 100.adaptSize,
+                          width: 100.adaptSize,
+                          radius: BorderRadius.circular(
+                            4.h,
+                          ),
+                        ),
+                        CustomImageView(
+                          imagePath: ImageConstant.imgRectangle7,
+                          height: 100.adaptSize,
+                          width: 100.adaptSize,
+                          radius: BorderRadius.circular(
+                            4.h,
+                          ),
+                          margin: EdgeInsets.only(left: 4.h),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 
   /// Section Widget
-  Widget _buildRecipientChatRow() {
+  Widget _buildCommentSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgProfileImage,
-            height: 24.adaptSize,
-            width: 24.adaptSize,
-            radius: BorderRadius.circular(
-              12.h,
+          Container(
+            width: 194.h,
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.h,
+              vertical: 6.v,
             ),
-            alignment: Alignment.bottomCenter,
-          ),
-          SizedBox(width: 8.h),
-          Expanded(
+            decoration: AppDecoration.fillBlueA.copyWith(
+              borderRadius: BorderRadiusStyle.customBorderTL8,
+            ),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16.h,
-                    vertical: 8.v,
-                  ),
-                  decoration: AppDecoration.fillGray20001.copyWith(
-                    borderRadius: BorderRadiusStyle.customBorderTL18,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "lbl_oh".tr,
-                        style: theme.textTheme.titleSmall,
-                      )
-                    ],
+                SizedBox(
+                  width: 154.h,
+                  child: Text(
+                    "msg_that_s_very_nice".tr,
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                    style: CustomTextStyles.bodySmallGray20012.copyWith(
+                      height: 1.50,
+                    ),
                   ),
                 ),
-                _buildCoolButton(),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16.h,
-                    vertical: 8.v,
-                  ),
-                  decoration: AppDecoration.fillGray20001.copyWith(
-                    borderRadius: BorderRadiusStyle.customBorderBL18,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "msg_how_does_it_work".tr,
-                        style: theme.textTheme.titleSmall,
-                      )
-                    ],
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "lbl_16_04".tr,
+                    style: CustomTextStyles.bodySmallGray200,
                   ),
                 )
               ],
             ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildBoomButton() {
-    return CustomElevatedButton(
-      width: 74.h,
-      text: "lbl_boom".tr,
-      buttonStyle: CustomButtonStyles.fillBlueATL183,
-      buttonTextStyle: CustomTextStyles.titleSmallOnErrorContainer,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildHmmmButton() {
-    return CustomElevatedButton(
-      width: 80.h,
-      text: "lbl_hmmm".tr,
-      buttonStyle: CustomButtonStyles.fillGrayTL18,
-      buttonTextStyle: theme.textTheme.titleSmall!,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildIThinkIGetButton() {
-    return CustomElevatedButton(
-      width: 118.h,
-      text: "msg_i_think_i_get_it".tr,
-      buttonStyle: CustomButtonStyles.fillGrayLR18,
-      buttonTextStyle: theme.textTheme.titleSmall!,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildRecipientChatRow1() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
+          ),
           CustomImageView(
-            imagePath: ImageConstant.imgProfileImage,
-            height: 24.adaptSize,
-            width: 24.adaptSize,
+            imagePath: ImageConstant.imgImage40x402,
+            height: 40.adaptSize,
+            width: 40.adaptSize,
             radius: BorderRadius.circular(
-              12.h,
+              20.h,
             ),
             alignment: Alignment.bottomCenter,
-          ),
-          SizedBox(width: 8.h),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildHmmmButton(),
-                _buildIThinkIGetButton(),
-                Container(
-                  width: 246.h,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16.h,
-                    vertical: 6.v,
-                  ),
-                  decoration: AppDecoration.fillGray20001.copyWith(
-                    borderRadius: BorderRadiusStyle.customBorderBL18,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "msg_will_head_to_the".tr,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.titleSmall!.copyWith(
-                          height: 1.40,
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
+            margin: EdgeInsets.only(left: 8.h),
           )
         ],
       ),
@@ -320,7 +351,7 @@ class ChatScreen extends GetWidget<ChatController> {
   }
 
   /// Section Widget
-  Widget _buildReplyInput() {
+  Widget _buildMessageInputSection() {
     return Padding(
       padding: EdgeInsets.only(
         left: 16.h,
@@ -328,17 +359,32 @@ class ChatScreen extends GetWidget<ChatController> {
         bottom: 34.v,
       ),
       child: CustomTextFormField(
-        controller: controller.replyInputController,
+        controller: controller.messageInputSectionController,
         hintText: "lbl_message2".tr,
-        hintStyle: CustomTextStyles.bodyMediumInterGray60003,
+        hintStyle: CustomTextStyles.bodyMediumInterGray60001,
         textInputAction: TextInputAction.done,
+        prefix: Container(
+          margin: EdgeInsets.only(
+            left: 30.h,
+            top: 8.v,
+            bottom: 8.v,
+          ),
+          child: CustomImageView(
+            imagePath: ImageConstant.imgIconMicBlueGray300,
+            height: 24.adaptSize,
+            width: 24.adaptSize,
+          ),
+        ),
+        prefixConstraints: BoxConstraints(
+          maxHeight: 40.v,
+        ),
         suffix: Container(
           margin: EdgeInsets.symmetric(
             horizontal: 30.h,
             vertical: 8.v,
           ),
           child: CustomImageView(
-            imagePath: ImageConstant.imgIconMic,
+            imagePath: ImageConstant.imgGifBlueGray300,
             height: 24.adaptSize,
             width: 24.adaptSize,
           ),
@@ -346,24 +392,11 @@ class ChatScreen extends GetWidget<ChatController> {
         suffixConstraints: BoxConstraints(
           maxHeight: 40.v,
         ),
-        contentPadding: EdgeInsets.only(
-          left: 16.h,
-          top: 10.v,
-          bottom: 10.v,
-        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 10.v),
+        borderDecoration: TextFormFieldStyleHelper.outlineGrayTL82,
+        filled: true,
+        fillColor: theme.colorScheme.onPrimary.withOpacity(1),
       ),
-    );
-  }
-
-  /// Navigates to the previous screen.
-  onTapArrowleftone() {
-    Get.back();
-  }
-
-  /// Navigates to the chatProfileScreen when the action is triggered.
-  onTapUseroneoneone() {
-    Get.toNamed(
-      AppRoutes.chatProfileScreen,
     );
   }
 }

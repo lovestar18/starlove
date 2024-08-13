@@ -18,7 +18,6 @@ class AppbarTrailingImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadiusStyle.roundedBorder16,
       onTap: () {
         onTap?.call();
       },
@@ -26,12 +25,9 @@ class AppbarTrailingImage extends StatelessWidget {
         padding: margin ?? EdgeInsets.zero,
         child: CustomImageView(
           imagePath: imagePath!,
-          height: 24.adaptSize,
-          width: 24.adaptSize,
+          height: 34.adaptSize,
+          width: 34.adaptSize,
           fit: BoxFit.contain,
-          radius: BorderRadius.circular(
-            16.h,
-          ),
         ),
       ),
     );

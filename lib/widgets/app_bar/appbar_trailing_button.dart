@@ -28,7 +28,7 @@ class AppbarTrailingButton extends StatelessWidget {
           width: 54.h,
           text: "lbl_post".tr,
           buttonStyle: CustomButtonStyles.fillPinkA,
-          buttonTextStyle: CustomTextStyles.titleSmallOpenSansOnErrorContainer,
+          buttonTextStyle: CustomTextStyles.titleSmallOpenSansOnPrimary,
         ),
       ),
     );

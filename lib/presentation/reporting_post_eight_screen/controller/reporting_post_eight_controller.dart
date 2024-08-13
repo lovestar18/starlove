@@ -8,4 +8,11 @@ import '../models/reporting_post_eight_model.dart';
 class ReportingPostEightController extends GetxController {
   Rx<ReportingPostEightModel> reportingPostEightModelObj =
       ReportingPostEightModel().obs;
+
+  @override
+  void onReady() {
+    Get.toNamed(
+      AppRoutes.reportingPostFiveScreen,
+    );
+  }
 }

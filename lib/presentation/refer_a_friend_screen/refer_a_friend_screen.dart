@@ -23,7 +23,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
         appBar: _buildAppBar(),
         body: SingleChildScrollView(
           padding: EdgeInsets.only(
@@ -44,7 +44,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
                   SizedBox(height: 14.v),
                   _buildFriendsNameSection(),
                   SizedBox(height: 14.v),
-                  _buildSubmitSection(),
+                  _buildSubmitButtonSection(),
                   SizedBox(height: 4.v)
                 ],
               ),
@@ -58,9 +58,10 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
   /// Section Widget
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
+      height: 84.v,
       leadingWidth: 53.h,
       leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftGray90004,
+        imagePath: ImageConstant.imgArrowLeftGray90002,
         margin: EdgeInsets.only(
           left: 29.h,
           top: 16.v,
@@ -77,22 +78,18 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
   Widget _buildReferAFriendSection() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.only(
-        left: 16.h,
-        right: 18.h,
-      ),
-      padding: EdgeInsets.only(left: 2.h),
+      margin: EdgeInsets.symmetric(horizontal: 20.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "lbl_refer_a_friend".tr,
-            style: CustomTextStyles.titleLargePoppinsGray90005,
+            style: CustomTextStyles.titleLargePoppinsGray90003,
           ),
           SizedBox(height: 12.v),
           Text(
             "msg_invite_a_friend".tr,
-            style: CustomTextStyles.titleMediumInterGray50003SemiBold,
+            style: CustomTextStyles.titleMediumInterGray50001,
           )
         ],
       ),
@@ -111,7 +108,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "lbl_your_email".tr,
-              style: CustomTextStyles.titleMediumInterGray90010SemiBold,
+              style: CustomTextStyles.titleMediumInterOnPrimaryContainer,
             ),
           ),
           SizedBox(height: 8.v),
@@ -120,7 +117,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             child: CustomTextFormField(
               controller: controller.emailController,
               hintText: "msg_jacob_welovetokevel_com".tr,
-              hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
+              hintStyle: CustomTextStyles.titleMediumPoppinsGray700,
               textInputType: TextInputType.emailAddress,
               validator: (value) {
                 if (value == null || (!isValidEmail(value, isRequired: true))) {
@@ -128,7 +125,10 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
                 }
                 return null;
               },
-              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 24.h,
+                vertical: 14.v,
+              ),
             ),
           )
         ],
@@ -148,7 +148,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "lbl_friend_s_email".tr,
-              style: CustomTextStyles.titleMediumInterGray90010SemiBold,
+              style: CustomTextStyles.titleMediumInterOnPrimaryContainer,
             ),
           ),
           SizedBox(height: 8.v),
@@ -157,7 +157,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             child: CustomTextFormField(
               controller: controller.email1Controller,
               hintText: "msg_jacob_welovetokevel_com".tr,
-              hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
+              hintStyle: CustomTextStyles.titleMediumPoppinsGray700,
               textInputType: TextInputType.emailAddress,
               validator: (value) {
                 if (value == null || (!isValidEmail(value, isRequired: true))) {
@@ -165,7 +165,10 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
                 }
                 return null;
               },
-              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 24.h,
+                vertical: 14.v,
+              ),
             ),
           )
         ],
@@ -185,7 +188,7 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             padding: EdgeInsets.only(left: 4.h),
             child: Text(
               "msg_friend_s_first_and".tr,
-              style: CustomTextStyles.titleMediumInterGray90010SemiBold,
+              style: CustomTextStyles.titleMediumInterOnPrimaryContainer,
             ),
           ),
           SizedBox(height: 8.v),
@@ -194,9 +197,12 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
             child: CustomTextFormField(
               controller: controller.lastNameController,
               hintText: "lbl_jake_maizel".tr,
-              hintStyle: CustomTextStyles.titleMediumPoppinsGray700Medium,
+              hintStyle: CustomTextStyles.titleMediumPoppinsGray700,
               textInputAction: TextInputAction.done,
-              borderDecoration: TextFormFieldStyleHelper.outlineGray,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 26.h,
+                vertical: 14.v,
+              ),
             ),
           )
         ],
@@ -205,22 +211,18 @@ class ReferAFriendScreen extends GetWidget<ReferAFriendController> {
   }
 
   /// Section Widget
-  Widget _buildSubmitSection() {
+  Widget _buildSubmitButtonSection() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.only(
-        left: 16.h,
-        right: 18.h,
-      ),
+      margin: EdgeInsets.symmetric(horizontal: 20.h),
       child: Column(
         children: [
           CustomElevatedButton(
             height: 48.v,
             text: "lbl_submit".tr,
-            margin: EdgeInsets.only(right: 6.h),
-            buttonStyle: CustomButtonStyles.fillPrimaryTL12,
-            buttonTextStyle:
-                CustomTextStyles.titleMediumInterOnErrorContainer16,
+            margin: EdgeInsets.only(right: 4.h),
+            buttonStyle: CustomButtonStyles.fillPrimary,
+            buttonTextStyle: CustomTextStyles.titleMediumInterOnPrimary,
           )
         ],
       ),

@@ -2,62 +2,31 @@ import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 
 extension TextFormFieldStyleHelper on CustomTextFormField {
-  static OutlineInputBorder get outlineBlueGrayTL10 => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.h),
+  static OutlineInputBorder get outlineGrayTL8 => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.h),
         borderSide: BorderSide(
-          color: appTheme.blueGray5001,
+          color: appTheme.gray200,
           width: 1,
         ),
       );
-  static OutlineInputBorder get outlineGray => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12.h),
+  static UnderlineInputBorder get underLineBlack => UnderlineInputBorder(
         borderSide: BorderSide(
-          color: appTheme.gray30003,
-          width: 2,
+          color: appTheme.black900.withOpacity(0.1),
         ),
       );
-  static OutlineInputBorder get fillGray => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(24.h),
-        borderSide: BorderSide.none,
-      );
-  static OutlineInputBorder get underLineGray => OutlineInputBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(
-            16.h,
-          ),
-        ),
-        borderSide: BorderSide.none,
-      );
-  static UnderlineInputBorder get underLineGray1 => UnderlineInputBorder(
+  static OutlineInputBorder get outlineGrayTL82 => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.h),
         borderSide: BorderSide(
-          color: appTheme.gray30005,
+          color: appTheme.gray200,
           width: 1,
         ),
       );
-  static OutlineInputBorder get outlineGrayTL41 => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.h),
+  static OutlineInputBorder get outlineGrayTL83 => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.h),
         borderSide: BorderSide(
-          color: appTheme.gray30005,
+          color: appTheme.gray200,
           width: 1,
         ),
-      );
-  static OutlineInputBorder get underLineGrayTL81 => OutlineInputBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(
-            8.h,
-          ),
-        ),
-        borderSide: BorderSide.none,
-      );
-  static UnderlineInputBorder get underLineGray4 => UnderlineInputBorder(
-        borderSide: BorderSide(
-          color: appTheme.blueGray20001,
-          width: 1,
-        ),
-      );
-  static OutlineInputBorder get fillOnErrorContainer => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(18.h),
-        borderSide: BorderSide.none,
       );
 }
 
@@ -158,7 +127,7 @@ class CustomTextFormField extends StatelessWidget {
             }
           },
           autofocus: autofocus!,
-          style: textStyle ?? CustomTextStyles.bodyLargePoppinsGray90001,
+          style: textStyle ?? theme.textTheme.titleSmall,
           obscureText: obscureText!,
           textInputAction: textInputAction,
           keyboardType: textInputType,
@@ -169,21 +138,25 @@ class CustomTextFormField extends StatelessWidget {
       );
   InputDecoration get decoration => InputDecoration(
         hintText: hintText ?? "",
-        hintStyle:
-            hintStyle ?? CustomTextStyles.bodyMediumInterOnErrorContainer_1,
+        hintStyle: hintStyle ?? CustomTextStyles.bodyMediumOnPrimary,
         prefixIcon: prefix,
         prefixIconConstraints: prefixConstraints,
         suffixIcon: suffix,
         suffixIconConstraints: suffixConstraints,
         isDense: true,
-        contentPadding: contentPadding ?? EdgeInsets.all(14.h),
+        contentPadding: contentPadding ??
+            EdgeInsets.only(
+              top: 16.v,
+              right: 16.h,
+              bottom: 16.v,
+            ),
         fillColor: fillColor,
         filled: filled,
         border: borderDecoration ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(20.h),
               borderSide: BorderSide(
-                color: theme.colorScheme.onErrorContainer,
+                color: theme.colorScheme.onPrimary,
                 width: 1,
               ),
             ),
@@ -191,16 +164,16 @@ class CustomTextFormField extends StatelessWidget {
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(20.h),
               borderSide: BorderSide(
-                color: theme.colorScheme.onErrorContainer,
+                color: theme.colorScheme.onPrimary,
                 width: 1,
               ),
             ),
         focusedBorder: borderDecoration ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.h),
+              borderRadius: BorderRadius.circular(12.h),
               borderSide: BorderSide(
-                color: appTheme.gray300,
-                width: 1,
+                color: appTheme.gray30002,
+                width: 2,
               ),
             ),
       );

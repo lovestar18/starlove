@@ -6,18 +6,18 @@ import '../../../core/app_export.dart';
 // ignore_for_file: must_be_immutable
 class PhotolistItemModel {
   PhotolistItemModel(
-      {this.photooneoneOne, this.photothreeone, this.photofiveone, this.id}) {
-    photooneoneOne = photooneoneOne ?? Rx(ImageConstant.imgPhoto4);
-    photothreeone = photothreeone ?? Rx(ImageConstant.imgPhoto5);
-    photofiveone = photofiveone ?? Rx(ImageConstant.imgPhoto6);
+      {this.photoOne, this.photoThree, this.photoFive, this.id}) {
+    photoOne = photoOne ?? Rx(ImageConstant.imgPhoto4);
+    photoThree = photoThree ?? Rx(ImageConstant.imgPhoto5);
+    photoFive = photoFive ?? Rx(ImageConstant.imgPhoto6);
     id = id ?? Rx("");
   }
 
-  Rx<String>? photooneoneOne;
+  Rx<String>? photoOne;
 
-  Rx<String>? photothreeone;
+  Rx<String>? photoThree;
 
-  Rx<String>? photofiveone;
+  Rx<String>? photoFive;
 
   Rx<String>? id;
 }

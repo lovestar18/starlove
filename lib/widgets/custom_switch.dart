@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import '../core/app_export.dart'; // ignore_for_file: must_be_immutable
 
 // ignore_for_file: must_be_immutable
@@ -40,14 +41,11 @@ class CustomSwitch extends StatelessWidget {
             : switchWidget);
   }
 
-  Widget get switchWidget => CupertinoSwitch(
+  Widget get switchWidget => FlutterSwitch(
         value: value ?? false,
-        trackColor: appTheme.gray30004,
-        thumbColor: (value ?? false)
-            ? theme.colorScheme.onErrorContainer.withOpacity(1)
-            : theme.colorScheme.onErrorContainer.withOpacity(1),
-        activeColor: theme.colorScheme.primary,
-        onChanged: (value) {
+        height: 20.v,
+        width: 32.h,
+        onToggle: (value) {
           onChange(value);
         },
       );

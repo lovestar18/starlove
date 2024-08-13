@@ -46,8 +46,7 @@ class PhotolistItemWidget extends StatelessWidget {
                         ),
                         Obx(
                           () => CustomImageView(
-                            imagePath:
-                                photolistItemModelObj.photooneoneOne!.value,
+                            imagePath: photolistItemModelObj.photoOne!.value,
                             height: 136.adaptSize,
                             width: 136.adaptSize,
                           ),
@@ -58,7 +57,7 @@ class PhotolistItemWidget extends StatelessWidget {
                 ),
                 Obx(
                   () => CustomImageView(
-                    imagePath: photolistItemModelObj.photothreeone!.value,
+                    imagePath: photolistItemModelObj.photoThree!.value,
                     height: 136.adaptSize,
                     width: 136.adaptSize,
                   ),
@@ -87,7 +86,7 @@ class PhotolistItemWidget extends StatelessWidget {
                     children: [
                       Obx(
                         () => CustomImageView(
-                          imagePath: photolistItemModelObj.photofiveone!.value,
+                          imagePath: photolistItemModelObj.photoFive!.value,
                           height: 136.adaptSize,
                           width: double.maxFinite,
                         ),

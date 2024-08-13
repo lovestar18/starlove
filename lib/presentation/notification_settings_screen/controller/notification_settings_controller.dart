@@ -11,9 +11,6 @@ class NotificationSettingsController extends GetxController {
 
   Rx<bool> isSelectedSwitch = false.obs;
 
-  Rx<bool> isSelectedSwitch1 = false.obs;
-
-  Rx<bool> isSelectedSwitch2 = false.obs;
-
-  Rx<bool> isSelectedSwitch3 = false.obs;
+  @override
+  void onReady() {}
 }

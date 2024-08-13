@@ -20,9 +20,9 @@ class ImagepickerTabContainerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
         body: Container(
-          width: 374.h,
+          width: 338.h,
           decoration: AppDecoration.mainwhite,
           child: Column(
             children: [
@@ -47,7 +47,7 @@ class ImagepickerTabContainerPage extends StatelessWidget {
                                     height: 764.v,
                                     width: 374.h,
                                     decoration: BoxDecoration(
-                                      color: theme.colorScheme.onErrorContainer
+                                      color: theme.colorScheme.onPrimary
                                           .withOpacity(1),
                                     ),
                                   ),
@@ -113,7 +113,7 @@ class ImagepickerTabContainerPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              _buildPhotoPicker(),
+                              _buildPhotoPickerTopNavigation(),
                               Container(
                                 margin: EdgeInsets.only(top: 100.v),
                                 height: 746.v,
@@ -132,7 +132,7 @@ class ImagepickerTabContainerPage extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: AssetImage(
-                                        ImageConstant.imgGroup4804,
+                                        ImageConstant.imgGroup7836,
                                       ),
                                       fit: BoxFit.cover,
                                     ),
@@ -163,8 +163,7 @@ class ImagepickerTabContainerPage extends StatelessWidget {
                                           height: 1.v,
                                           width: 374.h,
                                           decoration: BoxDecoration(
-                                            color: theme
-                                                .colorScheme.onErrorContainer
+                                            color: theme.colorScheme.onPrimary
                                                 .withOpacity(1),
                                           ),
                                         ),
@@ -563,7 +562,7 @@ class ImagepickerTabContainerPage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildPhotoPicker() {
+  Widget _buildPhotoPickerTopNavigation() {
     return Align(
       alignment: Alignment.topLeft,
       child: Container(
@@ -583,10 +582,7 @@ class ImagepickerTabContainerPage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(
-                    left: 14.h,
-                    right: 18.h,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 20.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -598,7 +594,8 @@ class ImagepickerTabContainerPage extends StatelessWidget {
                           children: [
                             Text(
                               "msg_select_up_to_4_items".tr,
-                              style: CustomTextStyles.bodyMediumSFProText,
+                              style:
+                                  CustomTextStyles.bodyMediumSFProTextBlack900,
                             ),
                             SizedBox(height: 26.v),
                             SizedBox(
@@ -639,8 +636,7 @@ class ImagepickerTabContainerPage extends StatelessWidget {
                                         2.0.h,
                                       ),
                                       indicator: BoxDecoration(
-                                        color: theme
-                                            .colorScheme.onErrorContainer
+                                        color: theme.colorScheme.onPrimary
                                             .withOpacity(1),
                                         borderRadius: BorderRadius.circular(
                                           6.h,

@@ -19,7 +19,7 @@ class ImagepickerPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
         body: SizedBox(
           width: double.maxFinite,
           child: SingleChildScrollView(
@@ -55,10 +55,7 @@ class ImagepickerPage extends StatelessWidget {
       child: Align(
         alignment: Alignment.centerRight,
         child: Padding(
-          padding: EdgeInsets.only(
-            left: 14.h,
-            right: 18.h,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 20.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -70,9 +67,9 @@ class ImagepickerPage extends StatelessWidget {
               CustomSearchView(
                 controller: controller.searchController,
                 hintText: "msg_photos_people".tr,
-                hintStyle: CustomTextStyles.bodyLargeSFProTextGray800,
                 contentPadding: EdgeInsets.symmetric(vertical: 8.v),
                 borderDecoration: SearchViewStyleHelper.fillGrayE,
+                filled: true,
                 fillColor: appTheme.gray6001e,
               )
             ],
@@ -86,14 +83,13 @@ class ImagepickerPage extends StatelessWidget {
   Widget _buildPhotoPickerFooter() {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.fromLTRB(14.h, 18.v, 14.h, 20.v),
-      decoration: AppDecoration.outlineGray,
+      padding: EdgeInsets.fromLTRB(20.h, 18.v, 20.h, 20.v),
+      decoration: AppDecoration.outlineGray800,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
+          SizedBox(
             width: double.maxFinite,
-            margin: EdgeInsets.only(right: 2.h),
             child: Column(
               children: [
                 Text(

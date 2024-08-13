@@ -7,25 +7,34 @@ import '../models/edit_profile_model.dart';
 /// This class manages the state of the EditProfileScreen, including the
 /// current editProfileModelObj
 class EditProfileController extends GetxController {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController nameFieldController = TextEditingController();
 
-  TextEditingController bioplaceholderController = TextEditingController();
+  TextEditingController bioFieldController = TextEditingController();
 
-  TextEditingController userNameController = TextEditingController();
+  TextEditingController usernameFieldController = TextEditingController();
 
-  TextEditingController tiktoklinkController = TextEditingController();
+  TextEditingController tiktokLinkFieldController = TextEditingController();
 
-  TextEditingController instagramlinkController = TextEditingController();
+  TextEditingController instagramLinkFieldController = TextEditingController();
+
+  TextEditingController facebookLinkFieldController = TextEditingController();
+
+  TextEditingController linkedinLinkFieldController = TextEditingController();
+
+  TextEditingController twitterLinkFieldController = TextEditingController();
 
   Rx<EditProfileModel> editProfileModelObj = EditProfileModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    nameController.dispose();
-    bioplaceholderController.dispose();
-    userNameController.dispose();
-    tiktoklinkController.dispose();
-    instagramlinkController.dispose();
+    nameFieldController.dispose();
+    bioFieldController.dispose();
+    usernameFieldController.dispose();
+    tiktokLinkFieldController.dispose();
+    instagramLinkFieldController.dispose();
+    facebookLinkFieldController.dispose();
+    linkedinLinkFieldController.dispose();
+    twitterLinkFieldController.dispose();
   }
 }

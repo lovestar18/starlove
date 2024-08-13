@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_subtitle_nineteen.dart';
-import '../../widgets/app_bar/appbar_subtitle_seventeen.dart';
-import '../../widgets/app_bar/appbar_trailing_button.dart';
+import '../../widgets/app_bar/appbar_leading_iconbutton_one.dart';
+import '../../widgets/app_bar/appbar_subtitle.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
-import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_outlined_button.dart';
+import '../../widgets/custom_text_form_field.dart';
 import 'controller/write_in_group_controller.dart'; // ignore_for_file: must_be_immutable
 
 class WriteInGroupScreen extends GetWidget<WriteInGroupController> {
@@ -19,111 +17,126 @@ class WriteInGroupScreen extends GetWidget<WriteInGroupController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
-        appBar: _buildAppBar(),
-        body: Container(
-          width: double.maxFinite,
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.h,
-            vertical: 20.v,
-          ),
-          child: Column(
-            children: [
-              SizedBox(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
+        body: Column(
+          children: [
+            _buildArrowLeftSection(),
+            Expanded(
+              child: Container(
                 width: double.maxFinite,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.h,
+                  vertical: 6.v,
+                ),
                 child: Column(
                   children: [
-                    _buildProfileSection(),
-                    SizedBox(height: 18.v),
-                    CustomIconButton(
-                      height: 32.adaptSize,
-                      width: 32.adaptSize,
-                      padding: EdgeInsets.all(8.h),
-                      decoration: IconButtonStyleHelper.outlineBlueGrayTL16,
-                      alignment: Alignment.centerLeft,
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgIconPlus,
-                      ),
-                    ),
-                    SizedBox(height: 294.v),
+                    _buildWriteToEventSection(),
+                    Spacer(),
                     CustomOutlinedButton(
-                      height: 34.v,
-                      width: 138.h,
-                      text: "lbl_group_post".tr.toUpperCase(),
-                      buttonStyle: CustomButtonStyles.outlineBlueGrayTL161,
-                      buttonTextStyle: CustomTextStyles
-                          .labelLargeOpenSansOnErrorContainerBold,
-                    )
+                      text: "lbl_post".tr,
+                      margin: EdgeInsets.only(right: 16.h),
+                      buttonTextStyle: CustomTextStyles.titleMediumGray200Bold,
+                    ),
+                    SizedBox(height: 20.v)
                   ],
                 ),
               ),
-              SizedBox(height: 4.v)
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  /// Section Widget
-  PreferredSizeWidget _buildAppBar() {
-    return CustomAppBar(
-      height: 38.v,
-      title: Padding(
-        padding: EdgeInsets.only(left: 14.h),
-        child: Row(
-          children: [
-            AppbarSubtitleNineteen(
-              text: "lbl_cancel".tr,
-              margin: EdgeInsets.only(bottom: 1.v),
-            ),
-            AppbarSubtitleSeventeen(
-              text: "lbl_write_to_group".tr.toUpperCase(),
-              margin: EdgeInsets.only(left: 37.h),
             )
           ],
         ),
       ),
-      actions: [
-        AppbarTrailingButton(
-          margin: EdgeInsets.only(
-            top: 7.v,
-            right: 29.h,
-            bottom: 7.v,
-          ),
-        )
-      ],
     );
   }
 
   /// Section Widget
-  Widget _buildProfileSection() {
-    return SizedBox(
+  Widget _buildArrowLeftSection() {
+    return Container(
       width: double.maxFinite,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgProfilePhoto,
-            height: 32.adaptSize,
-            width: 32.adaptSize,
-            radius: BorderRadius.circular(
-              16.h,
-            ),
-            alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(vertical: 12.v),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            ImageConstant.imgGroup4273209341,
           ),
-          Padding(
-            padding: EdgeInsets.only(
-              left: 18.h,
-              top: 2.v,
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Column(
+        children: [
+          CustomAppBar(
+            leadingWidth: 63.h,
+            leading: AppbarLeadingIconbuttonOne(
+              imagePath: ImageConstant.imgArrowLeftOnprimary,
+              margin: EdgeInsets.only(left: 29.h),
+              onTap: () {
+                onTapArrowleftone();
+              },
             ),
-            child: Text(
-              "msg_what_s_on_your_mind".tr,
-              style: CustomTextStyles.titleMediumOpenSansGray600,
+            centerTitle: true,
+            title: AppbarSubtitle(
+              text: "lbl_write_to_group3".tr,
+            ),
+          ),
+          SizedBox(height: 12.v)
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildWriteToEventSection() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.symmetric(horizontal: 10.h),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 60.v,
+            width: double.maxFinite,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "lbl_write_to_event".tr,
+                    style: theme.textTheme.titleLarge,
+                  ),
+                ),
+                CustomTextFormField(
+                  controller: controller.whatshappeningController,
+                  hintText: "msg_what_s_happening".tr,
+                  hintStyle: CustomTextStyles.bodyMediumBluegray3000114,
+                  textInputAction: TextInputAction.done,
+                  prefix: Container(
+                    margin: EdgeInsets.fromLTRB(6.h, 4.v, 8.h, 4.v),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        20.h,
+                      ),
+                    ),
+                    child: CustomImageView(
+                      imagePath: ImageConstant.imgAvatar,
+                      height: 40.adaptSize,
+                      width: 40.adaptSize,
+                    ),
+                  ),
+                  prefixConstraints: BoxConstraints(
+                    maxHeight: 50.v,
+                  ),
+                  borderDecoration: TextFormFieldStyleHelper.outlineGrayTL8,
+                )
+              ],
             ),
           )
         ],
       ),
     );
+  }
+
+  /// Navigates to the previous screen.
+  onTapArrowleftone() {
+    Get.back();
   }
 }

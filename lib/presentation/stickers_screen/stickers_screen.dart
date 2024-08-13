@@ -12,27 +12,27 @@ class StickersScreen extends GetWidget<StickersController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.only(
-            left: 16.h,
+            left: 20.h,
             top: 30.v,
-            right: 16.h,
+            right: 20.h,
           ),
           child: Column(
             children: [
-              _buildRowBMazelTov(),
+              _buildRowBmazeltov(),
               SizedBox(height: 24.v),
               CustomImageView(
                 imagePath: ImageConstant.imgFKeepingItKosher,
                 height: 94.v,
                 width: 174.h,
                 alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(left: 16.h),
+                margin: EdgeInsets.only(left: 12.h),
               ),
               SizedBox(height: 6.v),
-              _buildRowILChaim()
+              _buildRowIlchaim()
             ],
           ),
         ),
@@ -41,12 +41,12 @@ class StickersScreen extends GetWidget<StickersController> {
   }
 
   /// Section Widget
-  Widget _buildRowBMazelTov() {
+  Widget _buildRowBmazeltov() {
     return Container(
       width: double.maxFinite,
       margin: EdgeInsets.only(
-        left: 10.h,
-        right: 16.h,
+        left: 6.h,
+        right: 12.h,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +102,7 @@ class StickersScreen extends GetWidget<StickersController> {
   }
 
   /// Section Widget
-  Widget _buildRowILChaim() {
+  Widget _buildRowIlchaim() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
@@ -122,16 +122,13 @@ class StickersScreen extends GetWidget<StickersController> {
                   height: 108.v,
                   width: double.maxFinite,
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(
-                    left: 8.h,
-                    right: 4.h,
-                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 8.h),
                 ),
                 SizedBox(height: 34.v),
                 CustomImageView(
                   imagePath: ImageConstant.imgULarry,
                   height: 138.v,
-                  width: double.maxFinite,
+                  width: 150.h,
                 )
               ],
             ),

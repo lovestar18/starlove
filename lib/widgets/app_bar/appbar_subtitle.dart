@@ -25,8 +25,8 @@ class AppbarSubtitle extends StatelessWidget {
         padding: margin ?? EdgeInsets.zero,
         child: Text(
           text,
-          style: CustomTextStyles.headlineMediumOpenSansBlack900.copyWith(
-            color: appTheme.black900,
+          style: theme.textTheme.titleLarge!.copyWith(
+            color: theme.colorScheme.onPrimary.withOpacity(1),
           ),
         ),
       ),

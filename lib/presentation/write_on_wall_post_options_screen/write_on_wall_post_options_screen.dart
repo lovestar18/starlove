@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_subtitle_nineteen.dart';
-import '../../widgets/app_bar/appbar_subtitle_seventeen.dart';
+import '../../widgets/app_bar/appbar_subtitle_four.dart';
+import '../../widgets/app_bar/appbar_subtitle_three.dart';
 import '../../widgets/app_bar/appbar_trailing_button.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_icon_button.dart';
@@ -20,34 +20,37 @@ class WriteOnWallPostOptionsScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(
-            horizontal: 16.h,
+            horizontal: 10.h,
             vertical: 18.v,
           ),
           child: Column(
             children: [
+              _buildProfileSection(),
+              SizedBox(height: 18.v),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildProfileRowSection(),
-                    SizedBox(height: 18.v),
-                    _buildIconRowSection(),
-                    Spacer(),
-                    CustomOutlinedButton(
-                      height: 46.v,
-                      width: 132.h,
-                      text: "lbl_wall_post2".tr.toUpperCase(),
-                      margin: EdgeInsets.only(left: 82.h),
-                      buttonStyle: CustomButtonStyles.outlineBlueGrayTL223,
-                      buttonTextStyle: CustomTextStyles
-                          .labelLargeOpenSansOnErrorContainerBold,
-                    )
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.h),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildIconSection(),
+                      Spacer(),
+                      CustomOutlinedButton(
+                        height: 46.v,
+                        width: 132.h,
+                        text: "lbl_wall_post2".tr.toUpperCase(),
+                        margin: EdgeInsets.only(left: 76.h),
+                        buttonStyle: CustomButtonStyles.outlineBlueGrayTL221,
+                        buttonTextStyle:
+                            CustomTextStyles.labelLargeOpenSansOnPrimary,
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: 4.v)
@@ -66,11 +69,11 @@ class WriteOnWallPostOptionsScreen
         padding: EdgeInsets.only(left: 22.h),
         child: Row(
           children: [
-            AppbarSubtitleNineteen(
+            AppbarSubtitleFour(
               text: "lbl_cancel".tr,
               margin: EdgeInsets.only(bottom: 1.v),
             ),
-            AppbarSubtitleSeventeen(
+            AppbarSubtitleThree(
               text: "lbl_write_wall_post2".tr.toUpperCase(),
               margin: EdgeInsets.only(left: 33.h),
             )
@@ -90,7 +93,7 @@ class WriteOnWallPostOptionsScreen
   }
 
   /// Section Widget
-  Widget _buildProfileRowSection() {
+  Widget _buildProfileSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
@@ -121,7 +124,7 @@ class WriteOnWallPostOptionsScreen
   }
 
   /// Section Widget
-  Widget _buildIconRowSection() {
+  Widget _buildIconSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
@@ -130,7 +133,7 @@ class WriteOnWallPostOptionsScreen
             height: 32.adaptSize,
             width: 32.adaptSize,
             padding: EdgeInsets.all(8.h),
-            decoration: IconButtonStyleHelper.outlineBlueGrayTL16,
+            decoration: IconButtonStyleHelper.outlineBlueGrayTL161,
             child: CustomImageView(
               imagePath: ImageConstant.imgIconClose,
             ),
@@ -141,8 +144,8 @@ class WriteOnWallPostOptionsScreen
               horizontal: 14.h,
               vertical: 4.v,
             ),
-            decoration: AppDecoration.outlineBluegray900011.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder16,
+            decoration: AppDecoration.outlineBluegray900.copyWith(
+              borderRadius: BorderRadiusStyle.roundedBorder14,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -159,16 +162,16 @@ class WriteOnWallPostOptionsScreen
                   height: 20.adaptSize,
                   width: 20.adaptSize,
                   onTap: () {
-                    onTapImgIcongifoneone();
+                    onTapImgIcongifone();
                   },
                 ),
                 SizedBox(width: 16.h),
                 CustomImageView(
-                  imagePath: ImageConstant.imgCameraOnerrorcontainer,
+                  imagePath: ImageConstant.imgCameraOnprimary,
                   height: 20.adaptSize,
                   width: 20.adaptSize,
                   onTap: () {
-                    onTapImgCameraoneone();
+                    onTapImgCameraone();
                   },
                 ),
                 SizedBox(width: 16.h),
@@ -186,16 +189,16 @@ class WriteOnWallPostOptionsScreen
   }
 
   /// Navigates to the stickersScreen when the action is triggered.
-  onTapImgIcongifoneone() {
+  onTapImgIcongifone() {
     Get.toNamed(
       AppRoutes.stickersScreen,
     );
   }
 
-  /// Navigates to the cameraPermission2Screen when the action is triggered.
-  onTapImgCameraoneone() {
+  /// Navigates to the cameraPermissionTwoScreen when the action is triggered.
+  onTapImgCameraone() {
     Get.toNamed(
-      AppRoutes.cameraPermission2Screen,
+      AppRoutes.cameraPermissionTwoScreen,
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
-import '../../widgets/app_bar/appbar_subtitle_nineteen.dart';
-import '../../widgets/app_bar/appbar_subtitle_seventeen.dart';
+import '../../widgets/app_bar/appbar_subtitle_four.dart';
+import '../../widgets/app_bar/appbar_subtitle_three.dart';
 import '../../widgets/app_bar/appbar_trailing_button.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_icon_button.dart';
@@ -19,7 +19,7 @@ class CreateWallPostScreen extends GetWidget<CreateWallPostController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
         appBar: _buildAppBar(),
         body: Container(
           width: double.maxFinite,
@@ -30,13 +30,13 @@ class CreateWallPostScreen extends GetWidget<CreateWallPostController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildProfileRow(),
+              _buildProfileSection(),
               SizedBox(height: 12.v),
               CustomIconButton(
                 height: 32.adaptSize,
                 width: 32.adaptSize,
                 padding: EdgeInsets.all(8.h),
-                decoration: IconButtonStyleHelper.outlineBlueGrayTL16,
+                decoration: IconButtonStyleHelper.outlineBlueGrayTL161,
                 child: CustomImageView(
                   imagePath: ImageConstant.imgIconPlus,
                 ),
@@ -58,11 +58,11 @@ class CreateWallPostScreen extends GetWidget<CreateWallPostController> {
         padding: EdgeInsets.only(left: 22.h),
         child: Row(
           children: [
-            AppbarSubtitleNineteen(
+            AppbarSubtitleFour(
               text: "lbl_cancel".tr,
               margin: EdgeInsets.only(bottom: 1.v),
             ),
-            AppbarSubtitleSeventeen(
+            AppbarSubtitleThree(
               text: "lbl_write_wall_post2".tr.toUpperCase(),
               margin: EdgeInsets.only(left: 33.h),
             )
@@ -82,7 +82,7 @@ class CreateWallPostScreen extends GetWidget<CreateWallPostController> {
   }
 
   /// Section Widget
-  Widget _buildProfileRow() {
+  Widget _buildProfileSection() {
     return SizedBox(
       width: double.maxFinite,
       child: Row(
@@ -120,8 +120,8 @@ class CreateWallPostScreen extends GetWidget<CreateWallPostController> {
       width: 132.h,
       text: "lbl_wall_post2".tr.toUpperCase(),
       margin: EdgeInsets.only(bottom: 58.v),
-      buttonStyle: CustomButtonStyles.outlineBlueGrayTL222,
-      buttonTextStyle: CustomTextStyles.labelLargeOpenSansOnErrorContainerBold,
+      buttonStyle: CustomButtonStyles.outlineBlueGrayTL22,
+      buttonTextStyle: CustomTextStyles.labelLargeOpenSansOnPrimary,
     );
   }
 }

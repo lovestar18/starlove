@@ -7,16 +7,23 @@ import '../models/write_in_communty_model.dart';
 /// This class manages the state of the WriteInCommuntyScreen, including the
 /// current writeInCommuntyModelObj
 class WriteInCommuntyController extends GetxController {
-  TextEditingController yournamegmailcoController = TextEditingController();
+  TextEditingController posttitlevalueController = TextEditingController();
 
-  TextEditingController yournamegmailco1Controller = TextEditingController();
+  TextEditingController descriptionvaluController = TextEditingController();
 
   Rx<WriteInCommuntyModel> writeInCommuntyModelObj = WriteInCommuntyModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    yournamegmailcoController.dispose();
-    yournamegmailco1Controller.dispose();
+    posttitlevalueController.dispose();
+    descriptionvaluController.dispose();
+  }
+
+  @override
+  void onReady() {
+    Get.toNamed(
+      AppRoutes.communityForumsHome1Page,
+    );
   }
 }

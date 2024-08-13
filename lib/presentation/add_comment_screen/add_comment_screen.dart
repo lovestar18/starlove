@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_nine.dart';
-import '../../widgets/app_bar/appbar_trailing_image_one.dart';
+import '../../widgets/app_bar/appbar_leading_iconbutton_one.dart';
+import '../../widgets/app_bar/appbar_subtitle_one.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
+import '../../widgets/custom_text_form_field.dart';
 import 'controller/add_comment_controller.dart';
-import 'models/userprofilelist_item_model.dart';
-import 'widgets/userprofilelist_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'models/userprofileslist_item_model.dart';
+import 'widgets/userprofileslist_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class AddCommentScreen extends GetWidget<AddCommentController> {
   const AddCommentScreen({Key? key})
@@ -18,72 +18,75 @@ class AddCommentScreen extends GetWidget<AddCommentController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
-        appBar: _buildAppBar(),
-        body: Container(
-          width: double.maxFinite,
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.h,
-            vertical: 10.v,
-          ),
-          child: Column(
-            children: [_buildUserProfileList()],
-          ),
+        resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
+        body: Column(
+          children: [
+            _buildCommentHeader(),
+            SizedBox(height: 20.v),
+            _buildUserProfilesList()
+          ],
         ),
-        bottomNavigationBar: _buildCommentSection(),
+        bottomNavigationBar: _buildMessageInput(),
       ),
     );
   }
 
   /// Section Widget
-  PreferredSizeWidget _buildAppBar() {
-    return CustomAppBar(
-      height: 48.v,
-      leadingWidth: 40.h,
-      leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowDownGray90014,
-        margin: EdgeInsets.only(
-          left: 16.h,
-          top: 12.v,
-          bottom: 12.v,
-        ),
-      ),
-      centerTitle: true,
-      title: AppbarSubtitleNine(
-        text: "lbl_comments".tr,
-      ),
-      actions: [
-        AppbarTrailingImageOne(
-          imagePath: ImageConstant.imgEditGray90014,
-          margin: EdgeInsets.only(
-            top: 12.v,
-            right: 15.h,
-            bottom: 12.v,
-          ),
-        )
-      ],
-    );
-  }
-
-  /// Section Widget
-  Widget _buildUserProfileList() {
-    return SizedBox(
+  Widget _buildCommentHeader() {
+    return Container(
       width: double.maxFinite,
+      padding: EdgeInsets.symmetric(vertical: 20.v),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            ImageConstant.imgGroup7830,
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomAppBar(
+            leadingWidth: 53.h,
+            leading: AppbarLeadingIconbuttonOne(
+              imagePath: ImageConstant.imgArrowLeftOnprimary,
+              margin: EdgeInsets.only(left: 19.h),
+              onTap: () {
+                onTapArrowleftone();
+              },
+            ),
+            centerTitle: true,
+            title: AppbarSubtitleOne(
+              text: "lbl_comments".tr,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildUserProfilesList() {
+    return Container(
+      width: double.maxFinite,
+      margin: EdgeInsets.symmetric(horizontal: 20.h),
       child: Obx(
         () => ListView.separated(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           separatorBuilder: (context, index) {
             return SizedBox(
-              height: 10.v,
+              height: 14.v,
             );
           },
           itemCount: controller
-              .addCommentModelObj.value.userprofilelistItemList.value.length,
+              .addCommentModelObj.value.userprofileslistItemList.value.length,
           itemBuilder: (context, index) {
-            UserprofilelistItemModel model = controller
-                .addCommentModelObj.value.userprofilelistItemList.value[index];
-            return UserprofilelistItemWidget(
+            UserprofileslistItemModel model = controller
+                .addCommentModelObj.value.userprofileslistItemList.value[index];
+            return UserprofileslistItemWidget(
               model,
             );
           },
@@ -93,55 +96,46 @@ class AddCommentScreen extends GetWidget<AddCommentController> {
   }
 
   /// Section Widget
-  Widget _buildCommentSection() {
-    return Container(
-      height: 32.v,
-      margin: EdgeInsets.only(
-        left: 16.h,
-        right: 16.h,
-        bottom: 12.v,
+  Widget _buildMessageInput() {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 14.h,
+        right: 18.h,
+        bottom: 34.v,
       ),
-      decoration: AppDecoration.mainwhite,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          VerticalDivider(
-            width: 1.h,
-            thickness: 1.v,
-            color: appTheme.blueGray90003,
+      child: CustomTextFormField(
+        controller: controller.messageInputController,
+        hintText: "lbl_message2".tr,
+        hintStyle: CustomTextStyles.bodyMediumInterBluegray3000114,
+        textInputAction: TextInputAction.done,
+        suffix: Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: 30.h,
+            vertical: 8.v,
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 4.v),
-              child: Text(
-                "lbl_type_something".tr,
-                style: CustomTextStyles.titleSmallOpenSansGray400,
-              ),
-            ),
+          child: CustomImageView(
+            imagePath: ImageConstant.imgIconMicBlueGray300,
+            height: 24.adaptSize,
+            width: 24.adaptSize,
           ),
-          Spacer(),
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 8.h,
-              vertical: 4.v,
-            ),
-            decoration: AppDecoration.gradientIndigoAToIndigo.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder16,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  "lbl_post".tr,
-                  style:
-                      CustomTextStyles.titleSmallOpenSansOnErrorContainerBold,
-                )
-              ],
-            ),
-          )
-        ],
+        ),
+        suffixConstraints: BoxConstraints(
+          maxHeight: 40.v,
+        ),
+        contentPadding: EdgeInsets.only(
+          left: 16.h,
+          top: 10.v,
+          bottom: 10.v,
+        ),
+        borderDecoration: TextFormFieldStyleHelper.outlineGrayTL82,
+        filled: true,
+        fillColor: theme.colorScheme.onPrimary.withOpacity(1),
       ),
     );
+  }
+
+  /// Navigates to the previous screen.
+  onTapArrowleftone() {
+    Get.back();
   }
 }

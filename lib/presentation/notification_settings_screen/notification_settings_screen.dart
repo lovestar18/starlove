@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import '../../widgets/app_bar/appbar_leading_image.dart';
-import '../../widgets/app_bar/appbar_subtitle_eight.dart';
-import '../../widgets/app_bar/custom_app_bar.dart';
-import '../../widgets/custom_bottom_app_bar.dart';
-import '../../widgets/custom_floating_button.dart';
+import '../../widgets/custom_elevated_button.dart';
+import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_switch.dart';
-import '../community_forums_home_page/community_forums_home_page.dart';
-import '../community_forums_response_screen/community_forums_response_screen.dart';
-import '../homepage_container1_page/homepage_container1_page.dart';
-import 'controller/notification_settings_controller.dart'; // ignore_for_file: must_be_immutable
+import 'controller/notification_settings_controller.dart';
+import 'models/listgeneralnoti_item_model.dart';
+import 'widgets/listgeneralnoti_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class NotificationSettingsScreen
     extends GetWidget<NotificationSettingsController> {
@@ -22,222 +18,193 @@ class NotificationSettingsScreen
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.colorScheme.onErrorContainer.withOpacity(1),
-        appBar: _buildAppBar(),
-        body: Container(
-          width: double.maxFinite,
-          padding: EdgeInsets.symmetric(
-            horizontal: 30.h,
-            vertical: 78.v,
+        backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildHeaderSection(),
+            SizedBox(height: 22.v),
+            _buildNotificationSettings(),
+            SizedBox(height: 4.v)
+          ],
+        ),
+        bottomNavigationBar: _buildSaveChangesButton(),
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildHeaderSection() {
+    return SizedBox(
+      height: 70.v,
+      width: double.maxFinite,
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.h),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 2.h),
+                    child: Text(
+                      "lbl_9_41".tr,
+                      style: CustomTextStyles.titleMediumSFProTextBlack900,
+                    ),
+                  ),
+                  SizedBox(height: 4.v),
+                  SizedBox(
+                    height: 34.v,
+                    width: double.maxFinite,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            CustomIconButton(
+                              height: 34.adaptSize,
+                              width: 34.adaptSize,
+                              padding: EdgeInsets.all(4.h),
+                              onTap: () {
+                                onTapBtnArrowleftone();
+                              },
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgArrowLeftOnprimary,
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: 90.h,
+                                  bottom: 2.v,
+                                ),
+                                child: Text(
+                                  "lbl_settings".tr,
+                                  style: CustomTextStyles.titleLargeSemiBold,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        CustomImageView(
+                          imagePath: ImageConstant.imgArrowLeftGray10002,
+                          height: 16.v,
+                          width: 18.h,
+                          alignment: Alignment.bottomLeft,
+                          margin: EdgeInsets.only(
+                            left: 16.h,
+                            bottom: 4.v,
+                          ),
+                          onTap: () {
+                            onTapImgArrowleftthree();
+                          },
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
+          CustomImageView(
+            imagePath: ImageConstant.imgRectangle602670x372,
+            height: 70.v,
+            width: double.maxFinite,
+          )
+        ],
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildNotificationSettings() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: Align(
+        alignment: Alignment.center,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.h),
           child: Column(
             children: [
-              _buildGeneralNotificationRow(),
-              SizedBox(height: 28.v),
-              _buildChatNotificationRow(),
-              SizedBox(height: 28.v),
-              _buildGroupNotificationRow(),
-              SizedBox(height: 28.v),
-              _buildPostNotificationRow(),
-              SizedBox(height: 4.v)
+              SizedBox(
+                width: double.maxFinite,
+                child: Obx(
+                  () => ListView.separated(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        height: 12.v,
+                      );
+                    },
+                    itemCount: controller.notificationSettingsModelObj.value
+                        .listgeneralnotiItemList.value.length,
+                    itemBuilder: (context, index) {
+                      ListgeneralnotiItemModel model = controller
+                          .notificationSettingsModelObj
+                          .value
+                          .listgeneralnotiItemList
+                          .value[index];
+                      return ListgeneralnotiItemWidget(
+                        model,
+                      );
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(height: 12.v),
+              SizedBox(
+                width: double.maxFinite,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "msg_post_notifications".tr,
+                      style: theme.textTheme.titleSmall,
+                    ),
+                    Obx(
+                      () => CustomSwitch(
+                        value: controller.isSelectedSwitch.value,
+                        onChange: (value) {
+                          controller.isSelectedSwitch.value = value;
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomNavigationBar(),
-        floatingActionButton: CustomFloatingButton(
-          height: 54,
-          width: 60,
-          onTap: () {
-            onTapFloatingactionb();
-          },
-          child: CustomImageView(
-            imagePath: ImageConstant.imgFieldNavigation,
-            height: 27.0.v,
-            width: 30.0.h,
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
 
   /// Section Widget
-  PreferredSizeWidget _buildAppBar() {
-    return CustomAppBar(
-      leadingWidth: 56.h,
-      leading: AppbarLeadingImage(
-        imagePath: ImageConstant.imgArrowLeftGray100011,
-        margin: EdgeInsets.only(
-          left: 38.h,
-          top: 19.v,
-          bottom: 20.v,
-        ),
-        onTap: () {
-          onTapArrowleftone();
-        },
+  Widget _buildSaveChangesButton() {
+    return CustomElevatedButton(
+      text: "lbl_save_changes2".tr,
+      margin: EdgeInsets.only(
+        left: 22.h,
+        right: 16.h,
+        bottom: 34.v,
       ),
-      centerTitle: true,
-      title: AppbarSubtitleEight(
-        text: "msg_notification_settings".tr,
-      ),
+      buttonTextStyle: CustomTextStyles.titleMediumOnPrimary_1,
     );
-  }
-
-  /// Section Widget
-  Widget _buildGeneralNotificationRow() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "msg_general_notification".tr,
-              style: CustomTextStyles.bodyMediumBluegray90005_1,
-            ),
-          ),
-          Obx(
-            () => CustomSwitch(
-              value: controller.isSelectedSwitch.value,
-              onChange: (value) {
-                controller.isSelectedSwitch.value = value;
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildChatNotificationRow() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "msg_chat_notifications".tr,
-              style: CustomTextStyles.bodyMediumBluegray90005_1,
-            ),
-          ),
-          Obx(
-            () => CustomSwitch(
-              value: controller.isSelectedSwitch1.value,
-              onChange: (value) {
-                controller.isSelectedSwitch1.value = value;
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildGroupNotificationRow() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "msg_group_notifications".tr,
-              style: CustomTextStyles.bodyMediumBluegray90005_1,
-            ),
-          ),
-          Obx(
-            () => CustomSwitch(
-              value: controller.isSelectedSwitch2.value,
-              onChange: (value) {
-                controller.isSelectedSwitch2.value = value;
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildPostNotificationRow() {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "msg_post_notifications".tr,
-              style: CustomTextStyles.bodyMediumBluegray90005_1,
-            ),
-          ),
-          Obx(
-            () => CustomSwitch(
-              value: controller.isSelectedSwitch3.value,
-              onChange: (value) {
-                controller.isSelectedSwitch3.value = value;
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  /// Section Widget
-  Widget _buildBottomNavigationBar() {
-    return CustomBottomAppBar(
-      onChanged: (BottomBarEnum type) {
-        Get.toNamed(getCurrentRoute(type), id: 1);
-      },
-    );
-  }
-
-  ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
-    switch (type) {
-      case BottomBarEnum.Home:
-        return AppRoutes.homepageContainer1Page;
-      case BottomBarEnum.Grid:
-        return AppRoutes.communityForumsResponseScreen;
-      case BottomBarEnum.Iconlylightnotification:
-        return "/";
-      case BottomBarEnum.Iconlylightprofile:
-        return AppRoutes.communityForumsHomePage;
-      default:
-        return "/";
-    }
-  }
-
-  ///Handling page based on route
-  Widget getCurrentPage(String currentRoute) {
-    switch (currentRoute) {
-      case AppRoutes.homepageContainer1Page:
-        return HomepageContainer1Page();
-      case AppRoutes.communityForumsResponseScreen:
-        return CommunityForumsResponseScreen();
-      case AppRoutes.communityForumsHomePage:
-        return CommunityForumsHomePage();
-      default:
-        return DefaultWidget();
-    }
   }
 
   /// Navigates to the previous screen.
-  onTapArrowleftone() {
+  onTapBtnArrowleftone() {
     Get.back();
   }
 
-  onTapFloatingactionb() {}
+  /// Navigates to the previous screen.
+  onTapImgArrowleftthree() {
+    Get.back();
+  }
 }

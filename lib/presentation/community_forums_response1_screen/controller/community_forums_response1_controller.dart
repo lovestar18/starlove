@@ -9,6 +9,8 @@ import '../models/community_forums_response1_model.dart';
 class CommunityForumsResponse1Controller extends GetxController {
   TextEditingController commentController = TextEditingController();
 
+  TextEditingController commentInputController = TextEditingController();
+
   Rx<CommunityForumsResponse1Model> communityForumsResponse1ModelObj =
       CommunityForumsResponse1Model().obs;
 
@@ -16,5 +18,6 @@ class CommunityForumsResponse1Controller extends GetxController {
   void onClose() {
     super.onClose();
     commentController.dispose();
+    commentInputController.dispose();
   }
 }

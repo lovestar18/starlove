@@ -7,19 +7,19 @@ import '../models/help_contact_model.dart';
 /// This class manages the state of the HelpContactScreen, including the
 /// current helpContactModelObj
 class HelpContactController extends GetxController {
-  TextEditingController fullNameController = TextEditingController();
+  TextEditingController fullNameFieldController = TextEditingController();
 
-  TextEditingController emailController = TextEditingController();
+  TextEditingController emailFieldController = TextEditingController();
 
-  TextEditingController commentController = TextEditingController();
+  TextEditingController commentsFieldController = TextEditingController();
 
   Rx<HelpContactModel> helpContactModelObj = HelpContactModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    fullNameController.dispose();
-    emailController.dispose();
-    commentController.dispose();
+    fullNameFieldController.dispose();
+    emailFieldController.dispose();
+    commentsFieldController.dispose();
   }
 }

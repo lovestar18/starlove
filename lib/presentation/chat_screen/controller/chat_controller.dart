@@ -7,13 +7,20 @@ import '../models/chat_model.dart';
 /// This class manages the state of the ChatScreen, including the
 /// current chatModelObj
 class ChatController extends GetxController {
-  TextEditingController replyInputController = TextEditingController();
+  TextEditingController messageInputSectionController = TextEditingController();
 
   Rx<ChatModel> chatModelObj = ChatModel().obs;
 
   @override
   void onClose() {
     super.onClose();
-    replyInputController.dispose();
+    messageInputSectionController.dispose();
+  }
+
+  @override
+  void onReady() {
+    Get.toNamed(
+      AppRoutes.stickersScreen,
+    );
   }
 }

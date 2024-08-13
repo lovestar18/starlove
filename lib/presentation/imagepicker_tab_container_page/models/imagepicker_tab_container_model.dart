@@ -9,15 +9,15 @@ import 'photolist_item_model.dart';
 class ImagepickerTabContainerModel {
   Rx<List<PhotolistItemModel>> photolistItemList = Rx([
     PhotolistItemModel(
-        photooneoneOne: ImageConstant.imgPhoto4.obs,
-        photothreeone: ImageConstant.imgPhoto5.obs,
-        photofiveone: ImageConstant.imgPhoto6.obs),
+        photoOne: ImageConstant.imgPhoto4.obs,
+        photoThree: ImageConstant.imgPhoto5.obs,
+        photoFive: ImageConstant.imgPhoto6.obs),
     PhotolistItemModel(
-        photooneoneOne: ImageConstant.imgPhoto10.obs,
-        photothreeone: ImageConstant.imgPhoto11.obs,
-        photofiveone: ImageConstant.imgPhoto12.obs),
+        photoOne: ImageConstant.imgPhoto10.obs,
+        photoThree: ImageConstant.imgPhoto11.obs,
+        photoFive: ImageConstant.imgPhoto12.obs),
     PhotolistItemModel(
-        photothreeone: ImageConstant.imgPhoto8.obs,
-        photofiveone: ImageConstant.imgPhoto9.obs)
+        photoThree: ImageConstant.imgPhoto8.obs,
+        photoFive: ImageConstant.imgPhoto9.obs)
   ]);
 }

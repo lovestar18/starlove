@@ -6,8 +6,8 @@ extension SearchViewStyleHelper on CustomSearchView {
         borderRadius: BorderRadius.circular(10.h),
         borderSide: BorderSide.none,
       );
-  static OutlineInputBorder get fillGray => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(22.h),
+  static OutlineInputBorder get fillOnPrimary => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.h),
         borderSide: BorderSide.none,
       );
 }
@@ -33,7 +33,7 @@ class CustomSearchView extends StatelessWidget {
       this.contentPadding,
       this.borderDecoration,
       this.fillColor,
-      this.filled = true,
+      this.filled = false,
       this.validator,
       this.onChanged})
       : super(
@@ -105,7 +105,7 @@ class CustomSearchView extends StatelessWidget {
             }
           },
           autofocus: autofocus!,
-          style: textStyle ?? CustomTextStyles.labelLargeOpenSansBlack900,
+          style: textStyle ?? CustomTextStyles.bodyLargeSFProTextGray800,
           keyboardType: textInputType,
           maxLines: maxLines ?? 1,
           decoration: decoration,
@@ -117,19 +117,19 @@ class CustomSearchView extends StatelessWidget {
       );
   InputDecoration get decoration => InputDecoration(
         hintText: hintText ?? "",
-        hintStyle: hintStyle ?? CustomTextStyles.bodyMediumInterGray500,
+        hintStyle: hintStyle ?? CustomTextStyles.bodyMediumOnPrimary14,
         prefixIcon: prefix ??
             Container(
-              margin: EdgeInsets.fromLTRB(18.h, 12.v, 14.h, 12.v),
+              margin: EdgeInsets.fromLTRB(10.h, 14.v, 4.h, 14.v),
               child: CustomImageView(
-                imagePath: ImageConstant.imgIconSearch,
-                height: 24.v,
-                width: 20.h,
+                imagePath: ImageConstant.imgMagnifierBlueGray300,
+                height: 16.adaptSize,
+                width: 16.adaptSize,
               ),
             ),
         prefixIconConstraints: prefixConstraints ??
             BoxConstraints(
-              maxHeight: 48.v,
+              maxHeight: 44.v,
             ),
         suffixIcon: suffix ??
             Padding(
@@ -146,7 +146,7 @@ class CustomSearchView extends StatelessWidget {
             ),
         suffixIconConstraints: suffixConstraints ??
             BoxConstraints(
-              maxHeight: 48.v,
+              maxHeight: 44.v,
             ),
         isDense: true,
         contentPadding: contentPadding ??
@@ -155,30 +155,29 @@ class CustomSearchView extends StatelessWidget {
               right: 12.h,
               bottom: 12.v,
             ),
-        fillColor:
-            fillColor ?? theme.colorScheme.onErrorContainer.withOpacity(1),
+        fillColor: fillColor,
         filled: filled,
         border: borderDecoration ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.h),
+              borderRadius: BorderRadius.circular(8.h),
               borderSide: BorderSide(
-                color: appTheme.black900,
+                color: appTheme.gray200,
                 width: 1,
               ),
             ),
         enabledBorder: borderDecoration ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.h),
+              borderRadius: BorderRadius.circular(8.h),
               borderSide: BorderSide(
-                color: appTheme.black900,
+                color: appTheme.gray200,
                 width: 1,
               ),
             ),
         focusedBorder: borderDecoration ??
             OutlineInputBorder(
-              borderRadius: BorderRadius.circular(24.h),
+              borderRadius: BorderRadius.circular(8.h),
               borderSide: BorderSide(
-                color: appTheme.blueGray10001,
+                color: appTheme.gray200,
                 width: 1,
               ),
             ),

@@ -3,190 +3,247 @@ class ImageConstant {
   // Image folder path
   static String imagePath = 'assets/images';
 
-// Login Version 2 images
-  static String imgPlayerstop = '$imagePath/img_playerstop.svg';
+// Password Reset images
+  static String imgStarlove2Transparent011 =
+      '$imagePath/img_starlove_2_transparent_01_1.png';
 
-  static String imgGoogle = '$imagePath/img_google.svg';
+  static String imgVectorGray40002 = '$imagePath/img_vector_gray_400_02.svg';
 
-// Sign Up Version 2 images
-  static String imgArrowLeftGray90011 =
-      '$imagePath/img_arrow_left_gray_900_11.svg';
-
-  static String imgCircleGeorgeCross = '$imagePath/img_circle_george_cross.svg';
-
-  static String imgSettings = '$imagePath/img_settings.svg';
-
-  static String imgThumbsup = '$imagePath/img_thumbsup.svg';
-
-  static String imgArrowdownGray60001 =
-      '$imagePath/img_arrowdown_gray_600_01.svg';
+  static String imgEyeGray40002 = '$imagePath/img_eye_gray_400_02.svg';
 
 // Edit Profile images
-  static String imgGroup4675 = '$imagePath/img_group_4675.png';
-
-  static String imgArrowDown = '$imagePath/img_arrow_down.svg';
-
-  static String imgCamera = '$imagePath/img_camera.svg';
-
   static String imgEllipse194 = '$imagePath/img_ellipse_194.png';
 
-// Thank you - application images
-  static String imgDownload1 = '$imagePath/img_download_1.png';
+  static String imgCameraGray20003 = '$imagePath/img_camera_gray_200_03.svg';
 
-// Splash Screen images
-  static String imgCopyOfCopyOf = '$imagePath/img_copy_of_copy_of.png';
+// Success - App images
+  static String imgGroup7361 = '$imagePath/img_group_7361.svg';
 
-// Homepage - Container images
-  static String imgGraphic = '$imagePath/img_graphic.png';
+  static String imgCheckmarkPrimary = '$imagePath/img_checkmark_primary.svg';
 
-  static String imgJewish31 = '$imagePath/img_jewish_3_1.png';
+// Successful Password Reset images
+  static String imgSuccessApp = '$imagePath/img_success_app.png';
 
-  static String imgCommunity1 = '$imagePath/img_community_1.png';
+// Welcome back - sign in images
+  static String imgPlayerstopBlueGray300 =
+      '$imagePath/img_playerstop_blue_gray_300.svg';
 
-  static String imgSettingsPrimary = '$imagePath/img_settings_primary.svg';
+  static String imgGoogleDeepOrange500 =
+      '$imagePath/img_google_deep_orange_500.svg';
 
-  static String imgMaNishtana1 = '$imagePath/img_ma_nishtana_1.png';
+  static String imgFrameBlack900 = '$imagePath/img_frame_black_900.svg';
 
-  static String imgDiscussion1 = '$imagePath/img_discussion_1.png';
+// IF YOU ARE NOT FOLLOWING(PRIVATE PROFILE) images
+  static String imgHeart = '$imagePath/img_heart.svg';
 
-  static String imgTelevision = '$imagePath/img_television.svg';
+// Sending love images
+  static String imgContrastPrimary = '$imagePath/img_contrast_primary.svg';
 
-  static String imgScreenshot20240609 =
-      '$imagePath/img_screenshot_2024_06_09.png';
+// Sending love confirmation images
+  static String imgContrastPrimary26x28 =
+      '$imagePath/img_contrast_primary_26x28.svg';
 
-// Feed images
-  static String imgFrame427321905 = '$imagePath/img_frame_427321905.png';
+// Homepage images
+  static String imgLucideMenu = '$imagePath/img_lucide_menu.svg';
 
-  static String imgUnsplashBqe0j0b26rq =
-      '$imagePath/img_unsplash_bqe0j0b26rq.png';
+  static String imgStarlove2Transparent01 =
+      '$imagePath/img_starlove_2_transparent_01.png';
 
-  static String imgHugeIcon = '$imagePath/img_huge_icon.svg';
+  static String imgGraphic36x38 = '$imagePath/img_graphic_36x38.png';
 
-  static String imgUnsplashBqe0j0b26rq60x60 =
-      '$imagePath/img_unsplash_bqe0j0b26rq_60x60.png';
+  static String imgEllipse48 = '$imagePath/img_ellipse_48.png';
 
-  static String imgUnsplashBqe0j0b26rq1 =
-      '$imagePath/img_unsplash_bqe0j0b26rq_1.png';
+  static String imgEllipse49 = '$imagePath/img_ellipse_49.png';
 
-  static String imgUnsplashBqe0j0b26rq2 =
-      '$imagePath/img_unsplash_bqe0j0b26rq_2.png';
+  static String imgGroup427320885 = '$imagePath/img_group_427320885.png';
+
+  static String imgGroup427320886 = '$imagePath/img_group_427320886.png';
+
+  static String imgCloseOnprimary = '$imagePath/img_close_onprimary.svg';
+
+  static String imgProfile2user = '$imagePath/img_profile_2user.svg';
+
+  static String imgMessageText2 = '$imagePath/img_message_text_2.svg';
+
+  static String imgCalendar2 = '$imagePath/img_calendar_2.svg';
+
+  static String imgSms = '$imagePath/img_sms.svg';
+
+  static String imgSetting2 = '$imagePath/img_setting_2.svg';
+
+// Feed - Tab Container images
+  static String imgPlay = '$imagePath/img_play.png';
+
+  static String imgPlayPrimary = '$imagePath/img_play_primary.png';
+
+  static String imgSettingsPrimary1 = '$imagePath/img_settings_primary_1.png';
 
 // Story images
   static String imgRectangle = '$imagePath/img_rectangle.png';
 
   static String imgUserPicture1 = '$imagePath/img_user_picture_1.png';
 
-  static String imgClose = '$imagePath/img_close.svg';
+  static String imgCloseOnprimary16x16 =
+      '$imagePath/img_close_onprimary_16x16.svg';
 
-  static String imgUser = '$imagePath/img_user.svg';
+  static String imgUserOnprimary34x34 =
+      '$imagePath/img_user_onprimary_34x34.svg';
 
-  static String imgSave = '$imagePath/img_save.svg';
+  static String imgSaveOnprimary = '$imagePath/img_save_onprimary.svg';
 
   static String imgShape = '$imagePath/img_shape.svg';
 
-// USER Profile images
-  static String imgUnionBlack900 = '$imagePath/img_union_black_900.svg';
+// Friends - Tab Container images
+  static String imgGroup7820 = '$imagePath/img_group_7820.png';
 
-// USER Profile - Tab Container images
-  static String imgImage7 = '$imagePath/img_image_7.png';
+  static String imgAddUser1 = '$imagePath/img_add_user_1.svg';
 
-  static String imgEllipse19480x80 = '$imagePath/img_ellipse_194_80x80.png';
+// Discover images
+  static String imgGroup7821 = '$imagePath/img_group_7821.png';
 
-  static String imgImages1 = '$imagePath/img_images_1.png';
+  static String imgMaximize = '$imagePath/img_maximize.svg';
 
-  static String imgFacebook1 = '$imagePath/img_facebook_1.svg';
+  static String imgRectangle195 = '$imagePath/img_rectangle_195.png';
 
-  static String imgInfoBlueGray300 = '$imagePath/img_info_blue_gray_300.svg';
+  static String imgGroup427320935 = '$imagePath/img_group_427320935.png';
 
-// Notifications page images
-  static String imgOval = '$imagePath/img_oval.png';
+  static String imgRectangle195130x162 =
+      '$imagePath/img_rectangle_195_130x162.png';
 
-  static String imgGroup7164 = '$imagePath/img_group_7164.png';
+  static String imgAddUser1Primary = '$imagePath/img_add_user_1_primary.svg';
 
-  static String imgProfilesOnerrorcontainer =
-      '$imagePath/img_profiles_onerrorcontainer.png';
+  static String imgRectangle1951 = '$imagePath/img_rectangle_195_1.png';
 
-  static String imgRectangle44x44 = '$imagePath/img_rectangle_44x44.png';
+  static String imgRectangle1952 = '$imagePath/img_rectangle_195_2.png';
 
-  static String imgRectangleOnerrorcontainer =
-      '$imagePath/img_rectangle_onerrorcontainer.png';
+  static String imgRectangle1953 = '$imagePath/img_rectangle_195_3.png';
 
-  static String imgOval44x44 = '$imagePath/img_oval_44x44.png';
+  static String imgRectangle1954 = '$imagePath/img_rectangle_195_4.png';
 
-  static String imgFavoriteBlack90010x12 =
-      '$imagePath/img_favorite_black_900_10x12.svg';
+  static String imgRectangle1955 = '$imagePath/img_rectangle_195_5.png';
 
-  static String imgRectangle2 = '$imagePath/img_rectangle_2.png';
+  static String imgLock = '$imagePath/img_lock.svg';
 
-  static String imgGroup4716 = '$imagePath/img_group_4716.png';
+  static String imgPlusOnerrorcontainer =
+      '$imagePath/img_plus_onerrorcontainer.svg';
 
-  static String imgOval1 = '$imagePath/img_oval_1.png';
+  static String imgContrast = '$imagePath/img_contrast.svg';
 
-  static String imgGroup4719 = '$imagePath/img_group_4719.png';
+  static String imgRectangle195130x1621 =
+      '$imagePath/img_rectangle_195_130x162_1.png';
 
-  static String imgOval2 = '$imagePath/img_oval_2.png';
+  static String imgSettingsPrimary = '$imagePath/img_settings_primary.svg';
 
-  static String imgGroup4720 = '$imagePath/img_group_4720.png';
+  static String imgVectorPrimary = '$imagePath/img_vector_primary.svg';
 
-  static String imgOval3 = '$imagePath/img_oval_3.png';
+  static String imgRectangle195130x1622 =
+      '$imagePath/img_rectangle_195_130x162_2.png';
 
-  static String imgOvalCopy = '$imagePath/img_oval_copy.png';
+  static String imgRectangle195130x1623 =
+      '$imagePath/img_rectangle_195_130x162_3.png';
 
-  static String imgRectangle3 = '$imagePath/img_rectangle_3.png';
+  static String imgRectangle195130x1624 =
+      '$imagePath/img_rectangle_195_130x162_4.png';
 
-  static String imgRectangle4 = '$imagePath/img_rectangle_4.png';
+  static String imgRectangle195130x1625 =
+      '$imagePath/img_rectangle_195_130x162_5.png';
 
-  static String imgRectangle5 = '$imagePath/img_rectangle_5.png';
+  static String imgRectangle195130x1626 =
+      '$imagePath/img_rectangle_195_130x162_6.png';
 
-  static String imgRectangle6 = '$imagePath/img_rectangle_6.png';
+  static String imgRectangle195130x1627 =
+      '$imagePath/img_rectangle_195_130x162_7.png';
 
-  static String imgGroup4724 = '$imagePath/img_group_4724.png';
+// User - Following - Tab Container images
+  static String imgCheckmark = '$imagePath/img_checkmark.svg';
 
-// Reporting post 5 images
-  static String imgResize = '$imagePath/img_resize.svg';
+  static String imgEmoji = '$imagePath/img_emoji.svg';
 
-  static String imgArrowRight = '$imagePath/img_arrow_right.svg';
+// Profile - options One images
+  static String imgMinuscircle = '$imagePath/img_minuscircle.svg';
 
-  static String imgDelete = '$imagePath/img_delete.svg';
-
-  static String imgSettingsBlueGray70001 =
-      '$imagePath/img_settings_blue_gray_700_01.svg';
-
-  static String imgMenu = '$imagePath/img_menu.svg';
-
-// Camera permission 2 images
-  static String imgX = '$imagePath/img_x.svg';
-
-  static String imgVector = '$imagePath/img_vector.svg';
-
-// Blocking Nine images
-  static String imgSlashBlock = '$imagePath/img_slash_block.svg';
-
-  static String imgUserBlueGray8000224x24 =
-      '$imagePath/img_user_blue_gray_800_02_24x24.svg';
-
-  static String imgUserBlueGray80001 =
-      '$imagePath/img_user_blue_gray_800_01.svg';
-
-  static String imgSlashblockBlueGray80002 =
-      '$imagePath/img_slashblock_blue_gray_800_02.svg';
-
-  static String imgWarningSquare = '$imagePath/img_warning_square.svg';
+  static String imgVideoCamera = '$imagePath/img_video_camera.svg';
 
 // Add Comment images
-  static String imgEditGray90014 = '$imagePath/img_edit_gray_900_14.svg';
+  static String imgGroup7830 = '$imagePath/img_group_7830.png';
 
-// View post images
-  static String imgHeart2 = '$imagePath/img_heart_2.svg';
+// Write on Wall Post - Options images
+  static String imgIconImage = '$imagePath/img_icon_image.svg';
 
-  static String imgPlusGray90013 = '$imagePath/img_plus_gray_900_13.svg';
+  static String imgIconGif = '$imagePath/img_icon_gif.svg';
 
-  static String imgTwitterGray90013 = '$imagePath/img_twitter_gray_900_13.svg';
+  static String imgCameraOnprimary = '$imagePath/img_camera_onprimary.svg';
+
+  static String imgIconAttachment = '$imagePath/img_icon_attachment.svg';
+
+// Refer a friend images
+  static String imgArrowLeftGray90002 =
+      '$imagePath/img_arrow_left_gray_900_02.svg';
 
 // ImagePicker images
-  static String imgSearchGray800 = '$imagePath/img_search_gray_800.svg';
+  static String imgSearchGray8001 = '$imagePath/img_search_gray_800_1.svg';
 
   static String imgMenuGray800 = '$imagePath/img_menu_gray_800.svg';
+
+// USER Profile images
+  static String imgSettingsOnerrorcontainer =
+      '$imagePath/img_settings_onerrorcontainer.svg';
+
+  static String imgSettingsOnerrorcontainer10x14 =
+      '$imagePath/img_settings_onerrorcontainer_10x14.svg';
+
+  static String imgReply = '$imagePath/img_reply.svg';
+
+  static String imgRectangle6026154x374 =
+      '$imagePath/img_rectangle_6026_154x374.png';
+
+  static String imgTelevisionOnerrorcontainer =
+      '$imagePath/img_television_onerrorcontainer.svg';
+
+  static String imgMute = '$imagePath/img_mute.png';
+
+  static String imgImages12 = '$imagePath/img_images_1_2.png';
+
+  static String imgImages116x16 = '$imagePath/img_images_1_16x16.png';
+
+  static String imgFacebook = '$imagePath/img_facebook.svg';
+
+  static String imgInfoBlueGray30001 =
+      '$imagePath/img_info_blue_gray_300_01.svg';
+
+  static String imgCloseBlueGray300011 =
+      '$imagePath/img_close_blue_gray_300_01_1.svg';
+
+  static String imgContrastPrimary1 = '$imagePath/img_contrast_primary_1.svg';
+
+  static String imgAvatar40x40 = '$imagePath/img_avatar_40x40.png';
+
+  static String imgSettingsBlueGray90005 =
+      '$imagePath/img_settings_blue_gray_900_05.svg';
+
+  static String imgUserBlueGray90005 =
+      '$imagePath/img_user_blue_gray_900_05.svg';
+
+  static String imgSettingsBlueGray9000520x20 =
+      '$imagePath/img_settings_blue_gray_900_05_20x20.svg';
+
+  static String imgRectangle188BlueGray10001 =
+      '$imagePath/img_rectangle_188_blue_gray_100_01.png';
+
+  static String imgRectangle189BlueGray10001 =
+      '$imagePath/img_rectangle_189_blue_gray_100_01.png';
+
+  static String imgRectangle190BlueGray10001 =
+      '$imagePath/img_rectangle_190_blue_gray_100_01.png';
+
+  static String imgVector180 = '$imagePath/img_vector_180.svg';
+
+  static String imgOffer = '$imagePath/img_offer.svg';
+
+  static String imgMegaphoneBlueGray90005 =
+      '$imagePath/img_megaphone_blue_gray_900_05.svg';
+
+  static String imgTelevision = '$imagePath/img_television.svg';
 
 // ImagePicker - Tab Container images
   static String imgCreateFromFrame = '$imagePath/img_create_from_frame.png';
@@ -230,8 +287,8 @@ class ImageConstant {
 
   static String imgPhoto7 = '$imagePath/img_photo_7.png';
 
-  static String imgCheckmarkOnerrorcontainer =
-      '$imagePath/img_checkmark_onerrorcontainer.svg';
+  static String imgCheckmarkOnprimary =
+      '$imagePath/img_checkmark_onprimary.svg';
 
   static String imgPhoto8 = '$imagePath/img_photo_8.png';
 
@@ -271,204 +328,151 @@ class ImageConstant {
 
   static String imgBackgroundSheets = '$imagePath/img_background_sheets.svg';
 
-  static String imgGroup4804 = '$imagePath/img_group_4804.png';
+  static String imgGroup7836 = '$imagePath/img_group_7836.png';
+
+// Add Comment - Write images
+  static String imgAirplaneBlueGray300 =
+      '$imagePath/img_airplane_blue_gray_300.svg';
+
+// Activity images
+  static String imgVector176 = '$imagePath/img_vector_176.svg';
+
+  static String imgOval = '$imagePath/img_oval.png';
+
+  static String imgRectangle34x341 = '$imagePath/img_rectangle_34x34_1.png';
+
+  static String imgRectangle34x342 = '$imagePath/img_rectangle_34x34_2.png';
+
+  static String imgRectangle34x343 = '$imagePath/img_rectangle_34x34_3.png';
+
+  static String imgRectangle34x344 = '$imagePath/img_rectangle_34x34_4.png';
+
+  static String imgFavoriteBlueGray300 =
+      '$imagePath/img_favorite_blue_gray_300.svg';
+
+  static String imgNavHome24x24 = '$imagePath/img_nav_home_24x24.svg';
+
+  static String imgMegaphone = '$imagePath/img_megaphone.svg';
+
+  static String imgRectangle34x34 = '$imagePath/img_rectangle_34x34.png';
+
+  static String imgRectangle1 = '$imagePath/img_rectangle_1.png';
+
+  static String imgRectangle2 = '$imagePath/img_rectangle_2.png';
+
+  static String imgRectangle3 = '$imagePath/img_rectangle_3.png';
+
+  static String imgOval1 = '$imagePath/img_oval_1.png';
+
+// Frame Eighteen images
+  static String imgPlayPrimary1 = '$imagePath/img_play_primary_1.svg';
+
+  static String imgThumbsUp = '$imagePath/img_thumbs_up.svg';
+
+// Create Post - Tab Container images
+  static String imgGroup427320934 = '$imagePath/img_group_427320934.png';
 
 // Password Settings images
-  static String imgCheckProgressIndigoA70001 =
-      '$imagePath/img_check_progress_indigo_a700_01.svg';
+  static String imgUserOnerrorcontainer10x12 =
+      '$imagePath/img_user_onerrorcontainer_10x12.svg';
 
-  static String imgGroup4782 = '$imagePath/img_group_4782.png';
+  static String imgSettingsOnerrorcontainer8x14 =
+      '$imagePath/img_settings_onerrorcontainer_8x14.svg';
 
-// Delete Account II images
-  static String imgGroup4795 = '$imagePath/img_group_4795.png';
+  static String imgTelevisionOnerrorcontainer6x12 =
+      '$imagePath/img_television_onerrorcontainer_6x12.svg';
 
-  static String imgGroup4807 = '$imagePath/img_group_4807.png';
+  static String imgTelevisionOnerrorcontainer8x16 =
+      '$imagePath/img_television_onerrorcontainer_8x16.svg';
+
+  static String imgCheckProgress = '$imagePath/img_check_progress.svg';
+
+// Camera permission Two images
+  static String imgX = '$imagePath/img_x.svg';
+
+  static String imgVectorOnprimary = '$imagePath/img_vector_onprimary.svg';
+
+// Notification Settings images
+  static String imgRectangle602670x372 =
+      '$imagePath/img_rectangle_6026_70x372.png';
+
+// Password Settings One images
+  static String imgRectangle602660x374 =
+      '$imagePath/img_rectangle_6026_60x374.png';
 
 // Help Center images
-  static String imgSearchGray9001 = '$imagePath/img_search_gray_900_1.svg';
-
-  static String imgDownArrowBlueGray90004 =
-      '$imagePath/img_down_arrow_blue_gray_900_04.png';
-
-  static String imgDownArrowBlueGray9000428x26 =
-      '$imagePath/img_down_arrow_blue_gray_900_04_28x26.png';
-
-  static String imgDownArrow28x26 = '$imagePath/img_down_arrow_28x26.png';
-
-  static String imgDownArrow1 = '$imagePath/img_down_arrow_1.png';
-
-  static String imgDownArrow2 = '$imagePath/img_down_arrow_2.png';
-
-  static String imgDownArrow3 = '$imagePath/img_down_arrow_3.png';
-
-  static String imgDownArrow4 = '$imagePath/img_down_arrow_4.png';
-
-  static String imgDownArrow5 = '$imagePath/img_down_arrow_5.png';
-
-  static String imgDownArrow6 = '$imagePath/img_down_arrow_6.png';
-
-  static String imgGroup4800 = '$imagePath/img_group_4800.png';
+  static String imgArrowDownBlueGray90001 =
+      '$imagePath/img_arrow_down_blue_gray_900_01.svg';
 
 // Help - Contact images
-  static String imgArrowLeftBlack90016x18 =
-      '$imagePath/img_arrow_left_black_900_16x18.svg';
-
-  static String imgGroup4822 = '$imagePath/img_group_4822.png';
-
-// Profile images
-  static String imgEllipse19274x74 = '$imagePath/img_ellipse_192_74x74.png';
-
-  static String imgSettingsPrimary28x22 =
-      '$imagePath/img_settings_primary_28x22.svg';
-
-  static String imgCheckmarkPrimary = '$imagePath/img_checkmark_primary.svg';
-
-  static String imgSearch = '$imagePath/img_search.svg';
-
-  static String imgEllipse2Gray10001 =
-      '$imagePath/img_ellipse_2_gray_100_01.svg';
-
-  static String imgPadlock = '$imagePath/img_padlock.png';
-
-  static String imgProfileGray10001 = '$imagePath/img_profile_gray_100_01.svg';
-
-  static String imgUserPrimary1 = '$imagePath/img_user_primary_1.svg';
-
-  static String imgXMark = '$imagePath/img_x_mark.png';
-
-  static String imgGroup4799 = '$imagePath/img_group_4799.png';
+  static String imgArrowLeftPrimary = '$imagePath/img_arrow_left_primary.svg';
 
 // 1:1 Chat images
-  static String imgArrowLeftBlack900 =
-      '$imagePath/img_arrow_left_black_900.svg';
+  static String imgNotification = '$imagePath/img_notification.svg';
 
-  static String imgProfileImage = '$imagePath/img_profile_image.png';
-
-// Chat Profile images
-  static String imgArrowDownGray90009 =
-      '$imagePath/img_arrow_down_gray_900_09.svg';
-
-  static String imgEllipse17 = '$imagePath/img_ellipse_17.png';
-
-  static String imgBookmark = '$imagePath/img_bookmark.svg';
-
-  static String imgTrash2 = '$imagePath/img_trash_2.png';
-
-  static String imgGroup4771 = '$imagePath/img_group_4771.png';
+  static String imgHeartBlueGray30001 =
+      '$imagePath/img_heart_blue_gray_300_01.svg';
 
 // Home / Recent Chats images
-  static String imgEditLightBlueA70001 =
-      '$imagePath/img_edit_light_blue_a700_01.svg';
-
-  static String imgFramePrimary = '$imagePath/img_frame_primary.svg';
-
-  static String imgSearchBlueGray90002 =
-      '$imagePath/img_search_blue_gray_900_02.svg';
-
-  static String imgLockBlue100 = '$imagePath/img_lock_blue_100.svg';
-
-  static String imgGroup4817 = '$imagePath/img_group_4817.png';
+  static String imgNotifications = '$imagePath/img_notifications.svg';
 
 // Group Description images
-  static String imgArrowRightBlueGray60001 =
-      '$imagePath/img_arrow_right_blue_gray_600_01.svg';
+  static String imgArrowRightPrimary = '$imagePath/img_arrow_right_primary.svg';
 
-  static String imgFrame = '$imagePath/img_frame.svg';
+// Edit group chat images
+  static String imgGroup8613 = '$imagePath/img_group_8613.png';
 
-  static String imgFrameBlueA40001 = '$imagePath/img_frame_blue_a400_01.svg';
+  static String imgRectangle6028 = '$imagePath/img_rectangle_6028.png';
 
-  static String imgSearchBlueA400 = '$imagePath/img_search_blue_a400.svg';
+// Group Chat images
+  static String imgImage16x16 = '$imagePath/img_image_16x16.png';
 
-// Group Description - Tab Container images
-  static String imgImage166x3741 = '$imagePath/img_image_166x374_1.png';
+  static String imgImage1 = '$imagePath/img_image_1.png';
 
-  static String imgArrowLeftBlueGray60001 =
-      '$imagePath/img_arrow_left_blue_gray_600_01.svg';
+  static String imgImage3 = '$imagePath/img_image_3.png';
 
-  static String imgUserBlueGray60001 =
-      '$imagePath/img_user_blue_gray_600_01.svg';
+// GroupsDashboard - Container - Tab Container images
+  static String imgGroup7902 = '$imagePath/img_group_7902.png';
 
-  static String imgFrameBlueGray60001 =
-      '$imagePath/img_frame_blue_gray_600_01.svg';
+  static String imgMegaphoneGray200 = '$imagePath/img_megaphone_gray_200.svg';
 
-  static String imgFrameBlueGray6000124x24 =
-      '$imagePath/img_frame_blue_gray_600_01_24x24.svg';
+  static String imgUserBlueGray10034x34 =
+      '$imagePath/img_user_blue_gray_100_34x34.svg';
 
-  static String imgSignal = '$imagePath/img_signal.svg';
+  static String imgMagnifier = '$imagePath/img_magnifier.svg';
 
-  static String imgBookmarkBlueGray60001 =
-      '$imagePath/img_bookmark_blue_gray_600_01.svg';
+// GroupPage vTwo images
+  static String imgGroup7889 = '$imagePath/img_group_7889.png';
 
-  static String imgUpload = '$imagePath/img_upload.svg';
+  static String imgWebaliserTptx = '$imagePath/img_webaliser_tptx.png';
 
-  static String imgReply = '$imagePath/img_reply.svg';
+// Community Forums - Home images
+  static String imgContrastOnerrorcontainer =
+      '$imagePath/img_contrast_onerrorcontainer.svg';
 
-  static String imgArrowUp = '$imagePath/img_arrow_up.svg';
+  static String imgGroup427320898 = '$imagePath/img_group_427320898.png';
 
-// Create group chat images
-  static String imgGroup4751 = '$imagePath/img_group_4751.png';
+  static String imgCloseOnprimary34x34 =
+      '$imagePath/img_close_onprimary_34x34.svg';
 
-  static String imgTelevisionBlueGray600011 =
-      '$imagePath/img_television_blue_gray_600_01_1.svg';
+// Community Forums - Response One images
+  static String imgAvatar3 = '$imagePath/img_avatar_3.png';
 
-// GroupsDashboard images
-  static String imgGroup4741 = '$imagePath/img_group_4741.png';
+  static String imgFavoriteBlack90028x28 =
+      '$imagePath/img_favorite_black_900_28x28.svg';
 
-  static String imgWebaliserTptx170x342 =
-      '$imagePath/img_webaliser_tptx_170x342.png';
+  static String imgAvatar4 = '$imagePath/img_avatar_4.png';
 
-// Discover Groups images
-  static String imgSearchBlack9001 = '$imagePath/img_search_black_900_1.svg';
+  static String imgAvatar5 = '$imagePath/img_avatar_5.png';
 
-  static String imgImage220x1621 = '$imagePath/img_image_220x162_1.png';
+  static String imgAvatar6 = '$imagePath/img_avatar_6.png';
 
-  static String imgArrowRightGray900 =
-      '$imagePath/img_arrow_right_gray_900.svg';
+  static String imgUnsplashXbrqfr2bqni =
+      '$imagePath/img_unsplash_xbrqfr2bqni.png';
 
-  static String imgImage376x1621 = '$imagePath/img_image_376x162_1.png';
+  static String imgAvatar7 = '$imagePath/img_avatar_7.png';
 
-  static String imgImage398x1621 = '$imagePath/img_image_398x162_1.png';
-
-  static String imgImage200x1621 = '$imagePath/img_image_200x162_1.png';
-
-// GroupPage v2 images
-  static String imgWebaliserTptx168x342 =
-      '$imagePath/img_webaliser_tptx_168x342.png';
-
-  static String imgArrowLeftBlack90034x34 =
-      '$imagePath/img_arrow_left_black_900_34x34.svg';
-
-  static String imgAvatar32x32 = '$imagePath/img_avatar_32x32.png';
-
-  static String imgPeople1 = '$imagePath/img_people_1.png';
-
-  static String imgUserOnerrorcontainer =
-      '$imagePath/img_user_onerrorcontainer.svg';
-
-  static String imgGroup4818 = '$imagePath/img_group_4818.png';
-
-// Moderator Dashboard images
-  static String imgRectangle13 = '$imagePath/img_rectangle_13.png';
-
-  static String imgEdit1 = '$imagePath/img_edit_1.png';
-
-  static String imgPeople142x60 = '$imagePath/img_people_1_42x60.png';
-
-  static String imgVerified = '$imagePath/img_verified.png';
-
-  static String imgGroup4800Onerrorcontainer =
-      '$imagePath/img_group_4800_onerrorcontainer.png';
-
-// Edit Group Details images
-  static String imgWebaliserTptx156x3421 =
-      '$imagePath/img_webaliser_tptx_156x342_1.png';
-
-// Create New Group images
-  static String imgWebaliserTptx150x3361 =
-      '$imagePath/img_webaliser_tptx_150x336_1.png';
-
-// Community Forums - Response images
-  static String imgPlay = '$imagePath/img_play.png';
+  static String imgAvatar34x34 = '$imagePath/img_avatar_34x34.png';
 
   static String imgVectorGray30001 = '$imagePath/img_vector_gray_300_01.svg';
 
@@ -481,10 +485,48 @@ class ImageConstant {
   static String imgVectorGray30001102x24 =
       '$imagePath/img_vector_gray_300_01_102x24.svg';
 
-  static String imgUnsplashXbrqfr2bqni142x262 =
-      '$imagePath/img_unsplash_xbrqfr2bqni_142x262.png';
+// Edit Group Details images
+  static String imgWebaliserTptx1 = '$imagePath/img_webaliser_tptx_1.png';
 
-  static String imgGroup4874 = '$imagePath/img_group_4874.png';
+// Create New Group - Tab Container images
+  static String imgWebaliserTptx2 = '$imagePath/img_webaliser_tptx_2.png';
+
+  static String imgGroup7910 = '$imagePath/img_group_7910.png';
+
+  static String imgMessageEdit = '$imagePath/img_message_edit.svg';
+
+// Community Forums - Response images
+  static String imgOval28x28 = '$imagePath/img_oval_28x28.png';
+
+// Sidebar images
+  static String imgStarlove2Transparent0182x232 =
+      '$imagePath/img_starlove_2_transparent_01_82x232.png';
+
+  static String imgChartPieSimple = '$imagePath/img_chart_pie_simple.svg';
+
+  static String imgUserEdit = '$imagePath/img_user_edit.svg';
+
+  static String imgSmsBlueGray90001 = '$imagePath/img_sms_blue_gray_900_01.svg';
+
+  static String imgMessageText2BlueGray90001 =
+      '$imagePath/img_message_text_2_blue_gray_900_01.svg';
+
+  static String imgProfile2userBlueGray90001 =
+      '$imagePath/img_profile_2user_blue_gray_900_01.svg';
+
+  static String imgCalendar2BlueGray90001 =
+      '$imagePath/img_calendar_2_blue_gray_900_01.svg';
+
+  static String imgNotificationOn = '$imagePath/img_notification_on.svg';
+
+  static String imgSetting2BlueGray90001 =
+      '$imagePath/img_setting_2_blue_gray_900_01.svg';
+
+  static String imgMessageQuestion = '$imagePath/img_message_question.svg';
+
+  static String imgProfile = '$imagePath/img_profile.svg';
+
+  static String imgEntranceEft = '$imagePath/img_entrance_eft.svg';
 
 // Stickers images
   static String imgBMazelTov = '$imagePath/img_b_mazel_tov.svg';
@@ -504,91 +546,123 @@ class ImageConstant {
 
   static String imgULarry = '$imagePath/img_u_larry.svg';
 
-// Sidebar images
-  static String imgHomeBlack900 = '$imagePath/img_home_black_900.svg';
+// Event Details - Moderator - Tab Container images
+  static String imgUserBlueGray100 = '$imagePath/img_user_blue_gray_100.svg';
 
-  static String imgJewish51 = '$imagePath/img_jewish_5_1.png';
-
-  static String imgMaNishtana120x20 = '$imagePath/img_ma_nishtana_1_20x20.png';
-
-  static String img150938401 = '$imagePath/img_15093840_1.png';
-
-  static String img23125851 = '$imagePath/img_2312585_1.png';
-
-  static String imgSmile = '$imagePath/img_smile.svg';
-
-  static String img4562831 = '$imagePath/img_456283_1.png';
-
-  static String img11596331 = '$imagePath/img_1159633_1.png';
-
-  static String img20405041 = '$imagePath/img_2040504_1.png';
-
-  static String img6460941 = '$imagePath/img_646094_1.png';
-
-  static String img12868531 = '$imagePath/img_1286853_1.png';
+// Event Moderator Dashboard images
+  static String imgWebaliserTptx3 = '$imagePath/img_webaliser_tptx_3.png';
 
 // Common images
-  static String imgArrowLeftGray20004 =
-      '$imagePath/img_arrow_left_gray_200_04.svg';
+  static String imgCellularConnection =
+      '$imagePath/img_cellular_connection.svg';
 
-  static String imgStarlove2Transparent01 =
-      '$imagePath/img_starlove_2_transparent_01.png';
+  static String imgSettings = '$imagePath/img_settings.svg';
 
-  static String imgEyeoff = '$imagePath/img_eyeoff.svg';
+  static String imgCap = '$imagePath/img_cap.svg';
 
-  static String imgImage2 = '$imagePath/img_image_2.png';
+  static String imgArrowLeftOnerrorcontainer =
+      '$imagePath/img_arrow_left_onerrorcontainer.svg';
 
-  static String imgGroup4698 = '$imagePath/img_group_4698.svg';
+  static String imgVector629 = '$imagePath/img_vector_629.svg';
 
-  static String imgHome = '$imagePath/img_home.svg';
+  static String imgArrowLeft = '$imagePath/img_arrow_left.svg';
 
-  static String imgGrid = '$imagePath/img_grid.svg';
+  static String imgRectangle6026 = '$imagePath/img_rectangle_6026.png';
 
-  static String imgFieldNavigation = '$imagePath/img_field_navigation.svg';
+  static String imgEllipse124 = '$imagePath/img_ellipse_124.svg';
 
-  static String imgIconlyLightNotification =
-      '$imagePath/img_iconly_light_notification.svg';
+  static String imgUserOnprimary = '$imagePath/img_user_onprimary.svg';
 
-  static String imgIconlyLightProfile =
-      '$imagePath/img_iconly_light_profile.png';
+  static String imgEye = '$imagePath/img_eye.svg';
 
-  static String imgRectangle1 = '$imagePath/img_rectangle_1.png';
-
-  static String imgIconMore = '$imagePath/img_icon_more.svg';
-
-  static String imgImage = '$imagePath/img_image.png';
-
-  static String imgFavoriteBlack900 = '$imagePath/img_favorite_black_900.svg';
-
-  static String imgLock = '$imagePath/img_lock.svg';
-
-  static String imgMessageSquare = '$imagePath/img_message_square.svg';
-
-  static String imgFavoriteBlack90028x28 =
-      '$imagePath/img_favorite_black_900_28x28.svg';
-
-  static String imgAvatar = '$imagePath/img_avatar.png';
-
-  static String imgImageBlueGray600 = '$imagePath/img_image_blue_gray_600.svg';
-
-  static String imgGif = '$imagePath/img_gif.svg';
-
-  static String imgEmoji = '$imagePath/img_emoji.svg';
+  static String imgUnsplashM6gy9ohgii =
+      '$imagePath/img_unsplash_m6gy9ohgii.png';
 
   static String imgImages11 = '$imagePath/img_images_1_1.png';
 
-  static String imgArrowLeftGray90004 =
-      '$imagePath/img_arrow_left_gray_900_04.svg';
+  static String imgImages1 = '$imagePath/img_images_1.png';
 
-  static String imgArrowDownGray90014 =
-      '$imagePath/img_arrow_down_gray_900_14.svg';
+  static String imgFacebook1 = '$imagePath/img_facebook_1.svg';
 
-  static String imgEllipse19230x30 = '$imagePath/img_ellipse_192_30x30.png';
+  static String imgInfo = '$imagePath/img_info.svg';
 
-  static String imgStarOfDavidSolidBlack900 =
-      '$imagePath/img_star_of_david_solid_black_900.svg';
+  static String imgCloseBlueGray30002 =
+      '$imagePath/img_close_blue_gray_300_02.svg';
 
-  static String imgHeart = '$imagePath/img_heart.svg';
+  static String imgLocation = '$imagePath/img_location.svg';
+
+  static String imgNavHome = '$imagePath/img_nav_home.svg';
+
+  static String imgNavGroups = '$imagePath/img_nav_groups.svg';
+
+  static String imgNavPost = '$imagePath/img_nav_post.svg';
+
+  static String imgNavKibutz = '$imagePath/img_nav_kibutz.svg';
+
+  static String imgNavProfile = '$imagePath/img_nav_profile.svg';
+
+  static String imgMore = '$imagePath/img_more.svg';
+
+  static String imgRectangle188 = '$imagePath/img_rectangle_188.png';
+
+  static String imgRectangle189 = '$imagePath/img_rectangle_189.png';
+
+  static String imgRectangle190 = '$imagePath/img_rectangle_190.png';
+
+  static String imgHeartBlueGray900 = '$imagePath/img_heart_blue_gray_900.svg';
+
+  static String imgMessageText = '$imagePath/img_message_text.svg';
+
+  static String imgTelevisionBlueGray90001 =
+      '$imagePath/img_television_blue_gray_900_01.svg';
+
+  static String imgLike = '$imagePath/img_like.svg';
+
+  static String imgMegaphoneOnprimary =
+      '$imagePath/img_megaphone_onprimary.svg';
+
+  static String imgAvatar = '$imagePath/img_avatar.png';
+
+  static String imgImageBlueGray900 = '$imagePath/img_image_blue_gray_900.svg';
+
+  static String imgGifBlueGray900 = '$imagePath/img_gif_blue_gray_900.svg';
+
+  static String imgEmojiBlueGray90001 =
+      '$imagePath/img_emoji_blue_gray_900_01.svg';
+
+  static String imgArrowLeftOnprimary =
+      '$imagePath/img_arrow_left_onprimary.svg';
+
+  static String imgMagnifierBlueGray300 =
+      '$imagePath/img_magnifier_blue_gray_300.svg';
+
+  static String imgArrowLeftOnerrorcontainer12x8 =
+      '$imagePath/img_arrow_left_onerrorcontainer_12x8.svg';
+
+  static String imgMouse = '$imagePath/img_mouse.svg';
+
+  static String imgUserBlueGray900 = '$imagePath/img_user_blue_gray_900.svg';
+
+  static String imgVideoCameraPrimary1 =
+      '$imagePath/img_video_camera_primary_1.svg';
+
+  static String imgOval34x34 = '$imagePath/img_oval_34x34.png';
+
+  static String imgTelevisionBlueGray30001 =
+      '$imagePath/img_television_blue_gray_300_01.svg';
+
+  static String imgFavorite = '$imagePath/img_favorite.svg';
+
+  static String imgIconMicBlueGray300 =
+      '$imagePath/img_icon_mic_blue_gray_300.svg';
+
+  static String imgGifBlueGray300 = '$imagePath/img_gif_blue_gray_300.svg';
+
+  static String imgIconEmojiBlueGray300 =
+      '$imagePath/img_icon_emoji_blue_gray_300.svg';
+
+  static String imgIconImageBlueGray300 =
+      '$imagePath/img_icon_image_blue_gray_300.svg';
 
   static String imgProfilePhoto = '$imagePath/img_profile_photo.png';
 
@@ -596,59 +670,37 @@ class ImageConstant {
 
   static String imgIconClose = '$imagePath/img_icon_close.svg';
 
-  static String imgIconImage = '$imagePath/img_icon_image.svg';
+  static String imgIconImagePrimary = '$imagePath/img_icon_image_primary.svg';
 
-  static String imgIconGif = '$imagePath/img_icon_gif.svg';
+  static String imgIconGifPrimary = '$imagePath/img_icon_gif_primary.svg';
 
-  static String imgCameraOnerrorcontainer =
-      '$imagePath/img_camera_onerrorcontainer.svg';
+  static String imgCameraPrimary = '$imagePath/img_camera_primary.svg';
 
-  static String imgIconAttachment = '$imagePath/img_icon_attachment.svg';
+  static String imgIconAttachmentPrimary =
+      '$imagePath/img_icon_attachment_primary.svg';
 
-  static String imgEllipse194Onerrorcontainer =
-      '$imagePath/img_ellipse_194_onerrorcontainer.png';
+  static String imgGroup42732093472x374 =
+      '$imagePath/img_group_427320934_72x374.png';
 
-  static String imgArrowLeftGray100011 =
-      '$imagePath/img_arrow_left_gray_100_01_1.svg';
+  static String imgIconlyLightHome = '$imagePath/img_iconly_light_home.svg';
 
-  static String imgAirplane = '$imagePath/img_airplane.svg';
+  static String imgCloseOnerrorcontainer18x20 =
+      '$imagePath/img_close_onerrorcontainer_18x20.svg';
 
-  static String img = '$imagePath/img_.svg';
+  static String imgLine185 = '$imagePath/img_line_185.png';
 
-  static String imgGroup4792 = '$imagePath/img_group_4792.png';
+  static String imgTrush = '$imagePath/img_trush.svg';
 
-  static String imgGroup4786 = '$imagePath/img_group_4786.png';
+  static String imgArrowLeftGray10002 =
+      '$imagePath/img_arrow_left_gray_100_02.svg';
 
-  static String imgUserBlack9001 = '$imagePath/img_user_black_900_1.svg';
+  static String imgCheckmarkPrimary1 = '$imagePath/img_checkmark_primary_1.svg';
 
-  static String imgIconMic = '$imagePath/img_icon_mic.svg';
+  static String imgGroup7860 = '$imagePath/img_group_7860.png';
 
-  static String imgIconEmoji = '$imagePath/img_icon_emoji.svg';
+  static String imgEllipse3890 = '$imagePath/img_ellipse_3890.png';
 
-  static String imgIconImageGray60003 =
-      '$imagePath/img_icon_image_gray_600_03.svg';
-
-  static String imgArrowLeftIndigo900 =
-      '$imagePath/img_arrow_left_indigo_900.svg';
-
-  static String imgIconSearch = '$imagePath/img_icon_search.svg';
-
-  static String imgAvatar60x60 = '$imagePath/img_avatar_60x60.png';
-
-  static String imgGroup4807Onerrorcontainer =
-      '$imagePath/img_group_4807_onerrorcontainer.png';
-
-  static String imgCloseOnerrorcontainer =
-      '$imagePath/img_close_onerrorcontainer.svg';
-
-  static String imgSearchGray400 = '$imagePath/img_search_gray_400.svg';
-
-  static String imgImage40x40 = '$imagePath/img_image_40x40.png';
-
-  static String imgArrowLeftBlueGray6000124x24 =
-      '$imagePath/img_arrow_left_blue_gray_600_01_24x24.svg';
-
-  static String imgImage48x48 = '$imagePath/img_image_48x48.png';
+  static String imgImage40x401 = '$imagePath/img_image_40x40_1.png';
 
   static String imgRectangle100x204 = '$imagePath/img_rectangle_100x204.png';
 
@@ -656,41 +708,66 @@ class ImageConstant {
 
   static String imgRectangle7 = '$imagePath/img_rectangle_7.png';
 
-  static String imgImage16x16 = '$imagePath/img_image_16x16.png';
+  static String imgImage40x402 = '$imagePath/img_image_40x40_2.png';
 
-  static String imgImage1 = '$imagePath/img_image_1.png';
+  static String imgPlusBlack900 = '$imagePath/img_plus_black_900.svg';
 
-  static String imgImage3 = '$imagePath/img_image_3.png';
+  static String imgPlus = '$imagePath/img_plus.svg';
 
-  static String imgSearchOnerrorcontainer =
-      '$imagePath/img_search_onerrorcontainer.svg';
+  static String imgRectangle1956 = '$imagePath/img_rectangle_195_6.png';
 
-  static String imgContrast = '$imagePath/img_contrast.svg';
+  static String imgEllipse3884 = '$imagePath/img_ellipse_3884.png';
 
-  static String imgMohammadreza = '$imagePath/img_mohammadreza.png';
+  static String imgEllipse3883 = '$imagePath/img_ellipse_3883.png';
 
-  static String imgFavorite28x28 = '$imagePath/img_favorite_28x28.svg';
+  static String imgEllipse3882 = '$imagePath/img_ellipse_3882.png';
 
-  static String imgSearchOnerrorcontainer20x20 =
-      '$imagePath/img_search_onerrorcontainer_20x20.svg';
+  static String imgRectangle1957 = '$imagePath/img_rectangle_195_7.png';
 
-  static String imgThumbsUpOnerrorcontainer =
-      '$imagePath/img_thumbs_up_onerrorcontainer.svg';
+  static String imgRectangle1958 = '$imagePath/img_rectangle_195_8.png';
 
-  static String imgSettingsOnerrorcontainer =
-      '$imagePath/img_settings_onerrorcontainer.svg';
+  static String imgRectangle1959 = '$imagePath/img_rectangle_195_9.png';
 
-  static String imgInstagram = '$imagePath/img_instagram.svg';
+  static String imgEllipse388228x28 = '$imagePath/img_ellipse_3882_28x28.png';
 
-  static String imgComment = '$imagePath/img_comment.svg';
+  static String imgEllipse3886 = '$imagePath/img_ellipse_3886.png';
+
+  static String imgEllipse3887 = '$imagePath/img_ellipse_3887.png';
+
+  static String imgEllipse3888 = '$imagePath/img_ellipse_3888.png';
+
+  static String imgEllipse3889 = '$imagePath/img_ellipse_3889.png';
+
+  static String imgUserBlack90040x40 =
+      '$imagePath/img_user_black_900_40x40.svg';
+
+  static String imgFavoriteBlack900 = '$imagePath/img_favorite_black_900.svg';
 
   static String imgAvatar2 = '$imagePath/img_avatar_2.png';
 
-  static String imgBiemojismile = '$imagePath/img_biemojismile.svg';
+  static String imgContrastBlueGray90007 =
+      '$imagePath/img_contrast_blue_gray_900_07.svg';
 
-  static String imgFluentsend28filled = '$imagePath/img_fluentsend28filled.svg';
+  static String imgVector = '$imagePath/img_vector.svg';
 
-  static String imgGroup4824 = '$imagePath/img_group_4824.png';
+  static String imgSaveIndigoA700 = '$imagePath/img_save_indigo_a700.svg';
+
+  static String imgFavorite28x28 = '$imagePath/img_favorite_28x28.svg';
+
+  static String imgGroup7899 = '$imagePath/img_group_7899.png';
+
+  static String imgWebaliserTptx170x338 =
+      '$imagePath/img_webaliser_tptx_170x338.png';
+
+  static String imgGroup4273209341 = '$imagePath/img_group_427320934_1.png';
+
+  static String imgEyePrimary = '$imagePath/img_eye_primary.svg';
+
+  static String imgUnsplashTbtwpybncdw =
+      '$imagePath/img_unsplash_tbtwpybncdw.png';
+
+  static String imgGroup42732093460x374 =
+      '$imagePath/img_group_427320934_60x374.png';
 
   static String imageNotFound = 'assets/images/image_not_found.png';
 }
