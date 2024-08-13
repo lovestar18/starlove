@@ -85,3 +85,20 @@ Resolve the errors and warnings that are shown in the application.
 ### Support
 
 If you have any problems or questions, go to our Discord channel, where we will help you as quickly as possible: https://discord.com/invite/rFMnCG5MZ7
+
+### Fonts
+We were unable to find the following Fonts, Please add manually to ```assets/fonts``` 
+
+```
+SFProTextSemibold.ttf
+SFProTextRegular.ttf
+SFProTextMedium.ttf
+```
+### Image Assets
+We were unable to find Images, Please add manually to ```project/assets``` and replace image_not_found Image constant with original file 
+
+| File Name | Not Found Assets Count |
+| --- | :---: |
+| success_app1_screen | 1 |
+| password_settings1_bottomsheet | 1 |
+

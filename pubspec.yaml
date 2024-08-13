@@ -1,0 +1,108 @@
+name: love_s_application2
+description: A new Flutter project.
+version: 1.0.0+1
+environment: 
+  sdk: '>=2.12.0 <3.0.0'
+dependencies: 
+  flutter: 
+    sdk: flutter
+  flutter_localizations: 
+    sdk: flutter
+  cached_network_image: ^3.3.0
+  flutter_svg: ^2.0.9
+  google_sign_in: ^6.2.1
+  get: ^4.6.6
+  shared_preferences: ^2.2.2
+  connectivity_plus: ^5.0.2
+  flutter_switch: ^0.3.2
+  outline_gradient_button: ^2.0.1+1
+  flutter_svg_provider: ^1.0.7
+  pin_code_fields: ^8.0.1
+  sms_autofill: ^2.3.0
+dev_dependencies: 
+  flutter_test: 
+    sdk: flutter
+flutter: 
+  uses-material-design: true
+  assets: 
+    - assets/
+    - assets/images/
+  fonts: 
+    - family: Inter
+      fonts: 
+        - asset: assets/fonts/InterBold.ttf
+          weight: 700
+        - asset: assets/fonts/InterMedium.ttf
+          weight: 500
+        - asset: assets/fonts/InterSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/InterRegular.ttf
+          weight: 400
+        - asset: assets/fonts/InterBlack.ttf
+          weight: 900
+        - asset: assets/fonts/InterMedium.ttf
+          weight: 500
+    - family: Plus Jakarta Sans
+      fonts: 
+        - asset: assets/fonts/PlusJakartaSansMedium.ttf
+          weight: 500
+        - asset: assets/fonts/PlusJakartaSansRomanMedium.ttf
+          weight: 500
+    - family: Poppins
+      fonts: 
+        - asset: assets/fonts/PoppinsSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/PoppinsMedium.ttf
+          weight: 500
+        - asset: assets/fonts/PoppinsRegular.ttf
+          weight: 400
+        - asset: assets/fonts/PoppinsLight.ttf
+          weight: 300
+    - family: Open Sans
+      fonts: 
+        - asset: assets/fonts/OpenSansRomanRegular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSansRomanBold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSansRomanSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSansBold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSansBoldItalic.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSansRomanLight.ttf
+          weight: 300
+        - asset: assets/fonts/OpenSansRomanExtraBold.ttf
+          weight: 800
+    - family: Roboto
+      fonts: 
+        - asset: assets/fonts/RobotoRomanBold.ttf
+          weight: 700
+        - asset: assets/fonts/RobotoBold.ttf
+          weight: 700
+        - asset: assets/fonts/RobotoMedium.ttf
+          weight: 500
+        - asset: assets/fonts/RobotoRegular.ttf
+          weight: 400
+        - asset: assets/fonts/RobotoRomanRegular.ttf
+          weight: 400
+        - asset: assets/fonts/RobotoBlack.ttf
+          weight: 900
+    - family: Quicksand
+      fonts: 
+        - asset: assets/fonts/QuicksandBold.ttf
+          weight: 700
+        - asset: assets/fonts/QuicksandRegular.ttf
+          weight: 400
+        - asset: assets/fonts/QuicksandMedium.ttf
+          weight: 500
+        - asset: assets/fonts/QuicksandSemiBold.ttf
+          weight: 600
+    - family: Quando
+      fonts: 
+        - asset: assets/fonts/QuandoRegular.ttf
+          weight: 400
+    - family: League Spartan
+      fonts: 
+        - asset: assets/fonts/LeagueSpartanMedium.ttf
+          weight: 500
